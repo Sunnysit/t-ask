@@ -2,8 +2,8 @@ import React from 'react';
 
 const HeroArticle = () => {
     return(
-        <div className="articleHero hero">
-            <div className="placeholder featuredArticlePlaceholder">
+        <div className="hero-article hero">
+            <div className="">
                 <p>Here goes the featured article</p>
             </div>
         </div>

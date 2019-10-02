@@ -3,7 +3,7 @@ import HomeHero from '../components/heroes/HomeHero'
 
 const Home = () => {
     return(
-        <div className="Home view">
+        <div className="home view">
             <HomeHero />
         </div>
     )

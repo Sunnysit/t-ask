@@ -3,10 +3,10 @@ import HeroAbout from '../components/heroes/HeroAbout';
 
 const AboutUs = () => {
     return(
-        <div className="aboutUs view">
+        <div className="about-us view">
             <HeroAbout />
         </div>
     )
 }
 
-export default HeroAbout
+export default AboutUs
