@@ -3,7 +3,7 @@ import React from 'react';
 const HeroArticle = () => {
     return(
         <div className="hero-article hero">
-            <div className="placeholder placeholder-featured-article">
+            <div className="">
                 <p>Here goes the featured article</p>
             </div>
         </div>
