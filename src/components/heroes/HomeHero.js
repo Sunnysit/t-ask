@@ -4,10 +4,10 @@ import "../../styles/Heroes.css"
 
 const HomeHero = () => {
     return (
-        <div className="homeHero hero">
+        <div className="hero-home hero">
             <h1>Welcome to T-ask</h1>
             <p>Here we explain how the comparison works</p>
-            <div className="placeholder comparisonFeaturePlaceholder">
+            <div className="placeholder placeholder-comparison-feature">
                 <p>Here is the comparison feature</p>
             </div>
         </div>
