@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "../../styles/Heroes.css"
+
 const HomeHero = () => {
     return (
         <div className="homeHero hero">

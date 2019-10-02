@@ -9,4 +9,4 @@ const AboutUs = () => {
     )
 }
 
-export default HeroAbout
+export default AboutUs
