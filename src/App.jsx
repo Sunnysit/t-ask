@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import Home from './views/Home'
 import Articles from './views/Articles'
 import Events from './views/Events'
