@@ -1,10 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const ArticleItem = () => {
+const ArticleItem = (props) => {
+    
+    const article = props.article;
+
     return ( 
-    <div className="">
-        <h1>ArticleItem Component</h1>
-    </div>
+    <li className="article-item">
+        <article>
+            <h4>{article.title}</h4>
+            <p>{article.author}</p>
+            <p>{article.date}</p>
+        </article>
+    </li>
      );
 }
  

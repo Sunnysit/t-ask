@@ -1,10 +1,20 @@
-import React from 'react'
+import React from 'react';
+import {useSelector} from 'react-redux';
+import ArticleItem from './ArticleItem';
 
 const ListArticles = () => {
+
+    const articlesData = useSelector(state => state.articles.articlesResult);
+
+
     return ( 
-        <div className="">
-            <h1>ListArticles Component</h1>
-        </div>
+        <ul className="article-list">
+            {
+                articlesData.map((article,index)=>{
+                    return <ArticleItem key={index} article={article} />
+                })
+            }
+        </ul>
      );
 }
  
