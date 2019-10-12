@@ -13,6 +13,7 @@ const ArticleItem = (props) => {
                 </h2>
                 <p>{article.author}</p>
                 <p>{article.date}</p>
+                <p>{article.readingTime}</p>
                 {article.imgURL
                     ? (<img
                         className="article-thumbnail"
@@ -21,7 +22,7 @@ const ArticleItem = (props) => {
                     : (
                         <p></p>
                     )}
-
+                <p>{article.description}</p>
             </article>
         </li>
     );

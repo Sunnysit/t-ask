@@ -54,7 +54,7 @@ const SearchBarArticles = () => {
 
     return ( 
     <div className="article-search-container">
-        <p>Search article related to your programing language</p>
+        <h1>Search article related to your programing language</h1>
         <form className="article-search-form" onSubmit={handleSearchSubmit}  action="https://cheerio-medium.herokuapp.com/articles" method="POST">
             <input value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} type="text"/>
             <button className="btn-search" type="submit">Search</button>
