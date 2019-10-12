@@ -1,0 +1,17 @@
+.section-article{
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+
+
+    .article-list .article{
+        border: 1px solid black;
+        padding: 10px;
+        margin: 1rem 0;
+    }
+
+    .article-thumbnail{
+        margin: 0 auto;
+    }
+}
+

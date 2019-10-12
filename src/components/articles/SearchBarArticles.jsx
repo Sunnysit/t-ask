@@ -15,7 +15,7 @@ const SearchBarArticles = () => {
         e.preventDefault();
         let queryText = searchText.trim().toLowerCase();
         if(queryText&&queryText.length>=1){
-            setMessage('Looking for article related to'+searchText);
+            setMessage(`Looking for article related to ${searchText}`);
             axios.post('https://cheerio-medium.herokuapp.com/articles',{query:queryText})
             .then(function (response) {
 

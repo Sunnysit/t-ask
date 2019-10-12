@@ -7,8 +7,10 @@ const Articles = () => {
     return(
         <div className="articles view">
             <HeroArticle />
+            <section className="main-section section-article">
             <SearchBarArticles />
             <ListArticles />
+            </section>
         </div>
     )
 }

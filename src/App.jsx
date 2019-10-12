@@ -16,14 +16,14 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div className="App">
+      <main className="App">
         <Route exact path="/" component={ Home } />
         <Route path="/articles" component={ Articles } />
         <Route path="/events" component={ Events } />
         <Route path="/about" component={ AboutUs } />
         <Route path="/contact" component={ Contact } />
         <Route path="/search" component={ Search } />
-      </div>
+      </main>
     </BrowserRouter>
   );
 }

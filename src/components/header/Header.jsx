@@ -4,21 +4,21 @@ import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <header className="header">
-            <nav>
-                <ul>
-                    <li>
+            <nav className="header-navigation">
+                <ul className="navigation">
+                    <li className="navigation-item">
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    <li className="navigation-item">
                         <Link to="/articles">Articles</Link>
                     </li>
-                    <li>
+                    <li className="navigation-item">
                         <Link to="/events">Events</Link>
                     </li>
-                    <li>
+                    <li className="navigation-item">
                         <Link to="/about">About Us</Link>
                     </li>
-                    <li>
+                    <li className="navigation-item">
                         <Link to="/contact">Contact</Link>
                     </li>
                 </ul>
