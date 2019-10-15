@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 
 const ContactForm = () => {
      //only when we cross the state between components, we use redux
@@ -26,7 +27,7 @@ const ContactForm = () => {
 
     const [ form, setForm ] = useState(formState);
     
-    //const [ sentState, setSentState ] = useState(false);
+    const [ sentState, setSentState ] = useState(false);
 
     const [ error, setErrorState ] = useState(errorState);
 
@@ -72,14 +73,29 @@ const ContactForm = () => {
             formValidates = false;
         }
 
-        setErrorState(errors);
+        
 
 
         if(formValidates){
             const contactInfo = {submitName, submitEmail, submitSubject, submitMessage};
             console.log(contactInfo);
 
+            axios.post('http://localhost:8080/contact-message', contactInfo)
+            .then((response) => {
+                console.log(response);
+
+                if(response.status===200 && response.data.isSent===true){
+                    setForm({name:'', email:'', inquiry: 'general', message: ''});
+                    setSentState(true);
+                }
+                else{
+                    errors.errorMessage = 'Something went wrong, please try again later'
+                }
+            })
+            .catch((error) => console.log(error)) 
         }
+
+        setErrorState(errors);
 
     }
     return (
