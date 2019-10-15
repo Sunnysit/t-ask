@@ -8,9 +8,9 @@ const ContactForm = () => {
         //create function for submit, prevent default DONE
             //create validate trim and make a condition to check if something is in the input DONE
             //update component DONE
-            //error message, display at the end of the form
-            //successful message, delete form if successful
-            //use terniary syntax
+            //error message, display at the end of the form DONE
+            //successful message, delete form if successful DONE
+            //use terniary syntax DONE
     
     const formState = {
         name:'',
