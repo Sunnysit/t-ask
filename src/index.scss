@@ -12,25 +12,29 @@ code {
     monospace;
 }
 
-.form {
-  width: fit-content;
-  text-align: center;
-  margin: auto;
+.contactBody{
+  margin-top: 3rem;
 
-  label{
-    display: block;
-    text-align-last: left;
-  }
-
-  input{
-    width: 100%;
-  }
-
-  select{
-    width: 100%;
-  }
-
-  .errorMessage{
-    color: red;
+  .form {
+    width: fit-content;
+    text-align: center;
+    margin:auto;
+  
+    label{
+      display: block;
+      text-align-last: left;
+    }
+  
+    input{
+      width: 100%;
+    }
+  
+    select{
+      width: 100%;
+    }
+  
+    .errorMessage{
+      color: red;
+    }
   }
 }

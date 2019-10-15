@@ -84,7 +84,6 @@ const ContactForm = () => {
     }
     return (
         <div className="contactBody">
-            <h1>ContactForm Component</h1>
             <form action="/contact-message" onSubmit={ whenSubmit } className="form">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" id="name" onChange={(e) => {setForm({...form, name: e.target.value})}}/>
