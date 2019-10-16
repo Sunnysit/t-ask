@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import Header from './components/header/Header';
 import Home from './views/Home'
 import Articles from './views/Articles'
 import Events from './views/Events'
@@ -14,20 +14,19 @@ library.add(fab)
 
 function App() {
 
-  const languages = useSelector(state => state.languages);
+  // const languages = useSelector(state => state.languages);
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <Header />
+      <main className="App">
         <Route exact path="/" component={ Home } />
         <Route path="/articles" component={ Articles } />
         <Route path="/events" component={ Events } />
         <Route path="/about" component={ AboutUs } />
         <Route path="/contact" component={ Contact } />
         <Route path="/search" component={ Search } />
-
-      </div>
-      <p>{languages.msg}</p>
+      </main>
     </BrowserRouter>
   );
 }
