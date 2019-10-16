@@ -7,34 +7,36 @@ const ContactForm = () => {
     // create local state DONE create function for submit, prevent default DONE
     // create validate trim and make a condition to check if something is in the
     // input DONE update component DONE error message, display at the end of the
-    // form DONE successful message, delete form if successful DONE use terniary
+    // form DONE successful message, delete form if successful DONE use ternary
     // syntax DONE
 
-    const formState = {
+    const initialForm = {
         name: '',
         email: '',
         inquiry: 'general',
         message: ''
     }
 
-    const errorState = {
+    const initialError = {
         errorName: '',
         errorEmail: '',
         errorMessage: ''
     }
 
     const [form,
-        setForm] = useState(formState);
+        setForm] = useState(initialForm);
 
-    const [sentState,
-        setSentState] = useState(false);
+    const [sent,
+        setSent] = useState(false);
+
+    const [enabled, setEnable] = useState('true');
 
     const [error,
-        setErrorState] = useState(errorState);
+        setError] = useState(initialError);
 
     //FUNCTIONS
 
-    const whenSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         //console.log(form);
 
@@ -87,22 +89,24 @@ const ContactForm = () => {
 
                     if (response.status === 200 && response.data.isSent === true) {
                         setForm({name: '', email: '', inquiry: 'general', message: ''});
-                        setSentState(true);
+                        setSent(true);
+                        setEnable('true');
                     } else {
-                        errors.errorMessage = 'Something went wrong, please try again later'
+                        errors.errorMessage = 'Something went wrong, please try again later';
+                        setEnable('');
                     }
                 })
                 .catch((error) => console.log(error))
         }
 
-        setErrorState(errors);
+        setError(errors);
 
     }
     return (
-        <div className="contactBody">
-            {!sentState
+        <div className="contact-body">
+            {!sent
                 ? (
-                    <form action="/contact-message" onSubmit={whenSubmit} className="form">
+                    <form action="/contact-message" onSubmit={handleSubmit} className="form">
                         <label htmlFor="name">Name</label>
                         <input
                             type="text"
@@ -114,7 +118,7 @@ const ContactForm = () => {
                                 name: e.target.value
                             })
                         }}/>
-                        <div className="errorMessage">{error.errorName}</div>
+                        <div className="error-message">{error.errorName}</div>
                         <label htmlFor="email">Email</label>
                         <input
                             type="text"
@@ -126,7 +130,7 @@ const ContactForm = () => {
                                 email: e.target.value
                             })
                         }}/>
-                        <div className="errorMessage">{error.errorEmail}</div>
+                        <div className="error-message">{error.errorEmail}</div>
                         <label htmlFor="inquiry">Inquiry</label>
                         <select
                             name=""
@@ -153,8 +157,8 @@ const ContactForm = () => {
                                 message: e.target.value
                             })
                         }}></textarea>
-                        <div className="errorMessage">{error.errorMessage}</div>
-                        <button>Send</button>
+                        <div className="error-message">{error.errorMessage}</div>
+                        <button disabled={ !enabled }>Send</button>
                     </form>
                 )
                 : (

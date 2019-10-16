@@ -1,25 +1,4 @@
-.teamMembers{
-    padding: 2rem;
-    .teamMemberCard{
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-  
-      h2,
-      .role{
-        display: inline;
-      }
-  
-      h2{
-        margin-right: 2rem;
-      }
-  
-      a{
-        text-decoration: none;
-      }
-    }
-  }
-  
-  .contactBody{
+.contact-body{
     margin-top: 3rem;
   
     .message{
@@ -44,9 +23,9 @@
         width: 100%;
       }
     
-      .errorMessage{
+      .error-message{
         color: red;
       }
     }
-  }
+}
   
