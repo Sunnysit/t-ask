@@ -1,10 +1,12 @@
 import React from 'react';
 import HeroAbout from '../components/heroes/HeroAbout';
+import ListMembers from '../components/about/ListMembers';
 
 const AboutUs = () => {
-    return(
+    return (
         <div className="about-us view">
-            <HeroAbout />
+            <HeroAbout/>
+            <ListMembers/>
         </div>
     )
 }
