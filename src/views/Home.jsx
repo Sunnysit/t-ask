@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeHero from '../components/heroes/HomeHero';
-import Comparison from './Comparison';
-import Trending from './Trending'
+import Comparison from '../components/home/comparison/Comparison';
+import Trending from '../components/home/trending/Trending';
 
 const Home = () => {
     return(

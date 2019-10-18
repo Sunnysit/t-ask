@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectLanguage from '../components/home/comparison/SelectLanguages';
+import SelectLanguage from './SelectLanguages';
 
 const Comparison = () => {
     return(
