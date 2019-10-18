@@ -3,7 +3,7 @@ import React from 'react'
 const Top3Languages = () => {
     return ( 
         <div className="">
-            <h1>Top3Languages Component</h1>
+            <p>Top3Languages Component</p>
         </div>
      );
 }
