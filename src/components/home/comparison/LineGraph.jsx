@@ -21,6 +21,7 @@ const LineGraph = () => {
                         timePeriod:singleData.timePeriod
                     }
                 });
+                //Sort order of the data based on year
                 languageDataSet.sort((a, b)=>{
                     return a.year - b.year
                 });
@@ -45,7 +46,15 @@ const LineGraph = () => {
         yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
         curve="natural"
         axisTop={null}
-        axisRight={null}
+        axisRight={{
+            orient: 'left',
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: 'Repository Amount',
+            legendOffset: 70,
+            legendPosition: 'middle'
+        }}
         axisBottom={{
             orient: 'bottom',
             tickSize: 5,
@@ -55,15 +64,7 @@ const LineGraph = () => {
             legendOffset: 36,
             legendPosition: 'middle'
         }}
-        axisLeft={{
-            orient: 'left',
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Repository Amount',
-            legendOffset: -40,
-            legendPosition: 'middle'
-        }}
+        axisLeft={null}
         colors={{ scheme: 'nivo' }}
         pointColor={{ from: 'color', modifiers: [] }}
         pointBorderWidth={2}
@@ -73,19 +74,18 @@ const LineGraph = () => {
         useMesh={true}
         legends={[
             {
-                anchor: 'bottom-right',
-                direction: 'column',
+                anchor: 'top',
+                direction: 'row',
                 justify: false,
-                translateX: 100,
-                translateY: 0,
-                itemsSpacing: 0,
-                itemDirection: 'left-to-right',
-                itemWidth: 80,
+                translateX: 0,
+                translateY: -38,
+                itemWidth: 100,
                 itemHeight: 20,
-                itemOpacity: 0.75,
-                symbolSize: 12,
+                itemsSpacing: 4,
+                symbolSize: 10,
                 symbolShape: 'circle',
-                symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                itemDirection: 'left-to-right',
+                itemTextColor: '#777',
                 effects: [
                     {
                         on: 'hover',
