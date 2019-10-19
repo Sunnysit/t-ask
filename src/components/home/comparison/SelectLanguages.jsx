@@ -10,7 +10,7 @@ const SelectLanguage = () => {
     useEffect(() => {
         Axios.get('assets/language-data.json')
         .then(result => {
-            //console.log(result.data);
+            // console.log(result.data);
             const languagesArray = result.data.map((language, index) => {
                 return {languageName:language.languageName, languageId:index, isSelect: false}
             })
