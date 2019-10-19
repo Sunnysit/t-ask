@@ -6,5 +6,11 @@
     .drop-down.active {
         border: 1px solid black;
         width: 100px;
+
+        .selected{
+            background-color: salmon;
+        }
+
+
     } 
 }

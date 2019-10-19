@@ -19,8 +19,6 @@ const SelectLanguage = () => {
         })
         
     }, [])
-
-    //console.log(languagesArray);
     
     const [displayDropDown, setDisplayDropDown] = useState(true);
     
@@ -39,13 +37,37 @@ const SelectLanguage = () => {
         })
         //console.log(selectLanguage);
         setLanguages(selectLanguage);
-        let language = selectLanguage[selectLanguageId]
+        let language = selectLanguage[selectLanguageId];
 
-        if( selectLanguages.length < 3){
+        if(language.isSelect === true){
+            if( selectLanguages.length < 3){
+                let currentSelect = selectLanguages;
+                currentSelect.push(language);
+                setSelectLanguages(currentSelect);
+                console.log(selectLanguages)
+            }
+
+            else{
+                let currentSelect = selectLanguages;
+                let removeLanguage = currentSelect.shift();
+                const newLanguages = languages.map(language => {
+                    if(removeLanguage.languageName === language.languageName){
+                        language.isSelect = false;
+                    }
+                    return language;
+                })
+                console.log(removeLanguage);
+                currentSelect.push(language);
+                setSelectLanguages(currentSelect);
+                setLanguages(newLanguages);
+                //language.isSelect = false;
+            }
+        }
+
+        else {
             let currentSelect = selectLanguages;
-            currentSelect.push(language);
-            setSelectLanguages(currentSelect);
-            console.log(selectLanguages);
+            let removeLanguage = currentSelect.filter(language => language.languageId !== selectLanguageId);
+            setSelectLanguages(removeLanguage);
         }
     }
     
