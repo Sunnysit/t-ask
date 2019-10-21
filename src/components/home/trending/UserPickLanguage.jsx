@@ -4,17 +4,10 @@ import {useSelector} from 'react-redux'
 
 const UserPickLanguage = () => {
 
-    const trendingLanguages = useSelector(state => state.languages.languageTrendingData.usa);
+    const trendingLanguages = useSelector(state => state.languages.languageTrendingData);
+    console.log('trending languages from reducer');
+    console.log(trendingLanguages);
 
-    //const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     Axios.get('https://t-ask-api.herokuapp.com/api/comparison/trends')
-    //     .then(result => {
-    //         dispatch({type: "SET_TRENDING_LANGUAGES_DATA", payload:result.data})
-    //     })
-        
-    // }, [])
 
     return ( 
         <div className="">
