@@ -1,0 +1,17 @@
+#toggle-switch{
+    background-color: rgb(101, 162, 241);
+    width: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    #toggle-ball{
+        background-color: rgb(5, 18, 94);
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+
+    .location{
+        transform: translateX(15px);
+    }
+}
