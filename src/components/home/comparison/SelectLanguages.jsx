@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Axios from 'axios';
 
 const SelectLanguage = () => {
 
     const [languages, setLanguages] = useState([])
-    const [selectLanguages, setSelectLanguages] = useState([])
+    //const [selectLanguages, setSelectLanguages] = useState([])
+    const selectLanguages = useSelector(state => state.languages.selectedLanguages);
 
     const dispatch = useDispatch();
 
@@ -44,11 +45,11 @@ const SelectLanguage = () => {
 
         if(language.isSelect === true){
             if( selectLanguages.length < 3){
-                let currentSelect = selectLanguages;
-                currentSelect.push(language);
-                setSelectLanguages(currentSelect);
-                //console.log(selectLanguages);
-                dispatch({type: 'UPDATE_SELECTED_LANGUAGES', payload: selectLanguages});
+                //let currentSelect = selectLanguages;
+                //currentSelect.push(language);
+                //setSelectLanguages(currentSelect);
+                //console.log(currentSelect);
+                dispatch({type: 'ADD_SELECTED_LANGUAGES', payload: language});
             }
 
             else{
@@ -62,10 +63,10 @@ const SelectLanguage = () => {
                     return language;
                 })
                 //console.log(removeLanguage);
-                currentSelect.push(language);
-                setSelectLanguages(currentSelect);
+                //currentSelect.push(language);
+                //setSelectLanguages(currentSelect);
                 setLanguages(newLanguages);
-                dispatch({type: 'UPDATE_SELECTED_LANGUAGES', payload: selectLanguages});
+                dispatch({type: 'UPDATE_SELECTED_LANGUAGES', payload: language});
                 //language.isSelect = false;
             }
         }
@@ -73,8 +74,8 @@ const SelectLanguage = () => {
         else {
             let currentSelect = selectLanguages;
             let removeLanguage = currentSelect.filter(language => language.languageId !== selectLanguageId);
-            setSelectLanguages(removeLanguage);
-            dispatch({type: 'UPDATE_SELECTED_LANGUAGES', payload: selectLanguages});
+            //setSelectLanguages(removeLanguage);
+            dispatch({type: 'REMOVE_SELECTED_LANGUAGES', payload: removeLanguage});
         }
     }
     
