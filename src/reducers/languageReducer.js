@@ -31,6 +31,11 @@ const languageReducer = (state = initState, action) => {
                     action.payload
                 ]
             }
+        case "SET_DEFAULT_LANGUAGES":
+            return{
+                ...state,
+                selectedLanguages: action.payload
+            }
         case "UPDATE_SELECTED_LANGUAGES":
             return {
                 ...state,

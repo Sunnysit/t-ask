@@ -20,6 +20,12 @@ const Comparison = () => {
                 return {languageName:language.name, languageId:index, isSelect: false, total: language.total}
             })
             dispatch({type: "SET_ALL_LANGUAGES", payload:languagesArray})
+            const topLanguages = [];
+            for(let i = 0; i <3; i++){
+                languagesArray[i].isSelect = true;
+                topLanguages.push(languagesArray[i]);
+            }
+            dispatch({type: 'SET_DEFAULT_LANGUAGES', payload:topLanguages});
 
             //console.log(selectLanguages);
             //setLanguages(languagesArray);
