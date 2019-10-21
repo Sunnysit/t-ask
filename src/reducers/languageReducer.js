@@ -1,9 +1,27 @@
 const initState = {
-    selectedLanguages: []
+    selectedLanguages: [],
+    languageTrendingData: {
+    usa:[{id_language:0}]
+    },
+    languages:[]
 }
 
 const languageReducer = (state = initState, action) => {
     switch (action.type) {
+
+        case "SET_ALL_LANGUAGES":
+            console.log(`languages in reducer${state.languages}`)
+            return {
+                ...state,
+                languages: action.payload
+            }
+
+        case "SET_TRENDING_LANGUAGES_DATA":
+            console.log(`trending languages in reducer ${state.languageTrendingData}`)
+            return{
+                ...state,
+                languageTrendingData: action.payload
+            }
 
         case "ADD_SELECTED_LANGUAGES":
             return {
