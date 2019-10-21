@@ -1,0 +1,19 @@
+.select-language-body {
+
+    button{
+        width: 100px;
+    }
+    .drop-down.active {
+        border: 1px solid black;
+        width: 100px;
+        height: 150px;
+        overflow-y: auto;
+        position: static;
+
+        .selected{
+            background-color: salmon;
+        }
+
+
+    } 
+}
