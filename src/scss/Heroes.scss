@@ -1,8 +1,16 @@
 .hero{
     background-color: #1E4BA5;
-    color: white;
-    text-align: center;
+   
     width: 100%;
     padding-top: 5rem;
     padding-bottom: 5rem;
+
+    p,h1{
+        text-align: center;
+        color: white;
+    }
+
+    .graph-container{
+        background-color: #fff;
+    }
 }
