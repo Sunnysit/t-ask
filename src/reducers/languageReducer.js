@@ -1,11 +1,18 @@
 const initState = {
     selectedLanguages: [],
     languageTrendingData: [],
-    languages:[]
+    languages:[],
+    graphDisplay: true
 }
 
 const languageReducer = (state = initState, action) => {
     switch (action.type) {
+
+        case "SET_GRAPH_TYPE":
+            return {
+                ...state,
+                graphDisplay: !state.graphDisplay
+            }
 
         case "SET_ALL_LANGUAGES":
             console.log(`languages in reducer ${state.languages}`)
