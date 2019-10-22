@@ -26,6 +26,7 @@ const UserPickLanguage = () => {
         <div className="select-language-body">
             <p>Trending language for user to choose</p>
             <select onChange={handleSelectLanguage}>
+                <option value="default">Select language</option>
             { remainingLanguageRank.map(language => <option key={language.languageId} value={language.languageId}>{language.languageName}</option>) }
             </select> 
 
