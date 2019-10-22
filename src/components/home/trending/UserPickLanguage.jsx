@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const UserPickLanguage = () => {
@@ -8,15 +8,20 @@ const UserPickLanguage = () => {
     const selectLanguage = useSelector(state => state.languages.languageTrending);
     const languagesState = useSelector(state => state.languages.languageTrendingDataUsa);
 
-    const remainingLanguageRank = languagesState.filter(language => language.languageRank > 3);
+    //console.log(languagesState);
+
+     const remainingLanguageRank = languagesState.filter(language => language.languageRank > 3);
+     console.log(remainingLanguageRank)
 
     const dispatch = useDispatch();
 
 
     const handleSelectLanguage = (e) => {
         const selectLanguageId = e.target.value;
+
         
-        let language = languagesState[selectLanguageId]; 
+        let language = remainingLanguageRank[selectLanguageId]; 
+        //console.log(remainingLanguageRank);
         dispatch({type:"SELECT_TRENDING_LANGUAGE", payload:language})
         
     }
@@ -25,9 +30,11 @@ const UserPickLanguage = () => {
     return (
         <div className="select-language-body">
             <p>Trending language for user to choose</p>
+
+            <p>Language</p>
             <select onChange={handleSelectLanguage}>
-                <option value="default">Select language</option>
-            { remainingLanguageRank.map(language => <option key={language.languageId} value={language.languageId}>{language.languageName}</option>) }
+                <option value="" selected disabled hidden>Language</option>
+            { remainingLanguageRank.map((language,index) => <option key={index} value={index}>{language.languageName}</option>) }
             </select> 
 
             <div className="language-selected-info">
