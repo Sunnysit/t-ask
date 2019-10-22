@@ -20,6 +20,7 @@ const Comparison = () => {
                 return {languageName:language.name, languageId:index, isSelect: false, total: language.total}
             })
             dispatch({type: "SET_ALL_LANGUAGES", payload:languagesArray})
+
             const topLanguages = [];
             for(let i = 0; i <3; i++){
                 languagesArray[i].isSelect = true;
@@ -32,7 +33,28 @@ const Comparison = () => {
         })
         Axios.get('https://t-ask-api.herokuapp.com/api/comparison/trends')
         .then(result => {
-            dispatch({type: "SET_TRENDING_LANGUAGES_DATA", payload:result.data})
+            const languagesLocationUsa =result.data[0].data;
+            dispatch({type: "SET_ALL_LANGUAGES_USA", payload:languagesLocationUsa})
+
+            const languagesLocationCanada = result.data[1].data;
+            dispatch({type: "SET_ALL_LANGUAGES_CANADA", payload:languagesLocationCanada})
+
+
+
+            /* Trending feature data*/
+            const languagesUsa =result.data[0].data;
+            const languagesTrendingUsa = languagesUsa.map((language, index) => {
+                return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description}
+            })
+            dispatch({type: "SET_TRENDING_LANGUAGES_DATA_USA", payload:languagesTrendingUsa})
+
+
+            const languagesCanada =result.data[1].data;
+            const languagesTrendingCanada = languagesCanada.map((language, index) => {
+                return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description}
+            })
+            dispatch({type: "SET_TRENDING_LANGUAGES_DATA_USA", payload:languagesTrendingCanada})
+
         })
         
     },[])

@@ -1,7 +1,30 @@
 const initState = {
-    selectedLanguages: [],
-    languageTrendingData: [],
+    
+    /* List of languages data*/
+
+    /* For trending feature based on tine*/
     languages:[],
+
+    /* For trending feature based on location- USA*/
+    languagesUsa:[],
+
+    /* For trending feature based on location- CANADA*/
+    languagesCanada:[],
+
+    /* For comparison feature*/
+    languageTrendingDataUsa: [],
+
+    /* For comparison feature*/
+    languageTrendingDataCanada: [],
+    
+
+    /* Selected language(s) data*/
+
+    /* For comparison feature*/
+    selectedLanguages: [],
+    /* For trending feature*/
+    languageTrending: {},
+
     graphDisplay: true
 }
 
@@ -15,18 +38,38 @@ const languageReducer = (state = initState, action) => {
             }
 
         case "SET_ALL_LANGUAGES":
-            console.log(`languages in reducer ${state.languages}`)
             return {
                 ...state,
                 languages: action.payload
             }
 
-        case "SET_TRENDING_LANGUAGES_DATA":
+        case "SET_ALL_LANGUAGES_USA":
+        
+                return{
+                    ...state,
+                    languagesUsa: action.payload
+                }
+
+        case "SET_ALL_LANGUAGES_CANADA":
+
+                return{
+                    ...state,
+                    languagesCanada: action.payload
+                }
+
+        case "SET_TRENDING_LANGUAGES_DATA_USA":
             
             return{
                 ...state,
-                languageTrendingData: action.payload
+                languageTrendingDataUsa: action.payload
             }
+
+        case "SET_TRENDING_LANGUAGES_DATA_CANADA":
+        
+                return{
+                    ...state,
+                    languageTrendingDataCanada: action.payload
+                }
 
         case "ADD_SELECTED_LANGUAGES":
             return {
@@ -59,6 +102,11 @@ const languageReducer = (state = initState, action) => {
                             action.payload
                         
                     }
+        case "SELECT_TRENDING_LANGUAGE":
+            return {
+                ...state,
+                languageTrending: action.payload
+            }
         default:
             return state
     }
