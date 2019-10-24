@@ -5,16 +5,16 @@ const initState = {
     /* For trending feature based on tine*/
     languages:[],
 
-    /* For trending feature based on location- USA*/
+    /* For comparison feature based on location- USA*/
     languagesUsa:[],
 
-    /* For trending feature based on location- CANADA*/
+    /* For comparison feature based on location- CANADA*/
     languagesCanada:[],
 
-    /* For comparison feature*/
+    /* For trending feature*/
     languageTrendingDataUsa: [],
 
-    /* For comparison feature*/
+    /* For trending feature*/
     languageTrendingDataCanada: [],
     
 

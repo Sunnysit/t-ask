@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 
 import Comparison from '../home/comparison/Comparison'
 import LineGraph from '../home/comparison/LineGraph'
+import BarGraph from '../home/comparison/BarGraph'
 
 const HomeHero = () => {
 
@@ -15,7 +16,7 @@ const HomeHero = () => {
                 <p>Here is the comparison feature</p>
                 <Comparison/>
                 <div className="graph-container">
-                    {graphType ? <LineGraph/> : <div className="bar-graph"></div>}
+                    {graphType ? <LineGraph/> : <BarGraph/>}
                 
 
                 </div>

@@ -8,10 +8,9 @@ const UserPickLanguage = () => {
     const selectLanguage = useSelector(state => state.languages.languageTrending);
     const languagesState = useSelector(state => state.languages.languageTrendingDataUsa);
 
-    //console.log(languagesState);
+    console.log(languagesState);
 
      const remainingLanguageRank = languagesState.filter(language => language.languageRank > 3);
-     console.log(remainingLanguageRank)
 
     const dispatch = useDispatch();
 
@@ -33,7 +32,7 @@ const UserPickLanguage = () => {
 
             <p>Language</p>
             <select onChange={handleSelectLanguage}>
-                <option value="" selected disabled hidden>Language</option>
+                <option value="" defaultValue disabled hidden>Language</option>
             { remainingLanguageRank.map((language,index) => <option key={index} value={index}>{language.languageName}</option>) }
             </select> 
 
