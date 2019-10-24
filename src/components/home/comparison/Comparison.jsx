@@ -67,7 +67,6 @@ const Comparison = () => {
             const languagesTrendingUsa = languagesUsa.map((language, index) => {
                 return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description}
             })
-            console.log(languagesTrendingUsa);
             dispatch({type: "SET_TRENDING_LANGUAGES_DATA_USA", payload:languagesTrendingUsa})
 
             //CANADA DATA
@@ -78,7 +77,7 @@ const Comparison = () => {
 
         })
         
-    },[])
+    },[dispatch])
     return(
         <div className="">
             <p>Comparison feature. Select languages to see how they behave in different aspects.</p>

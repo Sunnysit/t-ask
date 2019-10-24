@@ -16,11 +16,13 @@ const HomeHero = () => {
                 <p>Here is the comparison feature</p>
                 <Comparison/>
                 <div className="graph-container">
-                    {graphType ? <LineGraph/> : <BarGraph/>}
+                    {graphType ? <LineGraph/> : <BarGraph/>} 
+                    
                 
 
                 </div>
             </div>
+            {/* <BarGraph/> */}
         </div>
     )
 }

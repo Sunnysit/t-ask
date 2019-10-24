@@ -8,7 +8,7 @@ const UserPickLanguage = () => {
     const selectLanguage = useSelector(state => state.languages.languageTrending);
     const languagesState = useSelector(state => state.languages.languageTrendingDataUsa);
 
-    console.log(languagesState);
+    //console.log(languagesState);
 
      const remainingLanguageRank = languagesState.filter(language => language.languageRank > 3);
 
