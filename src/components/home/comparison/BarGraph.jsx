@@ -11,7 +11,7 @@ const BarGraph = () => {
     const barGraphData = [dataUsa, dataCanada]; console.log(barGraphData);
 
     return (
-        <div className="bar-graph-container">
+        
             <ResponsiveBar
                 data={barGraphData}
                 keys
@@ -95,7 +95,7 @@ const BarGraph = () => {
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}/>
-        </div>
+        
     );
 }
 
