@@ -1,40 +1,52 @@
 import React ,{useState,useEffect} from 'react';
-import Axios from 'axios';
+import { useSelector} from 'react-redux';
 import { ResponsiveLine } from '@nivo/line';
 
 
 const LineGraph = () => {
 
     const [graphData,setGraphData] = useState([]);
+    const selectLanguages = useSelector(state => state.languages.selectedLanguages);
+    const languageTimeSpan = useSelector(state => state.languages.languageTimeSpan);
 
     useEffect(() => {
-        Axios.get('assets/language-data.json')
-        .then(result => {
-            const transferResult = result.data.map(item=>{
-                    
-                const languageDataSet = item.data.map(singleData=>{
-                    
-                    return {
-                        x: `${singleData.searchYear}-${singleData.timePeriod}`,
-                        y: singleData.repoCount,
-                        year:singleData.searchYear,
-                        timePeriod:singleData.timePeriod
-                    }
-                });
-                //Sort order of the data based on year
-                languageDataSet.sort((a, b)=>{
-                    return a.year - b.year
-                });
-                return {
-                    id: item.languageName,
-                    data: languageDataSet
-                }
-            });
 
-            setGraphData(transferResult);
+        let transferResult = [];
+
+        selectLanguages.map(lang=>{
+          
+               const targetData = languageTimeSpan.find(langData => lang.languageName === langData.language.name)
+         
+                if(targetData)
+                {
+                    let timeSpansArray = targetData.timeSpansArray;
+                    
+                    const languageDataSet = timeSpansArray.map(singleSpan=>{
+                            return {
+                            x: `${singleSpan.start.substring(0, 4)}-${singleSpan.start.substring(5,7)}`,
+                            y: singleSpan.total,
+                            year:singleSpan.start.substring(0, 4),
+                            timePeriod:singleSpan.id_timespan
+                            }
+                    });
+
+                    languageDataSet.sort((a, b)=>{
+                                    return a.year - b.year
+                                });
+                  
+
+                    transferResult.push({
+                        id: targetData.language.name,
+                        data:languageDataSet
+                    });
+                }
+                
+               
+         
         })
-        
-    },[])
+
+        setGraphData(transferResult);
+    },[selectLanguages,languageTimeSpan])
 
 
     return ( 
