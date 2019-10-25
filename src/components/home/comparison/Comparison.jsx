@@ -34,6 +34,14 @@ const Comparison = () => {
         .then(result => {
             dispatch({type: "SET_TRENDING_LANGUAGES_DATA", payload:result.data})
         })
+
+
+        //Get all languages time span
+        Axios.get('https://t-ask-api.herokuapp.com/api/comparison/languages/timespans')
+        .then(result => {
+            dispatch({type: "SET_ALL_LANGUAGES_TIME_SPAN", payload:result.data})
+        })
+
         
     },[])
     return(

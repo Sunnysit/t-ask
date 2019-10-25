@@ -3,7 +3,8 @@ const initState = {
     languageTrendingData: {
     usa:[{id_language:0}]
     },
-    languages:[]
+    languages:[],
+    languageTimeSpan:[]
 }
 
 const languageReducer = (state = initState, action) => {
@@ -54,6 +55,14 @@ const languageReducer = (state = initState, action) => {
                             action.payload
                         
                     }
+
+            case "SET_ALL_LANGUAGES_TIME_SPAN":{
+                    return {
+                        ...state,
+                        languageTimeSpan: action.payload
+                    }
+
+                    }           
         default:
             return state
     }
