@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 
 import {ResponsiveBar} from '@nivo/bar';
@@ -7,32 +7,56 @@ const BarGraph = () => {
 
     const dataUsa = useSelector(state => state.languages.languagesUsa);
     const dataCanada = useSelector(state => state.languages.languagesCanada);
+    const selectedLanguages = useSelector(state=> state.languages.selectedLanguages);
 
-    const barGraphData = [dataUsa, dataCanada]; console.log(barGraphData);
+    const [barGraphData, setBarGraphData] = useState([]);
+    const [barGraphKeys, setBarGraphKeys] = useState([]);
+
+    useEffect(() => {
+        //filter data from the selectedLanguages
+    const selectedDataUsa = dataUsa.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
+    const selectedDataCanada = dataCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
+
+
+    //set data format for bar-graph
+    //USA
+    const languageLocationUsa=selectedDataUsa.map(language => {
+        let languageObject = language.name;
+        return {[languageObject]: language.trend}
+    })
+    let languagesLocationUsa = {};
+    for(let i = 0; i < languageLocationUsa.length; i++){
+        let singleLanguage = languageLocationUsa[i];
+        languagesLocationUsa = {...languagesLocationUsa, ...singleLanguage}
+    }
+    languagesLocationUsa = {country:'USA', ...languagesLocationUsa};
+
+    //Canada
+    const languageLocationCanada=selectedDataCanada.map(language => {
+        let languageObject = language.name;
+        return {[languageObject]: language.trend}
+    })
+    let languagesLocationCanada = {};
+    for(let i = 0; i < languageLocationCanada.length; i++){
+        let singleLanguage = languageLocationCanada[i];
+        languagesLocationCanada = {...languagesLocationCanada, ...singleLanguage}
+    }
+    languagesLocationCanada = {country:'Canada', ...languagesLocationCanada};
+
+    setBarGraphData([languagesLocationUsa, languagesLocationCanada])
+
+    const languageKeys = selectedLanguages.map(language => language.languageName);
+
+    setBarGraphKeys(languageKeys);
+        
+    }, [dataCanada, dataUsa, selectedLanguages])
+
 
     return (
-        
             <ResponsiveBar
                 data={barGraphData}
                 keys
-                ={[
-                "Java",
-                "C++",
-                "Javascript",
-                "C#",
-                "Python",
-                "PHP",
-                "Ruby",
-                "Go",
-                "R",
-                "Typescript",
-                "Swift",
-                "Matlab",
-                "Kotlin",
-                "Rust",
-                "Objective-C",
-                "visual-basic"
-            ]}
+                ={barGraphKeys}
                 indexBy="country"
                 margin={{
                 top: 50,
@@ -40,7 +64,7 @@ const BarGraph = () => {
                 bottom: 50,
                 left: 60
             }}
-                padding={0.3}
+                padding={0.35}
                 groupMode='grouped'
                 colors={{
                 scheme: 'nivo'
@@ -95,8 +119,9 @@ const BarGraph = () => {
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}/>
-        
-    );
+    )
 }
+        
+ 
 
 export default BarGraph
