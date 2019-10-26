@@ -22,10 +22,14 @@ const initState = {
 
     /* For comparison feature*/
     selectedLanguages: [],
+
     /* For trending feature*/
     languageTrending: {},
 
     graphDisplay: true
+
+    languageTimeSpan:[]
+
 }
 
 const languageReducer = (state = initState, action) => {
@@ -102,11 +106,22 @@ const languageReducer = (state = initState, action) => {
                             action.payload
                         
                     }
+
         case "SELECT_TRENDING_LANGUAGE":
             return {
                 ...state,
                 languageTrending: action.payload
             }
+
+
+            case "SET_ALL_LANGUAGES_TIME_SPAN":{
+                    return {
+                        ...state,
+                        languageTimeSpan: action.payload
+                    }
+
+                    }           
+
         default:
             return state
     }
