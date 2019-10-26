@@ -26,7 +26,7 @@ const initState = {
     /* For trending feature*/
     languageTrending: {},
 
-    graphDisplay: true
+    graphDisplay: true,
 
     languageTimeSpan:[]
 
