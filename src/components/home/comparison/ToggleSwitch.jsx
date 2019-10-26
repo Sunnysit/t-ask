@@ -1,19 +1,26 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {useSelector, useDispatch} from 'react-redux'
 
 const ToggleSwitch = () => {
     
-    
-    const [graphToggle, setGraphToggle] = useState(false);
+    const dispatch = useDispatch();
+
+    const graphToggle = useSelector(state => state.languages.graphDisplay)
 
     const handleSwitch = () => {
-        setGraphToggle(!graphToggle);
-        console.log(graphToggle);
+        dispatch({type: "SET_GRAPH_TYPE"});
+        
     }
 
     return(
-        <div id="toggle-switch"  onClick={handleSwitch}>
+        <div className="toggle-switch">
+            <p>Time</p>
+            <div id="toggle-container"  onClick={handleSwitch}>
             <div id="toggle-ball" className={!graphToggle ? 'location' : 'time'}>
             </div>
+            </div>
+            <p>Location</p>
+
         </div>
     )
 

@@ -1,29 +1,47 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
-//import Axios from 'axios'
+import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 const UserPickLanguage = () => {
 
-    const trendingLanguages = useSelector(state => state.languages.languageTrendingData.usa);
 
-    //const dispatch = useDispatch();
+    /* GRAB INFORMATION FROM REDUCER*/
+    const selectLanguage = useSelector(state => state.languages.languageTrending);
+    const languagesState = useSelector(state => state.languages.languageTrendingDataUsa);
 
-    // useEffect(() => {
-    //     Axios.get('https://t-ask-api.herokuapp.com/api/comparison/trends')
-    //     .then(result => {
-    //         dispatch({type: "SET_TRENDING_LANGUAGES_DATA", payload:result.data})
-    //     })
+    //console.log(languagesState);
+
+     const remainingLanguageRank = languagesState.filter(language => language.languageRank > 3);
+
+    const dispatch = useDispatch();
+
+
+    const handleSelectLanguage = (e) => {
+        const selectLanguageId = e.target.value;
+
         
-    // }, [])
+        let language = remainingLanguageRank[selectLanguageId]; 
+        //console.log(remainingLanguageRank);
+        dispatch({type:"SELECT_TRENDING_LANGUAGE", payload:language})
+        
+    }
+    
+    
+    return (
+        <div className="select-language-body">
+            <p>Trending language for user to choose</p>
 
-    return ( 
-        <div className="">
-            <p>Top10Languages Component</p>
-            {/* {trendingLanguages.map(item=>{
-                return <p key={item.id_language}>{item.name}</p>
-            })} */}
+            <p>Language</p>
+            <select onChange={handleSelectLanguage}>
+                <option value="" defaultValue disabled hidden>Language</option>
+            { remainingLanguageRank.map((language,index) => <option key={index} value={index}>{language.languageName}</option>) }
+            </select> 
+
+            <div className="language-selected-info">
+                <p>Language name: {selectLanguage.languageName}</p> 
+                <p>Ranking: {selectLanguage.languageRank}</p>
+            </div>
         </div>
-     );
+    )
 }
- 
-export default UserPickLanguage;
+
+export default UserPickLanguage
