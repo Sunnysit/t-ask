@@ -3,10 +3,9 @@ import {useSelector} from 'react-redux';
 
 import {ResponsiveBar} from '@nivo/bar';
 
-const BarGraph = () => {
+const BarGraphLangUSA = () => {
 
     const dataUsa = useSelector(state => state.languages.languagesUsa);
-    const dataCanada = useSelector(state => state.languages.languagesCanada);
     const selectedLanguages = useSelector(state=> state.languages.selectedLanguages);
 
     const [barGraphData, setBarGraphData] = useState([]);
@@ -15,7 +14,6 @@ const BarGraph = () => {
     useEffect(() => {
         //filter data from the selectedLanguages
     const selectedDataUsa = dataUsa.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
-    const selectedDataCanada = dataCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
 
 
     //set data format for bar-graph
@@ -31,25 +29,14 @@ const BarGraph = () => {
     }
     languagesLocationUsa = {country:'USA', ...languagesLocationUsa};
 
-    //Canada
-    const languageLocationCanada=selectedDataCanada.map(language => {
-        let languageObject = language.name;
-        return {[languageObject]: language.trend}
-    })
-    let languagesLocationCanada = {};
-    for(let i = 0; i < languageLocationCanada.length; i++){
-        let singleLanguage = languageLocationCanada[i];
-        languagesLocationCanada = {...languagesLocationCanada, ...singleLanguage}
-    }
-    languagesLocationCanada = {country:'Canada', ...languagesLocationCanada};
 
-    setBarGraphData([languagesLocationUsa, languagesLocationCanada])
+    setBarGraphData([languagesLocationUsa])
 
     const languageKeys = selectedLanguages.map(language => language.languageName);
 
     setBarGraphKeys(languageKeys);
         
-    }, [dataCanada, dataUsa, selectedLanguages])
+    }, [dataUsa, selectedLanguages])
 
 
     return (
@@ -60,7 +47,7 @@ const BarGraph = () => {
                 indexBy="country"
                 margin={{
                 top: 50,
-                right: 130,
+                right: 60,
                 bottom: 50,
                 left: 60
             }}
@@ -70,52 +57,25 @@ const BarGraph = () => {
                 scheme: 'nivo'
             }}
                 borderColor="black"
+                layout='horizontal'
                 axisTop={null}
                 axisRight={null}
                 axisBottom={{
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
-                legend: 'country',
+                legend: 'USA',
                 legendPosition: 'middle',
                 legendOffset: 32
             }}
-                axisLeft={{
-                tickSize: 5,
-                tickPadding: 5,
-                tickRotation: 0,
-                legend: 'percentage of use',
-                legendPosition: 'middle',
-                legendOffset: -40
-            }}
+                axisLeft={null}
+                enableGridX={true}
                 labelSkipWidth={12}
                 labelSkipHeight={12}
                 labelTextColor={{
                 theme: 'background'
             }}
-                legends={[{
-                    dataFrom: 'keys',
-                    anchor: 'top',
-                    direction: 'row',
-                    justify: false,
-                    translateX: 0,
-                    translateY: -39,
-                    itemsSpacing: 2,
-                    itemWidth: 109,
-                    itemHeight: 22,
-                    itemDirection: 'left-to-right',
-                    itemOpacity: 0.85,
-                    symbolSize: 12,
-                    effects: [
-                        {
-                            on: 'hover',
-                            style: {
-                                itemOpacity: 1
-                            }
-                        }
-                    ]
-                }
-            ]}
+                legends={[]}
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}/>
@@ -124,4 +84,4 @@ const BarGraph = () => {
         
  
 
-export default BarGraph
+export default BarGraphLangUSA
