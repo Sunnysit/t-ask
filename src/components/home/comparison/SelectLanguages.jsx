@@ -10,7 +10,9 @@ const SelectLanguage = () => {
 
     /* GRAB INFORMATION FROM REDUCER*/
     const selectLanguages = useSelector(state => state.languages.selectedLanguages);
-    const languagesState = useSelector(state => state.languages.languages)
+    const languagesState = useSelector(state => state.languages.languages);
+
+    //console.log(selectLanguages);
 
     const dispatch = useDispatch();
 
@@ -25,18 +27,26 @@ const SelectLanguage = () => {
     const handleSelectLanguage = (e) => {
         const selectLanguageId = e.target.value;
         //console.log(selectLanguageId);
-        const selectLanguage = languagesState.map(language => {
+        let languageIndex;
+        const selectLanguage = languagesState.map((language,index) => {
             if(language.languageId === selectLanguageId){
+                //console.log(language.languageId);
+                //console.log(selectLanguageId);
                 language.isSelect = !language.isSelect;
+                languageIndex = index;
+
             }
             return language;
         })
+        console.log(languageIndex);
         //console.log(selectLanguage);
         //setLanguages(selectLanguage);
-        let language = selectLanguage[selectLanguageId];
+        let language = selectLanguage[languageIndex];
+        //console.log(language);
 
         if(language.isSelect === true){
             if( selectLanguages.length < 3){
+                
 
                 /* CHANGE SELECTED LANGUAGES IN LOCAL STATE*/
                 //let currentSelect = selectLanguages;
@@ -51,6 +61,8 @@ const SelectLanguage = () => {
             else{
                 let currentSelect = selectLanguages;
                 let removeLanguage = currentSelect.shift();
+                console.log(currentSelect);
+                console.log(removeLanguage);
                 
                 /* CHANGE IS SELECTED PROPERTY TO FALSE FOR THE FIRST LANGUAGE IN ARRAY WHEN SELECTING A FOURTH LANGUAGE*/
                 languagesState.map(language => {
@@ -91,7 +103,7 @@ const SelectLanguage = () => {
             {!displayDropDown ? (
                 <div className="drop-down active">
                     <ul className="languages">
-                    { languagesState.map(language => <li className={language.isSelect ? 'selected' : null} onClick={handleSelectLanguage }key={language.languageId} value={language.languageId}>{language.languageName}</li>) }
+                    { languagesState.map((language,index) => <li className={language.isSelect ? 'selected' : null} onClick={handleSelectLanguage }key={language.languageId} value={language.languageId}>{language.languageName}</li>) }
                     </ul>
                 </div>
             ) : (

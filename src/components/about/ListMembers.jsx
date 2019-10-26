@@ -15,7 +15,7 @@ const ListMembers = () => {
                 'LinkedIn', 'GitHub'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://github.com/'
+                "https://www.linkedin.com/in/karlalopez3d/", "https://github.com/KarlaLGA"
             ],
             socialArray: [
                 {
@@ -37,7 +37,7 @@ const ListMembers = () => {
                 'LinkedIn', 'GitHub'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://github.com/'
+                "https://www.linkedin.com/in/sunnyxue/", 'https://github.com/Sunnysit'
             ],
             socialArray: [
                 {
@@ -58,7 +58,7 @@ const ListMembers = () => {
                 'LinkedIn', 'GitHub'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://github.com/'
+                "https://www.linkedin.com/in/juanfernandotirado/", 'https://github.com/juanfernandotirado'
             ],
             socialArray: [
                 {
@@ -79,7 +79,7 @@ const ListMembers = () => {
                 'LinkedIn', 'GitHub'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://github.com/'
+                "https://www.linkedin.com/in/rafaelmonte", 'http://github.com/rafaelgsm'
             ],
             socialArray: [
                 {
@@ -101,7 +101,7 @@ const ListMembers = () => {
                 'LinkedIn', 'Behance'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://www.behance.net/'
+                "https://www.linkedin.com/in/educonsolo/", 'https://www.behance.net/educonsolo'
             ],
             socialArray: [
                 {
@@ -123,7 +123,7 @@ const ListMembers = () => {
                 'LinkedIn', 'Behance'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://www.behance.net/'
+                "https://www.linkedin.com/in/dianagunawan/", 'https://www.behance.net/dianagunawan'
             ],
             socialArray: [
                 {
@@ -144,7 +144,7 @@ const ListMembers = () => {
                 'LinkedIn', 'Behance'
             ],
             link: [
-                "https://www.linkedin.com/", 'https://www.behance.net/'
+                "https://www.linkedin.com/in/satnam-sandhu-73492a196/", 'https://www.behance.net/satnamsingh4'
             ],
             socialArray: [
                 {
