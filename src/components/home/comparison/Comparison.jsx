@@ -16,8 +16,8 @@ const Comparison = () => {
         Axios.get('https://t-ask-api.herokuapp.com/api/comparison/languages')
         .then(result => {
             //COMPARISON FEATURE TIME BASED
-            const languagesArray = result.data.map((language, index) => {
-                return {languageName:language.name, languageId:index, isSelect: false, total: language.total}
+            const languagesArray = result.data.map(language => {
+                return {languageName:language.name, languageId:language.id_language, isSelect: false, total: language.total}
             })
             dispatch({type: "SET_ALL_LANGUAGES", payload:languagesArray})
 
