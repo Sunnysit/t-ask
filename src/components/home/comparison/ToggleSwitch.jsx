@@ -1,11 +1,11 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux';
 
 const ToggleSwitch = () => {
     
     const dispatch = useDispatch();
 
-    const graphToggle = useSelector(state => state.languages.graphDisplay)
+    const graphToggle = useSelector(state => state.languages.graphDisplay);
 
     const handleSwitch = () => {
         dispatch({type: "SET_GRAPH_TYPE"});
@@ -15,8 +15,8 @@ const ToggleSwitch = () => {
     return(
         <div className="toggle-switch">
             <p>Time</p>
-            <div id="toggle-container"  onClick={handleSwitch}>
-            <div id="toggle-ball" className={!graphToggle ? 'location' : 'time'}>
+            <div className="toggle-container"  onClick={handleSwitch}>
+            <div className={!graphToggle ? 'location toggle-ball' : 'time toggle-ball'}>
             </div>
             </div>
             <p>Location</p>

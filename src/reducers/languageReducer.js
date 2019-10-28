@@ -1,22 +1,21 @@
 const initState = {
-    
+
     /* List of languages data*/
 
     /* For trending feature based on tine*/
-    languages:[],
+    languages: [],
 
     /* For comparison feature based on location- USA*/
-    languagesUsa:[],
+    languagesUsa: [],
 
     /* For comparison feature based on location- CANADA*/
-    languagesCanada:[],
+    languagesCanada: [],
 
     /* For trending feature*/
     languageTrendingDataUsa: [],
 
     /* For trending feature*/
     languageTrendingDataCanada: [],
-    
 
     /* Selected language(s) data*/
 
@@ -28,7 +27,9 @@ const initState = {
 
     graphDisplay: true,
 
-    languageTimeSpan:[]
+    languageTimeSpan: [],
+
+    top3LangToggle: true
 
 }
 
@@ -48,32 +49,32 @@ const languageReducer = (state = initState, action) => {
             }
 
         case "SET_ALL_LANGUAGES_USA":
-        
-                return{
-                    ...state,
-                    languagesUsa: action.payload
-                }
+
+            return {
+                ...state,
+                languagesUsa: action.payload
+            }
 
         case "SET_ALL_LANGUAGES_CANADA":
 
-                return{
-                    ...state,
-                    languagesCanada: action.payload
-                }
+            return {
+                ...state,
+                languagesCanada: action.payload
+            }
 
         case "SET_TRENDING_LANGUAGES_DATA_USA":
-            
-            return{
+
+            return {
                 ...state,
                 languageTrendingDataUsa: action.payload
             }
 
         case "SET_TRENDING_LANGUAGES_DATA_CANADA":
-        
-                return{
-                    ...state,
-                    languageTrendingDataCanada: action.payload
-                }
+
+            return {
+                ...state,
+                languageTrendingDataCanada: action.payload
+            }
 
         case "ADD_SELECTED_LANGUAGES":
             return {
@@ -84,7 +85,7 @@ const languageReducer = (state = initState, action) => {
                 ]
             }
         case "SET_DEFAULT_LANGUAGES":
-            return{
+            return {
                 ...state,
                 selectedLanguages: action.payload
             }
@@ -99,13 +100,12 @@ const languageReducer = (state = initState, action) => {
                     action.payload
                 ]
             }
-            case "REMOVE_SELECTED_LANGUAGES":
-                    return {
-                        ...state,
-                        selectedLanguages: 
-                            action.payload
-                        
-                    }
+        case "REMOVE_SELECTED_LANGUAGES":
+            return {
+                ...state,
+                selectedLanguages: action.payload
+
+            }
 
         case "SELECT_TRENDING_LANGUAGE":
             return {
@@ -113,14 +113,22 @@ const languageReducer = (state = initState, action) => {
                 languageTrending: action.payload
             }
 
+        case "SET_ALL_LANGUAGES_TIME_SPAN":
+            {
+                return {
+                    ...state,
+                    languageTimeSpan: action.payload
+                }
 
-            case "SET_ALL_LANGUAGES_TIME_SPAN":{
-                    return {
-                        ...state,
-                        languageTimeSpan: action.payload
-                    }
+            }
 
-                    }           
+        case "SWITCH_TOP3_COUNTRY":
+            {
+                return {
+                    ...state,
+                    top3LangToggle: !state.top3LangToggle
+                }
+            }
 
         default:
             return state

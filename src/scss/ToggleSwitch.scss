@@ -8,21 +8,21 @@
     p{
         margin: 0;
     }
-    #toggle-container{
+    .toggle-container{
         background-color: rgb(101, 162, 241);
         width: 30px;
         height: 15px;
         border-radius: 10px;
         cursor: pointer;
     
-        #toggle-ball{
+        .toggle-ball{
             background-color: rgb(5, 18, 94);
             width: 15px;
             height: 15px;
             border-radius: 50%;
         }
     
-        .location{
+        .location,.canada{
             transform: translateX(15px);
         }
     }
