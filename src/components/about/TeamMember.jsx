@@ -15,7 +15,7 @@ const TeamMember = (props) => {
 
     return (
         <div className="team-member-card">
-            <h2>{teamMember.name}</h2>
+            <h2 className="satnam">{teamMember.name}</h2>
             <p className="role">{teamMember.role}</p>
             <p>{teamMember.description}</p>
 
