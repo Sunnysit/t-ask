@@ -51,6 +51,8 @@ const BarGraphLangCanada = () => {
                 left: 10
             }}
                 padding={0.35}
+                minValue={0}
+                maxValue={1}
                 groupMode='grouped'
                 layout='horizontal'
                 reverse={true}

@@ -52,6 +52,8 @@ const BarGraphLangUSA = () => {
                 left: 10
             }}
                 padding={0.35}
+                minValue={0}
+                maxValue={1}
                 groupMode='grouped'
                 colors={{
                 scheme: 'nivo'
