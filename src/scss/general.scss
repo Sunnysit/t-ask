@@ -4,6 +4,7 @@
 =============================================*/
 *{
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 ul{
@@ -22,4 +23,20 @@ img{
 
 .graph-container{
     height: 500px;
+}
+
+.btn{
+    all:unset;
+    padding: 10px 15px;
+    background-color: #12BBF3;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s all ease-in;
+    font-weight: bold;
+
+    &:hover,
+    &:focus{
+        background-color: #282664;
+    }
 }
