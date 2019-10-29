@@ -1,6 +1,39 @@
 .header{
+
+    background-color: #282664;
+    .home-link{
+        all:unset;
+        cursor: pointer;
+    }
+
+    .logo-desktop{
+        width: 200px;
+        display: block;
+    }
+
+    .logo-mobile{
+        width: 80px;
+        display: none;
+    }
+
+    //Change break point based on the design
+    @media screen and (max-width:560px) {
+        .logo-mobile{
+            display: block;
+        }
+
+        .logo-desktop{
+            display: none;
+        }
+    }
+
+
     .navigation{
         display: flex;
         justify-content: space-around;
+
+        a{
+            color: white;
+        }
     }
 }

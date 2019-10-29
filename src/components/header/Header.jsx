@@ -4,6 +4,12 @@ import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <header className="header">
+            <div className="logo-container">
+                <button className="home-link">
+                <img className="logo-desktop" src="./assets/icons/logo-desktop.svg" alt="task-logo"/>
+                <img className="logo-mobile" src="./assets/icons/logo-mobile.svg" alt="task-logo"/>
+                </button>
+            </div>
             <nav className="header-navigation">
                 <ul className="navigation">
                     <li className="navigation-item">
