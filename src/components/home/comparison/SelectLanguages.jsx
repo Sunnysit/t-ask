@@ -38,7 +38,6 @@ const SelectLanguage = () => {
             }
             return language;
         })
-        console.log(languageIndex);
         //console.log(selectLanguage);
         //setLanguages(selectLanguage);
         let language = selectLanguage[languageIndex];
@@ -61,8 +60,6 @@ const SelectLanguage = () => {
             else{
                 let currentSelect = selectLanguages;
                 let removeLanguage = currentSelect.shift();
-                console.log(currentSelect);
-                console.log(removeLanguage);
                 
                 /* CHANGE IS SELECTED PROPERTY TO FALSE FOR THE FIRST LANGUAGE IN ARRAY WHEN SELECTING A FOURTH LANGUAGE*/
                 languagesState.map(language => {
@@ -103,7 +100,7 @@ const SelectLanguage = () => {
             {!displayDropDown ? (
                 <div className="drop-down active">
                     <ul className="languages">
-                    { languagesState.map((language,index) => <li className={language.isSelect ? 'selected' : null} onClick={handleSelectLanguage }key={language.languageId} value={language.languageId}>{language.languageName}</li>) }
+                    { languagesState.map(language => <li className={language.isSelect ? 'selected' : null} onClick={handleSelectLanguage }key={language.languageId} value={language.languageId}>{language.languageName}</li>) }
                     </ul>
                 </div>
             ) : (
