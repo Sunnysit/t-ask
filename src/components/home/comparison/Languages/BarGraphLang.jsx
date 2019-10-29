@@ -1,7 +1,7 @@
 import React from 'react';
 
-import BarGraphLangCanada from './BarGraphLangCanada';
-import BarGraphLangUSA from './BarGraphLangUSA';
+import BarGraphLangCanada from '../Languages/BarGraphLangCanada';
+import BarGraphLangUSA from '../Languages/BarGraphLangUSA';
 
 const BarGraphLang = () => {
     return (
