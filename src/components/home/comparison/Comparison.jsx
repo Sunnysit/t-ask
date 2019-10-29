@@ -16,10 +16,10 @@ const Comparison = () => {
 
 
         ////////////////////LANGUAGES API
-        
+
+        //COMPARISON FEATURE TIME BASED
         Axios.get('https://t-ask-api.herokuapp.com/api/comparison/languages')
         .then(result => {
-            //COMPARISON FEATURE TIME BASED
             const languagesArray = result.data.map(language => {
                 return {languageName:language.name, languageId:language.id_language, isSelect: false, total: language.total}
             })
@@ -62,11 +62,43 @@ const Comparison = () => {
         })
 
 
-        //Get all languages time span
+        //GET ALL LANGUAGES TIME SPAN
         Axios.get('https://t-ask-api.herokuapp.com/api/comparison/languages/timespans')
         .then(result => {
             dispatch({type: "SET_ALL_LANGUAGES_TIME_SPAN", payload:result.data})
         })
+
+
+        
+       ////////////////////JOBS API
+
+       //COMPARISON FEATURE TIME BASED
+
+    //    Axios.get('https://t-ask-api.herokuapp.com/api/comparison/jobs/jobcategories')
+    //    .then(result => {
+    //        const jobsArray = result.data.map(jobs => {
+    //            return {languageName:jobs.name, languageId: jobs.id, isSelect: false, total: jobs.totalJobs}
+    //        })
+    //        dispatch({type:})
+    //    })
+
+       Axios.get('https://t-ask-api.herokuapp.com/api/comparison/jobs/locations')
+       .then(result => {
+           //COMPARISON FEATURE LOCATION BASED
+           //USA DATA
+           const jobsUsa = result.data[0].data;
+           dispatch({type: "SET_ALL_JOBS_USA", payload: jobsUsa})
+
+            //CANADA DATA
+            const jobsCanada = result.data[1].data;
+            dispatch({type: "SET_ALL_JOBS_CANADA", payload: jobsCanada})
+       })
+
+       //GET ALL JOBS TIME SPAN
+       Axios.get('https://t-ask-api.herokuapp.com/api/comparison/jobs/languages')
+       .then(result => {
+           dispatch({type: "SET_ALL_JOBS_TIME_SPAN", payload: result.data})
+       })
 
         
     },[dispatch])
