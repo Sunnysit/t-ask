@@ -2,8 +2,10 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 
 import Comparison from '../home/comparison/Comparison'
-import LineGraph from '../home/comparison/LineGraph'
-import BarGraphLang from '../home/comparison/BarGraphLang'
+
+import LineGraph from '../home/comparison/Languages/LineGraph'
+import BarGraphLang from '../home/comparison/Languages/BarGraphLang'
+
 
 const HomeHero = () => {
 

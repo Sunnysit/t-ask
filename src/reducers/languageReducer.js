@@ -2,7 +2,7 @@ const initState = {
 
     /* List of languages data*/
 
-    /* For trending feature based on tine*/
+    /* For comparison feature based on time*/
     languages: [],
 
     /* For comparison feature based on location- USA*/
@@ -36,12 +36,6 @@ const initState = {
 const languageReducer = (state = initState, action) => {
     switch (action.type) {
 
-        case "SET_GRAPH_TYPE":
-            return {
-                ...state,
-                graphDisplay: !state.graphDisplay
-            }
-
         case "SET_ALL_LANGUAGES":
             return {
                 ...state,
@@ -60,6 +54,12 @@ const languageReducer = (state = initState, action) => {
             return {
                 ...state,
                 languagesCanada: action.payload
+            }
+
+        case "SET_GRAPH_TYPE":
+            return {
+                ...state,
+                graphDisplay: !state.graphDisplay
             }
 
         case "SET_TRENDING_LANGUAGES_DATA_USA":

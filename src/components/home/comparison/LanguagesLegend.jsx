@@ -4,7 +4,6 @@ import { useSelector} from 'react-redux';
 const LanguagesLegend = () => {
 
     let selectLanguages = useSelector(state=> state.languages.selectedLanguages);
-    console.log(selectLanguages);
 
     return (
         <div className="languages-legend">
