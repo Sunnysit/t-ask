@@ -34,31 +34,31 @@ const Comparison = () => {
             //COMPARISON FEATURE LOCATION BASED
             //USA DATA
             const languagesUsa =result.data[0].data;
-            const languageLocationUsa=languagesUsa.map(language => {
-                let languageObject = language.name;
-                return {[languageObject]: language.trend}
-            })
-            let languagesLocationUsa = {};
-            for(let i = 0; i < languageLocationUsa.length; i++){
-                let singleLanguage = languageLocationUsa[i];
-                languagesLocationUsa = {...languagesLocationUsa, ...singleLanguage}
-            }
-            languagesLocationUsa = {country:'USA', ...languagesLocationUsa}
-            dispatch({type: "SET_ALL_LANGUAGES_USA", payload:languagesLocationUsa})
+            // const languageLocationUsa=languagesUsa.map(language => {
+            //     let languageObject = language.name;
+            //     return {[languageObject]: language.trend}
+            // })
+            // let languagesLocationUsa = {};
+            // for(let i = 0; i < languageLocationUsa.length; i++){
+            //     let singleLanguage = languageLocationUsa[i];
+            //     languagesLocationUsa = {...languagesLocationUsa, ...singleLanguage}
+            // }
+            // languagesLocationUsa = {country:'USA', ...languagesLocationUsa}
+            dispatch({type: "SET_ALL_LANGUAGES_USA", payload:languagesUsa})
 
             //CANADA DATA
             const languagesCanada = result.data[1].data;
-            const languageLocationCanada=languagesCanada.map(language => {
-                let languageObject = language.name;
-                return {[languageObject]: language.trend}
-            })
-            let languagesLocationCanada = {};
-            for(let i = 0; i < languageLocationCanada.length; i++){
-                let singleLanguage = languageLocationCanada[i];
-                languagesLocationCanada = {...languagesLocationCanada, ...singleLanguage}
-            }
-            languagesLocationCanada = {country:'Canada', ...languagesLocationCanada}
-            dispatch({type: "SET_ALL_LANGUAGES_CANADA", payload:languagesLocationCanada})
+            // const languageLocationCanada=languagesCanada.map(language => {
+            //     let languageObject = language.name;
+            //     return {[languageObject]: language.trend}
+            // })
+            // let languagesLocationCanada = {};
+            // for(let i = 0; i < languageLocationCanada.length; i++){
+            //     let singleLanguage = languageLocationCanada[i];
+            //     languagesLocationCanada = {...languagesLocationCanada, ...singleLanguage}
+            // }
+            // languagesLocationCanada = {country:'Canada', ...languagesLocationCanada}
+            dispatch({type: "SET_ALL_LANGUAGES_CANADA", payload:languagesCanada})
 
 
 
