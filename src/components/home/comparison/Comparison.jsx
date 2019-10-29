@@ -38,11 +38,13 @@ const Comparison = () => {
             //COMPARISON FEATURE LOCATION BASED
             //USA DATA
             const languagesUsa =result.data[0].data;
+
             dispatch({type: "SET_ALL_LANGUAGES_USA", payload:languagesUsa})
 
             //CANADA DATA
             const languagesCanada = result.data[1].data;
             dispatch({type: "SET_ALL_LANGUAGES_CANADA", payload:languagesCanada})
+
 
 
 
