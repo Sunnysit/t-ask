@@ -47,9 +47,9 @@ const BarGraphLangUSA = () => {
                 indexBy="country"
                 margin={{
                 top: 50,
-                right: 60,
+                right: 10,
                 bottom: 50,
-                left: 60
+                left: 10
             }}
                 padding={0.35}
                 groupMode='grouped'
