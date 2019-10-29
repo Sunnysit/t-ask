@@ -29,3 +29,13 @@
     }
 }
   
+
+.contact-body{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form{
+  grid-column-start:2;
+  grid-column-end: -1;
+}
