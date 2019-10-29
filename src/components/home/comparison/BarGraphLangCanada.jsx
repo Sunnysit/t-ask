@@ -11,8 +11,6 @@ const BarGraphLangCanada = () => {
     const [barGraphData, setBarGraphData] = useState([]);
     const [barGraphKeys, setBarGraphKeys] = useState([]);
 
-    console.log(dataCanada);
-
     useEffect(() => {
         //filter data from the selectedLanguages
     const selectedDataCanada = dataCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
