@@ -136,7 +136,7 @@ const ListMembers = () => {
             ]
         }, {
             name: 'Satnam Singh Sandhu',
-            role: 'UX and UI Designer',
+            role: 'UX and UI Designer/Front End Developer',
             description: 'Graduate in Computer Science. Able to complete layout designs and front end codi' +
                     'ng for a  website. Desire to learn from any source, either from school programs ' +
                     'or online. Will be responsible for assisting the design team.',
