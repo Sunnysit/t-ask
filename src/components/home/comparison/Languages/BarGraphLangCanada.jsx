@@ -51,7 +51,7 @@ const BarGraphLangCanada = () => {
                 left: 10
             }}
                 padding={0.1}
-                innerPadding={6}
+                innerPadding={10}
                 minValue={0}
                 maxValue={100}
                 groupMode='grouped'
@@ -84,8 +84,8 @@ const BarGraphLangCanada = () => {
                     direction: 'column',
                     justify: false,
                     translateX: 40,
-                    translateY: -10,
-                    itemsSpacing: 45,
+                    translateY: 0,
+                    itemsSpacing: 40,
                     itemWidth: 10,
                     itemHeight: 22,
                     itemDirection: 'top-to-bottom',
