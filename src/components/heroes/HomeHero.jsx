@@ -1,5 +1,5 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import Comparison from '../home/comparison/Comparison'
 
@@ -9,9 +9,19 @@ import BarGraphLang from '../home/comparison/Languages/BarGraphLang'
 
 const HomeHero = () => {
 
-    const graphType = useSelector(state=> state.languages.graphDisplay);
+    const graphType = useSelector(state => state.languages.graphDisplay);
+    const dropDown = useSelector(state => state.languages.dropDown);
+
+    const dispatch = useDispatch();
+
+    const handleDropDown = () => {
+        if(dropDown === false){
+            dispatch({type:"CLOSE_DROPDOWN"})
+        }
+    }
+
     return (
-        <div className="hero-home hero">
+        <div className="hero-home hero" onClick={handleDropDown}>
             <h1>Welcome to T-ask</h1>
             <p>Here we explain how the comparison works</p>
             <div className="placeholder placeholder-comparison-feature">

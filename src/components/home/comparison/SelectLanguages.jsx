@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const SelectLanguage = () => {
@@ -11,6 +11,7 @@ const SelectLanguage = () => {
     /* GRAB INFORMATION FROM REDUCER*/
     const selectLanguages = useSelector(state => state.languages.selectedLanguages);
     const languagesState = useSelector(state => state.languages.languages);
+    const dropDown = useSelector(state=> state.languages.dropDown);
 
     //console.log(selectLanguages);
 
@@ -18,10 +19,10 @@ const SelectLanguage = () => {
 
 
     
-    const [displayDropDown, setDisplayDropDown] = useState(true);
+    //const [displayDropDown, setDisplayDropDown] = useState(true);
     
     let handleDropDown = () => {
-        setDisplayDropDown(!displayDropDown)
+        dispatch({type:"DROPDOWN"})
     }
 
     const handleSelectLanguage = (e) => {
@@ -97,7 +98,7 @@ const SelectLanguage = () => {
     return (
         <div className="select-language-body">
             <button onClick={handleDropDown}>Languages</button>
-            {!displayDropDown ? (
+            {!dropDown ? (
                 <div className="drop-down active">
                     <ul className="languages">
                     { languagesState.map(language => <li className={language.isSelect ? 'selected' : null} onClick={handleSelectLanguage }key={language.languageId} value={language.languageId}>{language.languageName}</li>) }
