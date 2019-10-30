@@ -3,6 +3,11 @@
     .team-member-card{
       margin-top: 1rem;
       margin-bottom: 2rem;
+
+      .image-container{
+        width: 25%;
+        height: 25%;
+      }
   
       h2,
       .role{
