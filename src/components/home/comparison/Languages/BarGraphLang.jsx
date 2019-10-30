@@ -5,7 +5,7 @@ import BarGraphLangUSA from '../Languages/BarGraphLangUSA';
 
 const BarGraphLang = () => {
     return (
-        <div className="bar-graph-container">
+        <div className="bar-graph-lang-container">
             <BarGraphLangCanada/>
             <BarGraphLangUSA/>
 

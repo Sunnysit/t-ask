@@ -41,6 +41,7 @@ const UserPickLanguage = () => {
             if (language.languageId === selectLanguageId){
                 languageIndex = index;
             }
+            return language
         })
 
         const language = remainingLanguageRank[languageIndex];

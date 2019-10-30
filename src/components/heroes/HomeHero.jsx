@@ -5,7 +5,7 @@ import Comparison from '../home/comparison/Comparison'
 
 import LineGraph from '../home/comparison/Languages/LineGraph'
 import BarGraphLang from '../home/comparison/Languages/BarGraphLang'
-
+import BarGraphJobs from '../home/comparison/Jobs/BarGraphJobs'
 
 const HomeHero = () => {
 
@@ -15,8 +15,8 @@ const HomeHero = () => {
     const dispatch = useDispatch();
 
     const handleDropDown = () => {
-        if(dropDown === false){
-            dispatch({type:"CLOSE_DROPDOWN"})
+        if (dropDown === false) {
+            dispatch({type: "CLOSE_DROPDOWN"})
         }
     }
 
@@ -28,9 +28,13 @@ const HomeHero = () => {
                 <p>Here is the comparison feature</p>
                 <Comparison/>
                 <div className="graph-container">
-                    {graphType ? <LineGraph/> : <BarGraphLang/>} 
-                    
-                
+                    {graphType
+                        ? <LineGraph/>
+                        : <div className="bar-graphs">
+                            <BarGraphLang/>
+                            <BarGraphJobs/>
+                        </div>
+}
 
                 </div>
             </div>
