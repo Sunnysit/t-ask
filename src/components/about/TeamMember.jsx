@@ -15,6 +15,7 @@ const TeamMember = (props) => {
 
     return (
         <div className="team-member-card">
+            <img src={teamMember.images[0]} alt=""/>
             <h2>{teamMember.name}</h2>
             <p className="role">{teamMember.role}</p>
             <p>{teamMember.description}</p>
