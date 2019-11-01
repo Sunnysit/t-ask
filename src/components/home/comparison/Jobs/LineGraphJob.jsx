@@ -20,7 +20,6 @@ const LineGraphJob = () => {
                 if(targetData)
                 {
                     let timeSpansArray = targetData.timeSpansArray;
-                    console.log(timeSpansArray);
                     let languageDataSet = [];
                     for(let i=0;i<9;i++)
                     {   

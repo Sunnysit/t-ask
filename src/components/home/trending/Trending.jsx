@@ -2,7 +2,7 @@ import React from 'react';
 
 import Top3Languages from './Top3Languages';
 import Top3Jobs from './Top3Jobs';
-import Top10Jobs from './Top10Jobs';
+
 
 const Trending = () => {
 
@@ -18,7 +18,6 @@ const Trending = () => {
             <div className="trending-jobs">
                 <h2>Trending Jobs</h2>
                 <Top3Jobs/>
-                <Top10Jobs/>
             </div>
         </div>
     )

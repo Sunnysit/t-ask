@@ -124,6 +124,19 @@ const Comparison = () => {
            dispatch({type: "SET_ALL_JOBS_TIME_SPAN", payload: result.data})
        })
 
+
+       //GET JOBS categories for Top 3 trending 
+       Axios.get('https://t-ask-api.herokuapp.com/api/comparison/jobs/jobcategories')
+       .then(result => {
+      
+           const usaData = result.data[0].data;
+
+           const canadaData = result.data[1].data;
+           dispatch({type: "SET_ALL_JOBS_CATEGORY_USA", payload: usaData});
+           dispatch({type: "SET_ALL_JOBS_CATEGORY_CANADA", payload: canadaData})
+       })
+
+
         
     },[dispatch])
     return(
