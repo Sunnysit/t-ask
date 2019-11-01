@@ -9,7 +9,7 @@ const ArticleItem = (props) => {
         <li className="article-list-item">
             <article className="article">
                 <h2>
-                    <a target="_blank" href={article.link}>{article.title}</a>
+                    <a rel="noopener noreferrer" target="_blank" href={article.link}>{article.title}</a>
                 </h2>
                 <p>{article.author}</p>
                 <p>{article.date}</p>
