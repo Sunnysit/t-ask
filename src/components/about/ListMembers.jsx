@@ -17,6 +17,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/karlalopez3d/", "https://github.com/KarlaLGA"
             ],
+            images: ["./assets/photos-team/Karla.JPG", "./assets/photos-team/Karla_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',
@@ -39,6 +40,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/sunnyxue/", 'https://github.com/Sunnysit'
             ],
+            images: ["./assets/photos-team/Sunny.JPG", "./assets/photos-team/Sunny_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',
@@ -60,6 +62,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/juanfernandotirado/", 'https://github.com/juanfernandotirado'
             ],
+            images: ["./assets/photos-team/Juan.JPG", "./assets/photos-team/Juan_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',
@@ -81,6 +84,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/rafaelmonte", 'http://github.com/rafaelgsm'
             ],
+            images: ["./assets/photos-team/Rafael.JPG", "./assets/photos-team/Rafael_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',
@@ -103,6 +107,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/educonsolo/", 'https://www.behance.net/educonsolo'
             ],
+            images: ["./assets/photos-team/Luis.JPG", "./assets/photos-team/Luis_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',
@@ -125,6 +130,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/dianagunawan/", 'https://www.behance.net/dianagunawan'
             ],
+            images: ["./assets/photos-team/Diana.JPG", "./assets/photos-team/Diana_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',
@@ -146,6 +152,7 @@ const ListMembers = () => {
             link: [
                 "https://www.linkedin.com/in/satnam-sandhu-73492a196/", 'https://www.behance.net/satnamsingh4'
             ],
+            images: ["./assets/photos-team/Satnam.JPG", "./assets/photos-team/Satnam_Funny.JPG"],
             socialArray: [
                 {
                     social: 'LinkedIn',

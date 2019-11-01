@@ -3,9 +3,9 @@ import {useSelector} from 'react-redux';
 
 import {ResponsiveBar} from '@nivo/bar';
 
-const BarGraphLangCanada = () => {
+const BarGraphJobsCanada = () => {
 
-    const dataCanada = useSelector(state => state.languages.languagesCanada);
+    const dataCanada = useSelector(state => state.jobs.jobsCanada);
     const selectedLanguages = useSelector(state=> state.languages.selectedLanguages);
 
     const [barGraphData, setBarGraphData] = useState([]);
@@ -20,7 +20,7 @@ const BarGraphLangCanada = () => {
     //Canada
     const languageLocationCanada=selectedDataCanada.map(language => {
         let languageObject = language.name;
-        return {[languageObject]: language.trend}
+        return {[languageObject]: language.totalJobs}
     })
     let languagesLocationCanada = {};
     for(let i = 0; i < languageLocationCanada.length; i++){
@@ -46,11 +46,14 @@ const BarGraphLangCanada = () => {
                 indexBy="country"
                 margin={{
                 top: 50,
-                right: 10,
+                right: 65,
                 bottom: 50,
                 left: 10
             }}
-                padding={0.35}
+                padding={0.1}
+                innerPadding={10}
+                minValue={0}
+                maxValue={100}
                 groupMode='grouped'
                 layout='horizontal'
                 reverse={true}
@@ -77,15 +80,15 @@ const BarGraphLangCanada = () => {
             }}
                 legends={[{
                     dataFrom: 'keys',
-                    anchor: 'top',
-                    direction: 'row',
+                    anchor: 'right',
+                    direction: 'column',
                     justify: false,
-                    translateX: 0,
-                    translateY: -39,
-                    itemsSpacing: 2,
-                    itemWidth: 109,
+                    translateX: 40,
+                    translateY: 0,
+                    itemsSpacing: 40,
+                    itemWidth: 10,
                     itemHeight: 22,
-                    itemDirection: 'left-to-right',
+                    itemDirection: 'top-to-bottom',
                     itemOpacity: 0.85,
                     symbolSize: 12,
                     effects: [
@@ -98,6 +101,7 @@ const BarGraphLangCanada = () => {
                     ]
                 }
             ]}
+                
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}/>
@@ -106,4 +110,4 @@ const BarGraphLangCanada = () => {
         
  
 
-export default BarGraphLangCanada
+export default BarGraphJobsCanada

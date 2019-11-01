@@ -3,9 +3,9 @@ import {useSelector} from 'react-redux';
 
 import {ResponsiveBar} from '@nivo/bar';
 
-const BarGraphLangUSA = () => {
+const BarGraphJobsUSA = () => {
 
-    const dataUsa = useSelector(state => state.languages.languagesUsa);
+    const dataUsa = useSelector(state => state.jobs.jobsUsa);
     const selectedLanguages = useSelector(state=> state.languages.selectedLanguages);
 
     const [barGraphData, setBarGraphData] = useState([]);
@@ -20,7 +20,7 @@ const BarGraphLangUSA = () => {
     //USA
     const languageLocationUsa=selectedDataUsa.map(language => {
         let languageObject = language.name;
-        return {[languageObject]: language.trend}
+        return {[languageObject]: language.totalJobs}
     })
     let languagesLocationUsa = {};
     for(let i = 0; i < languageLocationUsa.length; i++){
@@ -51,7 +51,10 @@ const BarGraphLangUSA = () => {
                 bottom: 50,
                 left: 10
             }}
-                padding={0.35}
+                padding={0.1}
+                innerPadding={10}
+                minValue={0}
+                maxValue={100}
                 groupMode='grouped'
                 colors={{
                 scheme: 'nivo'
@@ -84,4 +87,4 @@ const BarGraphLangUSA = () => {
         
  
 
-export default BarGraphLangUSA
+export default BarGraphJobsUSA

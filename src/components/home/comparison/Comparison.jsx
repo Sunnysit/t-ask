@@ -38,12 +38,23 @@ const Comparison = () => {
             //COMPARISON FEATURE LOCATION BASED
             //USA DATA
             const languagesUsa =result.data[0].data;
-
-            dispatch({type: "SET_ALL_LANGUAGES_USA", payload:languagesUsa})
+            const languagesUsaPercentage = languagesUsa.map(language => {
+                if(language.trend === 0){
+                    language.trend = 0.01;
+                }
+                return{id_language:language.id_language, name:language.name, description: language.description, trend:parseFloat((language.trend*100).toFixed(2))}
+            })
+            dispatch({type: "SET_ALL_LANGUAGES_USA", payload:languagesUsaPercentage})
 
             //CANADA DATA
             const languagesCanada = result.data[1].data;
-            dispatch({type: "SET_ALL_LANGUAGES_CANADA", payload:languagesCanada})
+            const languagesCanadaPercentage = languagesCanada.map(language => {
+                if(language.trend === 0){
+                    language.trend = 0.01;
+                }
+                return{id_language:language.id_language, name:language.name, description: language.description, trend:parseFloat((language.trend*100).toFixed(2))}
+            })
+            dispatch({type: "SET_ALL_LANGUAGES_CANADA", payload:languagesCanadaPercentage})
 
 
 
@@ -89,11 +100,23 @@ const Comparison = () => {
            //COMPARISON FEATURE LOCATION BASED
            //USA DATA
            const jobsUsa = result.data[0].data;
-           dispatch({type: "SET_ALL_JOBS_USA", payload: jobsUsa})
+           const jobsUsaPercentage = jobsUsa.map(job => {
+            if(job.totalJobs === 0){
+                job.totalJobs = 1;
+            }
+            return{id_language:job.id_language, name:job.name, totalJobs:job.totalJobs}
+        })
+           dispatch({type: "SET_ALL_JOBS_USA", payload: jobsUsaPercentage})
 
             //CANADA DATA
             const jobsCanada = result.data[1].data;
-            dispatch({type: "SET_ALL_JOBS_CANADA", payload: jobsCanada})
+            const jobsCanadaPercentage = jobsCanada.map(job => {
+                if(job.totalJobs === 0){
+                    job.totalJobs = 1;
+                }
+                return{id_language:job.id_language, name:job.name, totalJobs:job.totalJobs}
+            })
+            dispatch({type: "SET_ALL_JOBS_CANADA", payload: jobsCanadaPercentage})
        })
 
        //GET ALL JOBS TIME SPAN

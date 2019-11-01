@@ -29,7 +29,9 @@ const initState = {
 
     languageTimeSpan: [],
 
-    top3LangToggle: true
+    top3LangToggle: true,
+
+    dropDown: true,
 
 }
 
@@ -127,6 +129,22 @@ const languageReducer = (state = initState, action) => {
                 return {
                     ...state,
                     top3LangToggle: !state.top3LangToggle
+                }
+            }
+
+        case "DROPDOWN":
+            {
+                return {
+                    ...state,
+                    dropDown: !state.dropDown
+                }
+            }
+        
+        case "CLOSE_DROPDOWN":
+            {
+                return {
+                    ...state,
+                    dropDown: true
                 }
             }
 
