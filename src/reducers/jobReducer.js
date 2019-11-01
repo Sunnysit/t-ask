@@ -14,6 +14,14 @@ const initState = {
     /* For comparison feature based on time*/
     jobsTimeSpan: [],
 
+     /* For trending top 3 feature based on location- USA*/
+    jobCategoryDataUsa:[],
+
+    /* For trending top 3 feature based on location- Canada*/
+    jobCategoryDataCanada:[],
+
+    top3JobToggle: true,
+
 
   
 }
@@ -44,7 +52,27 @@ const jobReducer = (state = initState, action) => {
                 ...state,
                 jobsTimeSpan: action.payload
             }
+
+        case "SET_ALL_JOBS_CATEGORY_USA":
+            return{
+                ...state,
+                jobCategoryDataUsa: action.payload
+            }    
        
+        case "SET_ALL_JOBS_CATEGORY_CANADA":
+            return{
+                ...state,
+                jobCategoryDataCanada: action.payload
+            }    
+
+        case "SWITCH_TOP3_COUNTRY_JOB":
+            {
+                return {
+                    ...state,
+                    top3JobToggle: !state.top3JobToggle
+                }
+            }
+            
         default:
             return state
     }

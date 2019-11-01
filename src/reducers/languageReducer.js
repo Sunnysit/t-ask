@@ -125,7 +125,7 @@ const languageReducer = (state = initState, action) => {
             }
 
         case "SWITCH_TOP3_COUNTRY":
-            {
+            {   
                 return {
                     ...state,
                     top3LangToggle: !state.top3LangToggle
