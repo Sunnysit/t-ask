@@ -14,7 +14,6 @@ const Comparison = () => {
 
     useEffect(() => {
 
-
         ////////////////////LANGUAGES API
 
         //COMPARISON FEATURE TIME BASED
