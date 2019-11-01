@@ -3,11 +3,11 @@ import { useSelector} from 'react-redux';
 import { ResponsiveLine } from '@nivo/line';
 
 
-const LineGraph = () => {
+const LineGraphJob = () => {
 
     const [graphData,setGraphData] = useState([]);
     const selectLanguages = useSelector(state => state.languages.selectedLanguages);
-    const languageTimeSpan = useSelector(state => state.languages.languageTimeSpan);
+    const jobTimeSpan = useSelector(state => state.jobs.jobsTimeSpan);
 
     useEffect(() => {
 
@@ -15,25 +15,43 @@ const LineGraph = () => {
 
         selectLanguages.map(lang=>{
           
-               const targetData = languageTimeSpan.find(langData => lang.languageName === langData.language.name)
+               const targetData = jobTimeSpan.find(langData => lang.languageName === langData.language.name)
          
                 if(targetData)
                 {
                     let timeSpansArray = targetData.timeSpansArray;
-                    
-                    const languageDataSet = timeSpansArray.map(singleSpan=>{
-                            return {
-                            x: `${singleSpan.start.substring(0, 4)}-${singleSpan.start.substring(5,7)}`,
-                            y: singleSpan.total,
-                            year:singleSpan.start.substring(0, 4),
-                            timePeriod:singleSpan.id_timespan
-                            }
-                    });
+                    console.log(timeSpansArray);
+                    let languageDataSet = [];
+                    for(let i=0;i<9;i++)
+                    {   
+                
+                        let time = Math.floor(2015+(i/2));
+                        if(i%2===0)
+                        {
+                            time += '-01'
+                        }
+                        else{
+                            time += '-07'
+                        }
 
-                    languageDataSet.sort((a, b)=>{
-                                    return a.year - b.year
-                                });
-                  
+                        let yValue = 0;
+
+                        //Update job Total count for Y axis
+                        timeSpansArray.forEach(singleSpan => {
+                            let spanPeriod = `${singleSpan.start.substring(0, 4)}-${singleSpan.start.substring(5,7)}`;
+                            if(spanPeriod === time)
+                            {
+                                yValue = singleSpan.totalJobs;
+                            }
+                        });
+
+                        languageDataSet.push({
+                            x: time,
+                            y:yValue,
+                           
+                        })
+                    }
+
 
                     transferResult.push({
                         id: targetData.language.name,
@@ -46,11 +64,11 @@ const LineGraph = () => {
         })
 
         setGraphData(transferResult);
-    },[selectLanguages,languageTimeSpan])
+    },[selectLanguages,jobTimeSpan])
 
 
     return ( 
-    <div className="line-graph-lang-container">
+    <div className="line-graph-job-container">
         <ResponsiveLine
         data={graphData}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -63,7 +81,7 @@ const LineGraph = () => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'Repository Amount',
+            legend: 'Job Amount',
             legendOffset: 70,
             legendPosition: 'middle'
         }}
@@ -113,4 +131,4 @@ const LineGraph = () => {
     </div> );
 }
  
-export default LineGraph;
+export default LineGraphJob;

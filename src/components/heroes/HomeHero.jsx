@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Comparison from '../home/comparison/Comparison'
 
 import LineGraph from '../home/comparison/Languages/LineGraph'
+import LineGraphJob from '../home/comparison/Jobs/LineGraphJob'
 import BarGraphLang from '../home/comparison/Languages/BarGraphLang'
 import BarGraphJobs from '../home/comparison/Jobs/BarGraphJobs'
 
@@ -29,11 +30,14 @@ const HomeHero = () => {
                 <Comparison/>
                 <div className="graph-container">
                     {graphType
-                        ? <LineGraph/>
-                        : <div className="bar-graphs">
+                        ? ( <div className="line-graphs">
+                            <LineGraph/>
+                            <LineGraphJob/>
+                            </div>)
+                        : (<div className="bar-graphs">
                             <BarGraphLang/>
                             <BarGraphJobs/>
-                        </div>
+                        </div>)
 }
 
                 </div>
