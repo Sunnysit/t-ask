@@ -44,13 +44,14 @@ const Top3Languages = () => {
             <div className="trending-language-container">
                 <ul className="trending-language-list">
                     {top3Languages.map((lang,index) => {
+                            console.log(lang);
                         return <li key={lang.languageId} className="tending-language-item">
                             <p className="logo-name">{lang.languageName}</p>
                             <p className="logo-container">
                                 <span className="rank-text">#0{index+1}</span>
                                 <img
                                     className="language-logo"
-                                    src="/assets/language-icon/csharp.png"
+                                    src={lang.logoUrl}
                                     alt={lang.languageName}/>
                             </p>
                             <p className="language-description">{lang.languageDescription}</p>

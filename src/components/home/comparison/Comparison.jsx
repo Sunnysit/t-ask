@@ -51,13 +51,13 @@ const Comparison = () => {
             // TRENDING FEATURE
             //USA DATA
             const languagesTrendingUsa = languagesUsa.map((language, index) => {
-                return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description}
+                return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description,logoUrl:language.logoUrl}
             })
             dispatch({type: "SET_TRENDING_LANGUAGES_DATA_USA", payload:languagesTrendingUsa})
 
             //CANADA DATA
             const languagesTrendingCanada = languagesCanada.map((language, index) => {
-                return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description}
+                return {languageName: language.name, languageId: language.id_language, languageRank: index+1, languageDescription: language.description,logoUrl:language.logoUrl}
             })
             dispatch({type: "SET_TRENDING_LANGUAGES_DATA_CANADA", payload:languagesTrendingCanada})
 
