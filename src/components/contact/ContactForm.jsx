@@ -2,13 +2,6 @@ import React, {useState} from 'react'
 import axios from 'axios';
 
 const ContactForm = () => {
-    //only when we cross the state between components, we use redux
-    //
-    // create local state DONE create function for submit, prevent default DONE
-    // create validate trim and make a condition to check if something is in the
-    // input DONE update component DONE error message, display at the end of the
-    // form DONE successful message, delete form if successful DONE use ternary
-    // syntax DONE
 
     const initialForm = {
         name: '',
@@ -103,7 +96,7 @@ const ContactForm = () => {
 
     }
     return (
-        <div className="contact-body">
+        <div className="contact-form">
             {!sent
                 ? (
                     <form action="/contact-message" onSubmit={handleSubmit} className="form">

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const SelectLanguage = () => {
 
+    /*set useRef*/
+    const nameRef = useRef(null);
 
     /* SAVE TO LOCAL STATE*/
     //const [languages, setLanguages] = useState([])
@@ -21,8 +23,11 @@ const SelectLanguage = () => {
     
     //const [displayDropDown, setDisplayDropDown] = useState(true);
     
-    let handleDropDown = () => {
-        dispatch({type:"DROPDOWN"})
+    let handleDropDown = (e) => {
+        if(nameRef.current.contains(e.target)){
+            console.log(nameRef.current);
+            dispatch({type:"DROPDOWN"});
+        }
     }
 
     const handleSelectLanguage = (e) => {
@@ -94,9 +99,8 @@ const SelectLanguage = () => {
         }
     }
     
-    
     return (
-        <div className="select-language-body">
+        <div className="select-language-body" ref={nameRef}>
             <button onClick={handleDropDown}>Languages</button>
             {!dropDown ? (
                 <div className="drop-down active">
