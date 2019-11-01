@@ -45,7 +45,7 @@ const Top3Languages = () => {
                 <ul className="trending-language-list">
                     {top3Languages.map((lang,index) => {
                         return <li key={lang.languageId} className="tending-language-item">
-                            <p className="logo-name">{lang.languageName}</p>
+                            <p className="language-name">{lang.languageName}</p>
                             <p className="logo-container">
                                 <span className="rank-text">#0{index+1}</span>
                                 <img
