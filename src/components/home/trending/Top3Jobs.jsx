@@ -50,15 +50,15 @@ const Top3Jobs = () => {
     }, [jobStateUsa, jobStateCanada, countryToggle]);
 
     return (
-        <section className="tending-language-section">
+        <section className="tending-job-section">
             <div className="switch-container">
-                <Top3Switch type="job"/>
+                <span>Show top job positions in: </span><Top3Switch type="job"/>
             </div>
-            <div className="trending-language-container">
-                <ul className="trending-language-list">
+            <div className="trending-job-container">
+                <ul className="trending-job-list">
                     {top3Jobs.map((job,index) => {
-                        return <li key={job.soc} className="tending-language-item">
-                            <p className="language-name">{job.name}</p>
+                        return <li key={job.soc} className="tending-job-item">
+                            <p className="job-name">{job.name}</p>
                             <p className="logo-container">
                                 <span className="rank-text">#0{index+1}</span>
                                 {/* <img
@@ -66,6 +66,7 @@ const Top3Jobs = () => {
                                     src={lang.logoUrl}
                                     alt={job.name}/> */}
                             </p>
+                            <p className="job-description"></p>
                         </li>
                     })
 }

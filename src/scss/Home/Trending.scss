@@ -1,12 +1,15 @@
-.trending-language-container{
+.trending-language-container,
+.trending-job-container{
 
-    .trending-language-list{
+    .trending-language-list,
+    .trending-job-list{
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
     }
 
-    .tending-language-item{
+    .tending-language-item,
+    .tending-job-item{
         border: 1px solid black;
         width: 23%;
         display: flex;
@@ -25,7 +28,8 @@
         height: 70px;
     }
     
-    .language-name{
+    .language-name,
+    .job-name{
         font-weight: bold;
         font-size: 1.2rem;
         text-align: center;
@@ -36,7 +40,8 @@
         margin: 0 10px;
     }
 
-    .language-description{
+    .language-description,
+    .job-description{
         text-align: center;
         margin: 10px 8px;
     }

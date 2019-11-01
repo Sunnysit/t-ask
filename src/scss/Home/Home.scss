@@ -1,0 +1,27 @@
+//Hero Section
+@import './Heroes.scss';
+
+@import './Dropdown.scss';
+
+@import './ToggleSwitch.scss';
+
+
+//Trending Section
+@import './Trending.scss';
+
+
+//Other styles
+.other-section{
+    margin: 4rem 0;
+
+    .section-description{
+        text-align: center;
+    }
+
+    .links-container{
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+    }
+}

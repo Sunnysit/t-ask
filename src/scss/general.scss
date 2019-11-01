@@ -35,3 +35,21 @@ img{
         background-color: #282664;
     }
 }
+
+.btn-outline{
+    all:unset;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: 2px solid #282664;;
+    color: #282664;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s all ease-in;
+    font-weight: bold;
+
+    &:hover,
+    &:focus{
+        background-color: #282664;
+        color: white;
+    }
+}
