@@ -1,31 +1,15 @@
-import React ,{ useState ,useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import React from 'react';
+import { useDispatch} from 'react-redux';
 
 const Top3Switch = (props) => {
 
     const dispatch = useDispatch();
 
+    //Get toggle type from parent
     const switchType = props.type;
-
-    const countryToggleJob = useSelector(state => state.jobs.top3JobToggle);
-    const countryToggleLanguage = useSelector(state => state.languages.top3LangToggle);
-
-
-    const [toggle,setToggle] = useState(true);
    
- 
-
-    useEffect(()=>{
-
-        switch(switchType)
-        {   
-            default:
-            case "language": setToggle(countryToggleLanguage);  break;
-            case "job":  setToggle(countryToggleJob); break;
-        }
-
-
-    },[countryToggleLanguage,countryToggleJob,switchType])
+    //Get toggle value from parent
+    const toggle = props.toggle;
     
 
     const handleSwitch = () => {
