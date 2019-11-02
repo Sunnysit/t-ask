@@ -6,15 +6,14 @@ const Header = () => {
         <header className="header">
             <div className="logo-container">
                 <button className="home-link">
+                <Link to="/">
                 <img className="logo-desktop" src="./assets/icons/logo-desktop.svg" alt="task-logo"/>
                 <img className="logo-mobile" src="./assets/icons/logo-mobile.svg" alt="task-logo"/>
+                </Link>
                 </button>
             </div>
             <nav className="header-navigation">
                 <ul className="navigation">
-                    <li className="navigation-item">
-                        <Link to="/">Home</Link>
-                    </li>
                     <li className="navigation-item">
                         <Link to="/articles">Articles</Link>
                     </li>

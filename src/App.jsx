@@ -20,7 +20,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main className="App">
+      <main className="app">
         <Route exact path="/" component={ Home } />
         <Route path="/articles" component={ Articles } />
         <Route path="/events" component={ Events } />

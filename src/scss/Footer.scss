@@ -1,7 +1,12 @@
 .footer{
 
-
+    background-color: #282664;
     
+    .footer-navigation{
+        max-width: 1200px;
+        margin:0 auto;
+    }
+
     .navigation{
         display: flex;
         justify-content: space-around;
@@ -19,7 +24,8 @@
 .newsletter-section{   
 
     margin-top: 1rem;
-    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    background-color: #fff;
 
     .newsletter-container{
         border-top: 1px solid #707070;
@@ -62,12 +68,17 @@
 footer .navigation{
     background-color: #282664;
     padding:3rem;
-    margin-bottom:0;
+    margin:0 auto;
+   
 }
 
 .navigation a{
     color:white;
     text-decoration: none;
+}
+
+.footer-link img{
+    width: 120px;
 }
 
 @media screen and (max-width: 680px) {

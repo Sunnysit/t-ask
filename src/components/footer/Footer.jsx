@@ -12,7 +12,7 @@ const Footer = () => {
                 <li className="navigation-item"><a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/" className="footer-link">Facebook</a></li>
                 <li className="navigation-item"><a rel="noopener noreferrer" target="_blank" href="https://twitter.com/" className="footer-link">Twitter</a></li>
                 <li className="navigation-item"><a rel="noopener noreferrer" target="_blank" href="#term" className="footer-link">Terms and conditions</a></li>
-                <li className="navigation-item"><a rel="noopener noreferrer" target="_blank" href="#supporters" className="footer-link">Supporters</a></li>
+                <li className="navigation-item"><a rel="noopener noreferrer" target="_blank" href="https://www.meetup.com/" className="footer-link"><img src="./assets/company/meetup.png" alt="meetup logo"/></a></li>
             </ul>
         </nav>
         <div className="copyright-container">
