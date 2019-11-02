@@ -28,15 +28,28 @@
     }
 
 
-    .navigation{
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 0;
-        padding: 1rem 0;
-
+ 
         a{
             color: white;
             
         }
     }
+
+.header{
+    display: flex;
+}
+
+.header-navigation{
+    width: 100%;
+}
+
+.header .navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    padding: 1rem 0;
+}
+
+.navigation-item{
+    padding-right: 5rem;
 }
