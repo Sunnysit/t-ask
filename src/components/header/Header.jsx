@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 const Header = () => {
     return (
         <header className="header">
+            <section className="header-section">
             <div className="logo-container">
                 <button className="home-link">
                 <Link to="/">
@@ -26,8 +27,12 @@ const Header = () => {
                     <li className="navigation-item">
                         <Link to="/contact">Contact</Link>
                     </li>
+                    <li className="navigation-item">
+                        <Link to="/"><img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/></Link>
+                    </li>
                 </ul>
             </nav>
+            </section>
         </header>
     );
 }
