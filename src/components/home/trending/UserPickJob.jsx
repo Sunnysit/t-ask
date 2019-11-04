@@ -35,10 +35,10 @@ const UserPickJob = () => {
 
     const handleSelectJob = (e) => {
         const selectJobsSoc = Number(e.target.value);
-        console.log(selectJobsSoc);
+        //console.log(selectJobsSoc);
 
         let jobIndex;
-        console.log(jobsRank);
+        //console.log(jobsRank);
 
         jobsRank.map((job, index) => {
             if (job.soc === selectJobsSoc){
@@ -48,7 +48,7 @@ const UserPickJob = () => {
                 else{
                     dispatch({type:"JOB_IS_NOT_IN_TOP_3"});
                 }
-                console.log(job.soc);
+                //console.log(job.soc);
                 jobIndex = index;
             }
             

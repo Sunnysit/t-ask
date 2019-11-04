@@ -33,6 +33,8 @@ const initState = {
 
     dropDown: true,
 
+    isInTop3: true
+
 }
 
 const languageReducer = (state = initState, action) => {
@@ -145,6 +147,20 @@ const languageReducer = (state = initState, action) => {
                 return {
                     ...state,
                     dropDown: true
+                }
+            }
+
+            case "LANGUAGE_IS_NOT_IN_TOP_3" :{
+                return {
+                    ...state,
+                    isInTop3: false
+                }
+            }
+    
+            case "LANGUAGE_IS_IN_TOP_3" :{
+                return {
+                    ...state,
+                    isInTop3: true
                 }
             }
 

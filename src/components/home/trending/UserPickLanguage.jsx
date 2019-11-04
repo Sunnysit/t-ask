@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const UserPickLanguage = () => {
 
-    const [remainingLanguageRank,setRemainingLanguageRank] = useState([]);
+    const [languageRank,setLanguageRank] = useState([]);
     const [languagesDropDown, setLanguagesDropDown] = useState([]);
 
     /* GRAB INFORMATION FROM REDUCER*/
@@ -11,24 +11,25 @@ const UserPickLanguage = () => {
     const languagesStateUsa = useSelector(state => state.languages.languageTrendingDataUsa);
     const languagesStateCanada = useSelector(state => state.languages.languageTrendingDataCanada);
     const countryToggle = useSelector(state => state.languages.top3LangToggle);
+    const isInTop3 = useSelector(state => state.languages.isInTop3);
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
         let remainData = [];
         //Fetch US data
+        setLanguagesDropDown(languagesStateUsa);
         if(countryToggle)
         {
-           remainData = languagesStateUsa.filter(language => language.languageRank > 3);
-           setLanguagesDropDown(remainData);
+           remainData = languagesStateUsa;
         }
         //Fetch Canada data
         else
         {
-           remainData = languagesStateCanada.filter(language => language.languageRank > 3);
+           remainData = languagesStateCanada;
         }
 
-        setRemainingLanguageRank(remainData);
+        setLanguageRank(remainData);
 
     },[countryToggle,languagesStateUsa,languagesStateCanada]);
 
@@ -37,14 +38,20 @@ const UserPickLanguage = () => {
 
         let languageIndex;
 
-        remainingLanguageRank.map((language, index) => {
+        languageRank.map((language, index) => {
             if (language.languageId === selectLanguageId){
+                if(index < 3){
+                    dispatch({type:"LANGUAGE_IS_IN_TOP_3"});
+                }
+                else{
+                    dispatch({type:"LANGUAGE_IS_NOT_IN_TOP_3"});
+                }
                 languageIndex = index;
             }
-            return language
+            return language;
         })
 
-        const language = remainingLanguageRank[languageIndex];
+        const language = languageRank[languageIndex];
         dispatch({type:"SELECT_TRENDING_LANGUAGE", payload:language})
         
     }
@@ -61,8 +68,16 @@ const UserPickLanguage = () => {
             </select> 
 
             <div className="language-selected-info">
-                <p>Language name: {selectLanguage.languageName}</p> 
-                <p>Ranking: {selectLanguage.languageRank}</p>
+                {!isInTop3 ? (
+                    <div className="language-data">
+                        <p>Language name: {selectLanguage.languageName}</p> 
+                        <p>Ranking: {selectLanguage.languageRank}</p>
+                        <p>{selectLanguage.languageDescription}</p>
+                    </div>
+                ) : (
+                    <p>This language is in the top 3. Choose another one.</p>
+                )}
+                
             </div>
         </li>
     )
