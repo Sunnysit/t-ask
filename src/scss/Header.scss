@@ -3,7 +3,7 @@
     background-color: #282664;
 
     .header-section{
-        max-width: 1200px;
+        max-width: $max-window-width;
         margin: 0 auto;
         display: flex;
     }

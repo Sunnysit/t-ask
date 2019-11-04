@@ -19,9 +19,10 @@ img{
 }
 
 .app{
-    max-width: 1200px;
+    max-width: $max-window-width;
     margin: 0 auto;
 }
+
 
 
 /*=====  End of Normalize  ======*/
