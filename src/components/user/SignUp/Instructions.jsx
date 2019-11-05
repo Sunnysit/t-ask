@@ -4,7 +4,6 @@ import {useSelector} from 'react-redux';
 const Instructions = () => {
 
     const languages = useSelector(state => state.languages.languages);
-    console.log(languages);
     return (
         <div className="signup-instructions">
             <div className="step1-instructions">

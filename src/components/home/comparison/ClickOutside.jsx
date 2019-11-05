@@ -12,7 +12,7 @@ function ClickOutside(ref) {
 
     function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
-            console.log("You clicked outside of me!");
+            //console.log("You clicked outside of me!");
             dispatch({type: "CLOSE_DROPDOWN"});
         }
     }
