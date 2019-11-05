@@ -56,7 +56,9 @@
         padding: 10px 15px;
         border-radius: 4px;
         border: 1px solid gray;
-     
+        &:focus{
+            outline-color: #12BBF3;
+        }
     }
 
     .subscribe-message{

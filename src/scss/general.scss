@@ -59,3 +59,45 @@ img{
         color: white;
     }
 }
+
+
+.input-basic{
+    width: 70vw;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid gray;
+    max-width: 500px;
+    &:focus{
+        outline-color: #12BBF3;
+    }
+
+}
+
+.btn-search{
+    all:unset;
+    padding: 10px 24px;
+    background-color: #282664;
+    border: 1px solid #282664;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: .8rem;
+    transition: 0.3s all ease-in;
+    position: relative;
+    left: -5px;
+
+    img{
+        width: 1rem;
+    }
+
+    &:hover,
+    &:focus{
+        background-color: #12BBF3;
+        border: 1px solid #12BBF3;
+    }
+
+}
+
+.search-message{
+    color: red;
+}
