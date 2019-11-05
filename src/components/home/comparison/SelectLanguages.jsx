@@ -13,6 +13,7 @@ const SelectLanguage = () => {
     /* GRAB INFORMATION FROM REDUCER*/
     const selectLanguages = useSelector(state => state.languages.selectedLanguages);
     const languagesState = useSelector(state => state.languages.languages);
+    console.log(languagesState);
     const dropDown = useSelector(state=> state.languages.dropDown);
 
     //console.log(selectLanguages);
