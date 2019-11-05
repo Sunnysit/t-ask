@@ -14,56 +14,64 @@ const initState = {
     /* For comparison feature based on time*/
     jobsTimeSpan: [],
 
-     /* For trending top 3 feature based on location- USA*/
-    jobCategoryDataUsa:[],
+    /* For trending top 3 feature based on location- USA*/
+    jobCategoryDataUsa: [],
 
     /* For trending top 3 feature based on location- Canada*/
-    jobCategoryDataCanada:[],
+    jobCategoryDataCanada: [],
 
     top3JobToggle: true,
 
+    /* For trending feature*/
+    jobTrending: {},
 
-  
+    isInTop3: true
 }
 
 const jobReducer = (state = initState, action) => {
     switch (action.type) {
 
         case "SET_ALL_JOBS":
-            return{
+            return {
                 ...state,
                 jobs: action.payload
             }
-        
+
         case "SET_ALL_JOBS_USA":
-            return{
+            return {
                 ...state,
                 jobsUsa: action.payload
             }
 
         case "SET_ALL_JOBS_CANADA":
-            return{
+            return {
                 ...state,
                 jobsCanada: action.payload
             }
 
         case "SET_ALL_JOBS_TIME_SPAN":
-            return{
+            return {
                 ...state,
                 jobsTimeSpan: action.payload
             }
 
         case "SET_ALL_JOBS_CATEGORY_USA":
-            return{
+            return {
                 ...state,
                 jobCategoryDataUsa: action.payload
-            }    
-       
+            }
+
         case "SET_ALL_JOBS_CATEGORY_CANADA":
-            return{
+            return {
                 ...state,
                 jobCategoryDataCanada: action.payload
-            }    
+            }
+
+        case "SELECT_TRENDING_JOB":
+            return {
+                ...state,
+                jobTrending: action.payload
+            }
 
         case "SWITCH_TOP3_COUNTRY_JOB":
             {
@@ -72,7 +80,21 @@ const jobReducer = (state = initState, action) => {
                     top3JobToggle: !state.top3JobToggle
                 }
             }
-            
+
+        case "JOB_IS_NOT_IN_TOP_3" :{
+            return {
+                ...state,
+                isInTop3: false
+            }
+        }
+
+        case "JOB_IS_IN_TOP_3" :{
+            return {
+                ...state,
+                isInTop3: true
+            }
+        }
+
         default:
             return state
     }

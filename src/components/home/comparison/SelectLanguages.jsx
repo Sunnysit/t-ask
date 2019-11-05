@@ -25,7 +25,7 @@ const SelectLanguage = () => {
     
     let handleDropDown = (e) => {
         if(nameRef.current.contains(e.target)){
-            console.log(nameRef.current);
+            //console.log(nameRef.current);
             dispatch({type:"DROPDOWN"});
         }
     }

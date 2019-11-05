@@ -3,66 +3,87 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const UserPickJob = () => {
 
-    const [remainingLanguageRank,setRemainingLanguageRank] = useState([]);
-    const [languagesDropDown, setLanguagesDropDown] = useState([]);
+    const [jobsRank,setJobsRank] = useState([]);
+    const [jobsDropDown, setJobsDropDown] = useState([]);
 
     /* GRAB INFORMATION FROM REDUCER*/
-    const selectLanguage = useSelector(state => state.languages.languageTrending);
-    const languagesStateUsa = useSelector(state => state.languages.languageTrendingDataUsa);
-    const languagesStateCanada = useSelector(state => state.languages.languageTrendingDataCanada);
-    const countryToggle = useSelector(state => state.languages.top3LangToggle);
+    const selectJob = useSelector(state => state.jobs.jobTrending);
+    const jobsStateUsa = useSelector(state => state.jobs.jobCategoryDataUsa);
+    const jobsStateCanada = useSelector(state => state.jobs.jobCategoryDataCanada);
+    const countryToggle = useSelector(state => state.jobs.top3JobToggle);
+    const isInTop3 = useSelector(state => state.jobs.isInTop3);
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
         let remainData = [];
         //Fetch US data
+        setJobsDropDown(jobsStateUsa);
         if(countryToggle)
         {
-           remainData = languagesStateUsa.filter(language => language.languageRank > 3);
-           setLanguagesDropDown(remainData);
+           remainData = jobsStateUsa;
         }
         //Fetch Canada data
         else
         {
-           remainData = languagesStateCanada.filter(language => language.languageRank > 3);
+           remainData = jobsStateCanada;
         }
+        //console.log(remainData);
+        setJobsRank(remainData);
 
-        setRemainingLanguageRank(remainData);
+    },[countryToggle,jobsStateUsa,jobsStateCanada]);
 
-    },[countryToggle,languagesStateUsa,languagesStateCanada]);
+    const handleSelectJob = (e) => {
+        const selectJobsSoc = Number(e.target.value);
+        //console.log(selectJobsSoc);
 
-    const handleSelectLanguage = (e) => {
-        const selectLanguageId = Number(e.target.value);
+        let jobIndex;
+        //console.log(jobsRank);
 
-        let languageIndex;
-
-        remainingLanguageRank.map((language, index) => {
-            if (language.languageId === selectLanguageId){
-                languageIndex = index;
+        jobsRank.map((job, index) => {
+            if (job.soc === selectJobsSoc){
+                if(index < 3){
+                    dispatch({type:"JOB_IS_IN_TOP_3"});
+                }
+                else{
+                    dispatch({type:"JOB_IS_NOT_IN_TOP_3"});
+                }
+                //console.log(job.soc);
+                jobIndex = index;
             }
-            return language
+            
+            return job;
         })
 
-        const language = remainingLanguageRank[languageIndex];
-        dispatch({type:"SELECT_TRENDING_LANGUAGE", payload:language})
+        const job = jobsRank[jobIndex];
+
         
-    }
-    
+        //console.log(jobIndex);
+        dispatch({type:"SELECT_TRENDING_JOB", payload:job})
+        
+    }    
     
     return (
-        <li className="select-language-body tending-language-item">
-            <p>Trending language for user to choose</p>
+        <li className="select-job-body tending-job-item">
+            <p>Trending job category for user to choose</p>
 
-            <p>Language</p>
-            <select onChange={handleSelectLanguage}>
-                <option value="" defaultValue disabled hidden>Language</option>
-            { languagesDropDown.map((language,index) => <option key={index} value={language.languageId}>{language.languageName}</option>) }
+            <p>Job Category</p>
+            <select onChange={handleSelectJob}>
+                <option value="" defaultValue disabled hidden>Job category</option>
+            {jobsDropDown.map((job,index) => <option key={index} value={job.soc}>{job.name}</option>) }
             </select> 
 
             <div className="language-selected-info">
-                <p>Language name: {selectLanguage.languageName}</p> 
-                <p>Ranking: {selectLanguage.languageRank}</p>
+                {!isInTop3 ? (
+                    <div className="job-data">
+                    <p>Job Category: {selectJob.name}</p> 
+                {/* <p>Ranking: {selectJob.languageRank}</p> */}
+                    </div>
+                    
+                ) : (
+                    <p>This job category is in the top 3. Choose another one.</p>
+                )}
+               
             </div>
         </li>
     )
