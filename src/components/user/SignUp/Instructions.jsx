@@ -8,18 +8,18 @@ const Instructions = () => {
     return (
         <div className="signup-instructions">
             <div className="step1-instructions">
-                <label htmlFor="Name"></label>
+                <label htmlFor="Name">Name</label>
                 <input type="text" name="Name" id="Name"/>
-                <label htmlFor="Email"></label>
+                <label htmlFor="Email">Email</label>
                 <input type="email" name="Email" id="Email"/>
-                <label htmlFor="Password"></label>
+                <label htmlFor="Password">Password</label>
                 <input type="text" name="Password" id="Password"/>
                 <button>Next step</button>
             </div>
             <div className="step2-instructions">
-                <ul className="languages">
-                    {languages.map(language => <li key={language.languageId} value={language.languageId}>{language.languageName}</li>)}
-                </ul>
+                <form action="">
+                {languages.map(language => <label key={language.languageId}><input type="checkbox" value={language.languageId}/>{language.languageName}</label>)}
+                </form>
                 <button>Complete</button>
             </div>
         </div>
