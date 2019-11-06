@@ -3,6 +3,7 @@ import React from 'react';
 const ArticleItem = (props) => {
 
     const article = props.article;
+    // console.log(article);
 
     return (
         <li className="article-list-item">

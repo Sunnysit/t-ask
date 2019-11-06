@@ -25,5 +25,58 @@
 
 .hero-article{
     padding: 0;
+    background-color: #fff;
+
+
+    .article-title{
+        text-align: left;
+        font-size: 30px;
+        order: 0;
+        margin: 0;
+    }
+
+    .carousel-item{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article-thumbnail{
+        order: 1;
+    }
+
+    .article-info-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .article-info{
+        text-align: left;
+    }
+
+    .article-excerpt{
+        order: 2;
+ 
+    }
+
+    .reading-time{
+        margin-left: 1rem;
+    }
+
+    .btn-read-more{
+        order: 2;
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .carousel .slide {
+        background-color: transparent;
+    }
+
+    .carousel .control-dots{
+        position: relative;
+        .dot{
+            background-color: black;
+        }
+    }
 }
 

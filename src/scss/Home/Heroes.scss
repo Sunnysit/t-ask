@@ -5,7 +5,7 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
 
-    p,h1{
+    &.hero-home p,&.hero-home h1{
         text-align: center;
         color: white;
     }
@@ -59,5 +59,10 @@
             }
         }
 
+    }
+
+    .page-title{
+        font-size: 24px;
+        font-weight: normal;
     }
 }
