@@ -33,7 +33,6 @@ const HomeHero = () => {
 
                 </div>
             </div>
-            {/* <BarGraph/> */}
         </div>
     )
 }

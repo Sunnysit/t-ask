@@ -11,6 +11,7 @@ import Search from './views/Search'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import Register from './views/Register'
+import UserDashboard from './views/UserDashboard'
 
 library.add(fab)
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/contact" component={ Contact } />
         <Route path="/search" component={ Search } />
         <Route path="/register" component={ Register } />
+        <Route path="/profile" component={ UserDashboard } />
       </main>
       <Footer />
     </BrowserRouter>
