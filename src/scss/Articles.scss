@@ -1,10 +1,15 @@
 .section-article{
-    max-width: 900px;
+    max-width: $max-window-width;
     margin: 0 auto;
-    text-align: center;
+    padding: 0 .5rem;
+    
 
     .article-search-container{
         margin-top: 1rem;
+
+        .search-message{
+            text-align: center;
+        }
     }
 
     .article-search-form{
@@ -12,10 +17,41 @@
         justify-content: center;
     }
 
+    .article-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .article-list-item{
+        width: 48%;
+        
+        &:nth-child(even){
+            margin-left: 2%;
+        }   
+        &:nth-child(odd){
+            margin-right: 2%;
+        }
+
+        @media screen and (max-width:600px) {
+            width: 96%;
+        }
+
+    }
+
     .article-list .article{
-        border: 1px solid black;
+
         padding: 10px;
         margin: 1rem 0;
+
+        .article-title a{
+            font-size: 1.3rem;
+            color: #000;
+            text-decoration: none;
+        }
+
+        p{
+            margin: .5rem 0;
+        }
     }
 
     .article-thumbnail{
@@ -24,7 +60,7 @@
 }
 
 .hero-article{
-    padding: 0;
+    padding: 0 .5rem;
     background-color: #fff;
 
 
@@ -58,9 +94,7 @@
  
     }
 
-    .reading-time{
-        margin-left: 1rem;
-    }
+  
 
     .btn-read-more{
         order: 2;
@@ -78,5 +112,52 @@
             background-color: black;
         }
     }
+
+    .carousel.carousel-slider .control-arrow:hover{
+        background-color: transparent;
+    }
 }
 
+.carousel-item,
+.article{
+    .source-link{
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .article-footer{
+        display: flex;
+        justify-content: space-between;
+        margin-top: .5rem;
+        
+        .btn-read-more{
+            display: flex;
+            align-items: center;
+        }
+
+       
+    }
+
+    .reading-time{
+        margin-left: 1rem;
+    }
+
+    .article-info-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .action-container{
+        display: flex;
+        
+        .action-icon{
+            width: 1.5rem;
+            margin: .5rem 0 .5rem .5rem;
+            cursor: pointer;
+
+        }
+    }
+    
+}

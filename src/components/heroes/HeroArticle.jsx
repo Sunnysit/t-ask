@@ -43,10 +43,10 @@ const HeroArticle = () => {
     },[]);
 
     //Render carousel item
-    const carouselItems = featureArticles.map(article=>{
+    const carouselItems = featureArticles.map((article,index)=>{
 
         return (
-            <CarouselItem info={article}/>
+            <CarouselItem key={index} info={article}/>
         )
 
     });
@@ -62,18 +62,6 @@ const HeroArticle = () => {
                 autoPlay={true}
                 // showArrows={false}
             >
-                {/* <div>
-                    <img src="https://cdn-images-1.medium.com/fit/t/1600/480/0*qASU92GfMj2HCTMg.jpg" alt="java"/>
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src="https://cdn-images-1.medium.com/fit/t/1600/480/1*E8dtcW7fEoJc7qw20_rTKg.jpeg" alt="python"/>
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="https://cdn-images-1.medium.com/fit/t/1600/480/0*Ki5tlWeeJf2BR0sG" alt="javascript"/>
-                    <p className="legend">Legend 3</p>
-                </div> */}
                 {carouselItems}
             </Carousel>
         </div>

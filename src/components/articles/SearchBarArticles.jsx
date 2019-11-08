@@ -18,7 +18,7 @@ const SearchBarArticles = () => {
     useEffect(()=>{
 
       //No result yet. Start Fetching
-      if(articleResult.length==0)
+      if(articleResult.length===0)
       { 
         setMessage(`Loading Article about Technology...`);
 

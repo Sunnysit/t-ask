@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React  from 'react';
 
 const CarouselItem = (props) => {
 
@@ -11,10 +11,10 @@ const CarouselItem = (props) => {
                 <div className="article-info-container">
                     <div className="article-info">
                     <p className="author">{article.author}</p>
-                        <p><span className="date">{article.date}</span><span className="reading-time">{article.readingTime}</span></p>
+                    <p><span className="date">{article.date}</span><span className="reading-time">{article.readingTime}</span></p>
                     </div>
                     <div className="source-container">
-                       <p>Source: <a className="source-link">Medium</a></p>
+                       <p>Powered by: <a rel="noopener noreferrer" target="_blank" href="https://medium.com/" className="source-link">Medium</a></p>
                     </div>
                 </div>
                 <p className="article-excerpt">{article.description}</p>
