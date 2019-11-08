@@ -31,7 +31,7 @@ const LogIn = () => {
             </div>
             <div className="footer-popup">
                 Not a member?
-                <Link to="register" className="popup-text"> Sign up here!</Link>
+                <Link to="register" className="popup-text" onClick={close}> Sign up here!</Link>
             </div>
 
         </div>

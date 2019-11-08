@@ -1,5 +1,6 @@
 const initState = {
-    userLogged: false
+    userLogged: false,
+    registration: false
 }
 
 const userReducer = ( state=initState, action) => {
@@ -8,6 +9,12 @@ const userReducer = ( state=initState, action) => {
             return {
                 ...state,
                 userLogged: true
+            }
+
+        case "USER_REGISTRATION":
+            return{
+                ...state,
+                registration: true
             }
 
         default:

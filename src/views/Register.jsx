@@ -5,8 +5,12 @@ import Instructions from '../components/user/SignUp/Instructions'
 const Register = () => {
     return(
         <div className="register">
-            <Steps/>
-            <Instructions/>
+            <h1>Join Task</h1>
+            <div className="registration">
+                <Steps/>
+                <Instructions/>
+            </div>
+            
 
         </div>
     )
