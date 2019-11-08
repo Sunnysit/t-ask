@@ -1,0 +1,80 @@
+.register{
+    color: $typography;
+    display: block;
+    height: 800px;
+
+    .btn{
+        margin: auto;
+        display: block;
+        width: fit-content;
+    }
+
+    .registration{
+        display: block;
+        height: inherit;
+        @media screen and (min-width: 760px){
+            display: grid;
+            grid-template-columns: 40% 60%;
+        }
+
+        .register-steps{
+            border-right: 1px solid black;
+
+            .number-step, h2{
+                display: inline-block;
+            }
+            .disable{
+                display: none;
+
+                @media screen and (min-width:760px) {
+                    display: block;
+                    h2, p{
+                        color: #CBCBCB;
+                    }
+                }
+                
+                
+            }
+        }
+
+        .register-instructions{
+            padding-right: 15%;
+            padding-left: 15%;
+
+            .step1-instructions{
+                label, input{
+                    width: 100%;
+                }
+    
+                label{
+                    margin-top: 1.2rem;
+                }
+    
+                input{
+                    border-radius: 7px;
+                    border: 1px solid #959494;
+                    background-color: white;
+                    margin: 0.6rem auto;
+                    padding: 0.5rem;
+                }
+            }
+
+            .step2-instructions{
+                .languages-options{
+                    display: grid;
+                    grid-template-columns: 50% 50%;
+                    grid-gap: 2rem;
+
+                    @media screen and (min-width: 760px){
+                        grid-template-columns: 33% 33% 33%;
+                    }
+                }
+            }
+
+            .disable{
+                display: none;
+            }
+        }
+
+    }
+}

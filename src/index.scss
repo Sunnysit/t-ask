@@ -19,6 +19,17 @@ code {
 =============================================*/
 $max-window-width: 1000px;
 
+/*=================Color=====================*/
+$main-color: #272664;
+$secondary-color: #32C5F3;
+$language-color1: #F55216;
+$language-color2: #00A300;
+$language-color3: #681B7F;
+
+$background: #F9F9F9;
+$card-boarder: #CBCBCB;
+$typography: #505050;
+$input-field: #F9F9F9;
 
 
 
@@ -34,8 +45,11 @@ $max-window-width: 1000px;
 
 @import './scss/Home/Home.scss';
 
+@import './scss/LogIn.scss';
 
 
 @import './scss/Articles.scss';
+
+@import './scss/SignUp.scss'
 
 

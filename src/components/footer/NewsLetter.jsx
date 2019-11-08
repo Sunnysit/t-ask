@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
+import {useSelector} from 'react-redux';
+
 
 const NewsLetter = () => {
+
+    const newsletter = useSelector(state => state.user.signUp);
 
     const [email,
         setEmail] = useState("");
@@ -20,7 +24,7 @@ const NewsLetter = () => {
     }
 
     return (
-        <section className="newsletter-section">
+        <section className={newsletter ? "visible newsletter-section" : "newsletter-section"}>
             <div className="newsletter-container">
                 <p className="newsletter-description">Subscribe to our newsletter to receive the latest news</p>
                 <form

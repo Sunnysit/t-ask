@@ -1,7 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux'
+
+import LogIn from '../user/LogIn'
 
 const Header = () => {
+
+    const userLogged = useSelector(state => state.user.userLogged);
+
+
     return (
         <header className="header">
             <section className="header-section">
@@ -28,7 +35,11 @@ const Header = () => {
                         <Link to="/contact">Contact</Link>
                     </li>
                     <li className="navigation-item">
-                        <Link to="/register"><img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/></Link>
+                        {!userLogged ? (
+                            <LogIn/>
+                        ) : (
+                            <Link to="/profile"><img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/></Link>
+                        )}
                     </li>
                 </ul>
             </nav>
