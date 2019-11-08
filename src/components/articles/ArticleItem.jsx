@@ -9,7 +9,7 @@ const ArticleItem = (props) => {
         <li className="article-list-item">
             <article className="article">
                 <h2 className="article-title">
-                    <a rel="noopener noreferrer" target="_blank" href={article.link}>{article.title}</a>
+                    <a target="blank" href={article.link}>{article.title}</a>
                 </h2>
                 <div className="article-body">
                     <div className="article-info-container">
@@ -42,16 +42,13 @@ const ArticleItem = (props) => {
                     <p>{article.description}</p>
                 </div>
                 <div className="article-footer">
-                    <p>Powered by:
-                        <a
-                            rel="noopener noreferrer"
-                            target="_blank"
+                    <p>Powered by: <a
+                            target="blank"
                             href="https://medium.com/"
                             className="source-link">Medium</a>
                     </p>
                     <a
-                        rel="noopener noreferrer"
-                        target="_blank"
+                        target="blank"
                         href={article.link}
                         className="btn-outline btn-read-more">Read more</a>
                 </div>

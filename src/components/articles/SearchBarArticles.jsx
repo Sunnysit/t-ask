@@ -43,7 +43,7 @@ const SearchBarArticles = () => {
         });
       }
    
-    },[]);
+    },[articleResult.length,dispatch,searchText]);
 
     const handleSearchSubmit = (e) =>{
         e.preventDefault();

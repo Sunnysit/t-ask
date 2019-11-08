@@ -14,11 +14,11 @@ const CarouselItem = (props) => {
                     <p><span className="date">{article.date}</span><span className="reading-time">{article.readingTime}</span></p>
                     </div>
                     <div className="source-container">
-                       <p>Powered by: <a rel="noopener noreferrer" target="_blank" href="https://medium.com/" className="source-link">Medium</a></p>
+                       <p>Powered by: <a  target="blank" href="https://medium.com/" className="source-link">Medium</a></p>
                     </div>
                 </div>
                 <p className="article-excerpt">{article.description}</p>
-                <a rel="noopener noreferrer" target="_blank" href={article.link} className="btn-outline btn-read-more">Read more</a>
+                <a  target="blank" href={article.link} className="btn-outline btn-read-more">Read more</a>
             </div>
             );
 }
