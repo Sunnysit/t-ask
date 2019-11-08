@@ -1,6 +1,7 @@
 const initState = {
     userLogged: false,
-    registration: false
+    registration: false,
+    signUp: false
 }
 
 const userReducer = ( state=initState, action) => {
@@ -15,6 +16,18 @@ const userReducer = ( state=initState, action) => {
             return{
                 ...state,
                 registration: true
+            }
+
+        case "USER_SIGNUP":
+            return{
+                ...state,
+                signUp: true
+            }
+
+        case "USER_SITE":
+            return {
+                ...state,
+                signUp: false
             }
 
         default:
