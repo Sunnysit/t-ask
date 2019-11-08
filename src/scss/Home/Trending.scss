@@ -6,6 +6,14 @@
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        
+
+        .select-job-body, .select-language-body{
+            padding: 1rem;
+            select{
+                width: 80%;
+            }
+        }
     }
 
     .tending-language-item,

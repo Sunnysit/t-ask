@@ -58,13 +58,15 @@ const Instructions = () => {
         })
         console.log(messageEncrypted);
 
-        // encrypt(messageEncrypted)
-        //     .then(encryptedMessage => {
-        //         Axios.post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
-        //         .then(res => {
-        //             console.log(res);
-        //         })
-        //     })
+        encrypt(messageEncrypted)
+            .then(encryptedMessage => {
+                Axios.post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
+                .then(res => {
+                    console.log(res);
+
+                    localStorage.setItem('userData', res.data.token);
+                })
+            })
     }
 
     return (
