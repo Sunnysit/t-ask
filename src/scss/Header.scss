@@ -27,6 +27,10 @@
         color: #272664;
     }
 
+    .profile-icon{
+        cursor: pointer;
+    }
+
     //Change break point based on the design
     @media screen and (max-width:560px) {
         .logo-mobile{

@@ -12,7 +12,7 @@ const LogIn = () => {
     }
     return (
 
-    <Popup trigger={<button className="btn">Log In</button>} modal>
+    <Popup trigger={<img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/>} modal>
     {close => (
         <div className="modal">
             <a href="/#" onClick={close} className="close popup-text">&times;</a>

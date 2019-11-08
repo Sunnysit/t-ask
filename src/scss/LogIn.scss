@@ -1,0 +1,14 @@
+.popup-content{
+    height: 300px;
+    width: 500px !important;
+
+    .modal{
+        height: 100%;
+
+        .close{
+            font-size: 2rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+}
