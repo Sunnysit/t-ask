@@ -145,13 +145,13 @@
     }
 
     .reading-time{
-        margin-left: 1rem;
+        display: block;
     }
 
     .article-info-container{
         display: flex;
         justify-content: space-between;
-        align-items: flex-end;
+        //align-items: flex-end;
     }
 
     .action-container{
@@ -159,7 +159,7 @@
         
         .action-icon{
             width: 1.3rem;
-            margin: .5rem 0 .5rem .5rem;
+            margin: .5rem 0 .5rem 1rem;
             cursor: pointer;
 
         }
