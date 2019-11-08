@@ -1,14 +1,68 @@
 .popup-content{
-    height: 300px;
-    width: 500px !important;
+    height: 340px;
+    width: 550px !important;
 
     .modal{
         height: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        position: relative;
 
-        .close{
+        a.close{
             font-size: 2rem;
+            font-weight: 500;
+            line-height: 0.8;
+            position: absolute;
+            top: 7px;
+            right: 7px;
+        }
+
+        .header-popup{
+            padding-top: 1.6rem;
+            font-weight: bold;
+        }
+
+        .content{
+
+            label{
+                display: block;
+                margin-top: 1.2rem;
+            }
+
+            input{
+                display: block;
+                width: 100%;
+                border-radius: 7px;
+                border: 1px solid #959494;
+                background-color: white;
+                margin: 0.6rem auto;
+                padding: 0.5rem;
+            }
+        }
+
+        .login-action{
             display: flex;
-            justify-content: flex-end;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin: 2rem 0;
+
+            .btn-link{
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .btn-login{
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+        .footer-popup{
+            text-align: center;
+            a{
+                font-weight: bold;
+            }
         }
     }
 }

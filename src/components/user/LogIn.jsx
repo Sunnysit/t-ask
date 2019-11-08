@@ -23,13 +23,15 @@ const LogIn = () => {
                     <input type="email" name="Email" id="Email"/>
                     <label htmlFor="Password">Password</label>
                     <input type="text" name="Password" id="Password"/>
-                    <Link to="/profile"><button onClick={handleLogIn}>Log in</button></Link>
                 </form>
+            </div>
+            <div className="login-action">
+                <Link to="/profile" className="btn-link"><button onClick={handleLogIn} className="btn">Log in</button></Link>
                 <a href="/#" className="popup-text">Forgot my password</a>
             </div>
             <div className="footer-popup">
                 Not a member?
-                <Link to="register" className="popup-text">Sign up here!</Link>
+                <Link to="register" className="popup-text"> Sign up here!</Link>
             </div>
 
         </div>
