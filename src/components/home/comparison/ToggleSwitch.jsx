@@ -19,7 +19,7 @@ const ToggleSwitch = () => {
             <div className={!graphToggle ? 'location toggle-ball' : 'time toggle-ball'}>
             </div>
             </div>
-            <p>Location</p>
+            <p>&nbsp;Location</p>
 
         </div>
     )
