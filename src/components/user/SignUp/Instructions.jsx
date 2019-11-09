@@ -29,17 +29,68 @@ const Instructions = () => {
         name: '',
         email:'',
         password: '',
+        confirmPass: '',
         langs: []
+    }
+
+    const initialErrors = {
+        errorName: '',
+        errorEmail: '',
+        errorPassword: '',
+        errorConfirmPassword: '',
+        errorLanguages: ''
     }
 
     const enable = useSelector(state => state.user.registration);
 
     const [form, setForm] = useState(initialForm);
 
+    const [errors, setErrors] = useState(initialErrors);
+
     let [newsletter, setNewsletter] = useState(false);
 
     const handleRegistrationStep = () => {
-        dispatch({type: "USER_REGISTRATION"})
+        let {name, email, password, confirmPass} = form;
+
+        let wrong = {
+            errorName: '',
+            errorEmail: '',
+            errorPassword: '',
+            errorConfirmPassword: '',
+            errorLangs: ''
+        }
+
+        let submitName = name.trim();
+        let submitEmail = email.trim();
+        let submitPassword = password.trim();
+        let submitConfirmPass = confirmPass.trim();
+
+        let formValidates = true;
+
+        if(!submitName && submitName.length < 1) {
+            wrong.errorName = 'Please enter a valid name';
+            formValidates = false;
+        }
+        if(!submitEmail || !submitEmail.includes('@')) {
+            wrong.errorEmail = 'Please enter a valid email address';
+            formValidates = false;
+        }
+        if(!submitPassword && submitPassword.length < 8) {
+            wrong.errorPassword = 'Please enter a password at least 8 characters long';
+            formValidates = false;
+        }
+
+        if(!submitConfirmPass || submitPassword !== submitConfirmPass) {
+            wrong.errorConfirmPassword = "The passwords don't match";
+            formValidates = false;
+        }
+
+        if(formValidates){
+            dispatch({type: "USER_REGISTRATION"})
+        }
+
+        setErrors(wrong);
+
     }
 
     const handleSwitch = () => {
@@ -54,6 +105,21 @@ const Instructions = () => {
     const handleSignUp = (e) => {
         e.preventDefault();
 
+        let {langs} = form;
+
+        let wrong = {
+            errorLangs: ''
+        }
+
+        let submitLangs = langs.trim();
+
+        let formValidates = true;
+
+        if(!submitLangs && submitLangs.length > 3) {
+            wrong.errorLangs = 'Please choose only 3 languages';
+            formValidates = false;
+        }
+
         const messageEncrypted = JSON.stringify({
             name: form.name,
             email: form.email,
@@ -62,7 +128,9 @@ const Instructions = () => {
         })
         console.log(messageEncrypted);
 
-        encrypt(messageEncrypted)
+        if(formValidates){
+
+            encrypt(messageEncrypted)
             .then(encryptedMessage => {
                 Axios.post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
                 .then(res => {
@@ -71,6 +139,7 @@ const Instructions = () => {
                     localStorage.setItem('userData', res.data.token);
                 })
             })
+        }
     }
 
     return (
@@ -78,14 +147,22 @@ const Instructions = () => {
             <form action="" onSubmit={handleSignUp}>
                 <div className={!enable ? "step1-instructions" : " disable step1-instructions"}>
                     <h2>Enter your information</h2>
+                    
                     <label htmlFor="Name">Name</label>
-                    <input type="text" name="Name" id="Name" onChange={(e) => {setForm({...form, name: e.target.value})}}/>
+                    <input type="text" name="Name" id="Name" onChange={(e) => {setForm({...form, name: e.target.value})}} required/>
+                    <div className="error-message">{errors.errorName}</div>
+                    
                     <label htmlFor="Email">Email</label>
-                    <input type="email" name="Email" id="Email" onChange={(e) => {setForm({...form, email: e.target.value})}}/>
+                    <input type="email" name="Email" id="Email" onChange={(e) => {setForm({...form, email: e.target.value})}} required/>
+                    <div className="error-message">{errors.errorEmail}</div>
+                    
                     <label htmlFor="Password">Password</label>
-                    <input type="password" name="Password" id="Password" onChange={(e) => {setForm({...form, password: e.target.value})}}/>
+                    <input type="password" name="Password" id="Password" onChange={(e) => {setForm({...form, password: e.target.value})}} required/>
+                    <div className="error-message">{errors.errorPassword}</div>
+                    
                     <label htmlFor="Password">Confirm password</label>
-                    <input type="password" name="Password" id="Password"/>
+                    <input type="password" name="Password" id="Password" onChange={(e) => {setForm({...form, confirmPass:e.target.value})}} required/>
+                    <div className="error-message">{errors.errorConfirmPassword}</div>
 
                     <div className="btn-next">
                         <div className="btn" onClick={handleRegistrationStep}>Next step</div>
@@ -96,6 +173,8 @@ const Instructions = () => {
 
                     <div className="interest-languages">
                         <h3>Languages</h3>
+
+                        <div className="error-message">{errors.errorLangs}</div>
                         <div className="languages-options">
                             {languages.map(language => <label key={language.languageId} htmlFor="language-option"><input type="checkbox" value={language.languageId} name="language-option" onChange={(e) => {setForm({...form, langs: [...form.langs, e.target.value]})}}/>{language.languageName}</label>)}
                         </div>
