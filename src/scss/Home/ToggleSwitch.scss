@@ -9,14 +9,14 @@
         margin: 0;
     }
     .toggle-container{
-        background-color: rgb(101, 162, 241);
+        background-color: $main-color;
         width: 30px;
         height: 15px;
         border-radius: 10px;
         cursor: pointer;
     
         .toggle-ball{
-            background-color: rgb(5, 18, 94);
+            background-color: $secondary-color;
             width: 15px;
             height: 15px;
             border-radius: 50%;

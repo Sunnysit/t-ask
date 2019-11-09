@@ -76,7 +76,7 @@ const ContactForm = () => {
             console.log(contactInfo);
 
             axios
-                .post('http://localhost:8080/contact-message', contactInfo)
+                .post('https://t-ask-api.herokuapp.com/contact-message', contactInfo)
                 .then((response) => {
                     console.log(response);
 
