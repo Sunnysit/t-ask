@@ -22,6 +22,7 @@ const RandomQuote = () => {
             let randomFunQuote = randomArray.quotesArray[randomFunQuoteIndex].quote;
             //console.log(randomFunQuote);
             setRandomQuote(randomFunQuote);
+            console.log(randomQuote);
         })
     },[])
     return (
