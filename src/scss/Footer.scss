@@ -99,6 +99,13 @@ footer .navigation{
     width: 120px;
 }
 
+.navigation-item:nth-of-type(2){
+
+    img{
+        width: 222px;
+    }
+}
+
 @media screen and (max-width: 680px) {
     footer .navigation{
     display: flex;
