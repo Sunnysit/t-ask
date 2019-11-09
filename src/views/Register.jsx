@@ -8,7 +8,8 @@ const Register = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({type: "USER_SIGNUP"})
+        dispatch({type: "USER_SIGNUP"});
+        dispatch({type: "USER_REGISTRATION_BACK"})
     }, [dispatch])
 
     return(

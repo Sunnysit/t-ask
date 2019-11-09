@@ -18,6 +18,12 @@ const userReducer = ( state=initState, action) => {
                 registration: true
             }
 
+        case "USER_REGISTRATION_BACK":
+            return{
+                ...state,
+                registration: false
+            }
+
         case "USER_SIGNUP":
             return{
                 ...state,

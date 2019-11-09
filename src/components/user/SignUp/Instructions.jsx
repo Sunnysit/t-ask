@@ -47,6 +47,10 @@ const Instructions = () => {
         setNewsletter(!newsletter);
     }
 
+    const handleBack = () => {
+        dispatch({type: "USER_REGISTRATION_BACK"});
+    } 
+
     const handleSignUp = (e) => {
         e.preventDefault();
 
@@ -82,7 +86,10 @@ const Instructions = () => {
                     <input type="password" name="Password" id="Password" onChange={(e) => {setForm({...form, password: e.target.value})}}/>
                     <label htmlFor="Password">Confirm password</label>
                     <input type="password" name="Password" id="Password"/>
-                    <div className="btn" onClick={handleRegistrationStep}>Next step</div>
+
+                    <div className="btn-next">
+                        <div className="btn" onClick={handleRegistrationStep}>Next step</div>
+                    </div>
                 </div>
                 <div className={enable ? "step2-instructions" : " disable step2-instructions"}>
                     <h2>Choose your interests</h2>
@@ -119,7 +126,11 @@ const Instructions = () => {
                         <input type="checkbox" name="events" value="events"/> Events
                     </div>
                     
-                    <button className="btn">Complete</button>
+                    <div className="actions">
+                        <p onClick={handleBack} className="secondary-link">Go back</p>
+                        <button className="btn">Complete</button>
+                    </div>
+                    
                 </div>
             </form>
         </div>
