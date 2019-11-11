@@ -10,8 +10,6 @@ const BarGraphJobsUSA = () => {
 
     const [barGraphData,
         setBarGraphData] = useState([]);
-    const [barGraphKeys,
-        setBarGraphKeys] = useState([]);
 
     useEffect(() => {
         //normalize data as percentage
@@ -34,35 +32,40 @@ const BarGraphJobsUSA = () => {
 
         //set data format for bar-graph USA
         const languageLocationUsa = selectedDataUsa.map(language => {
-            let languageObject = language.name;
-            return {[languageObject]: language.totalJobs}
-        })
-        let languagesLocationUsa = {};
-        for (let i = 0; i < languageLocationUsa.length; i++) {
-            let singleLanguage = languageLocationUsa[i];
-            languagesLocationUsa = {
-                ...languagesLocationUsa,
-                ...singleLanguage
+            return {country: 'Canada', id: language.name, value: language.totalJobs}
+        });
+
+        const languagesLocationUsa = [
+            {
+                ...languageLocationUsa[0],
+                color: '#F55216'
+            },
+            {
+                ...languageLocationUsa[1],
+                color: '#00A300'
+            },
+            {
+                ...languageLocationUsa[2],
+                color: '#681B7F'
             }
-        }
-        languagesLocationUsa = {
-            country: 'USA',
-            ...languagesLocationUsa
-        };
+        ]
 
-        setBarGraphData([languagesLocationUsa])
+        setBarGraphData(languagesLocationUsa)
 
-        const languageKeys = selectedLanguages.map(language => language.languageName);
+    }, [dataUsa, selectedLanguages]);
 
-        setBarGraphKeys(languageKeys);
+    //set bar colors
+    const getBarColor = bar => {
+        return bar.data.color;
+    }
+    ;
 
-    }, [dataUsa, selectedLanguages])
+    //console.log(barGraphData);
 
     return (<ResponsiveBar
         data={barGraphData}
-        keys
-        ={barGraphKeys}
-        indexBy="country"
+        keys={["value"]}
+        indexBy="id"
         margin={{
         top: 50,
         right: 10,
@@ -74,9 +77,7 @@ const BarGraphJobsUSA = () => {
         minValue={0}
         maxValue={100}
         groupMode='grouped'
-        colors={{
-        scheme: 'nivo'
-    }}
+        colors={getBarColor}
         borderColor="black"
         layout='horizontal'
         axisTop={null}

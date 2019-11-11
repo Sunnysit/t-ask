@@ -1,12 +1,14 @@
 import React from 'react';
 
-import BarGraphJobsCanada from '../Jobs/BarGraphJobsCanada';
-import BarGraphJobsUSA from '../Jobs/BarGraphJobsUSA';
+import BarGraphJobsCanada from './BarGraphJobsCanada';
+import BarGraphJobsLegend from './BarGraphJobsLegend'
+import BarGraphJobsUSA from './BarGraphJobsUSA';
 
 const BarGraphJobs = () => {
     return (
         <div className="bar-graph-jobs-container">
             <BarGraphJobsCanada/>
+            <BarGraphJobsLegend/>
             <BarGraphJobsUSA/>
 
         </div>
