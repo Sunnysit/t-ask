@@ -1,12 +1,14 @@
 import React from 'react';
 
-import BarGraphLangCanada from '../Languages/BarGraphLangCanada';
-import BarGraphLangUSA from '../Languages/BarGraphLangUSA';
+import BarGraphLangCanada from './BarGraphLangCanada';
+import BarGraphLangLegend from './BarGraphLangLegend'
+import BarGraphLangUSA from './BarGraphLangUSA';
 
 const BarGraphLang = () => {
     return (
         <div className="bar-graph-lang-container">
             <BarGraphLangCanada/>
+            <BarGraphLangLegend/>
             <BarGraphLangUSA/>
 
         </div>

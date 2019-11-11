@@ -73,7 +73,6 @@ const BarGraphJobsUSA = () => {
         left: 10
     }}
         padding={0.1}
-        innerPadding={10}
         minValue={0}
         maxValue={100}
         groupMode='grouped'

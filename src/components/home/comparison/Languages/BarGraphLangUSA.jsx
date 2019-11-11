@@ -9,7 +9,6 @@ const BarGraphLangUSA = () => {
     const selectedLanguages = useSelector(state=> state.languages.selectedLanguages);
 
     const [barGraphData, setBarGraphData] = useState([]);
-    const [barGraphKeys, setBarGraphKeys] = useState([]);
 
     useEffect(() => {
         //filter data from the selectedLanguages
@@ -19,32 +18,39 @@ const BarGraphLangUSA = () => {
     //set data format for bar-graph
     //USA
     const languageLocationUsa=selectedDataUsa.map(language => {
-        let languageObject = language.name;
-        return {[languageObject]: language.trend}
+        return {id: language.name, value: language.trend}
     })
-    let languagesLocationUsa = {};
-    for(let i = 0; i < languageLocationUsa.length; i++){
-        let singleLanguage = languageLocationUsa[i];
-        languagesLocationUsa = {...languagesLocationUsa, ...singleLanguage}
-    }
-    languagesLocationUsa = {country:'USA', ...languagesLocationUsa};
 
+    const languagesLocationUsa = [
+            {
+                ...languageLocationUsa[0],
+                color: '#F55216'
+            },
+            {
+                ...languageLocationUsa[1],
+                color: '#00A300'
+            },
+            {
+                ...languageLocationUsa[2],
+                color: '#681B7F'
+            }
+        ]
 
-    setBarGraphData([languagesLocationUsa])
-
-    const languageKeys = selectedLanguages.map(language => language.languageName);
-
-    setBarGraphKeys(languageKeys);
+    setBarGraphData(languagesLocationUsa)
         
-    }, [dataUsa, selectedLanguages])
+    }, [dataUsa, selectedLanguages]);
 
+    //set bar colors
+    const getBarColor = bar => {
+        return bar.data.color;
+    }
+    ;
 
     return (
             <ResponsiveBar
                 data={barGraphData}
-                keys
-                ={barGraphKeys}
-                indexBy="country"
+                keys={["value"]}
+                indexBy="id"
                 margin={{
                 top: 50,
                 right: 10,
@@ -52,13 +58,10 @@ const BarGraphLangUSA = () => {
                 left: 10
             }}
                 padding={0.1}
-                innerPadding={10}
                 minValue={0}
                 maxValue={100}
                 groupMode='grouped'
-                colors={{
-                scheme: 'nivo'
-            }}
+                colors={getBarColor}
                 borderColor="black"
                 layout='horizontal'
                 axisTop={null}

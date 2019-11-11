@@ -32,9 +32,9 @@ const BarGraphJobsCanada = () => {
         //filter data from the selectedLanguages
         const selectedDataCanada = dataPercentageCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
 
-        //set data format for bar-graph Canada
+        //set data format for bar-graph
         const languageLocationCanada = selectedDataCanada.map(language => {
-            return {country: 'Canada', id: language.name, value: language.totalJobs}
+            return {id: language.name, value: language.totalJobs}
         });
 
         const languagesLocationCanada = [
@@ -56,7 +56,7 @@ const BarGraphJobsCanada = () => {
 
         setBarGraphData(languagesLocationCanada) 
 
-    }, [dataCanada, selectedLanguages])
+    }, [dataCanada, selectedLanguages]);
 
     //set bar colors
     const getBarColor = bar => {
@@ -75,15 +75,11 @@ const BarGraphJobsCanada = () => {
         left: 10
     }}
         padding={0.1}
-        //innerPadding={10}
         minValue={0}
         maxValue={100}
-        //groupMode='grouped'
         layout='horizontal'
         reverse={true}
         colors={getBarColor}
-        //colors={["#F55216", "#00A300", "#681B7F"]}
-        //borderColor="black"
         axisTop={null}
         axisRight={null}
         axisBottom={{
