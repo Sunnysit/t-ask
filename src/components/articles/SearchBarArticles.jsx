@@ -20,7 +20,7 @@ const SearchBarArticles = () => {
       //No result yet. Start Fetching
       if(articleResult.length===0)
       { 
-        setMessage(`Loading Article about Technology...`);
+        setMessage(`Loading Articles about Technology...`);
 
         axios.post('https://cheerio-medium.herokuapp.com/articles',{query:"tech"})
         .then(function (response) {
