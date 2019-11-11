@@ -14,7 +14,7 @@ const CarouselItem = (props) => {
                     <p><span className="date">{article.date}</span><span className="reading-time">{article.readingTime}</span></p>
                     </div>
                     <div className="source-container">
-                       <p>Powered by: <a  target="blank" href="https://medium.com/" className="source-link">Medium</a></p>
+                       <p className="powered-by">Powered by: <a target="blank" href="https://medium.com/" className="source-link"><img src="./assets/powered-by/medium.png" alt="Medium logo"/></a></p>
                     </div>
                 </div>
                 <p className="article-excerpt">{article.description}</p>

@@ -125,10 +125,20 @@
 
 .carousel-item,
 .article{
-    .source-link{
-        text-decoration: none;
-        color: #000;
-        font-weight: bold;
+
+    .powered-by{
+        display: inline-flex;
+        align-items: center;
+        width: 170px;
+        justify-content: space-between;
+
+        .source-link{
+            height: 13px;
+        }
+
+        .source-link img{
+            width: 65px;
+        }
     }
 
     .article-footer{
