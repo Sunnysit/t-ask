@@ -12,8 +12,25 @@ const BarGraphJobsUSA = () => {
     const [barGraphKeys, setBarGraphKeys] = useState([]);
 
     useEffect(() => {
+    //normalize data as percentage
+    let mostJobs = 0
+    for (let i = 0; i < dataUsa.length; i++){
+        if(dataUsa[i].totalJobs > mostJobs){
+            mostJobs = dataUsa[i].totalJobs;
+        }
+    }
+
+    console.log(mostJobs);
+
+    const dataPercentageUsa = dataUsa.map(language => {
+        let percentageJobs = parseFloat(((language.totalJobs * 100) / mostJobs).toFixed(2));
+        return {id_language: language.id_language, name: language.name, totalJobs: percentageJobs}
+    });
+
+    console.log(dataPercentageUsa);
+    
         //filter data from the selectedLanguages
-    const selectedDataUsa = dataUsa.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
+    const selectedDataUsa = dataPercentageUsa.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
 
 
     //set data format for bar-graph

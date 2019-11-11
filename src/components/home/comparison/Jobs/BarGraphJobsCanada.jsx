@@ -12,8 +12,26 @@ const BarGraphJobsCanada = () => {
     const [barGraphKeys, setBarGraphKeys] = useState([]);
 
     useEffect(() => {
+    //normalize data as percentage
+    let mostJobs = 0
+    for (let i = 0; i < dataCanada.length; i++){
+        if(dataCanada[i].totalJobs > mostJobs){
+            mostJobs = dataCanada[i].totalJobs;
+        }
+    }
+
+    console.log(mostJobs);
+
+    const dataPercentageCanada = dataCanada.map(language => {
+        let percentageJobs = parseFloat(((language.totalJobs * 100) / mostJobs).toFixed(2));
+        return {id_language: language.id_language, name: language.name, totalJobs: percentageJobs}
+    });
+
+    console.log(dataPercentageCanada);
+
+    
         //filter data from the selectedLanguages
-    const selectedDataCanada = dataCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
+    const selectedDataCanada = dataPercentageCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
 
 
     //set data format for bar-graph
@@ -30,6 +48,8 @@ const BarGraphJobsCanada = () => {
     languagesLocationCanada = {country:'Canada', ...languagesLocationCanada};
 
     setBarGraphData([languagesLocationCanada])
+
+    //console.log(dataCanada);
 
     const languageKeys = selectedLanguages.map(language => language.languageName);
 
