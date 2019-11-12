@@ -19,7 +19,6 @@ const Steps = () => {
                 <p className="number-step">2</p>
                 <div className="step-detail">
                     <h2>Choose your interests</h2>
-                    <p>Skip and conclude your registration</p>
                     <p>Choose up to 3 favorite languages to have as default on your dashboard and follow their ranking.
     Choose your location of interest.</p>
                 </div>
