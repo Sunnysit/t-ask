@@ -1,26 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
-import Axios from 'axios'
-
+import Axios from 'axios';
+import { TaskAxios } from '../../../library/TaskAxios';
 const { encrypt } = require('../../../openPGP.js')
 
 
 const Instructions = () => {
 
-    const dispatch = useDispatch();
+    let axiosLibrary = new TaskAxios();
+    let dispatch = useDispatch();
 
     useEffect(() => {
-        Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/languages')
-            .then(result => {
-                const languagesArray = result
-                    .data
-                    .map(language => {
-                        return {languageName: language.name, languageId: language.id_language};
-                    })
-                dispatch({type: "SET_ALL_LANGUAGES", payload: languagesArray});
-            })
-    }, [dispatch])
+        
+        axiosLibrary.registerLang()
+    }, [axiosLibrary])
 
     const languages = useSelector(state => state.languages.languages);
     //console.log(languages);
