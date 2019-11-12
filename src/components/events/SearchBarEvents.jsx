@@ -64,7 +64,7 @@ const SearchBarEvents = () => {
     return ( 
         <div className="event-search-container">
         <form className="event-search-form" onSubmit={handleSearchSubmit}  action="https://cheerio-medium.herokuapp.com/articles" method="POST">
-            <input className="input-basic search-input-article" placeholder="Language name..." value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} type="text"/>
+            <input className="input-basic search-input-event" placeholder="Language name..." value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} type="text"/>
             <button className="btn-search" type="submit"><img src="./assets/icons/search-icon.png" alt="search icon"/></button>
         </form>
         <p className="search-message">{message}</p>
