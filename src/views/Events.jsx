@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import HeroEvent from '../components/heroes/HeroEvent';
-import SearchBarEvents from '../components/events/SearchBarEvents'
+import SearchBarEvents from '../components/events/SearchBarEvents';
+import ListEvents from '../components/events/ListEvents';
 
 const Events = () => {
 
@@ -15,6 +16,7 @@ const Events = () => {
         <div className="events view">
             <HeroEvent />
             <SearchBarEvents />
+            <ListEvents />
         </div>
     )
 }
