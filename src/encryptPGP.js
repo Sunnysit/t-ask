@@ -1,9 +1,7 @@
-const openpgp = require('openpgp') // use as CommonJS, AMD, ES6 module or via window.openpgp
-
+const openpgp = window.openpgp
 const PUBLIC_KEY = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: OpenPGP.js v4.6.2
 Comment: https://openpgpjs.org
-
 xsBNBF2/mJQBCAC4s8hS4VpZfKv6PjCVu5XS1NdQkyLkBIGmOOdrkrsY4/tV
 E3989PipG0YgWiB9PAICMDdprWaINokpwNP1XgWzR7aCwkHIXR/2+8x1njTX
 hKyuBnwNbWq+seHGvO9Kdqp1K5kq556QKP1yqKFHieM/0YmbH4evX5b5p+RR
@@ -34,26 +32,21 @@ dcKXu3v3npTBgTjsffI=
 =2NJP
 -----END PGP PUBLIC KEY BLOCK-----
 `
-
 const encrypt = async (object) => {
-
     let pubkeys = [PUBLIC_KEY]
-
     let publicKeysPromises = pubkeys.map(async (key) => {
         return (await openpgp.key.readArmored(key)).keys[0]
     });
-
     const options = {
         message: openpgp.message.fromText(object),
         // resolve all promises returned before
         publicKeys: await Promise.all(publicKeysPromises),       // for encryption
         // privateKeys: [privKeyObj]                                 // for signing (optional)
     }
-
-    return openpgp.encrypt(options).then(ciphertext => {
-        const encrypted = ciphertext.data // '-----BEGIN PGP MESSAGE ... END PGP MESSAGE-----'
-        return encrypted
-    })
+    return openpgp.encrypt(options)
+        .then(ciphertext => {
+            const encrypted = ciphertext.data // '-----BEGIN PGP MESSAGE ... END PGP MESSAGE-----'
+            return encrypted
+        })
 }
-
 module.exports.encrypt = encrypt

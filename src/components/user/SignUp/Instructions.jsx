@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch,useSelector} from 'react-redux';
 import Axios from 'axios'
 
-const { encrypt } = require('../../../openPGP.js')
+const { encrypt } = require('../../../encryptPGP.js')
 
 
 const Instructions = () => {
