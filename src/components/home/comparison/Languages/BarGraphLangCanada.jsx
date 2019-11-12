@@ -9,7 +9,6 @@ const BarGraphLangCanada = () => {
     const selectedLanguages = useSelector(state=> state.languages.selectedLanguages);
 
     const [barGraphData, setBarGraphData] = useState([]);
-    const [barGraphKeys, setBarGraphKeys] = useState([]);
 
     useEffect(() => {
         //filter data from the selectedLanguages
@@ -17,49 +16,53 @@ const BarGraphLangCanada = () => {
 
 
     //set data format for bar-graph
-    //Canada
     const languageLocationCanada=selectedDataCanada.map(language => {
-        let languageObject = language.name;
-        return {[languageObject]: language.trend}
+        return {id:language.name, value: language.trend}
     })
-    let languagesLocationCanada = {};
-    for(let i = 0; i < languageLocationCanada.length; i++){
-        let singleLanguage = languageLocationCanada[i];
-        languagesLocationCanada = {...languagesLocationCanada, ...singleLanguage}
-    }
-    languagesLocationCanada = {country:'Canada', ...languagesLocationCanada};
+    const languagesLocationCanada = [
+        {
+            ...languageLocationCanada[0],
+            color: '#F55216'
+        },
+        {
+            ...languageLocationCanada[1],
+            color: '#00A300'
+        },
+        {
+            ...languageLocationCanada[2],
+            color: '#681B7F'
+        }
+    ]
 
-    setBarGraphData([languagesLocationCanada])
-
-    const languageKeys = selectedLanguages.map(language => language.languageName);
-
-    setBarGraphKeys(languageKeys);
+    setBarGraphData(languagesLocationCanada)
         
-    }, [dataCanada, selectedLanguages])
+    }, [dataCanada, selectedLanguages]);
+
+    //set bar colors
+    const getBarColor = bar => {
+        return bar.data.color;
+    }
+    ;
 
 
     return (
             <ResponsiveBar
                 data={barGraphData}
-                keys
-                ={barGraphKeys}
-                indexBy="country"
+                keys={["value"]}
+                indexBy="id"
                 margin={{
                 top: 50,
-                right: 65,
+                right: 10,
                 bottom: 50,
                 left: 10
             }}
                 padding={0.1}
-                innerPadding={10}
                 minValue={0}
                 maxValue={100}
                 groupMode='grouped'
                 layout='horizontal'
                 reverse={true}
-                colors={{
-                scheme: 'nivo'
-            }}
+                colors={getBarColor}
                 borderColor="black"
                 axisTop={null}
                 axisRight={null}
@@ -78,30 +81,6 @@ const BarGraphLangCanada = () => {
                 labelTextColor={{
                 theme: 'background'
             }}
-                legends={[{
-                    dataFrom: 'keys',
-                    anchor: 'right',
-                    direction: 'column',
-                    justify: false,
-                    translateX: 40,
-                    translateY: 0,
-                    itemsSpacing: 40,
-                    itemWidth: 10,
-                    itemHeight: 22,
-                    itemDirection: 'top-to-bottom',
-                    itemOpacity: 0.85,
-                    symbolSize: 12,
-                    effects: [
-                        {
-                            on: 'hover',
-                            style: {
-                                itemOpacity: 1
-                            }
-                        }
-                    ]
-                }
-            ]}
-                
                 animate={true}
                 motionStiffness={90}
                 motionDamping={15}/>

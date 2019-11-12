@@ -1,12 +1,17 @@
 .register{
     color: $typography;
     display: block;
-    height: 800px;
+    padding-bottom: 30px;
+    //height: 800px;
 
     .btn{
-        margin: auto;
-        display: block;
-        width: fit-content;
+        margin: auto 0;
+
+    }
+
+    .btn-next{
+        display: flex;
+        justify-content: flex-end;
     }
 
     .registration{
@@ -32,7 +37,22 @@
                         color: #CBCBCB;
                     }
                 }
-                
+    
+            }
+
+            .step1, .step2{
+                display: grid;
+                grid-template-columns: 10% 90%;
+                font-weight: bold;
+
+                h2{
+                    margin: 1rem 0;
+                }
+
+                .number-step{
+                    font-size: 1.5rem;
+                    margin-top: 1rem;
+                }
                 
             }
         }
@@ -67,6 +87,19 @@
 
                     @media screen and (min-width: 760px){
                         grid-template-columns: 33% 33% 33%;
+                    }
+                }
+
+                .actions{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 2.5rem;
+                    //margin-bottom: 1.5rem;
+                    .secondary-link{
+                        color: $main-color;
+                        cursor: pointer;
+                        font-weight: bold;
+                        display: inline-block;
                     }
                 }
             }

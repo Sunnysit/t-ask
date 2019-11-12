@@ -13,7 +13,9 @@ const LineGraph = () => {
 
         let transferResult = [];
 
-        selectLanguages.map(lang=>{
+        let colorsArray =['#F55216', '#00A300', '#681B7F'];
+
+        selectLanguages.map((lang, index) =>{
           
                const targetData = languageTimeSpan.find(langData => lang.languageName === langData.language.name)
          
@@ -34,11 +36,13 @@ const LineGraph = () => {
                                     return a.year - b.year
                                 });
                   
-
+                    
                     transferResult.push({
                         id: targetData.language.name,
-                        data:languageDataSet
+                        data:languageDataSet,
+                        color: colorsArray[index]
                     });
+
                 }
                 
                return null;
@@ -46,14 +50,19 @@ const LineGraph = () => {
         })
 
         setGraphData(transferResult);
-    },[selectLanguages,languageTimeSpan])
+    },[selectLanguages,languageTimeSpan]);
 
+    //get line color
+    const getLineColor = line => {
+        //console.log(line)
+        return line.color
+    }
 
     return ( 
     <div className="line-graph-lang-container">
         <ResponsiveLine
         data={graphData}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 10, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
         curve="linear"
@@ -77,38 +86,13 @@ const LineGraph = () => {
             legendPosition: 'middle'
         }}
         axisLeft={null}
-        colors={{ scheme: 'nivo' }}
+        colors={getLineColor}
         pointColor={{ from: 'color', modifiers: [] }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}
-        legends={[
-            {
-                anchor: 'top',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: -38,
-                itemWidth: 100,
-                itemHeight: 20,
-                itemsSpacing: 4,
-                symbolSize: 10,
-                symbolShape: 'circle',
-                itemDirection: 'left-to-right',
-                itemTextColor: '#777',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemBackground: 'rgba(0, 0, 0, .03)',
-                            itemOpacity: 1
-                        }
-                    }
-                ]
-            }
-        ]}
     />
     </div> );
 }

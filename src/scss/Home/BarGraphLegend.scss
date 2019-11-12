@@ -1,0 +1,53 @@
+.jobs-legend, .languages-legend{
+    margin-top: 60px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .no-lang{
+        display: none;
+    }
+    p{
+        color:$typography !important;
+        margin: 0.5rem auto;
+        font-size: 12px;
+        font-family: sans-serif;
+    }
+
+    .color-legend{
+        height: 16px;
+        width: 16px !important;
+        margin: auto;
+    }
+
+    .third-language{
+        text-align: center;
+        margin-bottom: 2px;
+
+        .color-legend{
+            background-color:$language-color3;
+            color: $language-color3 !important;
+        }   
+    }
+    .second-language{
+        text-align: center;
+        margin-top: 17px;
+        margin-bottom: 2px;
+
+        .color-legend{
+            background-color:$language-color2;
+            color: $language-color2 !important;
+        }   
+    }
+    .first-language{
+        text-align: center;
+        margin-top: 17px;
+        margin-bottom: 2px;
+        
+        .color-legend{
+            background-color:$language-color1;
+            color: $language-color1 !important;
+        }   
+    }
+}

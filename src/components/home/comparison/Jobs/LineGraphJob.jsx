@@ -13,7 +13,9 @@ const LineGraphJob = () => {
 
         let transferResult = [];
 
-        selectLanguages.map(lang=>{
+        let colorsArray =['#F55216', '#00A300', '#681B7F'];
+
+        selectLanguages.map((lang, index)=>{
           
                const targetData = jobTimeSpan.find(langData => lang.languageName === langData.language.name)
          
@@ -54,7 +56,8 @@ const LineGraphJob = () => {
 
                     transferResult.push({
                         id: targetData.language.name,
-                        data:languageDataSet
+                        data:languageDataSet,
+                        color: colorsArray[index]
                     });
                 }
                 
@@ -63,8 +66,13 @@ const LineGraphJob = () => {
         })
 
         setGraphData(transferResult);
-    },[selectLanguages,jobTimeSpan])
+    },[selectLanguages,jobTimeSpan]);
 
+    //get line color
+    const getLineColor = line => {
+        console.log(line)
+        return line.color
+    }
 
     return ( 
     <div className="line-graph-job-container">
@@ -94,38 +102,13 @@ const LineGraphJob = () => {
             legendPosition: 'middle'
         }}
         axisLeft={null}
-        colors={{ scheme: 'nivo' }}
+        colors={getLineColor}
         pointColor={{ from: 'color', modifiers: [] }}
         pointBorderWidth={2}
         pointBorderColor={{ from: 'serieColor' }}
         pointLabel="y"
         pointLabelYOffset={-12}
         useMesh={true}
-        legends={[
-            {
-                anchor: 'top',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: -38,
-                itemWidth: 100,
-                itemHeight: 20,
-                itemsSpacing: 4,
-                symbolSize: 10,
-                symbolShape: 'circle',
-                itemDirection: 'left-to-right',
-                itemTextColor: '#777',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemBackground: 'rgba(0, 0, 0, .03)',
-                            itemOpacity: 1
-                        }
-                    }
-                ]
-            }
-        ]}
     />
     </div> );
 }

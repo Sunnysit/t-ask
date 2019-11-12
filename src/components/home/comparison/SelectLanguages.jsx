@@ -15,7 +15,7 @@ const SelectLanguage = () => {
     const languagesState = useSelector(state => state.languages.languages);
     const dropDown = useSelector(state=> state.languages.dropDown);
 
-    console.log(languagesState);
+    //console.log(languagesState);
 
     //console.log(selectLanguages);
 

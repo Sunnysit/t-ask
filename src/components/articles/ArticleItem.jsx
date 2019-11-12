@@ -42,10 +42,10 @@ const ArticleItem = (props) => {
                     <p>{article.description}</p>
                 </div>
                 <div className="article-footer">
-                    <p>Powered by: <a
+                    <p className="powered-by">Powered by: <a
                             target="blank"
                             href="https://medium.com/"
-                            className="source-link">Medium</a>
+                            className="source-link"><img src="./assets/powered-by/medium.png" alt="Medium logo"/></a>
                     </p>
                     <a
                         target="blank"

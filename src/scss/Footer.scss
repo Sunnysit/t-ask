@@ -11,6 +11,8 @@
         text-align: center;
         color: white;
         margin-bottom: 0;
+        margin-top: 0;
+        padding-top: 16px;
     }
 
     .navigation{
@@ -95,6 +97,13 @@ footer .navigation{
 
 .footer-link img{
     width: 120px;
+}
+
+.navigation-item:nth-of-type(2){
+
+    img{
+        width: 222px;
+    }
 }
 
 @media screen and (max-width: 680px) {
