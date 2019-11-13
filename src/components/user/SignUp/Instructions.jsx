@@ -240,7 +240,7 @@ const Instructions = () => {
                             required/>
                     </div>
 
-                    <div className="btn-next">
+                    <div className="actions">
                         <div className="btn" onClick={handleRegistrationStep}>Next step</div>
                     </div>
                 </div>

@@ -41,13 +41,11 @@ span{
         display: block;
     }
 
-    .register-steps{
-        border-right: 1px solid black;
-    }
 
     .step1, .step2{
         display: grid;
         grid-template-columns: 10% 90%;
+        margin-top: 40px;
 
         h2{
             margin: 1rem 0;
@@ -66,7 +64,7 @@ span{
 }
 
 .field{
-    margin-top: 1.3rem;
+    margin-top: 35px;
 }
 
 .register{
@@ -78,21 +76,21 @@ span{
 
     }
 
-    // .btn-next{
-    //     display: flex;
-    //     justify-content: flex-end;
-    // }
-
     .registration{
         display: block;
         height: inherit;
         @media screen and (min-width: 760px){
             display: grid;
             grid-template-columns: 38% 58%;
-            grid-gap: 4%;
         }
 
-        .register-steps{    
+        .register-steps{  
+            padding: 2%;
+            
+            .desktop{
+                border-right: 1px solid $typography;
+                height: 100%;
+            }
 
             .number-step, h2{
                 display: inline-block;
@@ -118,6 +116,7 @@ span{
         }
 
         .register-instructions{
+            padding: 2%;
 
             .step1-instructions{
 
@@ -158,6 +157,10 @@ span{
             }
 
             .step2-instructions{
+
+                h2{
+                    margin-top: 0;
+                }
                 .languages-options{
                     display: grid;
                     grid-template-columns: 50% 50%;
@@ -197,6 +200,19 @@ span{
                     background-color: transparent;
                     border: 0.5px solid $main-color;
                     border-radius: 2px;
+                }
+
+                .interest-location,
+                .interest-content {
+                    label:nth-of-type(2){
+                        margin-left: 60px;
+                    }
+                }
+
+                .interest-updates{
+                    .toggle-switch{
+                        margin: 0;
+                    }
                 }
 
             }
