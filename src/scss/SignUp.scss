@@ -169,34 +169,35 @@ span{
                     }
                 }
 
-                // .label-checkmark{
-                //     position: relative;
-                //     padding-left: 20px;
-                //     cursor: pointer;
+                .label-checkmark{
+                    position: relative;
+                    padding-left: 20px;
+                    cursor: pointer;
 
-                //     input{
-                //         position: absolute;
-                //         left: 0;
-                //         opacity: 0;
-                //         cursor: pointer;
-                //         z-index: 1;
+                    input{
+                        position: absolute;
+                        left: 0;
+                        opacity: 0;
+                        cursor: pointer;
+                        z-index: 1;
 
-                //     }
+                    }
 
-                //     input:checked ~ .checkmark{
-                //         background-color: $main-color;
-                //     }
-                // }
+                    input:checked ~ .checkmark{
+                        background-color: $main-color;
+                    }
+                }
 
-                // .checkmark{
-                //     position: absolute;
-                //     top: 0;
-                //     left: 0;
-                //     height: 15px;
-                //     width: 15px;
-                //     background-color: transparent;
-                //     border: 0.5px solid $main-color;
-                // }
+                .checkmark{
+                    position: absolute;
+                    top: 3px;
+                    left: 0;
+                    height: 12px;
+                    width: 12px;
+                    background-color: transparent;
+                    border: 0.5px solid $main-color;
+                    border-radius: 2px;
+                }
 
             }
 

@@ -115,9 +115,9 @@ const Instructions = () => {
             formValidates = false;
         }
 
-        if(!submitLangs) {
+        if (!submitLangs) {
             wrong.errorLangs = 'Please choose up to three languages';
-            formValidates = false;  
+            formValidates = false;
         }
 
         const messageEncrypted = JSON.stringify({name: form.name, email: form.email, password: form.password, languages: form.langs})
@@ -143,30 +143,39 @@ const Instructions = () => {
 
         //console.log(selectLanguageId);
 
-        if(form.langs.length === 0){
-            setForm({...form, langs:[selectLanguageId]});
-        }
-
-        else if (form.langs.length > 0){
-            for(let i = 0; i < form.langs.length; i++){
-                if(selectLanguageId !== form.langs[i]){
-                    setForm({...form, langs: [...form.langs, selectLanguageId]});
-                }
-                else if(selectLanguageId === form.langs[i]) {
+        if (form.langs.length === 0) {
+            setForm({
+                ...form,
+                langs: [selectLanguageId]
+            });
+        } else if (form.langs.length > 0) {
+            for (let i = 0; i < form.langs.length; i++) {
+                if (selectLanguageId !== form.langs[i]) {
+                    setForm({
+                        ...form,
+                        langs: [
+                            ...form.langs,
+                            selectLanguageId
+                        ]
+                    });
+                } else if (selectLanguageId === form.langs[i]) {
                     let removeLanguage = form.langs;
                     removeLanguage.splice(i, 1);
                     console.log('this value is in the array!');
-                    setForm({...form, langs: removeLanguage});
+                    setForm({
+                        ...form,
+                        langs: removeLanguage
+                    });
                 }
 
             }
         }
-        
+
         console.log(form);
     }
 
     return (
-        <div className="register-instructions"> 
+        <div className="register-instructions">
             <form action="" onSubmit={handleSignUp}>
                 <div
                     className={!enable
@@ -177,36 +186,26 @@ const Instructions = () => {
                     <div className="field">
                         <label htmlFor="Name" className="label-required">Name</label>
                         <div className="error-message">{errors.errorName}</div>
-                        <input
-                            type="text"
-                            name="Name"
-                            id="Name"
-                            //value="Name"
+                        <input type="text" name="Name" id="Name" //value="Name"
                             onChange={(e) => {
                             setForm({
                                 ...form,
                                 name: e.target.value
                             })
-                        }}
-                            required/>
+                        }} required/>
 
                     </div>
 
                     <div className="field">
                         <label htmlFor="Email" className="label-required">Email</label>
                         <div className="error-message">{errors.errorEmail}</div>
-                        <input
-                            type="email"
-                            name="Email"
-                            id="Email"
-                            //value="Email"
+                        <input type="email" name="Email" id="Email" //value="Email"
                             onChange={(e) => {
                             setForm({
                                 ...form,
                                 email: e.target.value
                             })
-                        }}
-                            required/>
+                        }} required/>
                     </div>
 
                     <div className="field">
@@ -256,22 +255,33 @@ const Instructions = () => {
 
                         <div className="error-message">{errors.errorLangs}</div>
                         <div className="languages-options">
-                            {languages.map(language => <label key={language.languageId} htmlFor="language-option" className="label-checkmark"><input
+                            {languages.map(language => <label
+                                key={language.languageId}
+                                htmlFor="language-option"
+                                className="label-checkmark"><input
                                 type="checkbox"
                                 value={language.languageId}
                                 name="language-option"
                                 onChange={handleLanguageSelect}/>
-                            <span className="checkmark"></span>
-                            {language.languageName}</label>)}
+                                <span className="checkmark"></span>
+                                {language.languageName}</label>)}
                         </div>
                     </div>
 
                     <div className="interest-location field">
                         <h3>Location</h3>
-                        <input type="checkbox" name="location" value="USA"/>
-                        USA
-                        <input type="checkbox" name="location" value="Canada"/>
+                        <label htmlFor="location-usa" className="label-checkmark">
+                            <input type="checkbox" name="location-usa" value="USA"/>
+                            <span className="checkmark"></span>
+                            USA
+                        </label>
+                        
+                        <label htmlFor="location-canada" className="label-checkmark">
+                        <input type="checkbox" name="location-canada" value="Canada"/>
+                        <span className="checkmark"></span>
                         Canada
+                        </label>
+                        
                     </div>
 
                     <div className="interest-updates field">
@@ -291,10 +301,15 @@ const Instructions = () => {
 
                     <div className="interest-content field">
                         <h3>Content about</h3>
+                        <label htmlFor="articles" className="label-checkmark">
                         <input type="checkbox" name="articles" value="articles"/>
-                        <label htmlFor="articles">Articles</label>
+                            <span className="checkmark"></span>
+                            Articles
+                            </label>
+                        <label htmlFor="events" className="label-checkmark">
                         <input type="checkbox" name="events" value="events"/>
-                        <label htmlFor="events">Events</label>
+                        <span className="checkmark"></span>
+                        Events</label>
                     </div>
 
                     <div className="actions">
