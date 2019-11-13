@@ -91,6 +91,14 @@
         flex-direction: column;
     }
 
+    .carousel-footer{
+        order: 3;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .article-thumbnail{
         order: 1;
     }
@@ -176,11 +184,49 @@
 
     .action-container{
         display: flex;
-        
-        .action-icon{
-            width: 1.3rem;
+        align-items: center;
+        .action-btn{
+            display: inline-block;
             margin: .5rem 0 .5rem 1rem;
             cursor: pointer;
+
+            .hover{
+                display: none;
+            }
+
+            .selected{
+                display: none;
+            }
+
+            &:hover{
+                .hover{
+                    display: block;
+                }
+
+                .normal{
+                    display: none;
+                }
+            }
+
+            &:focus,
+            &:active{
+                .hover{
+                    display: none;
+                }
+                .selected{
+                    display: block;
+                }
+
+                .normal{
+                    display: none;
+                }
+            }
+            
+
+        }
+        .action-icon{
+            width: 1.3rem;
+            
 
         }
     }

@@ -21,36 +21,53 @@ const ArticleItem = (props) => {
                             </p>
                         </div>
                         <div className="action-container">
-                            <img
-                                className="action-icon"
-                                src="./assets/icons/share-icon.svg"
-                                alt="share button"/>
-                            <img
-                                className="action-icon"
-                                src="./assets/icons/favorite-icon.svg"
-                                alt="share button"/>
+                            <div className="action-btn share-btn">
+                                <img
+                                    className="action-icon normal"
+                                    src="./assets/icons/share-normal-icon.svg"
+                                    alt="share button"/>
+                                <img
+                                    className="action-icon hover"
+                                    src="./assets/icons/share-hover-icon.svg"
+                                    alt="share button"/>
+                                <img
+                                    className="action-icon selected"
+                                    src="./assets/icons/share-selected-icon.svg"
+                                    alt="share button"/>
+                            </div>
+                            <div className="action-btn favorite-btn">
+                                <img
+                                    className="action-icon normal"
+                                    src="./assets/icons/favorite-normal-icon.svg"
+                                    alt="favorite button"/>
+                                <img
+                                    className="action-icon hover"
+                                    src="./assets/icons/favorite-hover-icon.svg"
+                                    alt="favorite button"/>
+                                <img
+                                    className="action-icon selected"
+                                    src="./assets/icons/favorite-selected-icon.svg"
+                                    alt="favorite button"/>
+                            </div>
                         </div>
                     </div>
                     {article.imgURL
-                        ? (<img
-                            className="article-thumbnail"
-                            src={article.imgURL}
-                            alt="article thumbnail"/>)
+                        ? (
+                            <a target="blank" href={article.link}><img
+                                className="article-thumbnail"
+                                src={article.imgURL}
+                                alt="article thumbnail"/></a>
+                        )
                         : (
                             <p></p>
                         )}
                     <p>{article.description}</p>
                 </div>
                 <div className="article-footer">
-                    <p className="powered-by">Powered by: <a
-                            target="blank"
-                            href="https://medium.com/"
-                            className="source-link"><img src="./assets/powered-by/medium.png" alt="Medium logo"/></a>
+                    <p className="powered-by">Powered by:
+                        <a target="blank" href="https://medium.com/" className="source-link"><img src="./assets/powered-by/medium.png" alt="Medium logo"/></a>
                     </p>
-                    <a
-                        target="blank"
-                        href={article.link}
-                        className="btn-outline btn-read-more">Read more</a>
+                    <a target="blank" href={article.link} className="btn-outline btn-read-more">Read more</a>
                 </div>
             </article>
         </li>
