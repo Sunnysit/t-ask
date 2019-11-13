@@ -9,11 +9,6 @@ const Instructions = () => {
     let axiosLibrary = new TaskAxios();
     let dispatch = useDispatch();
 
-    useEffect(() => {
-
-        axiosLibrary.registerLang()
-    }, [axiosLibrary])
-
     const languages = useSelector(state => state.languages.languages);
     //console.log(languages);
 
@@ -43,6 +38,14 @@ const Instructions = () => {
 
     let [newsletter,
         setNewsletter] = useState(false);
+
+    const [selectedLanguages, setSelectedLanguages] = useState([]);
+
+    useEffect(() => {
+
+        axiosLibrary.registerLang();
+        setSelectedLanguages(languages);
+    }, [axiosLibrary, languages])
 
     const handleRegistrationStep = () => {
         let {name, email, password, confirmPass} = form;
@@ -106,7 +109,7 @@ const Instructions = () => {
             errorLangs: ''
         }
 
-        let submitLangs = langs.trim();
+        let submitLangs = langs;
 
         let formValidates = true;
 
@@ -144,17 +147,48 @@ const Instructions = () => {
         //const selectLanguage = languages.find(language => language.languageId === selectLanguageId);
 
         //console.log(selectLanguage);
-        for(let i = 0; i < form.langs.length; i++){
-            if(selectLanguageId !== form.langs[i]){
-                setForm({...form,
-                langs:form.langs.push(selectLanguageId)})
-                
-            }
-            else{
-                let removeLanguage = form.langs.filter(language => language.languageId !== selectLanguageId);
-                setForm({...form, langs: removeLanguage})
+
+        //console.log(languages);
+
+        console.log(selectLanguageId);
+
+        //let languageIndex;
+        // const updateLanguages = selectedLanguages.map(language => {
+        //     if(language.languageId === selectLanguageId){
+        //         console.log(language.languageId);
+        //         console.log(selectLanguageId);
+        //         language.isSelect = true;
+        //         //languageIndex = index;
+        //     }
+        //     return language;
+        // });
+
+        //let updateLanguages = selectedLanguages;
+
+        //setSelectedLanguages(updateLanguages);
+
+        //console.log(updateLanguages);
+
+        if(form.langs.length === 0){
+            setForm({...form, langs:[selectLanguageId]});
+        }
+
+        else if (form.langs.length > 0){
+            for(let i = 0; i < form.langs.length; i++){
+                if(selectLanguageId !== form.langs[i]){
+                    setForm({...form, langs: [...form.langs, selectLanguageId]});
+                }
+                else if(selectLanguageId === form.langs[i]) {
+                    let removeLanguage = form.langs;
+                    removeLanguage.splice(i, 1);
+                    console.log('this value is in the array!');
+                    setForm({...form, langs: removeLanguage});
+                }
+
             }
         }
+
+        // if()
         
         console.log(form);
     }
@@ -220,12 +254,12 @@ const Instructions = () => {
                     </div>
 
                     <div className="field">
-                        <label htmlFor="Password" className="label-required">Confirm password</label>
+                        <label htmlFor="Password-confirm" className="label-required">Confirm password</label>
                         <div className="error-message">{errors.errorConfirmPassword}</div>
                         <input
                             type="password"
-                            name="Password"
-                            id="Password"
+                            name="Password-confirm"
+                            id="Password-confirm"
                             onChange={(e) => {
                             setForm({
                                 ...form,
