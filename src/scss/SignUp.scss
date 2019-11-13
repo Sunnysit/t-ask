@@ -1,38 +1,113 @@
+.mobile{
+    display: block;
+
+    .register{
+        padding-left: $padding;
+        padding-right: $padding;
+    }
+
+    @media screen and (min-width: 760px){
+        display: none;
+    }
+}
+
+.error-message{
+    color: red;
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 0.8rem;
+}
+
+.label-required{
+    display: inline;
+}
+
+span{
+    font-weight: normal;
+}
+
+.step{
+    display: inline;
+
+    @media screen and (min-width: 760px){
+        display: none;
+    }
+}
+
+.desktop{
+    display: none;
+
+    @media screen and (min-width: 760px){
+        display: block;
+    }
+
+    .register-steps{
+        border-right: 1px solid black;
+    }
+
+    .step1, .step2{
+        display: grid;
+        grid-template-columns: 10% 90%;
+
+        h2{
+            margin: 1rem 0;
+            font-weight: bold;
+
+        }
+
+        .number-step{
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+    }
+
+    
+}
+
+.field{
+    margin-top: 1.3rem;
+}
+
 .register{
     color: $typography;
     display: block;
-    padding-bottom: 30px;
-    //height: 800px;
 
     .btn{
         margin: auto 0;
 
     }
 
-    .btn-next{
-        display: flex;
-        justify-content: flex-end;
-    }
+    // .btn-next{
+    //     display: flex;
+    //     justify-content: flex-end;
+    // }
 
     .registration{
         display: block;
         height: inherit;
         @media screen and (min-width: 760px){
             display: grid;
-            grid-template-columns: 40% 60%;
+            grid-template-columns: 38% 58%;
+            grid-gap: 4%;
         }
 
-        .register-steps{
-            border-right: 1px solid black;
+        .register-steps{    
 
             .number-step, h2{
                 display: inline-block;
+                font-weight: bold;
             }
+
+            h2{
+                margin-bottom: 0;
+            }
+
             .disable{
                 display: none;
 
                 @media screen and (min-width:760px) {
-                    display: block;
+                    display: grid;
                     h2, p{
                         color: #CBCBCB;
                     }
@@ -40,42 +115,45 @@
     
             }
 
-            .step1, .step2{
-                display: grid;
-                grid-template-columns: 10% 90%;
-                font-weight: bold;
-
-                h2{
-                    margin: 1rem 0;
-                }
-
-                .number-step{
-                    font-size: 1.5rem;
-                    margin-top: 1rem;
-                }
-                
-            }
         }
 
         .register-instructions{
-            padding-right: 15%;
-            padding-left: 15%;
 
             .step1-instructions{
+
+                h2{
+                    margin-top: 0;
+                }
+
                 label, input{
                     width: 100%;
                 }
     
                 label{
-                    margin-top: 1.2rem;
+                    margin-top: 1.5rem;
+                    font-weight: bold;
                 }
     
                 input{
                     border-radius: 7px;
-                    border: 1px solid #959494;
-                    background-color: white;
+                    border: 1px solid $card-border;
+                    background-color: $background;
                     margin: 0.6rem auto;
                     padding: 0.5rem;
+                }
+            }
+
+            .actions{
+                text-align: center;
+                margin-top: 2.5rem;
+                // .btn, .secondary-link{
+                //     display: block;
+                // }
+                .secondary-link{
+                    color: $main-color;
+                    cursor: pointer;
+                    font-weight: bold;
+                    margin-top: 3rem;
                 }
             }
 
@@ -84,24 +162,42 @@
                     display: grid;
                     grid-template-columns: 50% 50%;
                     grid-gap: 2rem;
+                    margin-top: 1rem;
 
                     @media screen and (min-width: 760px){
-                        grid-template-columns: 33% 33% 33%;
+                        grid-template-columns: repeat(4, 25%);
                     }
                 }
 
-                .actions{
-                    display: flex;
-                    justify-content: space-between;
-                    margin-top: 2.5rem;
-                    //margin-bottom: 1.5rem;
-                    .secondary-link{
-                        color: $main-color;
-                        cursor: pointer;
-                        font-weight: bold;
-                        display: inline-block;
-                    }
-                }
+                // .label-checkmark{
+                //     position: relative;
+                //     padding-left: 20px;
+                //     cursor: pointer;
+
+                //     input{
+                //         position: absolute;
+                //         left: 0;
+                //         opacity: 0;
+                //         cursor: pointer;
+                //         z-index: 1;
+
+                //     }
+
+                //     input:checked ~ .checkmark{
+                //         background-color: $main-color;
+                //     }
+                // }
+
+                // .checkmark{
+                //     position: absolute;
+                //     top: 0;
+                //     left: 0;
+                //     height: 15px;
+                //     width: 15px;
+                //     background-color: transparent;
+                //     border: 0.5px solid $main-color;
+                // }
+
             }
 
             .disable{
@@ -111,3 +207,4 @@
 
     }
 }
+

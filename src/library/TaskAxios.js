@@ -176,7 +176,7 @@ export class TaskAxios {
                 const languagesArray = result
                     .data
                     .map(language => {
-                        return {languageName: language.name, languageId: language.id_language};
+                        return {languageName: language.name, languageId: language.id_language, isSelect: false};
                     })
                 this.dispatch({type: "SET_ALL_LANGUAGES", payload: languagesArray});
             })

@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch,useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import Axios from 'axios';
-import { TaskAxios } from '../../../library/TaskAxios';
-const { encrypt } = require('../../../openPGP.js')
-
+import {TaskAxios} from '../../../library/TaskAxios';
+const {encrypt} = require('../../../openPGP.js')
 
 const Instructions = () => {
 
@@ -11,7 +10,7 @@ const Instructions = () => {
     let dispatch = useDispatch();
 
     useEffect(() => {
-        
+
         axiosLibrary.registerLang()
     }, [axiosLibrary])
 
@@ -20,7 +19,7 @@ const Instructions = () => {
 
     const initialForm = {
         name: '',
-        email:'',
+        email: '',
         password: '',
         confirmPass: '',
         langs: []
@@ -36,11 +35,14 @@ const Instructions = () => {
 
     const enable = useSelector(state => state.user.registration);
 
-    const [form, setForm] = useState(initialForm);
+    const [form,
+        setForm] = useState(initialForm);
 
-    const [errors, setErrors] = useState(initialErrors);
+    const [errors,
+        setErrors] = useState(initialErrors);
 
-    let [newsletter, setNewsletter] = useState(false);
+    let [newsletter,
+        setNewsletter] = useState(false);
 
     const handleRegistrationStep = () => {
         let {name, email, password, confirmPass} = form;
@@ -60,25 +62,25 @@ const Instructions = () => {
 
         let formValidates = true;
 
-        if(!submitName && submitName.length < 1) {
+        if (!submitName && submitName.length < 1) {
             wrong.errorName = 'Please enter a valid name';
             formValidates = false;
         }
-        if(!submitEmail || !submitEmail.includes('@')) {
+        if (!submitEmail || !submitEmail.includes('@')) {
             wrong.errorEmail = 'Please enter a valid email address';
             formValidates = false;
         }
-        if(!submitPassword && submitPassword.length < 8) {
+        if (!submitPassword && submitPassword.length < 8) {
             wrong.errorPassword = 'Please enter a password at least 8 characters long';
             formValidates = false;
         }
 
-        if(!submitConfirmPass || submitPassword !== submitConfirmPass) {
+        if (!submitConfirmPass || submitPassword !== submitConfirmPass) {
             wrong.errorConfirmPassword = "The passwords don't match";
             formValidates = false;
         }
 
-        if(formValidates){
+        if (formValidates) {
             dispatch({type: "USER_REGISTRATION"})
         }
 
@@ -93,7 +95,7 @@ const Instructions = () => {
 
     const handleBack = () => {
         dispatch({type: "USER_REGISTRATION_BACK"});
-    } 
+    }
 
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -108,101 +110,192 @@ const Instructions = () => {
 
         let formValidates = true;
 
-        if(!submitLangs && submitLangs.length > 3) {
+        if (!submitLangs && submitLangs.length > 3) {
             wrong.errorLangs = 'Please choose only 3 languages';
             formValidates = false;
         }
 
-        const messageEncrypted = JSON.stringify({
-            name: form.name,
-            email: form.email,
-            password: form.password,
-            languages: form.langs
-        })
+        if(!submitLangs) {
+            wrong.errorLangs = 'Please choose up to three languages';
+            formValidates = false;  
+        }
+
+        const messageEncrypted = JSON.stringify({name: form.name, email: form.email, password: form.password, languages: form.langs})
         console.log(messageEncrypted);
 
-        if(formValidates){
+        if (formValidates) {
 
-            encrypt(messageEncrypted)
-            .then(encryptedMessage => {
-                Axios.post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
-                .then(res => {
-                    console.log(res);
+            encrypt(messageEncrypted).then(encryptedMessage => {
+                Axios
+                    .post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
+                    .then(res => {
+                        console.log(res);
 
-                    localStorage.setItem('userData', res.data.token);
-                })
+                        localStorage.setItem('userData', res.data.token);
+                    })
             })
         }
+
+    }
+
+    const handleLanguageSelect = (e) => {
+        let selectLanguageId = e.target.value;
+
+        //const selectLanguage = languages.find(language => language.languageId === selectLanguageId);
+
+        //console.log(selectLanguage);
+        for(let i = 0; i < form.langs.length; i++){
+            if(selectLanguageId !== form.langs[i]){
+                setForm({...form,
+                langs:form.langs.push(selectLanguageId)})
+                
+            }
+            else{
+                let removeLanguage = form.langs.filter(language => language.languageId !== selectLanguageId);
+                setForm({...form, langs: removeLanguage})
+            }
+        }
+        
+        console.log(form);
     }
 
     return (
-        <div className="register-instructions">
+        <div className="register-instructions"> 
             <form action="" onSubmit={handleSignUp}>
-                <div className={!enable ? "step1-instructions" : " disable step1-instructions"}>
-                    <h2>Enter your information</h2>
-                    
-                    <label htmlFor="Name">Name</label>
-                    <input type="text" name="Name" id="Name" onChange={(e) => {setForm({...form, name: e.target.value})}} required/>
-                    <div className="error-message">{errors.errorName}</div>
-                    
-                    <label htmlFor="Email">Email</label>
-                    <input type="email" name="Email" id="Email" onChange={(e) => {setForm({...form, email: e.target.value})}} required/>
-                    <div className="error-message">{errors.errorEmail}</div>
-                    
-                    <label htmlFor="Password">Password</label>
-                    <input type="password" name="Password" id="Password" onChange={(e) => {setForm({...form, password: e.target.value})}} required/>
-                    <div className="error-message">{errors.errorPassword}</div>
-                    
-                    <label htmlFor="Password">Confirm password</label>
-                    <input type="password" name="Password" id="Password" onChange={(e) => {setForm({...form, confirmPass:e.target.value})}} required/>
-                    <div className="error-message">{errors.errorConfirmPassword}</div>
+                <div
+                    className={!enable
+                    ? "step1-instructions"
+                    : " disable step1-instructions"}>
+                    <h2 className="desktop">Enter your information</h2>
+
+                    <div className="field">
+                        <label htmlFor="Name" className="label-required">Name</label>
+                        <div className="error-message">{errors.errorName}</div>
+                        <input
+                            type="text"
+                            name="Name"
+                            id="Name"
+                            //value="Name"
+                            onChange={(e) => {
+                            setForm({
+                                ...form,
+                                name: e.target.value
+                            })
+                        }}
+                            required/>
+
+                    </div>
+
+                    <div className="field">
+                        <label htmlFor="Email" className="label-required">Email</label>
+                        <div className="error-message">{errors.errorEmail}</div>
+                        <input
+                            type="email"
+                            name="Email"
+                            id="Email"
+                            //value="Email"
+                            onChange={(e) => {
+                            setForm({
+                                ...form,
+                                email: e.target.value
+                            })
+                        }}
+                            required/>
+                    </div>
+
+                    <div className="field">
+                        <label htmlFor="Password" className="label-required">Password</label>
+                        <div className="error-message">{errors.errorPassword}</div>
+                        <input
+                            type="password"
+                            name="Password"
+                            id="Password"
+                            onChange={(e) => {
+                            setForm({
+                                ...form,
+                                password: e.target.value
+                            })
+                        }}
+                            required/>
+                    </div>
+
+                    <div className="field">
+                        <label htmlFor="Password" className="label-required">Confirm password</label>
+                        <div className="error-message">{errors.errorConfirmPassword}</div>
+                        <input
+                            type="password"
+                            name="Password"
+                            id="Password"
+                            onChange={(e) => {
+                            setForm({
+                                ...form,
+                                confirmPass: e.target.value
+                            })
+                        }}
+                            required/>
+                    </div>
 
                     <div className="btn-next">
                         <div className="btn" onClick={handleRegistrationStep}>Next step</div>
                     </div>
                 </div>
-                <div className={enable ? "step2-instructions" : " disable step2-instructions"}>
+                <div
+                    className={enable
+                    ? "step2-instructions"
+                    : " disable step2-instructions"}>
                     <h2>Choose your interests</h2>
 
-                    <div className="interest-languages">
-                        <h3>Languages</h3>
+                    <div className="interest-languages field">
+                        <h3 className="label-required">Languages</h3>
 
                         <div className="error-message">{errors.errorLangs}</div>
                         <div className="languages-options">
-                            {languages.map(language => <label key={language.languageId} htmlFor="language-option"><input type="checkbox" value={language.languageId} name="language-option" onChange={(e) => {setForm({...form, langs: [...form.langs, e.target.value]})}}/>{language.languageName}</label>)}
+                            {languages.map(language => <label key={language.languageId} htmlFor="language-option" className="label-checkmark"><input
+                                type="checkbox"
+                                value={language.languageId}
+                                name="language-option"
+                                onChange={handleLanguageSelect}/>
+                            <span className="checkmark"></span>
+                            {language.languageName}</label>)}
                         </div>
                     </div>
-                    
-                    <div className="interest-location">
+
+                    <div className="interest-location field">
                         <h3>Location</h3>
-                        <input type="checkbox" name="location" value="USA"/> USA
-                        <input type="checkbox" name="location" value="Canada"/> Canada
+                        <input type="checkbox" name="location" value="USA"/>
+                        USA
+                        <input type="checkbox" name="location" value="Canada"/>
+                        Canada
                     </div>
-                    
-                    <div className="interest-updates">
+
+                    <div className="interest-updates field">
                         <h3>Updates</h3>
                         <p>I want to receive notifications by email</p>
                         <div className="toggle-switch">
                             <p>Yes</p>
-                            <div className="toggle-container"  onClick={handleSwitch}>
-                            <div className={!newsletter ? 'yes toggle-ball' : 'no toggle-ball'}>
-                            </div>
+                            <div className="toggle-container" onClick={handleSwitch}>
+                                <div
+                                    className={!newsletter
+                                    ? 'yes toggle-ball'
+                                    : 'no toggle-ball'}></div>
                             </div>
                             <p>No</p>
                         </div>
                     </div>
-                    
-                    <div className="interest-content">
+
+                    <div className="interest-content field">
                         <h3>Content about</h3>
-                        <input type="checkbox" name="articles" value="articles"/> Articles
-                        <input type="checkbox" name="events" value="events"/> Events
+                        <input type="checkbox" name="articles" value="articles"/>
+                        <label htmlFor="articles">Articles</label>
+                        <input type="checkbox" name="events" value="events"/>
+                        <label htmlFor="events">Events</label>
                     </div>
-                    
+
                     <div className="actions">
-                        <p onClick={handleBack} className="secondary-link">Go back</p>
                         <button className="btn">Complete</button>
+                        <p onClick={handleBack} className="secondary-link">Go back</p>
                     </div>
-                    
+
                 </div>
             </form>
         </div>
