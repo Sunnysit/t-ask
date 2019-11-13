@@ -1,57 +1,51 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
-
 
 /*=============================================
 =            Variables            =
 =============================================*/
+
 $max-window-width: 1000px;
+$padding: 3%;
+$contact-vertical-spacing: 1.5rem;
 
 /*=================Color=====================*/
 $main-color: #272664;
-$secondary-color: #32C5F3;
-$language-color1: #F55216;
-$language-color2: #00A300;
-$language-color3: #681B7F;
+$secondary-color: #32c5f3;
+$language-color1: #f55216;
+$language-color2: #00a300;
+$language-color3: #681b7f;
 
-$background: #F9F9F9;
-$card-boarder: #CBCBCB;
+$background: #f9f9f9;
+$card-boarder: #cbcbcb;
 $typography: #505050;
-$input-field: #F9F9F9;
+$input-field: #f9f9f9;
 
+@import "./scss/AboutUs.scss";
 
+@import "./scss/ContactUs.scss";
 
-@import './scss/AboutUs.scss'; 
+@import "./scss/general.scss";
 
-@import './scss/ContactUs.scss';
+@import "./scss/Header.scss";
 
-@import './scss/general.scss';
+@import "./scss/Footer.scss";
 
-@import './scss/Header.scss';
+@import "./scss/Home/Home.scss";
 
-@import './scss/Footer.scss';
+@import "./scss/LogIn.scss";
 
-@import './scss/Home/Home.scss';
+@import "./scss/Articles.scss";
 
-@import './scss/LogIn.scss';
+@import "./scss/SignUp.scss";
 
-
-@import './scss/Articles.scss';
-
-@import './scss/SignUp.scss';
-
-@import './scss/Home/BarGraphLegend.scss'
-
-
+@import "./scss/Home/BarGraphLegend.scss";
