@@ -39,13 +39,10 @@ const Instructions = () => {
     let [newsletter,
         setNewsletter] = useState(false);
 
-    const [selectedLanguages, setSelectedLanguages] = useState([]);
-
     useEffect(() => {
 
         axiosLibrary.registerLang();
-        setSelectedLanguages(languages);
-    }, [axiosLibrary, languages])
+    }, [axiosLibrary])
 
     const handleRegistrationStep = () => {
         let {name, email, password, confirmPass} = form;
@@ -144,30 +141,7 @@ const Instructions = () => {
     const handleLanguageSelect = (e) => {
         let selectLanguageId = e.target.value;
 
-        //const selectLanguage = languages.find(language => language.languageId === selectLanguageId);
-
-        //console.log(selectLanguage);
-
-        //console.log(languages);
-
-        console.log(selectLanguageId);
-
-        //let languageIndex;
-        // const updateLanguages = selectedLanguages.map(language => {
-        //     if(language.languageId === selectLanguageId){
-        //         console.log(language.languageId);
-        //         console.log(selectLanguageId);
-        //         language.isSelect = true;
-        //         //languageIndex = index;
-        //     }
-        //     return language;
-        // });
-
-        //let updateLanguages = selectedLanguages;
-
-        //setSelectedLanguages(updateLanguages);
-
-        //console.log(updateLanguages);
+        //console.log(selectLanguageId);
 
         if(form.langs.length === 0){
             setForm({...form, langs:[selectLanguageId]});
@@ -187,8 +161,6 @@ const Instructions = () => {
 
             }
         }
-
-        // if()
         
         console.log(form);
     }
