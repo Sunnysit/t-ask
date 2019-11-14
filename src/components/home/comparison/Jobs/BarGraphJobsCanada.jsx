@@ -64,6 +64,16 @@ const BarGraphJobsCanada = () => {
     }
     ;
 
+    const hiddenTick = (e) => {
+        const tickValue = e / 2;
+        const isOdd = tickValue % 2;
+        let showTick = true;
+        if(isOdd === 1){
+            showTick = false;
+        }
+        return showTick;
+    }
+
     return (<ResponsiveBar
         data={barGraphData}
         keys={["value"]}
@@ -86,6 +96,7 @@ const BarGraphJobsCanada = () => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
+        format: tick => (hiddenTick(tick) ? tick : ''),
         legend: 'Canada',
         legendPosition: 'middle',
         legendOffset: 32

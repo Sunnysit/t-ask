@@ -46,6 +46,16 @@ const BarGraphLangUSA = () => {
     }
     ;
 
+    const hiddenTick = (e) => {
+        const tickValue = e / 2;
+        const isOdd = tickValue % 2;
+        let showTick = true;
+        if(isOdd === 1){
+            showTick = false;
+        }
+        return showTick;
+    }
+
     return (
             <ResponsiveBar
                 data={barGraphData}
@@ -70,6 +80,7 @@ const BarGraphLangUSA = () => {
                 tickSize: 5,
                 tickPadding: 5,
                 tickRotation: 0,
+                format: tick => (hiddenTick(tick) ? tick : ''),
                 legend: 'USA',
                 legendPosition: 'middle',
                 legendOffset: 32

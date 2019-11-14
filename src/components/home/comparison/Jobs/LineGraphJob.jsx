@@ -70,18 +70,27 @@ const LineGraphJob = () => {
 
     //get line color
     const getLineColor = line => {
-        console.log(line)
-        return line.color
+        //console.log(line)
+        return line.color;
+    }
+
+    const hiddenTick = (e) => {
+        const tickValue = e.substring(5,7);
+        let showTick = true;
+        if(tickValue === '07'){
+            showTick = false;
+        }
+        return showTick;
     }
 
     return ( 
     <div className="line-graph-job-container">
         <ResponsiveLine
         data={graphData}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 90, bottom: 50, left: 25 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
-        curve="linear"
+        curve="natural"
         axisTop={null}
         axisRight={{
             orient: 'left',
@@ -96,6 +105,7 @@ const LineGraphJob = () => {
             orient: 'bottom',
             tickSize: 5,
             tickPadding: 5,
+            format: tick => (hiddenTick(tick) ? tick : ''),
             tickRotation: 0,
             legend: 'Year',
             legendOffset: 36,

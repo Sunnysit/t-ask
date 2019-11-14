@@ -11,51 +11,76 @@
     }
 
     .graph-container{
-        background-color: #fff;
-      
+        background-color: #fff;   
 
         .bar-graphs{
          
-            display: flex;
-            justify-content: space-around;
-
+            display: block;   
 
             .bar-graph-lang-container,
             .bar-graph-jobs-container{
+
+                div:first-of-type,
+                div:nth-of-type(3){
+                    width: 41% !important;
+
+                    div{
+                        width: 100% !important;
+                    }
+                }
+
+                .languages-legend{
+                    div{
+                        width: 100% !important;
+                    }
+                }
+
+
                 height: 300px;
                 display: flex;
-                width: 45%;
-                // border: 1px solid black;
-    
-                
-    
-                // div:first-child{
-                //     width: 52% !important;
-    
-                //     div{
-                //         width:fit-content !important;  
-                //     }
-                // }
-    
-                // div:nth-child(2){
-                //     width: 48% !important;
-                // }
+                width: 320px;
+                margin: auto;
+
+                @media screen and (min-width:395px){
+                    width: 395px;
+                }
+
+                @media screen and(min-width:470px){
+                    width: 470px;
+                }
+
+            }
+
+            @media screen and(min-width:1020px){
+                display: flex;
+                justify-content: space-around;
+                //flex-wrap: wrap;
             }
         }
 
         .line-graphs{
       
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: block;
+
             .line-graph-lang-container,
             .line-graph-job-container{
                 height: 300px;
-                width: 50%;
+                width: 320px;  
+                margin: auto;
 
-                @media screen and (max-width:1060px) {
-                    width: 100%;
+                @media screen and (min-width:395px){
+                    width: 395px;
                 }
+
+                @media screen and(min-width:470px){
+                    width: 470px;
+                }
+            }
+
+            @media screen and (min-width:1020px) {
+                display: flex;
+                justify-content: space-around;
+                //flex-wrap: wrap;
             }
         }
 
