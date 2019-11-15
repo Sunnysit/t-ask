@@ -1,13 +1,64 @@
 .hero{
-    background-color:#ccc;
    
     width: 100%;
     padding-top: 5rem;
     padding-bottom: 5rem;
 
-    &.hero-home p,&.hero-home h1{
+    &.hero-home p,&.hero-home h1, &.hero-home h2{
         text-align: center;
-        color: white;
+        color: $typography;
+    }
+
+    .comparison-text{
+        font-weight: bold;
+        margin: 0;
+        margin-right: 10px;
+    }
+
+    .comparison-settings{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+
+        .languages-selected{
+            //width: 300px;
+
+            ul{
+                width: 300px;
+            }
+        }
+
+        .languages-selected, .select-language{
+            display: flex;
+
+            li p{
+                display: inline-block;
+                margin-right: 5px;
+                width: 10px;
+                height: 10px;
+                font-size: 10px;
+                margin-top: 0;
+            }
+
+            li:first-of-type p{
+                background-color: $language-color1;
+                color: $language-color1;
+            }
+
+            li:nth-child(2) p{
+                background-color: $language-color2;
+                color: $language-color2;
+            }
+
+            li:nth-child(3) p{
+                background-color: $language-color3;
+                color: $language-color3;
+            }
+        }
+    }
+
+    .toggle-switch-container{
+        justify-content: center;
     }
 
     .graph-container{
@@ -15,7 +66,12 @@
 
         .bar-graphs{
          
-            display: block;   
+            display: block;
+
+            
+            .graph-name{
+                margin-bottom: 0;
+            }
 
             .bar-graph-lang-container,
             .bar-graph-jobs-container{
@@ -89,5 +145,29 @@
     .page-title{
         font-size: 24px;
         font-weight: normal;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .sign-up-banner{
+        background-color: $main-color;
+        display: flex;
+        padding: 1rem;
+        align-items: center;
+        margin: 3rem auto;
+        border-radius: 5px;
+
+        p{
+            width: 90%;
+            font-weight: bold;
+            text-align: left;
+            color: white;
+        }
+
+        .btn{
+            width: fit-content;
+        }
     }
 }

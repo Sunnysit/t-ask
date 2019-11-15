@@ -12,7 +12,7 @@ const Comparison = () => {
 
     useEffect(() => {
 
-        // Comparison feature 
+        // Comparison feature
         axiosLibrary.comparisonLangsMenu();
         axiosLibrary.comparisonLangTime();
         axiosLibrary.comparisonLangLocation();
@@ -26,10 +26,14 @@ const Comparison = () => {
     }, [axiosLibrary])
     return (
         <div className="">
-            <p>Comparison feature. Select languages to see how they behave in different
-                aspects.</p>
-            <ClickAlert/>
-            <LanguagesLegend/>
+            <h2>Language Behavior</h2>
+            <p>Use the dropdown menu below to choose up to three development languages.
+                Change the switch and compare them either by location or by time.
+            </p>
+            <div className="comparison-settings">
+                <ClickAlert/>
+                <LanguagesLegend/>
+            </div>
             <ToggleSwitch/>
         </div>
     )

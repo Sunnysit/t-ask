@@ -105,3 +105,26 @@ img{
 .mobile-h1{
     padding-left: $padding;
 }
+
+.card {
+    border: 1px solid $card-border;
+    background-color: #fff;
+    padding: $padding;
+    border-radius: 5px;
+  }
+
+  #root{
+    background-color: $background;
+  }
+
+  *{
+      color: $typography;
+  }
+
+  .drop-down-menu{
+      background-color: $background;
+      //background-image: url("dropdown-icon.png");
+      border: 1px solid $card-border;
+      border-radius: 3px;
+      text-align: left;
+  }

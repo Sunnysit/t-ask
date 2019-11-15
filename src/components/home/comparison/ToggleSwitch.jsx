@@ -13,6 +13,8 @@ const ToggleSwitch = () => {
     }
 
     return(
+        <div className="toggle-switch-container">
+            <p className="comparison-text">Compare by</p>
         <div className="toggle-switch">
             <p>Time</p>
             <div className="toggle-container"  onClick={handleSwitch}>
@@ -22,6 +24,8 @@ const ToggleSwitch = () => {
             <p>&nbsp;Location</p>
 
         </div>
+        </div>
+        
     )
 
 }
