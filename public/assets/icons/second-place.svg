@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92" height="92" viewBox="0 0 92 92">
+  <defs>
+    <clipPath id="clip-second-place">
+      <rect width="92" height="92"/>
+    </clipPath>
+  </defs>
+  <g id="second-place" clip-path="url(#clip-second-place)">
+    <rect width="92" height="92" fill="#fff"/>
+    <g id="Group_3" data-name="Group 3" transform="translate(-3.021)">
+      <g id="Group_2" data-name="Group 2" transform="translate(0.021)">
+        <g id="badge-02" transform="translate(3 0)">
+          <circle id="Ellipse_20" data-name="Ellipse 20" cx="46" cy="46" r="46" transform="translate(0 0)" fill="#8a8c8e"/>
+          <circle id="Ellipse_21" data-name="Ellipse 21" cx="41.61" cy="41.61" r="41.61" transform="translate(4.39 4.39)" fill="#fff"/>
+          <text id="_" data-name="#" transform="translate(11.745 46.513)" fill="#8a8c8e" font-size="24" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">#</tspan></text>
+          <text id="_02" data-name="02" transform="translate(28.751 60.007)" fill="#8a8c8e" font-size="41" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0" letter-spacing="-0.01em">0</tspan><tspan y="0">2</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

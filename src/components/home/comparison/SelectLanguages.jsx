@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 const SelectLanguage = () => {
 
@@ -7,28 +8,24 @@ const SelectLanguage = () => {
     const nameRef = useRef(null);
 
     /* SAVE TO LOCAL STATE*/
-    //const [languages, setLanguages] = useState([])
-    //const [selectLanguages, setSelectLanguages] = useState([])
+    // const [languages, setLanguages] = useState([]) const [selectLanguages,
+    // setSelectLanguages] = useState([])
 
     /* GRAB INFORMATION FROM REDUCER*/
     const selectLanguages = useSelector(state => state.languages.selectedLanguages);
     const languagesState = useSelector(state => state.languages.languages);
-    const dropDown = useSelector(state=> state.languages.dropDown);
+    const dropDown = useSelector(state => state.languages.dropDown);
 
-    //console.log(languagesState);
-
-    //console.log(selectLanguages);
+    //console.log(languagesState); console.log(selectLanguages);
 
     const dispatch = useDispatch();
 
-
-    
     //const [displayDropDown, setDisplayDropDown] = useState(true);
-    
+
     let handleDropDown = (e) => {
-        if(nameRef.current.contains(e.target)){
+        if (nameRef.current.contains(e.target)) {
             //console.log(nameRef.current);
-            dispatch({type:"DROPDOWN"});
+            dispatch({type: "DROPDOWN"});
         }
     }
 
@@ -36,42 +33,35 @@ const SelectLanguage = () => {
         const selectLanguageId = e.target.value;
         //console.log(selectLanguageId);
         let languageIndex;
-        const selectLanguage = languagesState.map((language,index) => {
-            if(language.languageId === selectLanguageId){
-                //console.log(language.languageId);
-                //console.log(selectLanguageId);
+        const selectLanguage = languagesState.map((language, index) => {
+            if (language.languageId === selectLanguageId) {
+                //console.log(language.languageId); console.log(selectLanguageId);
                 language.isSelect = !language.isSelect;
                 languageIndex = index;
 
             }
             return language;
         })
-        //console.log(selectLanguage);
-        //setLanguages(selectLanguage);
+        //console.log(selectLanguage); setLanguages(selectLanguage);
         let language = selectLanguage[languageIndex];
         //console.log(language);
 
-        if(language.isSelect === true){
-            if( selectLanguages.length < 3){
-                
+        if (language.isSelect === true) {
+            if (selectLanguages.length < 3) {
 
                 /* CHANGE SELECTED LANGUAGES IN LOCAL STATE*/
-                //let currentSelect = selectLanguages;
-                //currentSelect.push(language);
-                //setSelectLanguages(currentSelect);
-                //console.log(currentSelect);
+                // let currentSelect = selectLanguages; currentSelect.push(language);
+                // setSelectLanguages(currentSelect); console.log(currentSelect);
 
                 /* ADD SELECTED LANGUAGE TO REDUCER*/
                 dispatch({type: 'ADD_SELECTED_LANGUAGES', payload: language});
-            }
-
-            else{
+            } else {
                 let currentSelect = selectLanguages;
                 let removeLanguage = currentSelect.shift();
-                
+
                 /* CHANGE IS SELECTED PROPERTY TO FALSE FOR THE FIRST LANGUAGE IN ARRAY WHEN SELECTING A FOURTH LANGUAGE*/
                 languagesState.map(language => {
-                    if(removeLanguage.languageName === language.languageName){
+                    if (removeLanguage.languageName === language.languageName) {
                         language.isSelect = false;
                     }
 
@@ -79,20 +69,15 @@ const SelectLanguage = () => {
                 })
 
                 /* CHANGE SELECTED LANGUAGES IN LOCAL STATE*/
-                //console.log(removeLanguage);
-                //currentSelect.push(language);
-                //setSelectLanguages(currentSelect);
-                //setLanguages(newLanguages);
+                // console.log(removeLanguage); currentSelect.push(language);
+                // setSelectLanguages(currentSelect); setLanguages(newLanguages);
 
                 /* UPDATE SELECTED LANGUAGE TO REDUCER*/
                 dispatch({type: 'UPDATE_SELECTED_LANGUAGES', payload: language});
             }
-        }
-
-        else {
+        } else {
             let currentSelect = selectLanguages;
             let removeLanguage = currentSelect.filter(language => language.languageId !== selectLanguageId);
-
 
             //setSelectLanguages(removeLanguage);
 
@@ -100,21 +85,33 @@ const SelectLanguage = () => {
             dispatch({type: 'REMOVE_SELECTED_LANGUAGES', payload: removeLanguage});
         }
     }
-    
+
     return (
-        <div className="select-language-body" ref={nameRef}>
-            <button onClick={handleDropDown}>Languages</button>
-            {!dropDown ? (
-                <div className="drop-down active">
-                    <ul className="languages">
-                    { languagesState.map(language => <li className={language.isSelect ? 'selected' : null} onClick={handleSelectLanguage }key={language.languageId} value={language.languageId}>{language.languageName}</li>) }
-                    </ul>
-                </div>
-            ) : (
-                <div className="drop-down"></div>
-            )}
-            
-            
+        <div className="select-language" ref={nameRef}>
+            <p className="comparison-text">Choose languages</p>
+            <div className="select-language-body">
+                <button onClick={handleDropDown} className="drop-down-menu">Select up to 3 languages
+                    <span className="drop-down-icon">&#9662;</span></button>
+                {!dropDown
+                    ? (
+                        <div className="drop-down active">
+                            <ul className="languages">
+                                {languagesState.map(language => <li
+                                    className={language.isSelect
+                                    ? 'selected'
+                                    : null}
+                                    onClick={handleSelectLanguage}
+                                    value={language.languageId}key={language.languageId} >{language.languageName}
+                                    <span>&#10004;</span>
+                                </li>)}
+                            </ul>
+                        </div>
+                    )
+                    : (
+                        <div className="drop-down"></div>
+                    )}
+            </div>
+
         </div>
     )
 }

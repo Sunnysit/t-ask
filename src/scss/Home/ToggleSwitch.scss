@@ -1,12 +1,25 @@
+.toggle-switch-container{
+    display: block;
+
+    @media screen and(min-width:370px){
+        display: flex;
+        margin: 1rem;
+        margin-top: 2rem;
+    }
+}
 .toggle-switch{
     display: flex;
-    width: 140px;
+    width: 180px;
     justify-content: space-between;
     align-items: baseline;
-    margin: 1rem;
+    margin: auto;
+
+    @media screen and(min-width:370px){
+        margin: 0;
+    }
 
     p{
-        margin: 0;
+        margin: 0 10px;
     }
     .toggle-container{
         background-color: $main-color;
@@ -17,13 +30,14 @@
     
         .toggle-ball{
             background-color: $secondary-color;
-            width: 15px;
-            height: 15px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
+            transform: translateX(2px) translateY(1.2px);
         }
     
         .location,.canada,.no{
-            transform: translateX(15px);
+            transform: translateX(12.5px) translateY(1.2px);
         }
     }
 }

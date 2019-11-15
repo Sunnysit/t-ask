@@ -66,7 +66,7 @@ const Top3Jobs = () => {
                                     src={lang.logoUrl}
                                     alt={job.name}/> */}
                             </p>
-                            <p className="job-description"></p>
+                            <p className="job-description">{job.description}</p>
                         </li>
                     })
 }
