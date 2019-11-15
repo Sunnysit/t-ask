@@ -35,7 +35,7 @@
         width: 220px;
         height: 200px;
         overflow-y: auto;
-        position: static;
+        position: absolute;
 
         background-color: $main-color;
 
@@ -62,7 +62,7 @@
         }
 
         li:hover{
-            background-color: #0000FF;
+            background-color: $secondary-color;
         }
 
         .selected span{
