@@ -1,6 +1,6 @@
 .jobs-legend, .languages-legend{
     margin-top: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 47px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -16,14 +16,19 @@
     }
 
     .color-legend{
-        height: 16px;
-        width: 16px !important;
+        height: 10px;
+        width: 10px !important;
+        font-size: 10px;
         margin: auto;
     }
 
     .third-language{
         text-align: center;
         margin-bottom: 2px;
+
+        p{
+            margin-bottom: 0;
+        }
 
         .color-legend{
             background-color:$language-color3;
@@ -32,8 +37,12 @@
     }
     .second-language{
         text-align: center;
-        margin-top: 17px;
+        margin-top: 13px;
         margin-bottom: 2px;
+
+        p{
+            margin-bottom: 0;
+        }
 
         .color-legend{
             background-color:$language-color2;
@@ -42,7 +51,7 @@
     }
     .first-language{
         text-align: center;
-        margin-top: 17px;
+        margin-top: 13px;
         margin-bottom: 2px;
         
         .color-legend{

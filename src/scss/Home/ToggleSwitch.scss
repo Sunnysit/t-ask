@@ -1,13 +1,22 @@
 .toggle-switch-container{
-    display: flex;
-    margin: 1rem;
+    display: block;
+
+    @media screen and(min-width:370px){
+        display: flex;
+        margin: 1rem;
+        margin-top: 2rem;
+    }
 }
 .toggle-switch{
     display: flex;
     width: 180px;
     justify-content: space-between;
     align-items: baseline;
-    margin: 0;
+    margin: auto;
+
+    @media screen and(min-width:370px){
+        margin: 0;
+    }
 
     p{
         margin: 0 10px;

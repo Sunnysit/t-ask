@@ -13,12 +13,18 @@
         font-weight: bold;
         margin: 0;
         margin-right: 10px;
+        margin-bottom: 1rem;
     }
 
     .comparison-settings{
-        display: flex;
-        justify-content: space-between;
-        margin-top: 3rem;
+        display: block;
+
+        @media screen and(min-width:640px){
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+        }
+
 
         .languages-selected{
             //width: 300px;
@@ -29,7 +35,11 @@
         }
 
         .languages-selected, .select-language{
-            display: flex;
+            display: block;
+
+            @media screen and(min-width:930px){
+                display: flex;
+            }
 
             li p{
                 display: inline-block;
@@ -78,7 +88,7 @@
 
                 div:first-of-type,
                 div:nth-of-type(3){
-                    width: 41% !important;
+                    width: 37% !important;
 
                     div{
                         width: 100% !important;
@@ -92,9 +102,9 @@
                 }
 
 
-                height: 300px;
+                height: 260px;
                 display: flex;
-                width: 320px;
+                width: 298px;
                 margin: auto;
 
                 @media screen and (min-width:395px){
