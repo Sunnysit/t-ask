@@ -2,8 +2,8 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 
 import Comparison from '../home/comparison/Comparison'
-
-import LineGraph from '../home/comparison/Languages/LineGraph'
+import SignUpBanner from '../home/SignUpBanner'
+import LineGraphLang from '../home/comparison/Languages/LineGraphLang'
 import LineGraphJob from '../home/comparison/Jobs/LineGraphJob'
 import BarGraphLang from '../home/comparison/Languages/BarGraphLang'
 import BarGraphJobs from '../home/comparison/Jobs/BarGraphJobs'
@@ -15,14 +15,14 @@ const HomeHero = () => {
     return (
         <div className="hero-home hero">
             <h1>Welcome to Task</h1>
-            <p>Here we explain how the comparison works</p>
-            <div className="placeholder placeholder-comparison-feature">
-                <p>Here is the comparison feature</p>
+            <p>Your go-to website to keep updated in different technologies</p>
+            <SignUpBanner/>
+            <div className="card placeholder-comparison-feature">
                 <Comparison/>
                 <div className="graph-container">
                     {graphType
                         ? ( <div className="line-graphs">
-                            <LineGraph/>
+                            <LineGraphLang/>
                             <LineGraphJob/>
                             </div>)
                         : (<div className="bar-graphs">

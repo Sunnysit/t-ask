@@ -6,11 +6,13 @@ import BarGraphJobsUSA from './BarGraphJobsUSA';
 
 const BarGraphJobs = () => {
     return (
-        <div className="bar-graph-jobs-container">
-            <BarGraphJobsCanada/>
-            <BarGraphJobsLegend/>
-            <BarGraphJobsUSA/>
-
+        <div className="bar-graph-jobs">
+            <p className="graph-name">Demand for Language</p>
+            <div className="bar-graph-jobs-container">
+                <BarGraphJobsCanada/>
+                <BarGraphJobsLegend/>
+                <BarGraphJobsUSA/>
+            </div>
         </div>
     )
 }

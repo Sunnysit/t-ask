@@ -15,7 +15,8 @@ const LogIn = () => {
     <Popup trigger={<img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/>} modal>
     {close => (
         <div className="modal">
-            <a href="/#" onClick={close} className="close popup-text">&times;</a>
+            <button onClick={ close } className="close popup-text">&times;</button>
+            {/* <a href="/#" onClick={close} className="close popup-text">&times;</a> */}
             <div className="header-popup">Log in to have access to your personal dashboard</div>
             <div className="content">
                 <form action="">

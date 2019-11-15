@@ -2,14 +2,14 @@ import React from 'react';
 import LineGraph from './LineGraph'
 
 
-const LineGraphJob = () => {
+const LineGraphLang = () => {
     return(
         <div className="line-graph-lang">
-            <p className="graph-name">Demand for Language</p>
+            <p className="graph-name">Use of Language</p>
             <LineGraph/>
         </div>
 
     );
 }
 
-export default LineGraphJob;
+export default LineGraphLang;
