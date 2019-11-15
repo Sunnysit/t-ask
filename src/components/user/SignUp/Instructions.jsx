@@ -2,12 +2,14 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Axios from 'axios';
 import {TaskAxios} from '../../../library/TaskAxios';
+import {useHistory} from 'react-router-dom';
 const {encrypt} = require('../../../openPGP.js')
 
 const Instructions = () => {
 
     let axiosLibrary = new TaskAxios();
     let dispatch = useDispatch();
+    let history = useHistory();
 
     const languages = useSelector(state => state.languages.languages);
     //console.log(languages);
@@ -103,6 +105,10 @@ const Instructions = () => {
         let {langs} = form;
 
         let wrong = {
+            errorName: '',
+            errorEmail: '',
+            errorPassword: '',
+            errorConfirmPassword: '',
             errorLangs: ''
         }
 
@@ -110,13 +116,13 @@ const Instructions = () => {
 
         let formValidates = true;
 
-        if (!submitLangs && submitLangs.length > 3) {
-            wrong.errorLangs = 'Please choose only 3 languages';
+        if (submitLangs.length === 0) {
+            wrong.errorLangs = 'Please choose up to three languages';
             formValidates = false;
         }
 
-        if (!submitLangs) {
-            wrong.errorLangs = 'Please choose up to three languages';
+        if (submitLangs.length > 3) {
+            wrong.errorLangs = 'Please choose only 3 languages';
             formValidates = false;
         }
 
@@ -131,10 +137,20 @@ const Instructions = () => {
                     .then(res => {
                         console.log(res);
 
-                        localStorage.setItem('userData', res.data.token);
+                        if(res.status === 200){
+                            localStorage.setItem('userData', res.data.token);
+                            history.push('/profile');
+                        }
+
+
+                    })
+                    .catch(error => {
+                        console.log(error);
                     })
             })
         }
+
+        setErrors(wrong);
 
     }
 
@@ -313,7 +329,10 @@ const Instructions = () => {
                     </div>
 
                     <div className="actions">
-                        <button className="btn">Complete</button>
+                        {/* <Link to="/profile"> */}
+                            <button className="btn">Complete</button>
+                        {/* </Link> */}
+                        
                         <p onClick={handleBack} className="secondary-link">Go back</p>
                     </div>
 
