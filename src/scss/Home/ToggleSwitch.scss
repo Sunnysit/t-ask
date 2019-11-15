@@ -30,14 +30,14 @@
     
         .toggle-ball{
             background-color: $secondary-color;
-            width: 13px;
-            height: 13px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
-            transform: translateY(0.6px);
+            transform: translateX(2px) translateY(1.2px);
         }
     
         .location,.canada,.no{
-            transform: translateX(13px) translateY(0.6px);
+            transform: translateX(12.5px) translateY(1.2px);
         }
     }
 }

@@ -91,7 +91,7 @@ const SelectLanguage = () => {
             <p className="comparison-text">Choose languages</p>
             <div className="select-language-body">
                 <button onClick={handleDropDown} className="drop-down-menu">Select up to 3 languages
-                    <FontAwesomeIcon icon={'caret-down'} className="drop-down-icon" size="2x"/></button>
+                    <span className="drop-down-icon">&#9662;</span></button>
                 {!dropDown
                     ? (
                         <div className="drop-down active">
