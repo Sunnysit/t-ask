@@ -13,7 +13,7 @@ const EventItem = (props) => {
                 <a target="blank" href={evenInfo.link}>{evenInfo.name}</a>
                 </h2>
                 <div className="event-info">
-                    <div className="evnet-time">
+                    <div className="event-time">
                         {moment(evenInfo.time).format('ll')}
                     </div>
                     <div className="event-description">

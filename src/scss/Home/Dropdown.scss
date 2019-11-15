@@ -10,22 +10,22 @@
 .select-language {
 
 
-    button{
+    button {
         width: 220px;
         font-size: 0.9rem;
         position: relative;
         height: 21px;
         .drop-down-icon{
-            color: white;
-            background-color: #272664;
-            height: 20px;
-            width: 21px;
+            //color: white;
+            //background-color: #272664;
+            height: 10px;
+            width: 7px;
             position: absolute;
-            right: 0;
-            top: 0;
+            right: 6px;
+            top: 2px;
 
             path{
-                color: white;
+                //color: white;
             }
         }
     }
@@ -35,7 +35,7 @@
         width: 220px;
         height: 200px;
         overflow-y: auto;
-        position: static;
+        position: absolute;
 
         background-color: $main-color;
 
@@ -46,7 +46,7 @@
         li{
             color: white;
             text-align: center;
-            border-bottom: 1px solid white;
+            //border-bottom: 1px solid white;
             font-size: 0.9rem;
             padding-top: 0.1rem;
             padding-bottom: 0.1rem;
@@ -77,4 +77,49 @@
         }
 
     } 
+}
+
+select{
+    option{
+
+        border: 1px solid black;
+
+        width: 220px;
+        height: 200px;
+        overflow-y: auto;
+        position: static;
+
+        background-color: $main-color;
+        color: white;
+        text-align: center;
+        border-bottom: 1px solid white;
+        font-size: 0.9rem;
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+        position: relative;
+
+
+        option span{
+            position: absolute;
+            top: 0;
+            right: 10px;
+            display: none;
+        }
+
+        option:hover{
+            background-color: $secondary-color;
+        }
+
+        .selected span{
+            display: block;
+            color: $secondary-color;
+            border-width: 0 2px 2px 0;
+            //transform: rotate(45deg);
+        }
+
+        .selected:hover span{
+            color: $main-color;
+        }
+
+    }
 }

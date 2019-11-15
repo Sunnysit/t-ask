@@ -15,8 +15,10 @@ const Events = () => {
     return(
         <div className="events view">
             <HeroEvent />
+            <section className="main-section section-event">
             <SearchBarEvents />
             <ListEvents />
+            </section>
         </div>
     )
 }

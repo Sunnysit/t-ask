@@ -7,7 +7,6 @@ import Articles from './views/Articles'
 import Events from './views/Events'
 import AboutUs from './views/AboutUs'
 import Contact from './views/Contact'
-import Search from './views/Search'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -31,7 +30,6 @@ function App() {
         <Route path="/events" component={ Events } />
         <Route path="/about" component={ AboutUs } />
         <Route path="/contact" component={ Contact } />
-        <Route path="/search" component={ Search } />
         <Route path="/register" component={ Register } />
         <Route path="/profile" component={ UserDashboard } />
         <Route path="/test" component= { Test }/>

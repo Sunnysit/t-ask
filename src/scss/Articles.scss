@@ -1,10 +1,12 @@
-.section-article{
+.section-article,
+.section-event{
     max-width: $max-window-width;
     margin: 0 auto 4rem;
     padding: 0 .5rem;
     
 
-    .article-search-container{
+    .article-search-container,
+    .event-search-container{
         margin-top: 3rem;
 
         .search-message{
@@ -12,12 +14,14 @@
         }
     }
 
-    .article-search-form{
+    .article-search-form,
+    .event-search-form{
         display: flex;
         justify-content: center;
     }
 
-    .article-list{
+    .article-list,
+    .event-list{
         display: flex;
         flex-wrap: wrap;
     }
@@ -48,10 +52,16 @@
         // height: 100%;
         // justify-content: space-between;
 
-        .article-title a{
-            font-size: 1.3rem;
-            color: #000;
-            text-decoration: none;
+        .article-title{
+
+            line-height: 1;
+
+            a{
+                font-size: 1.3rem;
+                color: #000;
+                text-decoration: none;
+            }
+       
         }
 
         p{
@@ -79,6 +89,14 @@
     .carousel-item{
         display: flex;
         flex-direction: column;
+    }
+
+    .carousel-footer{
+        order: 3;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .article-thumbnail{
@@ -166,11 +184,49 @@
 
     .action-container{
         display: flex;
-        
-        .action-icon{
-            width: 1.3rem;
+        align-items: center;
+        .action-btn{
+            display: inline-block;
             margin: .5rem 0 .5rem 1rem;
             cursor: pointer;
+
+            .hover{
+                display: none;
+            }
+
+            .selected{
+                display: none;
+            }
+
+            &:hover{
+                .hover{
+                    display: block;
+                }
+
+                .normal{
+                    display: none;
+                }
+            }
+
+            &:focus,
+            &:active{
+                .hover{
+                    display: none;
+                }
+                .selected{
+                    display: block;
+                }
+
+                .normal{
+                    display: none;
+                }
+            }
+            
+
+        }
+        .action-icon{
+            width: 1.3rem;
+            
 
         }
     }
