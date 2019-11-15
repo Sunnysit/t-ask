@@ -142,11 +142,7 @@ const ListMembers = () => {
             ]
         }, {
             name: 'Satnam Singh Sandhu',
-<<<<<<< Updated upstream
             role: 'UX and UI Designer/Front End Developer',
-=======
-            role: 'UX and UI Designer',
->>>>>>> Stashed changes
             description: 'Graduate in Computer Science. Able to complete layout designs and front end codi' +
                     'ng for a  website. Desire to learn from any source, either from school programs ' +
                     'or online. Will be responsible for assisting the design team.',
