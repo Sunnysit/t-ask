@@ -1,7 +1,8 @@
 const initState = {
     userLogged: false,
     registration: false,
-    signUp: false
+    signUp: false,
+    userInfo: {}
 }
 
 const userReducer = ( state=initState, action) => {
@@ -34,6 +35,12 @@ const userReducer = ( state=initState, action) => {
             return {
                 ...state,
                 signUp: false
+            }
+
+        case "USER_INFO":
+            return{
+                ...state,
+                userInfo: {}
             }
 
         default:
