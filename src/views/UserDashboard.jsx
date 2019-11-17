@@ -10,7 +10,8 @@ import Top3Languages from '../components/user/DashBoard/Top3Languages';
 const UserDashboard = () => {
 
     const dispatch = useDispatch();
-    // console.log(localStorage.getItem('userData')); const [response, setResponse] =
+    console.log(localStorage.getItem('userData')); 
+    //const [response, setResponse] =
     // useState('initialState') 
     useEffect(() => {     
         dispatch({type:"USER_SIGNUP"});
