@@ -40,7 +40,7 @@ const userReducer = ( state=initState, action) => {
         case "USER_INFO":
             return{
                 ...state,
-                userInfo: {}
+                userInfo: action.payload
             }
 
         default:
