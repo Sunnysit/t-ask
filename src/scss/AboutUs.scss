@@ -24,3 +24,51 @@
       }
     }
   }
+  .hero {
+    width: 100%;
+    padding-top: 2rem !important;
+    padding-bottom: 0 !important; 
+    margin-left: 2rem !important;
+}
+
+.team-members.team-members {
+  padding: 2rem;
+  padding-top: 0 !important;
+}
+
+.team-member-card{
+  display: grid;
+  grid-template-columns: .3fr 1fr;
+  grid-template-rows: .3fr .6fr .1fr;
+}
+
+.social-icons{
+
+  grid-column: 2/-1;
+
+}
+
+.image-container{
+
+  grid-row: span 2;
+
+}
+
+h2{
+  padding:0 !important;
+  padding-bottom:4rem;
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+p{
+  margin-top: 0;
+}
+
+.role {
+  margin-top:3rem;
+  margin-bottom: 0;
+  padding-bottom:10px;
+  font-weight: 600;
+}
+

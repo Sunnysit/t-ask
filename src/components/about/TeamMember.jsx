@@ -15,13 +15,14 @@ const TeamMember = (props) => {
 
     return (
         <div className="team-member-card">
+        <h2>{teamMember.name}</h2>
+        <h3 className="role">{teamMember.role}</h3>
             <div className="image-container">
             <img src={teamMember.images[0]} alt=""/>
             </div>
-            <h2>{teamMember.name}</h2>
-            <p className="role">{teamMember.role}</p>
+           
             <p>{teamMember.description}</p>
-
+            <div className="social-icons">
             <a href={teamMember.link[0]} target="blank"><FontAwesomeIcon icon={['fab', 'linkedin']} size="2x"/></a>
 
             {!socialIconStream
@@ -32,7 +33,7 @@ const TeamMember = (props) => {
                     <a href={teamMember.link[1]} target="blank"><FontAwesomeIcon icon={['fab', 'github-square']} size="2x"/></a>
 
                 )}
-
+</div>
         </div>
     )
 }
