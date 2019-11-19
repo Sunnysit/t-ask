@@ -1,10 +1,9 @@
 import React from 'react';
 
 const HeroContact = () => {
-    return(
+    return (
         <div className="hero hero-contact">
-            <h1>Contact</h1>
-            <p>Feel free to contact us at our email or fill the form below</p>
+            <h1 className="page-title">Contact Us</h1>
         </div>
     )
 }

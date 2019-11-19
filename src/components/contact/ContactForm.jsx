@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 
 const ContactForm = () => {
@@ -33,7 +33,7 @@ const ContactForm = () => {
         e.preventDefault();
         //console.log(form);
 
-        let {name, email, inquiry, message} = form;
+        let { name, email, inquiry, message } = form;
 
         let errors = {
             errorName: '',
@@ -81,7 +81,7 @@ const ContactForm = () => {
                     console.log(response);
 
                     if (response.status === 200 && response.data.isSent === true) {
-                        setForm({name: '', email: '', inquiry: 'general', message: ''});
+                        setForm({ name: '', email: '', inquiry: 'general', message: '' });
                         setSent(true);
                         setEnable('true');
                     } else {
@@ -106,11 +106,11 @@ const ContactForm = () => {
                             name="name"
                             id="name"
                             onChange={(e) => {
-                            setForm({
-                                ...form,
-                                name: e.target.value
-                            })
-                        }}/>
+                                setForm({
+                                    ...form,
+                                    name: e.target.value
+                                })
+                            }} />
                         <div className="error-message">{error.errorName}</div>
                         <label htmlFor="email">Email</label>
                         <input
@@ -118,22 +118,22 @@ const ContactForm = () => {
                             name="email"
                             id="email"
                             onChange={(e) => {
-                            setForm({
-                                ...form,
-                                email: e.target.value
-                            })
-                        }}/>
+                                setForm({
+                                    ...form,
+                                    email: e.target.value
+                                })
+                            }} />
                         <div className="error-message">{error.errorEmail}</div>
                         <label htmlFor="inquiry">Inquiry</label>
                         <select
                             name=""
                             id="inquiry"
                             onChange={(e) => {
-                            setForm({
-                                ...form,
-                                inquiry: e.target.value
-                            })
-                        }}>
+                                setForm({
+                                    ...form,
+                                    inquiry: e.target.value
+                                })
+                            }}>
                             <option value="general">General</option>
                             <option value="content">Content</option>
                             <option value="other">Other</option>
@@ -145,13 +145,13 @@ const ContactForm = () => {
                             cols="30"
                             rows="10"
                             onChange={(e) => {
-                            setForm({
-                                ...form,
-                                message: e.target.value
-                            })
-                        }}></textarea>
+                                setForm({
+                                    ...form,
+                                    message: e.target.value
+                                })
+                            }}></textarea>
                         <div className="error-message">{error.errorMessage}</div>
-                        <button disabled={ !enabled }>Send</button>
+                        <button className="btn" disabled={!enabled}>Send</button>
                     </form>
                 )
                 : (
