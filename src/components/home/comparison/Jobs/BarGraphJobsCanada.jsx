@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
-
 import {ResponsiveBar} from '@nivo/bar';
 
 const BarGraphJobsCanada = () => {
@@ -27,9 +26,7 @@ const BarGraphJobsCanada = () => {
             return {id_language: language.id_language, name: language.name, totalJobs: percentageJobs}
         });
 
-        //console.log(dataPercentageCanada); 
-        
-        //filter data from the selectedLanguages
+        //console.log(dataPercentageCanada); filter data from the selectedLanguages
         const selectedDataCanada = dataPercentageCanada.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
 
         //set data format for bar-graph
@@ -41,12 +38,10 @@ const BarGraphJobsCanada = () => {
             {
                 ...languageLocationCanada[0],
                 color: '#F55216'
-            },
-            {
+            }, {
                 ...languageLocationCanada[1],
                 color: '#00A300'
-            },
-            {
+            }, {
                 ...languageLocationCanada[2],
                 color: '#681B7F'
             }
@@ -54,32 +49,44 @@ const BarGraphJobsCanada = () => {
 
         //console.log(languageLocationCanada);
 
-        setBarGraphData(languagesLocationCanada) 
+        setBarGraphData(languagesLocationCanada)
 
     }, [dataCanada, selectedLanguages]);
 
     //set bar colors
     const getBarColor = bar => {
         return bar.data.color;
-    }
-    ;
+    };
 
     const hiddenTick = (e) => {
         const tickValue = e / 2;
         const isOdd = tickValue % 2;
         let showTick = true;
-        if(isOdd === 1){
+        if (isOdd === 1) {
             showTick = false;
         }
         return showTick;
     }
+
+    const customTooltip = (bar) => <span>
+        <span
+            style={{
+            "backgroundColor": bar.data.color,
+            width: 10,
+            height: 10,
+            "display": "inline-block",
+            "marginRight": 8
+        }}></span>{bar.data.id}:
+        <strong>
+            {bar.data.value}%</strong>
+    </span>;
 
     return (<ResponsiveBar
         data={barGraphData}
         keys={["value"]}
         indexBy="id"
         margin={{
-        top: 50,
+        top: 20,
         right: 10,
         bottom: 50,
         left: 10
@@ -96,7 +103,9 @@ const BarGraphJobsCanada = () => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: tick => (hiddenTick(tick) ? tick : ''),
+        format: tick => (hiddenTick(tick)
+            ? tick
+            : ''),
         legend: 'Canada',
         legendPosition: 'middle',
         legendOffset: 32
@@ -108,6 +117,7 @@ const BarGraphJobsCanada = () => {
         labelTextColor={{
         theme: 'background'
     }}
+        tooltip={customTooltip}
         animate={true}
         motionStiffness={90}
         motionDamping={15}/>)

@@ -7,6 +7,7 @@ const BarGraphJobsUSA = () => {
 
     const dataUsa = useSelector(state => state.jobs.jobsUsa);
     const selectedLanguages = useSelector(state => state.languages.selectedLanguages);
+    const languages = useSelector(state => state.languages.languages);
 
     const [barGraphData,
         setBarGraphData] = useState([]);
@@ -22,29 +23,44 @@ const BarGraphJobsUSA = () => {
 
         //console.log(mostJobs);
 
+        
+
         const dataPercentageUsa = dataUsa.map(language => {
             let percentageJobs = parseFloat(((language.totalJobs * 100) / mostJobs).toFixed(2));
-            return {id_language: language.id_language, name: language.name, totalJobs: percentageJobs}
+            return {languageId: language.id_language, name: language.name, totalJobs: percentageJobs}
         });
 
+        //let newOrder = [];
+
+        
+
+        const selectedDataUsa = dataPercentageUsa.filter(language => selectedLanguages.find(lang => lang.name === language.languageName));
+
+        
+
         //console.log(dataPercentageUsa); filter data from the selectedLanguages
-        const selectedDataUsa = dataPercentageUsa.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
+
+        
+        
+
+        // console.log(languages);
+        // console.log(newOrder);
 
         //set data format for bar-graph USA
         const languageLocationUsa = selectedDataUsa.map(language => {
             return {country: 'Canada', id: language.name, value: language.totalJobs}
         });
 
+
+
         const languagesLocationUsa = [
             {
                 ...languageLocationUsa[0],
                 color: '#F55216'
-            },
-            {
+            }, {
                 ...languageLocationUsa[1],
                 color: '#00A300'
-            },
-            {
+            }, {
                 ...languageLocationUsa[2],
                 color: '#681B7F'
             }
@@ -52,30 +68,42 @@ const BarGraphJobsUSA = () => {
 
         setBarGraphData(languagesLocationUsa)
 
-    }, [dataUsa, selectedLanguages]);
+    }, [dataUsa, selectedLanguages, languages]);
 
     //set bar colors
     const getBarColor = bar => {
         return bar.data.color;
-    }
-    ;
+    };
 
     const hiddenTick = (e) => {
         const tickValue = e / 2;
         const isOdd = tickValue % 2;
         let showTick = true;
-        if(isOdd === 1){
+        if (isOdd === 1) {
             showTick = false;
         }
         return showTick;
     }
+
+    const customTooltip = (bar) => <span>
+        <span
+            style={{
+            "backgroundColor": bar.data.color,
+            width: 10,
+            height: 10,
+            "display": "inline-block",
+            "marginRight": 8
+        }}></span>{bar.data.id}:
+        <strong>
+            {bar.data.value}%</strong>
+    </span>;
 
     return (<ResponsiveBar
         data={barGraphData}
         keys={["value"]}
         indexBy="id"
         margin={{
-        top: 50,
+        top: 20,
         right: 10,
         bottom: 50,
         left: 10
@@ -93,7 +121,9 @@ const BarGraphJobsUSA = () => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        format: tick => (hiddenTick(tick) ? tick : ''),
+        format: tick => (hiddenTick(tick)
+            ? tick
+            : ''),
         legend: 'USA',
         legendPosition: 'middle',
         legendOffset: 32
@@ -106,6 +136,7 @@ const BarGraphJobsUSA = () => {
         theme: 'background'
     }}
         legends={[]}
+        tooltip={customTooltip}
         animate={true}
         motionStiffness={90}
         motionDamping={15}/>)

@@ -87,7 +87,7 @@ const LineGraph = () => {
     <div className="line-graph-job-container">
         <ResponsiveLine
         data={graphData}
-        margin={{ top: 50, right: 90, bottom: 50, left: 25 }}
+        margin={{ top: 20, right: 90, bottom: 50, left: 25 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', stacked: false, min: 'auto', max: 'auto' }}
         curve="natural"
