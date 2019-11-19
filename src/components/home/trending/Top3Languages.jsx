@@ -37,7 +37,7 @@ const Top3Languages = () => {
     }, [languagesStateUsa, languagesStateCanada, countryToggle]);
 
     return (
-        <section className="tending-language-section">
+        <section className="trending-language-section">
             <div className="switch-container">
             <span>Show top languages in: </span><Top3Switch type="language" toggle={countryToggle}/>
             </div>

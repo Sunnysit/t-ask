@@ -9,15 +9,18 @@ const Contact = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({type: "USER_SITE"})
+        dispatch({ type: "USER_SITE" })
     }, [dispatch])
-    
+
     return (
         <div className="contact view">
-            <HeroContact/>
-            <div className="contact-body">
-                <RandomQuote/>
-                <ContactForm/>
+            <HeroContact />
+            <div className="contact-body card-white">
+                <div className="contact-flex-vertical">
+                    <p>Feel free to contact us at<br /><span>penguinslangara@gmail.com</span><br />or fill the form below</p>
+                    <RandomQuote />
+                </div>
+                <ContactForm />
             </div>
 
         </div>

@@ -26,6 +26,7 @@ const RandomQuote = () => {
     },[])
     return (
        <div className="random-quote">
+           <h2>FUN FACT:</h2>
            <p>{randomQuote}</p>
 
        </div> 

@@ -26,7 +26,7 @@ const NewsLetter = () => {
     return (
         <section className={newsletter ? "visible newsletter-section" : "newsletter-section"}>
             <div className="newsletter-container">
-                <p className="newsletter-description">Subscribe to our newsletter to receive the latest news</p>
+                <p className="newsletter-description">Get the latest update straight to your inbox, and <span className="blue-text">become a better developer.</span></p>
                 <form
                     onSubmit={handleOnSubmit}
                     action="#"

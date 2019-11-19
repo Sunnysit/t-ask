@@ -1,105 +1,125 @@
-
 /*=============================================
 =            Normalize            =
 =============================================*/
-*{
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-ul{
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
 }
 
-img{
-    max-width: 100%;
-    display: block;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-.app{
-    max-width: $max-window-width;
-    margin: 0 auto;
+.app {
+  max-width: $max-window-width;
+  margin: 0 auto;
 }
-
-
 
 /*=====  End of Normalize  ======*/
-.btn{
-    all:unset;
-    padding: 10px 15px;
-    background-color: #12BBF3;
+.card-white {
+  border: 1px solid $card-border;
+  background-color: #fff;
+  padding: $padding;
+}
+
+#root {
+  background-color: $background;
+}
+
+#app {
+  background-color: #fff;
+}
+
+.btn {
+  all: unset;
+  padding: 10px 15px;
+  background-color: $secondary-color;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s all ease-in;
+  font-weight: bold;
+
+  &:hover,
+  &:focus {
+    background-color: $main-color;
+  }
+}
+
+.btn-outline {
+  all: unset;
+  padding: 10px 15px;
+  background-color: transparent;
+  border: 2px solid $main-color;
+  color: $main-color;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s all ease-in;
+  font-weight: bold;
+
+  &:hover,
+  &:focus {
+    background-color: $main-color;
     color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 0.3s all ease-in;
-    font-weight: bold;
-
-    &:hover,
-    &:focus{
-        background-color: #282664;
-    }
+  }
 }
 
-.btn-outline{
-    all:unset;
-    padding: 10px 15px;
-    background-color: transparent;
-    border: 2px solid #282664;;
-    color: #282664;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: 0.3s all ease-in;
-    font-weight: bold;
-
-    &:hover,
-    &:focus{
-        background-color: #282664;
-        color: white;
-    }
+.input-basic {
+  width: 70vw;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid $typography;
+  max-width: 500px;
+  &:focus {
+    border-color: $secondary-color;
+    outline: none;
+  }
 }
 
-
-.input-basic{
-    width: 70vw;
-    padding: 10px 15px;
-    border-radius: 4px;
-    border: 1px solid gray;
-    max-width: 500px;
-    &:focus{
-        outline-color: #12BBF3;
-    }
-
+.input-basic-contact {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid $typography;
+  max-width: 500px;
+  &:focus {
+    border-color: $secondary-color;
+    outline: none;
+  }
 }
 
-.btn-search{
-    all:unset;
-    padding: 10px 24px;
-    background-color: #282664;
-    border: 1px solid #282664;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: .8rem;
-    transition: 0.3s all ease-in;
-    position: relative;
-    left: -5px;
+.btn-search {
+  all: unset;
+  padding: 10px 24px;
+  background-color: $main-color;
+  border: 1px solid $main-color;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.3s all ease-in;
+  position: relative;
+  left: -5px;
 
-    img{
-        width: 1rem;
-    }
+  img {
+    width: 1rem;
+  }
 
-    &:hover,
-    &:focus{
-        background-color: #12BBF3;
-        border: 1px solid #12BBF3;
-    }
-
+  &:hover,
+  &:focus {
+    background-color: $secondary-color;
+    border: 1px solid $secondary-color;
+  }
 }
 
-.search-message{
-    color: #12BBF3;
+.search-message {
+  color: $secondary-color;
 }
 
 .mobile-h1{
