@@ -138,6 +138,7 @@ const Instructions = () => {
                         if(res.status === 200){
                             localStorage.setItem('userData', res.data.token);
                             history.push('/profile');
+                            dispatch({type:"USER_LOGIN"});
                         }
 
 

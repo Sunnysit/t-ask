@@ -1,6 +1,9 @@
 import React from 'react';
+import LogOut from './LogOut';
 
 const Settings = () => {
+
+    
     return(
         <div className="user-settings">
             <div className="user-profile">
@@ -12,8 +15,7 @@ const Settings = () => {
                 <p>Favorite Articles</p>
                 <p>Favorite Events</p>
                 </div>
-                <p>Logout</p>
-                
+                <LogOut/>                
             </div>
         </div>
     )
