@@ -4,7 +4,7 @@ const Settings = () => {
     return(
         <div className="user-settings">
             <div className="user-profile">
-                <img src="./assets/profile-2.jpg" alt=""/>
+                <img src="./assets/signup/default-profile-picture.png" alt=""/>
                 <p>Edit Profile</p>
             </div>
             <div className="user-menu">

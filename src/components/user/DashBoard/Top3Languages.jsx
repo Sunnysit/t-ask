@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import Axios from 'axios';
+import { useSelector } from 'react-redux';
 import { TaskAxios } from '../../../library/TaskAxios'
 
 const Top3Languages = () => {
 
-    const dispatch = useDispatch();
 
     let axiosLibrary = new TaskAxios();
     const user = useSelector(state => state.user.userInfo);
