@@ -3,8 +3,7 @@ import React from 'react';
 const ArticleItem = (props) => {
 
     const article = props.article;
-    // console.log(article);
-
+    
     return (
         <li className="article-list-item">
             <article className="article">
@@ -51,8 +50,6 @@ const ArticleItem = (props) => {
                             </div>
                         </div>
                     </div>
-                    {article.imgURL
-                        ? (
                             <a target="blank" href={article.link}>
                                 <div className="thumbnail-container">
                                 <img
@@ -60,11 +57,7 @@ const ArticleItem = (props) => {
                                 src={article.imgURL}
                                 alt="article thumbnail"/>
                                 </div>
-                                </a>
-                        )
-                        : (
-                            <p></p>
-                        )}
+                            </a>
                     <p>{article.description}</p>
                 </div>
                 <div className="article-footer">
