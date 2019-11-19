@@ -15,7 +15,7 @@ const Articles = () => {
     return(
         <div className="articles view">
             <HeroArticle />
-            <section className="main-section section-article">
+            <section className="main-section section-article card">
             <SearchBarArticles />
             <ListArticles />
             </section>

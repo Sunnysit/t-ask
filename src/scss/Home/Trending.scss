@@ -34,6 +34,9 @@
         display: flex;
         align-items: center;
         height: 70px;
+        justify-content: space-between;
+        width: 70%;
+        margin-top: 0;
     }
     
     .language-name,
@@ -42,6 +45,7 @@
         font-weight: bold;
         font-size: 1.2rem;
         text-align: center;
+        height: 50px;
     }
 
     .language-logo{
@@ -54,5 +58,50 @@
         text-align: center;
         margin: 10px 8px;
     }
+
+    .rank-text{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .rank-container{
+        display: flex;
+        align-items: center;
+        height: 70px;
+        justify-content: center;
+        width: 70%;
+
+        .rank-text-job{
+            font-size: 2rem;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+        }
+
+        .rank-1{
+            color: #EEAF00;
+            border: 2px solid #EEAF00;
+        }
+
+        .rank-2{
+            color: #707070;
+            border: 2px solid #707070;
+        }
+
+        .rank-3{
+            color: #B0764E;
+            border: 2px solid #B0764E;
+        }
+    }
+
 }
 
+.trending-job-section,
+.trending-language-section{
+    .switch-container{
+        display: inline-flex;
+    }
+}
