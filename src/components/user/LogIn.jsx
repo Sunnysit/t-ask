@@ -1,46 +1,134 @@
-import React from 'react'
-import Popup from 'reactjs-popup'
-import {useDispatch} from 'react-redux'
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import Popup from 'reactjs-popup';
+import {useDispatch} from 'react-redux';
+import {Link, useHistory} from 'react-router-dom';
+import Axios from 'axios';
 
 const LogIn = () => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const handleLogIn = () => {
-        dispatch({type:"USER_LOGIN"})
+    const initialForm = {
+        email: '',
+        password: ''
+    }
+
+    const initialError = {
+        emailError: '',
+        submitError: ''
+    }
+
+    const [logInForm,
+        setLogInForm] = useState(initialForm);
+    const [errorForm,
+        setErrorForm] = useState(initialError);
+
+    const handleLogIn = (e) => {
+        e.preventDefault();
+
+        let {email, password} = logInForm;
+
+        let errorMessage = {
+            errorEmail: '',
+            errorSubmit: ''
+        }
+
+        let submitEmail = email.trim();
+        let submitPassword = password.trim();
+
+        let formValidates = true;
+
+        if (!submitEmail.includes('@')) {
+            errorMessage.errorEmail = 'Please enter a valid email address';
+            formValidates = false;
+        }
+
+        const submitLogIn = {
+            email: submitEmail,
+            password: submitPassword
+        };
+
+        if (formValidates) {
+
+            Axios
+                .post('https://t-ask-api.herokuapp.com/api/user/login', submitLogIn)
+                .then(res => {
+                    console.log(res);
+
+                    if (res.status === 200) {
+                        localStorage.setItem('userData', res.data.token);
+                        history.push('/profile');
+                        dispatch({type: "USER_LOGIN"});
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    //errorMessage.errorSubmit = 'Incorrect email or password. Please try again.'
+                })
+        }
+
+        setErrorForm(errorMessage);
+
     }
     return (
 
-    <Popup trigger={<img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/>} modal>
-    {close => (
-        <div className="modal">
-            <button onClick={ close } className="close popup-text">&times;</button>
-            {/* <a href="/#" onClick={close} className="close popup-text">&times;</a> */}
-            <div className="header-popup">Log in to have access to your personal dashboard</div>
-            <div className="content">
-                <form action="">
-                    <label htmlFor="Email">Email</label>
-                    <input type="email" name="Email" id="Email"/>
-                    <label htmlFor="Password">Password</label>
-                    <input type="text" name="Password" id="Password"/>
-                </form>
-            </div>
-            <div className="login-action">
-                <Link to="/profile" className="btn-link"><button onClick={handleLogIn} className="btn">Log in</button></Link>
-                <a href="/#" className="popup-text">Forgot my password</a>
-            </div>
-            <div className="footer-popup">
-                Not a member?
-                <Link to="register" className="popup-text" onClick={close}> Sign up here!</Link>
-            </div>
+        <Popup
+            trigger={< img src = "./assets/icons/profile-icon.png" alt = "profile icon" className = "profile-icon" />}
+            modal>
+            {close => (
+                <div className="modal">
+                    <button onClick={close} className="close popup-text">&times;</button>
+                    {/* <a href="/#" onClick={close} className="close popup-text">&times;</a> */}
+                    <div className="header-popup">Log in to have access to your personal dashboard</div>
+                    <div className="content">
+                        <form action="" onSubmit={handleLogIn}>
+                            <div className="field">
+                                <label htmlFor="Email">Email</label>
+                                <div className="error-message">{errorForm.emailError}</div>
+                                <input
+                                    type="email"
+                                    name="Email"
+                                    id="Email"
+                                    onChange={e => {
+                                    setLogInForm({
+                                        ...logInForm,
+                                        email: e.target.value
+                                    })
+                                }}/>
+                            </div>
 
-        </div>
-    )}
-    </Popup>
+                            <div className="field">
+                                <label htmlFor="Password">Password</label>
+                                <input
+                                    type="password"
+                                    name="Password"
+                                    id="Password"
+                                    onChange={e => {
+                                    setLogInForm({
+                                        ...logInForm,
+                                        password: e.target.value
+                                    })
+                                }}/>
+                            </div>
+
+                            <button className="btn">Log in</button>
+                        </form>
+                    </div>
+                    <div className="login-action">
+                        <a href="/#" className="popup-text">Forgot my password</a>
+                    </div>
+                    <div className="footer-popup">
+                        Not a member?
+                        <Link to="register" className="popup-text" onClick={close}>
+                            Sign up here!</Link>
+                    </div>
+
+                </div>
+            )}
+        </Popup>
     )
 
-    
 }
 
 export default LogIn
