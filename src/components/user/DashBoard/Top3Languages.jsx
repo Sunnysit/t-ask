@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import Top3Switch from './Top3Switch';
-import { TaskAxios } from '../../../library/TaskAxios'
-
 
 const Top3Languages = () => {
 
-    let axiosLibrary = new TaskAxios();
 
     const languagesStateUsa = useSelector(state => state.languages.languageTrendingDataUsa);
     const languagesStateCanada = useSelector(state => state.languages.languageTrendingDataCanada);
@@ -19,8 +16,6 @@ const Top3Languages = () => {
 
 
     useEffect(() => {
-
-        axiosLibrary.comparisonLangLocation();
 
         //Fetch USA trending
         if (countryToggle) {
