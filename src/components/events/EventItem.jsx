@@ -1,12 +1,12 @@
 import React from 'react';
 import moment from 'moment';
+import ActionBtns from '../common/ActionBtns';
 
 const EventItem = (props) => {
 
     const eventInfo = props.event;
     const eventOrder = props.order;
-    console.log(eventOrder);
-
+    
     eventInfo.description.substring(3,100);
     
 
@@ -30,36 +30,7 @@ const EventItem = (props) => {
                             <p>Hosted by:</p>
                             <p className="group-name">{eventInfo.group.name}</p>
                         </div>
-                        <div className="action-container">
-                            <div className="action-btn share-btn">
-                                <img
-                                    className="action-icon normal"
-                                    src="./assets/icons/share-normal-icon.svg"
-                                    alt="share button"/>
-                                <img
-                                    className="action-icon hover"
-                                    src="./assets/icons/share-hover-icon.svg"
-                                    alt="share button"/>
-                                <img
-                                    className="action-icon selected"
-                                    src="./assets/icons/share-selected-icon.svg"
-                                    alt="share button"/>
-                            </div>
-                            <div className="action-btn favorite-btn">
-                                <img
-                                    className="action-icon normal"
-                                    src="./assets/icons/favorite-normal-icon.svg"
-                                    alt="favorite button"/>
-                                <img
-                                    className="action-icon hover"
-                                    src="./assets/icons/favorite-hover-icon.svg"
-                                    alt="favorite button"/>
-                                <img
-                                    className="action-icon selected"
-                                    src="./assets/icons/favorite-selected-icon.svg"
-                                    alt="favorite button"/>
-                            </div>
-                        </div>
+                        <ActionBtns />
                     </div>
                     </div>
                 </div>

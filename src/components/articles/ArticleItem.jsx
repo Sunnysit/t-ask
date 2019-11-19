@@ -1,9 +1,10 @@
 import React from 'react';
+import ActionBtns from '../common/ActionBtns';
 
 const ArticleItem = (props) => {
 
     const article = props.article;
-    
+
     return (
         <li className="article-list-item">
             <article className="article">
@@ -13,51 +14,24 @@ const ArticleItem = (props) => {
                 <div className="article-body">
                     <div className="article-info-container">
                         <div className="article-info">
-                            <p className="author">Author: <strong>{article.author}</strong></p>
+                            <p className="author">Author:
+                                <strong>{article.author}</strong>
+                            </p>
                             <p>
                                 <span className="date">{article.date}</span>
                                 <span className="reading-time">{article.readingTime}</span>
                             </p>
                         </div>
-                        <div className="action-container">
-                            <div className="action-btn share-btn">
-                                <img
-                                    className="action-icon normal"
-                                    src="./assets/icons/share-normal-icon.svg"
-                                    alt="share button"/>
-                                <img
-                                    className="action-icon hover"
-                                    src="./assets/icons/share-hover-icon.svg"
-                                    alt="share button"/>
-                                <img
-                                    className="action-icon selected"
-                                    src="./assets/icons/share-selected-icon.svg"
-                                    alt="share button"/>
-                            </div>
-                            <div className="action-btn favorite-btn">
-                                <img
-                                    className="action-icon normal"
-                                    src="./assets/icons/favorite-normal-icon.svg"
-                                    alt="favorite button"/>
-                                <img
-                                    className="action-icon hover"
-                                    src="./assets/icons/favorite-hover-icon.svg"
-                                    alt="favorite button"/>
-                                <img
-                                    className="action-icon selected"
-                                    src="./assets/icons/favorite-selected-icon.svg"
-                                    alt="favorite button"/>
-                            </div>
-                        </div>
+                        <ActionBtns/>
                     </div>
-                            <a target="blank" href={article.link}>
-                                <div className="thumbnail-container">
-                                <img
+                    <a target="blank" href={article.link}>
+                        <div className="thumbnail-container">
+                            <img
                                 className="article-thumbnail"
                                 src={article.imgURL}
                                 alt="article thumbnail"/>
-                                </div>
-                            </a>
+                        </div>
+                    </a>
                     <p>{article.description}</p>
                 </div>
                 <div className="article-footer">
