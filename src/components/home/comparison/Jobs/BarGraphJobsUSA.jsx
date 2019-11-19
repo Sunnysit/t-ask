@@ -32,6 +32,20 @@ const BarGraphJobsUSA = () => {
 
         //let newOrder = [];
 
+        // if(dataPercentageUsa){
+        //     for(let j = 0; j < language.length; j++){
+
+        //         for(let i = 0; i < dataPercentageUsa.length; i++){
+        //         console.log(languagesUsa[j].id);
+                
+        //         if(languages[j].languageIid === dataPercentageUsa[i].languageId){
+        //         newOrder.push(dataPercentageUsa[j])
+        //         }
+        //         }
+                
+        //         }
+        // }
+
         
 
         const selectedDataUsa = dataPercentageUsa.filter(language => selectedLanguages.find(lang => lang.name === language.languageName));
@@ -43,7 +57,7 @@ const BarGraphJobsUSA = () => {
         
         
 
-        // console.log(languages);
+        //console.log(languages);
         // console.log(newOrder);
 
         //set data format for bar-graph USA
