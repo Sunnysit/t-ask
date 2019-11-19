@@ -14,7 +14,7 @@ const ArticleItem = (props) => {
                 <div className="article-body">
                     <div className="article-info-container">
                         <div className="article-info">
-                            <p className="author">{article.author}</p>
+                            <p className="author">Author: <strong>{article.author}</strong></p>
                             <p>
                                 <span className="date">{article.date}</span>
                                 <span className="reading-time">{article.readingTime}</span>

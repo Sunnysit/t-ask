@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import Axios from 'axios';
 import {TaskAxios} from '../../../library/TaskAxios';
 import {useHistory} from 'react-router-dom';
-const {encrypt} = require('../../../openPGP.js')
 
 const Instructions = () => {
 
@@ -126,20 +125,20 @@ const Instructions = () => {
             formValidates = false;
         }
 
-        const messageEncrypted = JSON.stringify({name: form.name, email: form.email, password: form.password, languages: form.langs})
-        console.log(messageEncrypted);
+        const messageSent = {name: form.name, email: form.email, password: form.password, languages: form.langs};
 
         if (formValidates) {
 
-            encrypt(messageEncrypted).then(encryptedMessage => {
+            
                 Axios
-                    .post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
+                    .post(`https://t-ask-api.herokuapp.com/api/user/signup`, messageSent)
                     .then(res => {
                         console.log(res);
 
                         if(res.status === 200){
                             localStorage.setItem('userData', res.data.token);
                             history.push('/profile');
+                            dispatch({type:"USER_LOGIN"});
                         }
 
 
@@ -147,7 +146,7 @@ const Instructions = () => {
                     .catch(error => {
                         console.log(error);
                     })
-            })
+
         }
 
         setErrors(wrong);

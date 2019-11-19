@@ -35,7 +35,7 @@ const Header = () => {
                         <Link to="/contact">Contact</Link>
                     </li>
                     <li className="navigation-item">
-                        {!userLogged ? (
+                        {!localStorage.getItem('userData') ? (
                             <LogIn/>
                         ) : (
                             <Link to="/profile"><img src="./assets/icons/profile-icon.png" alt="profile icon" className="profile-icon"/></Link>

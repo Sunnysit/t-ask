@@ -97,6 +97,9 @@ export class TaskAxios {
                 this.dispatch({type: "SET_TRENDING_LANGUAGES_DATA_CANADA", payload: languagesTrendingCanada})
 
             })
+            .catch(error =>
+                console.log(error)
+            )
     }
 
 
