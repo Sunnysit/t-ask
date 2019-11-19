@@ -27,7 +27,7 @@ const BarGraphJobsUSA = () => {
 
         const dataPercentageUsa = dataUsa.map(language => {
             let percentageJobs = parseFloat(((language.totalJobs * 100) / mostJobs).toFixed(2));
-            return {languageId: language.id_language, name: language.name, totalJobs: percentageJobs}
+            return {id_language: language.id_language, name: language.name, totalJobs: percentageJobs}
         });
 
         //let newOrder = [];
@@ -62,10 +62,12 @@ const BarGraphJobsUSA = () => {
 
         //set data format for bar-graph USA
         const languageLocationUsa = selectedDataUsa.map(language => {
-            return {country: 'Canada', id: language.name, value: language.totalJobs}
+            return {id_language: language.id_language, country: 'Canada', id: language.name, value: language.totalJobs}
         });
 
-
+        languageLocationUsa.sort((a,b) => {
+            return a.id_language - b.id_language;
+        })
 
         const languagesLocationUsa = [
             {
@@ -79,6 +81,8 @@ const BarGraphJobsUSA = () => {
                 color: '#681B7F'
             }
         ]
+
+        console.log(languagesLocationUsa);
 
         setBarGraphData(languagesLocationUsa)
 

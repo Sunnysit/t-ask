@@ -17,8 +17,13 @@ const BarGraphLangCanada = () => {
 
         //set data format for bar-graph
         const languageLocationCanada = selectedDataCanada.map(language => {
-            return {id: language.name, value: language.trend}
+            return {id_language: language.id_language, id: language.name, value: language.trend}
         })
+
+        languageLocationCanada.sort((a,b) => {
+            return a.id_language - b.id_language;
+        })
+
         const languagesLocationCanada = [
             {
                 ...languageLocationCanada[0],

@@ -4,6 +4,9 @@ import { useSelector} from 'react-redux';
 const LanguagesLegend = () => {
 
     let selectLanguages = useSelector(state=> state.languages.selectedLanguages);
+    selectLanguages.sort((a,b) => {
+        return a.languageId - b.languageId;
+    })
 
     return (
         <div className="languages-selected">
