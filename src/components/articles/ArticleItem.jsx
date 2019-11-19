@@ -53,10 +53,14 @@ const ArticleItem = (props) => {
                     </div>
                     {article.imgURL
                         ? (
-                            <a target="blank" href={article.link}><img
+                            <a target="blank" href={article.link}>
+                                <div className="thumbnail-container">
+                                <img
                                 className="article-thumbnail"
                                 src={article.imgURL}
-                                alt="article thumbnail"/></a>
+                                alt="article thumbnail"/>
+                                </div>
+                                </a>
                         )
                         : (
                             <p></p>

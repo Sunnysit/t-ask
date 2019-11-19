@@ -4,11 +4,10 @@ import moment from 'moment';
 const EventItem = (props) => {
 
     const eventInfo = props.event;
-    // console.log(evenInfo)
+    const eventOrder = props.order;
+    console.log(eventOrder);
 
-    // let eventDescription = eventInfo.description;
-    var eventDescription = eventInfo.description.substring(3,100);
-    console.log(eventDescription);
+    eventInfo.description.substring(3,100);
     
 
     return (
@@ -64,8 +63,10 @@ const EventItem = (props) => {
                     </div>
                     </div>
                 </div>
-                <div className="event-description" dangerouslySetInnerHTML={{ __html: eventInfo.description}}>
-                    
+                <div className="event-description" dangerouslySetInnerHTML={{ __html: eventInfo.description}}></div>
+                <div className="event-thumbnail-container">
+                    {/* default images from open source */}
+                    <img src={`assets/events/event ${eventOrder}.jpeg`} alt="event-default-thumbnail" className="event-thumbnail"/>
                 </div>
                 <div className="event-footer">
                     <p className="powered-by">Powered by:
