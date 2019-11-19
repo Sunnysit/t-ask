@@ -30,8 +30,8 @@ const LogIn = () => {
         let {email, password} = logInForm;
 
         let errorMessage = {
-            errorEmail: '',
-            errorSubmit: ''
+            emailError: '',
+            submitError: ''
         }
 
         let submitEmail = email.trim();
@@ -40,7 +40,7 @@ const LogIn = () => {
         let formValidates = true;
 
         if (!submitEmail.includes('@')) {
-            errorMessage.errorEmail = 'Please enter a valid email address';
+            errorMessage.emailError = 'Please enter a valid email address';
             formValidates = false;
         }
 
@@ -64,7 +64,7 @@ const LogIn = () => {
                 })
                 .catch(error => {
                     console.log(error);
-                    //errorMessage.errorSubmit = 'Incorrect email or password. Please try again.'
+                    errorMessage.submitError = 'Incorrect email or password. Please try again.'
                 })
         }
 
@@ -111,13 +111,17 @@ const LogIn = () => {
                                     })
                                 }}/>
                             </div>
+                            <div className="login-action">
+                                <button className="btn btn-login">Log in</button>
+                                <a href="/#" className="popup-text">Forgot my password</a>
+                            </div>
 
-                            <button className="btn">Log in</button>
                         </form>
+
+                        <p className="error-message">{errorForm.submitError}</p>
+
                     </div>
-                    <div className="login-action">
-                        <a href="/#" className="popup-text">Forgot my password</a>
-                    </div>
+
                     <div className="footer-popup">
                         Not a member?
                         <Link to="register" className="popup-text" onClick={close}>
