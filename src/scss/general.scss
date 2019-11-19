@@ -40,7 +40,7 @@ img {
 .btn {
   all: unset;
   padding: 10px 15px;
-  background-color: #12bbf3;
+  background-color: $secondary-color;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -49,7 +49,7 @@ img {
 
   &:hover,
   &:focus {
-    background-color: #282664;
+    background-color: $main-color;
   }
 }
 
@@ -57,8 +57,8 @@ img {
   all: unset;
   padding: 10px 15px;
   background-color: transparent;
-  border: 2px solid #282664;
-  color: #282664;
+  border: 2px solid $main-color;
+  color: $main-color;
   border-radius: 4px;
   cursor: pointer;
   transition: 0.3s all ease-in;
@@ -66,7 +66,7 @@ img {
 
   &:hover,
   &:focus {
-    background-color: #282664;
+    background-color: $main-color;
     color: white;
   }
 }
@@ -75,28 +75,30 @@ img {
   width: 70vw;
   padding: 10px 15px;
   border-radius: 4px;
-  border: 1px solid gray;
+  border: 1px solid $typography;
   max-width: 500px;
   &:focus {
-    outline-color: #12bbf3;
+    border-color: $secondary-color;
+    outline: none;
   }
 }
 
 .input-basic-contact {
   padding: 10px 15px;
   border-radius: 4px;
-  border: 1px solid gray;
+  border: 1px solid $typography;
   max-width: 500px;
   &:focus {
-    outline-color: #12bbf3;
+    border-color: $secondary-color;
+    outline: none;
   }
 }
 
 .btn-search {
   all: unset;
   padding: 10px 24px;
-  background-color: #282664;
-  border: 1px solid #282664;
+  background-color: $main-color;
+  border: 1px solid $main-color;
   color: white;
   border-radius: 4px;
   cursor: pointer;
@@ -111,13 +113,13 @@ img {
 
   &:hover,
   &:focus {
-    background-color: #12bbf3;
-    border: 1px solid #12bbf3;
+    background-color: $secondary-color;
+    border: 1px solid $secondary-color;
   }
 }
 
 .search-message {
-  color: #12bbf3;
+  color: $secondary-color;
 }
 
 .mobile-h1{
