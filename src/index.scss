@@ -40,14 +40,20 @@ $input-field: #F9F9F9;
 
 @import './scss/Footer.scss';
 
+@import './scss/User/LogIn.scss';
+
 @import "./scss/general.scss";
 
 @import "./scss/Home/Home.scss";
 
-@import "./scss/LogIn.scss";
+@import './scss/User/SignUp.scss';
+
+@import './scss/Home/BarGraphLegend.scss';
+
+@import './scss/User/LogOut.scss';
+
+@import './scss//User/Profile.scss';
 
 @import "./scss/Articles.scss";
 
-@import "./scss/SignUp.scss";
 
-@import "./scss/Home/BarGraphLegend.scss";

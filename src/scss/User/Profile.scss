@@ -1,0 +1,69 @@
+.user-profile {
+
+    h1 {
+        text-align: center;
+    }
+
+    .comparison-text {
+        font-weight: bold;
+    }
+
+    .comparison-text:first-of-type{
+        margin-top: 0;
+    }
+
+    .user-profile-body {
+        display: block;
+        @media screen and (min-width:1000px) {
+            display: grid;
+            grid-template-columns: 18% 78%;
+            grid-gap: 4%;
+            //grid-template-rows: 50% 50%;
+        }
+
+        .user-settings {
+            height: 100%;
+            text-align: center;
+
+            .user-menu {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 60%;
+                
+                p{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .user-profile-content {
+            .languages-section {
+                border-bottom: 1px solid $typography;
+
+                .selected-languages {
+                    display: block;
+                    @media screen and(min-width: 760px) {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 50%;
+                    }
+                }
+
+                .trending-language-container {
+
+                    .trending-language-list {
+                        justify-content: space-between;
+
+                    }
+
+                    .tending-language-item {
+                        width: 30%;
+                    }
+
+                }
+
+            }
+        }
+    }
+}
