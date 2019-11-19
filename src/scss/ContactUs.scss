@@ -97,6 +97,8 @@ $contact-margin-top-first-label: $contact-vertical-spacing / 4;
       @media screen and (max-width: $contact-mobile-breakpoint) {
         display: none;
       }
+
+      display: initial;
     }
 
     @media screen and (max-width: $contact-mobile-breakpoint) {
@@ -135,9 +137,10 @@ $contact-margin-top-first-label: $contact-vertical-spacing / 4;
         background-color: $contact-input-color;
         padding: 10px 15px;
         border-radius: $contact-btn-radius;
-        border: 1px solid gray;
+        border: 1px solid $card-border;
         &:focus {
-          outline-color: #12bbf3;
+          border-color: $secondary-color;
+          outline: none;
         }
       }
 
