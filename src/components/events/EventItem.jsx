@@ -6,7 +6,7 @@ const EventItem = (props) => {
 
     const eventInfo = props.event;
     const eventOrder = props.order;
-    
+
     eventInfo.description.substring(3,100);
     
 
@@ -36,7 +36,7 @@ const EventItem = (props) => {
                 </div>
                 <div className="event-description" dangerouslySetInnerHTML={{ __html: eventInfo.description}}></div>
                 <div className="event-thumbnail-container">
-                    {/* default images from open source */}
+                    {/* default images from unsplash */}
                     <img src={`assets/events/event ${eventOrder}.jpeg`} alt="event-default-thumbnail" className="event-thumbnail"/>
                 </div>
                 <div className="event-footer">

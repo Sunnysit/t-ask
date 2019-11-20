@@ -8,10 +8,10 @@ const ArticleItem = (props) => {
     return (
         <li className="article-list-item">
             <article className="article">
+                <div className="article-body">
                 <h2 className="article-title">
                     <a target="blank" href={article.link}>{article.title}</a>
                 </h2>
-                <div className="article-body">
                     <div className="article-info-container">
                         <div className="article-info">
                             <p className="author">Author:
