@@ -30,6 +30,26 @@
                 flex-direction: column;
                 justify-content: space-between;
                 height: 60%;
+
+                .coming-soon-content{
+                    height: fit-content;
+                    width: fit-content !important;
+                    background-color: $secondary-color !important;
+                    border-radius: 5px;
+                    left: 294.6px !important;
+
+                    div{
+                        color: white !important;
+                        font-size: 0.75rem;
+                        padding: 0.2rem;
+                    }
+
+                    .coming-soon-arrow{
+                        background-color: $secondary-color !important;
+                        left: 54px !important;
+                        
+                    }
+                }
                 
                 p{
                     cursor: pointer;

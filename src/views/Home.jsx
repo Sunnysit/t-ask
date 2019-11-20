@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch({type: "USER_SITE"})
-    }, [dispatch])
+    }, [])
     
     return(
         <div className="home view">

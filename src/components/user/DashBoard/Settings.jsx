@@ -1,4 +1,6 @@
 import React from 'react';
+import ArticlesPopup from './ArticlesPopup';
+import EventsPopup from './EventsPopup';
 import LogOut from './LogOut';
 
 const Settings = () => {
@@ -12,8 +14,8 @@ const Settings = () => {
             </div>
             <div className="user-menu">
                 <div className="favorites">
-                <p>Favorite Articles</p>
-                <p>Favorite Events</p>
+                <ArticlesPopup/>
+                <EventsPopup/>
                 </div>
                 <LogOut/>                
             </div>
