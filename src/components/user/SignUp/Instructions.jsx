@@ -43,7 +43,7 @@ const Instructions = () => {
     useEffect(() => {
 
         axiosLibrary.registerLang();
-    }, [axiosLibrary])
+    }, [])
 
     const handleRegistrationStep = () => {
         let {name, email, password, confirmPass} = form;

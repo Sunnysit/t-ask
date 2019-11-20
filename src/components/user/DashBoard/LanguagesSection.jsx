@@ -19,7 +19,7 @@ const LanguagesSection = () => {
         axiosLibrary.comparisonLangsMenu();
         axiosLibrary.comparisonLangLocation();
         
-    }, [axiosLibrary])
+    }, [])
 
     if(userLanguagesId) {
         userLanguages = languages.filter(language => userLanguagesId.find(lang => lang === language.languageId));

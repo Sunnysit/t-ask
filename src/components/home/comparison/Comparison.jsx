@@ -23,7 +23,7 @@ const Comparison = () => {
         // Trending feature
         axiosLibrary.featureJob();
 
-    }, [axiosLibrary])
+    }, [])
     return (
         <div className="">
             <h2>Language Behavior</h2>

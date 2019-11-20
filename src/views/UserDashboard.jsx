@@ -28,8 +28,6 @@ const UserDashboard = () => {
 
     }, [])
 
-    console.log(user.name);
-
     return (
         <div className="user-profile">
             <h1>Welcome {user.name}!</h1>
