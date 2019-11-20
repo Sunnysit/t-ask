@@ -29,7 +29,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                height: 60%;
+                height: 73%;
 
                 .coming-soon-content{
                     height: fit-content;
@@ -83,6 +83,22 @@
 
                 }
 
+            }
+
+            .jobs-section{
+
+                .trending-job-container {
+
+                    .trending-job-list {
+                        justify-content: space-between;
+                    }
+
+                    .trending-job-item {
+                        width: 30%;
+                    }
+
+                    
+                }
             }
         }
     }

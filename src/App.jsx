@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
@@ -13,13 +13,28 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import Register from './views/Register'
 import UserDashboard from './views/UserDashboard'
 import Test from './views/Test'
+import { TaskAxios } from './library/TaskAxios';
 
 library.add(fab)
 library.add(fas)
 
 function App() {
 
-  // const languages = useSelector(state => state.languages);
+  let axiosLibrary = new TaskAxios();
+
+  useEffect(() => {
+
+    // Comparison feature
+    axiosLibrary.comparisonLangsMenu();
+    axiosLibrary.comparisonLangTime();
+    axiosLibrary.comparisonLangLocation();
+
+    axiosLibrary.comparisonJobTime();
+    axiosLibrary.comparisonJobLocation();
+
+    // Trending feature
+    axiosLibrary.featureJob();
+  }, [])
 
   return (
     <BrowserRouter>

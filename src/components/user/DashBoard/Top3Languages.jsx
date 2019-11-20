@@ -46,7 +46,7 @@ const Top3Languages = () => {
             </div>
             <div className="trending-language-container">
                 <ul className="trending-language-list">
-                    {userLanguages.map((lang,index) => {
+                    {userLanguages.map(lang => {
                         return <li key={lang.languageId} className="tending-language-item">
                             <p className="language-name">{lang.languageName}</p>
                             <p className="logo-container">

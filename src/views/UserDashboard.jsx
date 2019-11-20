@@ -1,11 +1,10 @@
-// import React, { useEffect, useState } from 'react';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Settings from '../components/user/DashBoard/Settings';
-import Top3Jobs from '../components/user/DashBoard/Top3Jobs';
+import JobsSection from '../components/user/DashBoard/JobsSection';
 import LanguagesSection from '../components/user/DashBoard/LanguagesSection';
 import Axios from 'axios';
-//import Axios from 'axios';
+
 
 const UserDashboard = () => {
 
@@ -35,7 +34,7 @@ const UserDashboard = () => {
                 <Settings/>
                 <div className="user-profile-content">
                     <LanguagesSection/>
-                    <Top3Jobs/>
+                    <JobsSection/>
                 </div>
             </div>
 
