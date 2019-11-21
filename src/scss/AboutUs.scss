@@ -6,7 +6,6 @@
       margin-bottom: 4rem;
 
       .image-container{
-        width: 25%;
         height: 25%;
       }
   
@@ -96,4 +95,9 @@ p{
 }
 }
 
+}
+
+.team-member-card img{
+  width:120px !important;
+  border-radius: 20%;
 }
