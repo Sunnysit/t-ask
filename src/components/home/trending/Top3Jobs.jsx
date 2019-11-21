@@ -50,17 +50,20 @@ const Top3Jobs = () => {
     }, [jobStateUsa, jobStateCanada, countryToggle]);
 
     return (
-        <section className="tending-job-section">
+        <section className="trending-job-section">
             <div className="switch-container">
                 <span>Show top job positions in: </span><Top3Switch type="job" toggle={countryToggle} />
             </div>
             <div className="trending-job-container">
                 <ul className="trending-job-list">
                     {top3Jobs.map((job,index) => {
+
+                        let rankClassName = `rank-text-job rank-${index+1}`;
+
                         return <li key={job.soc} className="tending-job-item">
                             <p className="job-name">{job.name}</p>
-                            <p className="logo-container">
-                                <span className="rank-text">#0{index+1}</span>
+                            <p className="rank-container">
+                                <span className={rankClassName}>#0{index+1}</span>
                                 {/* <img
                                     className="language-logo"
                                     src={lang.logoUrl}

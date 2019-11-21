@@ -1,55 +1,184 @@
+$contact-label-color: #707070;
+$contact-input-color: #f9f9f9;
+
+$contact-mobile-min-width: 300px;
+$contact-mobile-breakpoint: 610px;
+
+//Commented values are the ones in the design XD file:
+$contact-h1-font-size: inherit; //24pt !important;
+$contact-text-at-font-size: inherit; //20pt;
+$contact-text-quote-font-size: inherit; //16pt;
+
+//$padding comes from general.scss:
+$contact-sides-margin: $padding;
+
+//"Send" button has extra padding:
+$contact-btn-sides: 30px;
+$contact-btn-radius: 5px; //Extra radius
+
+$contact-margin-top-first-label: $contact-vertical-spacing / 4;
+
+.contact .hero {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+
+.contact {
+  min-width: $contact-mobile-min-width;
+
+  h1 {
+    margin-top: 65pt;
+    margin-bottom: 20pt;
+    margin-left: $contact-sides-margin * 2;
+
+    font-size: $contact-h1-font-size;
+
+    color: $contact-label-color;
+
+    @media screen and (max-width: $contact-mobile-breakpoint) {
+      margin-top: 21pt;
+      margin-bottom: 18pt;
+
+      margin-left: $contact-sides-margin;
+    }
+  }
+}
+
 .contact-body {
-    margin-top: 3rem;
+  display: flex;
+
+  margin-left: $contact-sides-margin;
+  margin-right: $contact-sides-margin;
+
+  @media screen and (max-width: $contact-mobile-breakpoint) {
+    margin-left: 0;
+    margin-right: 0;
+
+    flex-direction: column;
+  }
+
+  p {
+    margin-top: $contact-margin-top-first-label;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    color: $contact-label-color;
+
+    font-size: $contact-text-at-font-size;
+  }
+
+  .contact-flex-vertical {
+    width: 50%;
+
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    .contact-form, .random-quote{
-      width: 45%;
+    // font-size: 20pt;
+
+    & > p > span {
+      color: #12bbf3;
+      font-weight: bold;
     }
 
-    .contact-form {
+    .random-quote {
+      margin-top: auto;
+      margin-bottom: auto;
+      font-size: $contact-text-quote-font-size;
 
-        .message {
-            text-align: center;
-        }
+      //Pushing the fun fact up a little:
+      padding-bottom: 3rem;
 
-        .form {
-            width: 100%;
-            text-align: center;
-            margin: auto;
+      p {
+        margin: 2px 0 0 0;
+      }
 
-            label {
-                display: block;
-                text-align-last: left;
-            }
+      @media screen and (max-width: $contact-mobile-breakpoint) {
+        display: none;
+      }
 
-            input {
-                width: 100%;
-            }
-
-            select {
-                width: 100%;
-            }
-
-            .error-message {
-                color: red;
-            }
-
-            textarea{
-              width: 100%;
-            }
-
-        }
-
+      display: initial;
     }
-}
-  
 
-.contact-body{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+    @media screen and (max-width: $contact-mobile-breakpoint) {
+      width: 100%;
+    }
+  }
 
-.form{
-  grid-column-start:2;
-  grid-column-end: -1;
+  .contact-form {
+    .form {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      & > label {
+        margin-top: $contact-vertical-spacing;
+        margin-bottom: $contact-margin-top-first-label;
+        font-weight: bold;
+        color: $contact-label-color;
+      }
+
+      & > label:first-child {
+        margin-top: $contact-margin-top-first-label;
+      }
+
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: $contact-input-color;
+      }
+
+      input,
+      select,
+      textarea {
+        resize: none;
+        background-color: $contact-input-color;
+        padding: 10px 15px;
+        border-radius: $contact-btn-radius;
+        border: 1px solid $card-border;
+        &:focus {
+          border-color: $secondary-color;
+          outline: none;
+        }
+      }
+
+      .btn {
+        width: fit-content;
+
+        margin-left: auto;
+        margin-top: $contact-vertical-spacing;
+        padding-left: $contact-btn-sides;
+        padding-right: $contact-btn-sides;
+
+        border-radius: $contact-btn-radius;
+
+        @media screen and (max-width: $contact-mobile-breakpoint) {
+          margin-top: $contact-vertical-spacing;
+          margin-bottom: $contact-vertical-spacing * 0.55;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    }
+
+    margin-left: 4%;
+    width: 46%;
+
+    @media screen and (max-width: $contact-mobile-breakpoint) {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  h2 {
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: $contact-label-color;
+
+    padding: 0;
+    margin: 0;
+  }
 }

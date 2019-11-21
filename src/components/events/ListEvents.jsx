@@ -8,7 +8,7 @@ const ListEvents = () => {
     const eventList = useSelector(state => state.events.eventList);
 
     const renderList = eventList.map((event,index)=>{
-        return <EventItem key={index} event={event} />
+        return <EventItem key={index} event={event} order={index+1} />
     });
 
     return ( 

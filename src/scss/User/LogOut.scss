@@ -1,0 +1,18 @@
+.modal-logout-content{
+    height: 200px;
+
+    .content{
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .logout-action{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        
+        a{
+            text-decoration: none;
+        }
+    }
+}

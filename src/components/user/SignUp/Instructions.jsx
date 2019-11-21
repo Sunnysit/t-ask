@@ -126,28 +126,28 @@ const Instructions = () => {
             formValidates = false;
         }
 
-        const messageEncrypted = JSON.stringify({name: form.name, email: form.email, password: form.password, languages: form.langs})
-        console.log(messageEncrypted);
+        const messageSent = {name: form.name, email: form.email, password: form.password, languages: form.langs};
 
         if (formValidates) {
 
-            // encrypt(messageEncrypted).then(encryptedMessage => {
-            //     Axios
-            //         .post(`https://t-ask-api.herokuapp.com/api/user/signup`, {message: encryptedMessage})
-            //         .then(res => {
-            //             console.log(res);
+            
+                Axios
+                    .post(`https://t-ask-api.herokuapp.com/api/user/signup`, messageSent)
+                    .then(res => {
+                        console.log(res);
 
-            //             if(res.status === 200){
-            //                 localStorage.setItem('userData', res.data.token);
-            //                 history.push('/profile');
-            //             }
+                        if(res.status === 200){
+                            localStorage.setItem('userData', res.data.token);
+                            history.push('/profile');
+                            dispatch({type:"USER_LOGIN"});
+                        }
 
 
-            //         })
-            //         .catch(error => {
-            //             console.log(error);
-            //         })
-            // })
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+
         }
 
         setErrors(wrong);

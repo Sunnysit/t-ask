@@ -15,7 +15,7 @@ const Events = () => {
     return(
         <div className="events view">
             <HeroEvent />
-            <section className="main-section section-event">
+            <section className="main-section section-event card">
             <SearchBarEvents />
             <ListEvents />
             </section>

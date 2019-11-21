@@ -91,7 +91,7 @@
                     width: 37% !important;
 
                     div{
-                        width: 100% !important;
+                        width: max-content !important;
                     }
                 }
 
@@ -102,7 +102,7 @@
                 }
 
 
-                height: 260px;
+                height: 300px;
                 display: flex;
                 width: 298px;
                 margin: auto;
