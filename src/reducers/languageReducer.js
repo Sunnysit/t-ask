@@ -33,8 +33,9 @@ const initState = {
 
     dropDown: true,
 
-    isInTop3: true
+    isInTop3: true,
 
+    burgerMenu: true
 }
 
 const languageReducer = (state = initState, action) => {
@@ -127,7 +128,7 @@ const languageReducer = (state = initState, action) => {
             }
 
         case "SWITCH_TOP3_COUNTRY":
-            {   
+            {
                 return {
                     ...state,
                     top3LangToggle: !state.top3LangToggle
@@ -141,7 +142,7 @@ const languageReducer = (state = initState, action) => {
                     dropDown: !state.dropDown
                 }
             }
-        
+
         case "CLOSE_DROPDOWN":
             {
                 return {
@@ -150,14 +151,32 @@ const languageReducer = (state = initState, action) => {
                 }
             }
 
-            case "LANGUAGE_IS_NOT_IN_TOP_3" :{
+        case "BURGER":
+            {
+                return {
+                    ...state,
+                    burgerMenu: !state.burgerMenu
+                }
+            }
+
+        case "CLOSE_BURGER":
+            {
+                return {
+                    ...state,
+                    burgerMenu: true
+                }
+            }
+
+        case "LANGUAGE_IS_NOT_IN_TOP_3":
+            {
                 return {
                     ...state,
                     isInTop3: false
                 }
             }
-    
-            case "LANGUAGE_IS_IN_TOP_3" :{
+
+        case "LANGUAGE_IS_IN_TOP_3":
+            {
                 return {
                     ...state,
                     isInTop3: true

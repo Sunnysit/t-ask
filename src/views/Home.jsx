@@ -14,7 +14,7 @@ const Home = () => {
     }, [])
     
     return(
-        <div className="home view">
+        <div className="home" id="view">
             <HomeHero />
             <Trending />
             <CallToActionSection />
