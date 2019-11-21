@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import CarouselItem from '../articles/CarouselItem';
+//import CarouselItem from '../articles/CarouselItem';
 
 const HeroEvent = () => {
     return(

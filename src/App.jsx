@@ -34,6 +34,8 @@ function App() {
 
     // Trending feature
     axiosLibrary.featureJob();
+    
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

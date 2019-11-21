@@ -36,6 +36,7 @@ const Top3Languages = () => {
             }
         }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [countryToggle, userLanguagesId]);
 
     return (

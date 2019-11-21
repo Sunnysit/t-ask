@@ -7,9 +7,10 @@ import CallToActionSection from '../components/home/CallToActionSection';
 const Home = () => {
 
     const dispatch = useDispatch();
-
+ 
     useEffect(() => {
         dispatch({type: "USER_SITE"})
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     return(

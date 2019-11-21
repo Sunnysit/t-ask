@@ -5,7 +5,6 @@ import JobsSection from '../components/user/DashBoard/JobsSection';
 import LanguagesSection from '../components/user/DashBoard/LanguagesSection';
 import Axios from 'axios';
 
-
 const UserDashboard = () => {
 
     const dispatch = useDispatch();
@@ -25,16 +24,21 @@ const UserDashboard = () => {
                 console.log(error)
             })
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div className="user-profile">
-            <h1>Welcome {user.name}!</h1>
-            <div className="user-profile-body">
-                <Settings/>
-                <div className="user-profile-content">
-                    <LanguagesSection/>
-                    <JobsSection/>
+            <h2 className="page-title">Profile</h2>
+
+            <div className="card">
+                <h1>Welcome {user.name}!</h1>
+                <div className="user-profile-body">
+                    <Settings/>
+                    <div className="user-profile-content">
+                        <LanguagesSection/>
+                        <JobsSection/>
+                    </div>
                 </div>
             </div>
 

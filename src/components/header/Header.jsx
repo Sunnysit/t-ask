@@ -1,12 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {useSelector} from 'react-redux'
-
 import LogIn from '../user/LogIn'
 
 const Header = () => {
-
-    const userLogged = useSelector(state => state.user.userLogged);
 
 
     return (

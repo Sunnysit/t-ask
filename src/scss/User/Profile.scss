@@ -1,3 +1,9 @@
+.page-title{
+    font-size: 24px;
+    font-weight: normal;
+    padding: 0.5rem;
+}
+
 .user-profile {
 
     h1 {
@@ -73,12 +79,22 @@
                 .trending-language-container {
 
                     .trending-language-list {
-                        justify-content: space-between;
+                        display: block;
+                        @media screen and(min-width:760px){
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        
 
                     }
 
                     .tending-language-item {
-                        width: 30%;
+                        width: 80%;
+                        margin: 1rem auto;
+                        @media screen and(min-width:760px){
+                            width: 30%;
+                        }
+                        
                     }
 
                 }
@@ -87,14 +103,33 @@
 
             .jobs-section{
 
+                .comparison-text{
+                    margin-top: 3rem;
+                }
+
+                .switch-container{
+                    margin: auto;
+                    display: block;
+                }
+
                 .trending-job-container {
 
+                    
+
                     .trending-job-list {
-                        justify-content: space-between;
+                        display: block;
+                        @media screen and(min-width:760px){
+                            display: flex;
+                            justify-content: space-between;
+                        }
                     }
 
                     .trending-job-item {
-                        width: 30%;
+                        width: 80%;
+                        margin: 1rem auto;
+                        @media screen and(min-width:760px){
+                            width: 30%;
+                        }
                     }
 
                     
