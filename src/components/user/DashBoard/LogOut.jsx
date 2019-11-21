@@ -16,7 +16,7 @@ const LogOut = () => {
     }
     return (
 
-    <Popup trigger={<p>Log Out</p>} modal className="modal-logout">
+    <Popup trigger={<p className="logout">Log Out</p>} modal className="modal-logout">
     {close => (
         <div className="modal">
             <button onClick={ close } className="close popup-text">&times;</button>

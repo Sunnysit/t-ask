@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import Top3Languages from './Top3Languages';
 
 const LanguagesSection = () => {
@@ -11,22 +11,30 @@ const LanguagesSection = () => {
 
     let userLanguages;
 
-    if(userLanguagesId) {
+    if (userLanguagesId) {
         userLanguages = languages.filter(language => userLanguagesId.find(lang => lang === language.languageId));
 
     }
-    return(
+    return (
         <div className="languages-section">
-        <p className="comparison-text">Favorite Languages</p>
-            {userLanguages ? (
-                <ul className="selected-languages">
-                {userLanguages.map( (languages, index) => <li key={index}>{languages.languageName}</li>)}
+            <div className="mobile">
 
-                </ul>
-            ) : (
-                <ul></ul>
-            )}
-        <Top3Languages/>
+                <Top3Languages/>
+            </div>
+            <div className="desktop">
+                <p className="comparison-text">Favorite Languages</p>
+                {userLanguages
+                    ? (
+                        <ul className="selected-languages">
+                            {userLanguages.map((languages, index) => <li key={index}>{languages.languageName}</li>)}
+
+                        </ul>
+                    )
+                    : (
+                        <ul></ul>
+                    )}
+                <Top3Languages/>
+            </div>
         </div>
     )
 }
