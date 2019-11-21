@@ -1,8 +1,12 @@
 .hero{
    
     width: 100%;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding: 0.5rem;
+    // padding-bottom: 5rem;
+
+    &.hero-home{
+        padding-top: 5rem;
+    }
 
     &.hero-home p,&.hero-home h1, &.hero-home h2{
         text-align: center;
@@ -152,11 +156,11 @@
 
     }
 
-    .page-title{
-        font-size: 24px;
-        font-weight: normal;
-        padding: 0 !important;
-    }
+    // .page-title{
+    //     font-size: 24px;
+    //     font-weight: normal;
+    //     padding: 3rem auto !important;
+    // }
 
     a{
         text-decoration: none;

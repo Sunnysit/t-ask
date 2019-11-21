@@ -41,7 +41,9 @@ const UserDashboard = () => {
 
     return (
         <div className="user-profile">
-            <h2 className="page-title">Profile</h2>
+            <div className="hero-profile hero">
+                <h2 className="page-title">Profile</h2>
+            </div>
 
             <div className="mobile">
                 <div className="user-profile-header card">

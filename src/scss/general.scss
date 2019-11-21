@@ -131,6 +131,8 @@ img {
     background-color: #fff;
     padding: $padding;
     border-radius: 5px;
+    margin: 2rem auto;
+    margin-bottom: 3rem;
   }
 
   #root{
@@ -148,3 +150,35 @@ img {
       border-radius: 3px;
       text-align: left;
   }
+
+  .page-title {
+    font-size: 24px;
+    font-weight: normal;
+    padding-top: auto;
+    padding-right:auto;
+    padding-left: 3%;
+    padding-bottom: auto;
+    margin-bottom: 0;
+}
+
+input,
+      select,
+      textarea {
+        resize: none;
+        background-color: $contact-input-color;
+        padding: 0.5rem;
+        border-radius: $contact-btn-radius;
+        border: 1px solid $card-border;
+        margin: 0.6rem auto;
+        width: 100%;
+
+        &:focus {
+          border-color: $secondary-color;
+          outline: none;
+        }
+      }
+
+label{
+  margin-top: 1.5rem;
+  font-weight: bold;
+}

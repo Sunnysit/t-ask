@@ -123,23 +123,7 @@ span{
                 h2{
                     margin-top: 0;
                 }
-
-                label, input{
-                    width: 100%;
-                }
     
-                label{
-                    margin-top: 1.5rem;
-                    font-weight: bold;
-                }
-    
-                input{
-                    border-radius: 7px;
-                    border: 1px solid $card-border;
-                    background-color: $background;
-                    margin: 0.6rem auto;
-                    padding: 0.5rem;
-                }
             }
 
             .actions{

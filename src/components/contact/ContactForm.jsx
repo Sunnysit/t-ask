@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import axios from 'axios';
 
 const ContactForm = () => {
@@ -22,7 +22,8 @@ const ContactForm = () => {
     const [sent,
         setSent] = useState(false);
 
-    const [enabled, setEnable] = useState('true');
+    const [enabled,
+        setEnable] = useState('true');
 
     const [error,
         setError] = useState(initialError);
@@ -33,7 +34,7 @@ const ContactForm = () => {
         e.preventDefault();
         //console.log(form);
 
-        let { name, email, inquiry, message } = form;
+        let {name, email, inquiry, message} = form;
 
         let errors = {
             errorName: '',
@@ -81,7 +82,7 @@ const ContactForm = () => {
                     console.log(response);
 
                     if (response.status === 200 && response.data.isSent === true) {
-                        setForm({ name: '', email: '', inquiry: 'general', message: '' });
+                        setForm({name: '', email: '', inquiry: 'general', message: ''});
                         setSent(true);
                         setEnable('true');
                     } else {
@@ -100,57 +101,73 @@ const ContactForm = () => {
             {!sent
                 ? (
                     <form action="/contact-message" onSubmit={handleSubmit} className="form">
-                        <label htmlFor="name">Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            onChange={(e) => {
+
+                        <div className="field">
+                            <label htmlFor="name" className="label-required">Name</label>
+                            <div className="error-message">{error.errorName}</div>
+
+                            <input
+                                type="text"
+                                name="name"
+                                id="name"
+                                onChange={(e) => {
                                 setForm({
                                     ...form,
                                     name: e.target.value
                                 })
-                            }} />
-                        <div className="error-message">{error.errorName}</div>
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="text"
-                            name="email"
-                            id="email"
-                            onChange={(e) => {
+                            }}/>
+                        </div>
+
+                        <div className="field">
+                            <label htmlFor="email" className="label-required">Email</label>
+                            <div className="error-message">{error.errorEmail}</div>
+
+                            <input
+                                type="text"
+                                name="email"
+                                id="email"
+                                onChange={(e) => {
                                 setForm({
                                     ...form,
                                     email: e.target.value
                                 })
-                            }} />
-                        <div className="error-message">{error.errorEmail}</div>
-                        <label htmlFor="inquiry">Inquiry</label>
-                        <select
-                            name=""
-                            id="inquiry"
-                            onChange={(e) => {
+                            }}/>
+                        </div>
+
+                        <div className="field">
+                            <label htmlFor="inquiry" className="label-required">Inquiry</label>
+                            <select
+                                name=""
+                                id="inquiry"
+                                onChange={(e) => {
                                 setForm({
                                     ...form,
                                     inquiry: e.target.value
                                 })
                             }}>
-                            <option value="general">General</option>
-                            <option value="content">Content</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <label htmlFor="message">Message</label>
-                        <textarea
-                            name="message"
-                            id="message"
-                            cols="30"
-                            rows="10"
-                            onChange={(e) => {
+                                <option value="general">General</option>
+                                <option value="content">Content</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div className="field">
+                            <label htmlFor="message" className="label-required">Message</label>
+                            <div className="error-message">{error.errorMessage}</div>
+
+                            <textarea
+                                name="message"
+                                id="message"
+                                cols="30"
+                                rows="10"
+                                onChange={(e) => {
                                 setForm({
                                     ...form,
                                     message: e.target.value
                                 })
                             }}></textarea>
-                        <div className="error-message">{error.errorMessage}</div>
+                        </div>
+
                         <button className="btn" disabled={!enabled}>Send</button>
                     </form>
                 )
