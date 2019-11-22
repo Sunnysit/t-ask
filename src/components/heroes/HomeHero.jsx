@@ -16,7 +16,7 @@ const HomeHero = () => {
         <div className="hero-home hero">
             <h1>Welcome to Task</h1>
             <p>Your go-to website to keep updated in different technologies</p>
-            <SignUpBanner/>
+            {!localStorage.getItem('userData')?(<SignUpBanner/>):(<p></p>) }
             <div className="card placeholder-comparison-feature">
                 <Comparison/>
                 <div className="graph-container">

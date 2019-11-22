@@ -46,6 +46,10 @@ img {
   cursor: pointer;
   transition: 0.3s all ease-in;
   font-weight: bold;
+  box-sizing: border-box;
+  outline: none;
+  text-shadow: none;
+
 
   &:hover,
   &:focus {
