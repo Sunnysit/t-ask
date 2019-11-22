@@ -41,7 +41,7 @@ const HeroEvent = () => {
             showThumbs={false}
             infiniteLoop={true}
             showStatus={false}
-            autoPlay={true}
+            // autoPlay={true}
             // showArrows={false}
         >
             {carouselItems}

@@ -24,13 +24,14 @@ const EventItem = (props) => {
                     <h2 className="event-title">
                     <a target="blank" href={eventInfo.link}>{eventInfo.name}</a>
                     </h2>
+                  
+                    </div>
                     <div className="event-info">
                         <div className="hosted-by">
                             <p>Hosted by:</p>
                             <p className="group-name">{eventInfo.group.name}</p>
                         </div>
                         <ActionBtns />
-                    </div>
                     </div>
                 </div>
                 <div className="event-description" dangerouslySetInnerHTML={{ __html: eventInfo.description}}></div>
