@@ -13,7 +13,7 @@ const BurgerMenu = () => {
     const dispatch = useDispatch();
 
     const handleBurgerMenu = (e) => {
-            //console.log(nameRef.current);
+            console.log(nameRef.current);
             dispatch({type: "BURGER"});
         
     }
@@ -28,7 +28,11 @@ const BurgerMenu = () => {
     return (
         <div className="burger-menu-container">
             <button className="burger-icon" onClick={ handleBurgerMenu }>
-            <FontAwesomeIcon icon={['fas', 'bars']} size="2x"/>
+                {!toggleBurger ? (
+                    <FontAwesomeIcon icon={['fas', 'times']} size="2x"/>
+                ) : (
+                    <FontAwesomeIcon icon={['fas', 'bars']} size="2x"/>
+                )}
             </button>
 
                 <ul className={!toggleBurger ? "burger-menu open" : "burger-menu"}>

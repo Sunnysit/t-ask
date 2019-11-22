@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import LogIn from '../user/LogIn';
-import BurgerMenu from './BurgerMenu';
+import ClickOutside from './ClickOutside';
 
 const Header = () => {
 
@@ -33,7 +33,7 @@ const Header = () => {
                                     className="profile-icon"/></Link>
                             )}
                     </p>
-                    <BurgerMenu/>
+                    <ClickOutside/>
                     
                 </div>
                 <div className="desktop">
