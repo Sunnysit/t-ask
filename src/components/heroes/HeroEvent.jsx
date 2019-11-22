@@ -41,7 +41,8 @@ const HeroEvent = () => {
             showThumbs={false}
             infiniteLoop={true}
             showStatus={false}
-            // autoPlay={true}
+            className="carousel-section"
+            autoPlay={true}
             // showArrows={false}
         >
             {carouselItems}

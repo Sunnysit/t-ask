@@ -7,10 +7,6 @@ const CarouselItem = (props) => {
     let event = props.info;
     const eventOrder = props.order;
 
-    if (event) {
-        console.log(event);
-    }
-
     return (event
         ? (
             <div className="carousel-item">
