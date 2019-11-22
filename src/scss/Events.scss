@@ -79,5 +79,78 @@
             }
         }
     }
+
+
+    .hero-event {
+        padding: 0.5rem;
+        border-bottom: 1px solid black;
+    
+        .carousel-item {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .carousel-footer {
+            order: 3;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .thumbnail-container{
+            order: 1;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 40%;
+            height: 0;
+            // margin-bottom: 1rem;
+
+            .event-thumbnail{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+    
+    
+        .article-info-container {
+            display: flex;
+            justify-content: space-between;
+        }
+    
+        .article-info {
+            text-align: left;
+        }
+    
+        .article-excerpt {
+            order: 2;
+    
+        }
+    
+        .btn-read-more {
+            order: 2;
+            width: 150px;
+            margin: 0 auto;
+        }
+    
+        .carousel .slide {
+            background-color: transparent;
+        }
+    
+        .carousel .control-dots {
+            position: relative;
+            .dot {
+                background-color: black;
+            }
+        }
+        .carousel.carousel-slider .control-arrow:hover {
+            background-color: transparent;
+        }
+    }
 }
 

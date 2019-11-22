@@ -19,7 +19,6 @@ const EventItem = (props) => {
                         <p className="event-date">{moment(eventInfo.time).format('D')}</p>
                         <p className="event-weekday">{moment(eventInfo.time).format('ddd')}</p>
                         <p className="event-detail-time">{eventInfo.local_time}</p>
-                        
                     </div>
                     <div className="event-header-right">
                     <h2 className="event-title">
