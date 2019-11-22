@@ -182,8 +182,16 @@
             color: white;
         }
 
-        .btn{
-            width: fit-content;
+        .btn-banner {
+            width: 68px;
+            padding: 8px 13px;
+            border: 2px solid $secondary-color;
+
+            &:hover {
+                background-color: white;
+                border: 2px solid $secondary-color;
+                color: $secondary-color
+            }
         }
     }
 }
