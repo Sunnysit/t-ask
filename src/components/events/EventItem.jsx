@@ -35,10 +35,12 @@ const EventItem = (props) => {
                     </div>
                 </div>
                 <div className="event-description" dangerouslySetInnerHTML={{ __html: eventInfo.description}}></div>
+                <a target="blank" href={eventInfo.link}>
                 <div className="event-thumbnail-container">
                     {/* default images from unsplash */}
                     <img src={`assets/events/event ${eventOrder}.jpeg`} alt="event-default-thumbnail" className="event-thumbnail"/>
                 </div>
+                </a>
                 <div className="event-footer">
                     <p className="powered-by">Powered by:
                         <a target="blank" href="https://meetup.com/" className="source-link"><img src="./assets/powered-by/meetup.png" alt="Meetup logo"/></a>

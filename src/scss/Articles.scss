@@ -15,8 +15,11 @@
 
     .article-search-form,
     .event-search-form {
-        display: flex;
-        justify-content: center;
+        width: 70vw;
+        max-width: 500px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
     }
 
     .article-list,
@@ -28,13 +31,14 @@
     .article-list-item,
     .event-list-item {
         width: 48%;
+        margin-bottom: 2.5rem;
         &:nth-child(even) {
             margin-left: 2%;
         }
         &:nth-child(odd) {
             margin-right: 2%;
         }
-        @media screen and (max-width:600px) {
+        @media screen and (max-width:702px) {
             width: 96%;
         }
 
@@ -44,7 +48,7 @@
     .event-list .event {
 
         padding: 10px;
-        margin: 1rem 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -117,7 +121,7 @@
         align-items: center;
     }
 
-    .article-thumbnail {
+    .article-link-thumbnail{
         order: 1;
     }
 
@@ -175,8 +179,7 @@
     .event-footer {
         display: flex;
         justify-content: space-between;
-        margin-top: 0.5rem;
-
+        margin-top: .5rem;
         .btn-read-more {
             display: flex;
             align-items: center;
