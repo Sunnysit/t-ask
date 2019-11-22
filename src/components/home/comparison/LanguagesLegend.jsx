@@ -10,7 +10,7 @@ const LanguagesLegend = () => {
 
     return (
         <div className="languages-selected">
-            <p className="comparison-text">Chosen languages</p>
+            <p className="comparison-text">Chosen languages: </p>
             <ul className="legends">
             { selectLanguages.map(languages => <li value={languages.languageName} key={languages.languageName}><p className="color-legend">a</p>{languages.languageName}</li>) }
 
