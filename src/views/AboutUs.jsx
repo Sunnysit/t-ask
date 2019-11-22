@@ -11,7 +11,7 @@ const AboutUs = () => {
         dispatch({type: "USER_SITE"})
     }, [dispatch])
     return (
-        <div className="about-us view">
+        <div className="about-us" id="view">
             <HeroAbout/>
             <ListMembers/>
         </div>

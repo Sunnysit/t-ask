@@ -7,9 +7,118 @@
     .comparison-text {
         font-weight: bold;
     }
-
-    .comparison-text:first-of-type{
+    .comparison-text:first-of-type {
         margin-top: 0;
+    }
+
+    .mobile {
+        display: block;
+        @media screen and (min-width:1000px) {
+            display: none;
+        }
+        .user-profile-header {
+
+            .user-profile-options {
+                display: flex;
+                justify-content: space-between;
+                @media screen and(min-width:470px) {
+                    width: 90%;
+                    margin: auto;
+                }
+
+                .user-profile {
+                    p {
+                        text-align: center;
+                        cursor: pointer;
+                    }
+                }
+
+                .selected-languages {
+                    text-align: center;
+
+                    li {
+                        margin: 0.7rem auto;
+                    }
+                }
+
+            }
+
+            .user-settings{
+
+                .user-menu.mobile-coming-soon {
+                    display: flex;
+                    justify-content: space-between;
+
+                    @media screen and (min-width:428px){
+                        display: none;
+                    }
+                    
+
+                }
+
+                .user-menu.desktop-coming-soon {
+
+                    display: none;
+
+                    @media screen and (min-width:428px){
+                        display: flex;
+                        justify-content: space-between;
+
+                    }
+
+                    @media screen and(min-width:470px) {
+                        width: 90%;
+                        margin: auto;
+                    }
+
+                    p {
+                        cursor: pointer;
+                    }
+                    
+                    
+                    
+
+                }
+
+            }
+
+        }
+
+        .user-profile-body {
+            margin: 3rem 0;
+
+            .logout{
+                text-align: center;
+                cursor: pointer;
+                margin-top: 4rem;
+            }
+        }
+    }
+
+    .desktop {
+        display: none;
+        @media screen and (min-width:1000px) {
+            display: block;
+        }
+    }
+
+    .coming-soon-content {
+        height: fit-content;
+        width: fit-content !important;
+        background-color: $secondary-color !important;
+        border-radius: 5px;
+
+        div {
+            color: white !important;
+            font-size: 0.75rem;
+            padding: 0.2rem;
+        }
+
+        .coming-soon-arrow {
+            background-color: $secondary-color !important;
+            left: 54px !important;
+
+        }
     }
 
     .user-profile-body {
@@ -29,9 +138,9 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                height: 60%;
-                
-                p{
+                height: 73%;
+
+                p {
                     cursor: pointer;
                 }
             }
@@ -53,16 +162,57 @@
                 .trending-language-container {
 
                     .trending-language-list {
-                        justify-content: space-between;
+                        display: block;
+                        @media screen and(min-width:760px) {
+                            display: flex;
+                            justify-content: space-between;
+                        }
 
                     }
 
                     .tending-language-item {
-                        width: 30%;
+                        width: 80%;
+                        margin: 1rem auto;
+                        @media screen and(min-width:760px) {
+                            width: 30%;
+                        }
+
                     }
 
                 }
 
+            }
+
+            .jobs-section {
+
+                .comparison-text {
+                    margin-top: 3rem;
+                }
+
+                .switch-container {
+                    margin: auto;
+                    display: block;
+                }
+
+                .trending-job-container {
+
+                    .trending-job-list {
+                        display: block;
+                        @media screen and(min-width:760px) {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                    }
+
+                    .trending-job-item {
+                        width: 80%;
+                        margin: 1rem auto;
+                        @media screen and(min-width:760px) {
+                            width: 30%;
+                        }
+                    }
+
+                }
             }
         }
     }

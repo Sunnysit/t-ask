@@ -64,7 +64,7 @@ const UserPickJob = () => {
     }    
     
     return (
-        <li className="select-job-body tending-job-item">
+        <li className="select-job-body trending-job-item">
             <p>Trending job category for user to choose</p>
 
             <p>Job Category</p>

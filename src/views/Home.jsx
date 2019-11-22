@@ -7,13 +7,14 @@ import CallToActionSection from '../components/home/CallToActionSection';
 const Home = () => {
 
     const dispatch = useDispatch();
-
+ 
     useEffect(() => {
         dispatch({type: "USER_SITE"})
-    }, [dispatch])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     
     return(
-        <div className="home view">
+        <div className="home" id="view">
             <HomeHero />
             <Trending />
             <CallToActionSection />
