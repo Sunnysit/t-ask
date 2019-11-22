@@ -23,10 +23,11 @@
   .desktop {
     @media screen and(min-width:650px){
       display: block;
-
+      .navigation-item{
+        border-bottom: 1.5px solid $main-color;
+      }
       .navigation-item:hover {
         border-bottom: 1.5px solid $secondary-color;
-        font-weight: 500;
       }
     }
   }
