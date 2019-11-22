@@ -44,7 +44,10 @@ const Instructions = () => {
     useEffect(() => {
 
         axiosLibrary.registerLang();
-    }, [axiosLibrary])
+
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     const handleRegistrationStep = () => {
         let {name, email, password, confirmPass} = form;

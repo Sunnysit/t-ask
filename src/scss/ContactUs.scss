@@ -18,31 +18,9 @@ $contact-btn-radius: 5px; //Extra radius
 
 $contact-margin-top-first-label: $contact-vertical-spacing / 4;
 
-.contact .hero {
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-}
 
 .contact {
   min-width: $contact-mobile-min-width;
-
-  h1 {
-    margin-top: 65pt;
-    margin-bottom: 20pt;
-    margin-left: $contact-sides-margin * 2;
-
-    font-size: $contact-h1-font-size;
-
-    color: $contact-label-color;
-
-    @media screen and (max-width: $contact-mobile-breakpoint) {
-      margin-top: 21pt;
-      margin-bottom: 18pt;
-
-      margin-left: $contact-sides-margin;
-    }
-  }
 }
 
 .contact-body {
@@ -112,38 +90,6 @@ $contact-margin-top-first-label: $contact-vertical-spacing / 4;
       flex-direction: column;
       flex-wrap: nowrap;
 
-      & > label {
-        margin-top: $contact-vertical-spacing;
-        margin-bottom: $contact-margin-top-first-label;
-        font-weight: bold;
-        color: $contact-label-color;
-      }
-
-      & > label:first-child {
-        margin-top: $contact-margin-top-first-label;
-      }
-
-      select {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-color: $contact-input-color;
-      }
-
-      input,
-      select,
-      textarea {
-        resize: none;
-        background-color: $contact-input-color;
-        padding: 10px 15px;
-        border-radius: $contact-btn-radius;
-        border: 1px solid $card-border;
-        &:focus {
-          border-color: $secondary-color;
-          outline: none;
-        }
-      }
-
       .btn {
         width: fit-content;
 
@@ -172,7 +118,7 @@ $contact-margin-top-first-label: $contact-vertical-spacing / 4;
     }
   }
 
-  h2 {
+  h3 {
     font-size: 1rem;
     font-weight: bold;
 

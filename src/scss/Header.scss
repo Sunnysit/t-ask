@@ -7,6 +7,7 @@
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
 
     .home-link{
@@ -33,7 +34,7 @@
     }
 
     //Change break point based on the design
-    @media screen and (max-width:700px) {
+    @media screen and (max-width:650px) {
         .logo-mobile{
             display: block;
         }

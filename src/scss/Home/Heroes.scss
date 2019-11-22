@@ -1,8 +1,13 @@
 .hero{
    
     width: 100%;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding: 0.5rem;
+    // padding-bottom: 5rem;
+
+    &.hero-home{
+        padding: 0;
+        padding-top: 5rem;
+    }
 
     &.hero-home p,&.hero-home h1, &.hero-home h2{
         text-align: center;
@@ -152,10 +157,11 @@
 
     }
 
-    .page-title{
-        font-size: 24px;
-        font-weight: normal;
-    }
+    // .page-title{
+    //     font-size: 24px;
+    //     font-weight: normal;
+    //     padding: 3rem auto !important;
+    // }
 
     a{
         text-decoration: none;
@@ -176,8 +182,24 @@
             color: white;
         }
 
-        .btn{
-            width: fit-content;
+        .btn-banner {
+            width: 117px;
+
+            .btn {
+
+                padding: 8px 13px;
+            border: 2px solid $secondary-color;
+
+            
+
+            &:hover {
+                background-color: white;
+                border: 2px solid $secondary-color;
+                color: $secondary-color
+            }
+
+            }
+            
         }
     }
 }

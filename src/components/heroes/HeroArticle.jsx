@@ -60,6 +60,7 @@ const HeroArticle = () => {
                 infiniteLoop={true}
                 showStatus={false}
                 autoPlay={true}
+                className="carousel-section"
                 // showArrows={false}
             >
                 {carouselItems}
