@@ -50,8 +50,8 @@
         height: 100%;
         justify-content: space-between;
 
-        .article-title,
-        .event-title {
+        .article-title
+        {
 
             line-height: 1;
             margin-top: 0;
@@ -105,10 +105,10 @@
         flex-direction: column;
     }
     
-    .carousel-section{
-        padding-right: 3%;
-        padding-left: 3%;
-    }
+    // .carousel-section{
+    //     padding-right: 3%;
+    //     padding-left: 3%;
+    // }
     .carousel-footer {
         order: 3;
         width: 100%;
@@ -244,6 +244,6 @@
 }
 
 .carousel-item .source-link {
-    height: 13px;
+    line-height: 0;
 
 }

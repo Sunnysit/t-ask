@@ -19,19 +19,19 @@ const EventItem = (props) => {
                         <p className="event-date">{moment(eventInfo.time).format('D')}</p>
                         <p className="event-weekday">{moment(eventInfo.time).format('ddd')}</p>
                         <p className="event-detail-time">{eventInfo.local_time}</p>
-                        
                     </div>
                     <div className="event-header-right">
                     <h2 className="event-title">
                     <a target="blank" href={eventInfo.link}>{eventInfo.name}</a>
                     </h2>
+                  
+                    </div>
                     <div className="event-info">
                         <div className="hosted-by">
                             <p>Hosted by:</p>
                             <p className="group-name">{eventInfo.group.name}</p>
                         </div>
                         <ActionBtns />
-                    </div>
                     </div>
                 </div>
                 <div className="event-description" dangerouslySetInnerHTML={{ __html: eventInfo.description}}></div>
