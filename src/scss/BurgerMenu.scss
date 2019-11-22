@@ -1,0 +1,203 @@
+.burger-icon {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  z-index: 1000;
+  top: 10px;
+  right: 5%;
+
+  path {
+    color: white;
+  }
+}
+
+.header-section {
+  position: relative;
+  z-index: 1000;
+
+  .logo-container {
+    width: fit-content !important;
+    z-index: 900;
+  }
+
+  .desktop {
+    @media screen and(min-width:650px){
+      display: block;
+
+      .navigation-item:hover {
+        border-bottom: 1.5px solid $secondary-color;
+        font-weight: 500;
+      }
+    }
+  }
+
+  
+  .mobile {
+    display: flex;
+    margin: 0.5rem;
+    align-items: center;
+    width: 30%;
+    justify-content: space-around;
+
+    @media screen and(min-width:650px){
+      display: none;
+    }
+
+    .nav-profile {
+      display: inline-block;
+      position: absolute;
+      right: 17%;
+      top: 15px;
+      z-index: 900;
+    }
+
+    .zindex {
+      background-color: $main-color;
+      //z-index: 900;
+      width: 100%;
+      height: 85.15px;
+      top: 0;
+      position: absolute;
+      left: 0;
+    }
+
+    .burger-menu{
+
+      position: absolute;
+      width: 100%;
+      left: 0;
+      height: fit-content;
+      transform: translateY(-133px);
+      background-color: $main-color;
+      transition: all 0.3s ease-out;
+      //opacity: 0;
+      z-index: -1;
+
+      .navigation-item{
+        text-align: center;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-top:1px solid white;
+        z-index: -1;
+
+        &:hover{
+          background-color: $secondary-color;
+        }
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .burger-menu.open{
+      transform: translateY(25px);
+      //z-index: 500;
+      //opacity: 1;     
+      //height: fit-content; 
+    }
+
+  }
+}
+
+
+
+
+
+// .header {
+//     .mobile {
+//         position: relative;
+
+//         .nav-profile {
+//             position: fixed;
+//             right: 108px;
+//             top: 36px;
+//             margin-top: 0;
+//         }
+//     }
+// }
+
+// /* Individual item */
+// .bm-item {
+//   display: inline-block;
+//   text-align: center;
+//   border-top: 1px solid white;
+
+//   a {
+//       text-decoration: none;
+//   }
+
+//   /* Our sidebar item styling */
+//   text-decoration: none;
+//   margin-bottom: 10px;
+// }
+
+// /* Change color on hover */
+// .bm-item:hover {
+//   color: white;
+// }
+
+// /* The rest copied directly from react-burger-menu docs */
+
+// /* Position and sizing of burger button */
+// .bm-burger-button {
+//   position: fixed;
+//   width: 36px;
+//   height: 30px;
+//   right: 36px;
+//   top: 36px;
+// }
+
+// bm-burger-wrap{
+//     transform: translate3d();
+// }
+
+// /* Color/shape of burger icon bars */
+// .bm-burger-bars {
+//   background: white;
+// }
+
+// .bm-burger-bars-hover {
+//     background: white;
+//     opacity: 1 !important;
+// }
+
+// /* Position and sizing of clickable cross button */
+// .bm-cross-button {
+//   height: 24px;
+//   width: 24px;
+// }
+
+// /* Color/shape of close button cross */
+// .bm-cross {
+//   background: white;
+// }
+
+// /* General sidebar styles */
+// .bm-menu {
+//   background: $main-color;
+//   padding: 2.5em 1.5em 0;
+//   font-size: 1.15em;
+//   overflow: hidden !important;
+// }
+
+// .bm-menu-wrap {
+//     width: 100vw !important;
+//     height: fit-content !important;
+//     top: 85px;
+// }
+
+// /* Morph shape necessary with bubble or elastic */
+// .bm-morph-shape {
+//   fill: #373a47;
+// }
+
+// /* Wrapper for item list */
+// .bm-item-list {
+//   color: #b8b7ad;
+// }
+
+// /* Styling of overlay */
+// .bm-overlay {
+//   background: rgba(0, 0, 0, 0.3);
+// }
