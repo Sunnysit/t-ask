@@ -1,8 +1,11 @@
 .burger-icon {
-  position: static;
+  position: absolute;
   background-color: transparent;
   border: none;
-  
+  z-index: 1000;
+  top: 10px;
+  right: 50px;
+
   path {
     color: white;
   }
@@ -10,9 +13,11 @@
 
 .header-section {
   position: relative;
+  z-index: 1000;
 
   .logo-container {
     width: fit-content !important;
+    z-index: 900;
   }
 
   .desktop {
@@ -42,25 +47,37 @@
       display: inline-block;
       position: static;
       right: 82px;
+      z-index: 900;
+    }
+
+    .zindex {
+      background-color: $main-color;
+      //z-index: 900;
+      width: 100%;
+      height: 85.15px;
+      top: 0;
+      position: absolute;
+      left: 0;
     }
 
     .burger-menu{
 
       position: absolute;
-      width: 100vw;
+      width: 100%;
       left: 0;
       height: fit-content;
-      transform: translateY(0px);
+      transform: translateY(-133px);
       background-color: $main-color;
       transition: all 0.3s ease-out;
-      opacity: 0;
-      z-index: 1000;
+      //opacity: 0;
+      z-index: -1;
 
       .navigation-item{
         text-align: center;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         border-top:1px solid white;
+        z-index: -1;
 
         &:hover{
           background-color: $secondary-color;
@@ -73,8 +90,10 @@
     }
 
     .burger-menu.open{
-      transform: translateY(10px);
-      opacity: 1;      
+      transform: translateY(25px);
+      //z-index: 500;
+      //opacity: 1;     
+      //height: fit-content; 
     }
 
   }

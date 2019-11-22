@@ -27,14 +27,14 @@ const BurgerMenu = () => {
 
     return (
         <div className="burger-menu-container">
-            <button className="burger-icon" onClick={ handleBurgerMenu }>
+            <p className="burger-icon" onClick={ handleBurgerMenu }>
                 {!toggleBurger ? (
                     <FontAwesomeIcon icon={['fas', 'times']} size="2x"/>
                 ) : (
                     <FontAwesomeIcon icon={['fas', 'bars']} size="2x"/>
                 )}
-            </button>
-
+            </p>
+                <div className="zindex"></div>
                 <ul className={!toggleBurger ? "burger-menu open" : "burger-menu"}>
                 <li className="navigation-item" onClick={ handleCloseBurgerMenu }>
                     <Link to="/articles">Articles</Link>
