@@ -15,7 +15,7 @@ const ArticleItem = (props) => {
                     <div className="article-info-container">
                         <div className="article-info">
                             <p className="author">Author:
-                                <strong>{article.author}</strong>
+                                <strong> {article.author}</strong>
                             </p>
                             <p>
                                 <span className="date">{article.date}</span>
