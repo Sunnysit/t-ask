@@ -52,17 +52,18 @@ const UserPickLanguage = () => {
         })
 
         const language = languageRank[languageIndex];
+        console.log(language);
         dispatch({type:"SELECT_TRENDING_LANGUAGE", payload:language})
         
     }
     
     
     return (
-        <li className="select-language-body tending-language-item">
-            <p>Trending language for user to choose</p>
+        <div className="select-language-body tending-language-item">
+        <p className="select-language-instruction">Choose programming language</p>
 
-            <p>Language</p>
-            <select onChange={handleSelectLanguage}>
+        <li className="tending-language-item-container">
+            <select onChange={handleSelectLanguage} className="language-name">
                 <option value="" defaultValue disabled hidden>Language</option>
             { languagesDropDown.map((language,index) => <option key={index} value={language.languageId}>{language.languageName}</option>) }
             </select> 
@@ -70,16 +71,29 @@ const UserPickLanguage = () => {
             <div className="language-selected-info">
                 {!isInTop3 ? (
                     <div className="language-data">
-                        <p>Language name: {selectLanguage.languageName}</p> 
-                        <p>Ranking: {selectLanguage.languageRank}</p>
-                        <p>{selectLanguage.languageDescription}</p>
+                        <p className="logo-container">
+                        {(selectLanguage.languageRank < 10) ? (
+                                    <span className="rank-text">#0{selectLanguage.languageRank}</span>
+                                ) : (
+                                    <span className="rank-text">#{selectLanguage.languageRank}</span>
+                                )}
+                                <img
+                                    className="language-logo"
+                                    src={selectLanguage.logoUrl}
+                                    alt={selectLanguage.languageName}/>
+                            </p>
+                        <p className="language-description">{selectLanguage.languageDescription}</p>
+
                     </div>
                 ) : (
-                    <p>This language is in the top 3. Choose another one.</p>
+                    <p className="language-description">This language is in the top 3. Choose another one.</p>
                 )}
                 
             </div>
         </li>
+
+        </div>
+        
     )
 }
 

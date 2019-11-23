@@ -162,10 +162,31 @@ export class TaskAxios {
             .get('https://t-ask-api.herokuapp.com/api/comparison/jobs/jobcategories')
             .then(result => {
 
+                // USA data
                 const usaData = result.data[0].data;
+                const jobsTrendingUsa = usaData.map((job, index) => {
+                    return {
+                        name: job.name,
+                        soc: job.soc,
+                        jobRank: index + 1,
+                        description: job.description,
+                    }
+                })
+
+                this.dispatch({type: "SET_ALL_JOBS_CATEGORY_USA", payload: jobsTrendingUsa});
+
+
+                // Canada data
                 const canadaData = result.data[1].data;
-                this.dispatch({type: "SET_ALL_JOBS_CATEGORY_USA", payload: usaData});
-                this.dispatch({type: "SET_ALL_JOBS_CATEGORY_CANADA", payload: canadaData})
+                const jobsTrendingCanada = canadaData.map((job, index) => {
+                    return {
+                        name: job.name,
+                        soc: job.soc,
+                        jobRank: index + 1,
+                        description: job.description,
+                    }
+                })
+                this.dispatch({type: "SET_ALL_JOBS_CATEGORY_CANADA", payload: jobsTrendingCanada})
             })
     }
 

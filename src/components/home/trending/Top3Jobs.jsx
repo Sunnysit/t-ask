@@ -60,7 +60,7 @@ const Top3Jobs = () => {
 
                         let rankClassName = `rank-text-job rank-${index+1}`;
 
-                        return <li key={job.soc} className="trending-job-item">
+                        return <li key={job.soc} className="trending-job-item tending-job-item-container">
                             <p className="job-name">{job.name}</p>
                             <p className="rank-container">
                                 <span className={rankClassName}>#0{index+1}</span>
