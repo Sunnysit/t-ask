@@ -78,12 +78,15 @@ const UserPickJob = () => {
                     {!isInTop3
                         ? (
                             <div className="job-data">
-                                <p>Ranking: {selectJob.jobRank}</p>
+                                <p className="rank-container">
+                                    <span className="rank-text-job rank-4">#{selectJob.jobRank}</span>
+                                </p>
+                                <p className="job-description">{selectJob.description}</p>
                             </div>
 
                         )
                         : (
-                            <p>This job category is in the top 3. Choose another one.</p>
+                            <p className="job-description on-top-job">This job category is in the top 3. Choose another one.</p>
                         )}
 
                 </div>

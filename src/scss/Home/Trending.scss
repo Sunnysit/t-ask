@@ -29,7 +29,11 @@
                 margin-left: 10%;
                 margin-right: 10%;
                 text-align: center;
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .job-name {
+                margin-bottom: 78px;
             }
 
             .logo-container {
@@ -53,6 +57,10 @@
         border-radius: 4px;
         width: 210px;
         margin-bottom: 1rem;
+
+        .on-top-language {
+            margin-top: 40px;
+        }
     }
 
     .tending-job-item-container {
@@ -86,7 +94,7 @@
     .job-name{
         padding: 0 .5rem;
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: center;
         height: 70px;
     }
@@ -102,6 +110,10 @@
         margin: 10px 8px;
     }
 
+    .job-description:last-of-type {
+        margin-top: 22px;
+    }
+
     .rank-text{
         font-size: 2rem;
         font-weight: bold;
@@ -113,6 +125,7 @@
         height: 70px;
         justify-content: center;
         width: 70%;
+        margin: auto;
 
         .rank-text-job{
             font-size: 2rem;
@@ -137,6 +150,11 @@
         .rank-3{
             color: #B0764E;
             border: 3px solid #B0764E;
+        }
+
+        .rank-4{
+            color: #8A8C8E;
+            border: 3px solid #8A8C8E;
         }
     }
 

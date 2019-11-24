@@ -86,7 +86,7 @@ const UserPickLanguage = () => {
 
                     </div>
                 ) : (
-                    <p className="language-description">This language is in the top 3. Choose another one.</p>
+                    <p className="language-description on-top-language">This language is in the top 3. Choose another one.</p>
                 )}
                 
             </div>
