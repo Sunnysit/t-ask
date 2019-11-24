@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import UserPickLanguage from './UserPickLanguage';
-import Top3Switch from './Top3Switch';
+import Top3Switch from '../Top3Switch';
 
 const Top3Languages = () => {
 

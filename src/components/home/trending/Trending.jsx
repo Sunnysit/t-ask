@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Top3Languages from './Top3Languages';
-import Top3Jobs from './Top3Jobs';
+import Top3Languages from './languages/Top3Languages';
+import Top3Jobs from './jobs/Top3Jobs';
 
 const Trending = () => {
 

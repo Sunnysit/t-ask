@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import Top3Switch from './Top3Switch';
+import Top3Switch from '../Top3Switch';
 import UserPickJob from './UserPickJob';
 
 const Top3Jobs = () => {
