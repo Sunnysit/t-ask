@@ -2,6 +2,7 @@ import React from 'react';
 
 import Top3Languages from './languages/Top3Languages';
 import Top3Jobs from './jobs/Top3Jobs';
+import LearnMore from './LearnMore';
 
 const Trending = () => {
 
@@ -21,6 +22,11 @@ const Trending = () => {
             <div className="trending-jobs">
                 <h3>Top 3 Job Categories</h3>
                 <Top3Jobs/>
+            </div>
+
+            <div className="learn-more">
+                <p>Learn more</p>
+                <LearnMore/>
             </div>
         </div>
     )
