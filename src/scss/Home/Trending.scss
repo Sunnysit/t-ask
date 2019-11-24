@@ -1,23 +1,61 @@
+.rank-feature {
+
+    h2 {
+        text-align: center;
+    }
+
+    .trending-languages,
+    .trending-jobs {
+        margin-top: 3rem;
+    }
+}
+
 .trending-language-container,
 .trending-job-container{
 
     .trending-language-list,
     .trending-job-list{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        align-items: flex-end;
+        display: block;
+        text-align: center;
+        //justify-content: space-around;
+
+        @media screen and (min-width: 501px){
+            display: grid;
+            grid-template-columns: 48% 48%;
+            grid-template-rows: repeat(2, 371px);
+            grid-gap: 4%;
+            align-items: end;
+            max-width: 704px;
+            margin: auto;
+            justify-items: center;
+        }
+
+        @media screen and (min-width: 985px){
+            display: grid;
+            grid-template-columns: repeat(4, 24%);
+            grid-gap: 1%;
+            min-width: 100%;
+            margin: 0;
+        }
+
+        
         
 
         .select-job-body, .select-language-body{
             background-color: $main-color;
-            width: 25%;
+            
             border-radius: 4px;
+
+            @media screen and (min-width: 985px){
+                width: 234px;
+            }
 
             .select-language-instruction,
             .select-job-instruction {
                 color: white;
                 text-align: center;
+                padding-left: 5%;
+                padding-right: 5%;
             }
 
             .language-name,
@@ -43,9 +81,36 @@
             }
 
             .tending-language-item-container,
-            tending-job-item-container {
+            .tending-job-item-container {
                 margin-bottom: 1rem;
+                width: 90%;
             }
+        }
+    }
+
+    
+
+    .tending-job-item-container {
+        height: 320px;
+    }
+
+    .tending-language-item,
+    .trending-job-item{
+        width: 272;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem auto;
+
+        
+        @media screen and (max-width:985px) {
+            max-width: 272px;
+            margin: 0;
+        }
+
+        @media screen and (max-width:500px) {
+            width: 98%;
+            margin: 1rem auto;
         }
     }
 
@@ -55,32 +120,19 @@
         height: 285px;
         background-color: white;
         border-radius: 4px;
-        width: 210px;
+        //width: 210px;
         margin-bottom: 1rem;
 
-        .on-top-language {
-            margin-top: 40px;
-        }
-    }
-
-    .tending-job-item-container {
-        height: 320px;
-    }
-
-    .tending-language-item,
-    .trending-job-item{
-        //width: 23%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        
-        @media screen and (max-width:760px) {
-            width: 48%;
+        @media screen and (max-width:985px) {
+            width: 100%;
         }
 
         @media screen and (max-width:500px) {
             width: 98%;
+        }
+
+        .on-top-language {
+            margin-top: 40px;
         }
     }
 
@@ -176,6 +228,22 @@
 
     .switch-container{
         display: inline-flex;
-        position: absolute;
+
+        .comparison-text {
+            font-weight: bold;
+        }
+        
+        @media screen and (min-width: 921px)    {
+            position: absolute;
+        }
+
+        span {
+            display: block;
+            width: 100%;
+
+            @media screen and (min-width: 412px) {
+                width: auto;
+            }
+        }
     }
 }

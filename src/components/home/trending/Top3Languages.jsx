@@ -39,7 +39,7 @@ const Top3Languages = () => {
     return (
         <section className="trending-language-section">
             <div className="switch-container">
-            <span>Show top languages in: </span><Top3Switch type="language" toggle={countryToggle}/>
+            <span className="comparison-text">Show top languages in: </span><Top3Switch type="language" toggle={countryToggle}/>
             </div>
             <div className="trending-language-container">
                 <ul className="trending-language-list">

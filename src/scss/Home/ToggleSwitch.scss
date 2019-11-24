@@ -1,5 +1,6 @@
 .toggle-switch-container{
     display: block;
+    margin-top: 2rem;
 
     @media screen and(min-width:370px){
         display: flex;
@@ -11,8 +12,8 @@
     display: flex;
     width: 180px;
     justify-content: space-between;
-    align-items: baseline;
-    margin: auto;
+    align-items: center;
+    margin: 0 auto;
 
     @media screen and(min-width:600px){
         margin: 0;

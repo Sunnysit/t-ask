@@ -52,7 +52,7 @@ const Top3Jobs = () => {
     return (
         <section className="trending-job-section">
             <div className="switch-container">
-                <span>Show top job positions in: </span><Top3Switch type="job" toggle={countryToggle} />
+                <span className="comparison-text">Show top job positions in: </span><Top3Switch type="job" toggle={countryToggle} />
             </div>
             <div className="trending-job-container">
                 <ul className="trending-job-list">

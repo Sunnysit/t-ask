@@ -23,21 +23,16 @@
             position: absolute;
             right: 6px;
             top: 2px;
-
-            path{
-                //color: white;
-            }
         }
     }
     .drop-down.active {
         border: 1px solid black;
-
         width: 220px;
         height: 200px;
         overflow-y: auto;
         position: absolute;
-
         background-color: $main-color;
+        z-index: 2;
 
         ul{
             margin-top: 0;
