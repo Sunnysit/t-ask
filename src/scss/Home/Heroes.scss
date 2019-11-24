@@ -203,4 +203,45 @@
             
         }
     }
+
+    .learn-more {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        .learn-more-symbol {
+            border: 1.5px solid $main-color;
+            border-radius: 4px;
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+
+            p {
+                margin: 0;
+                color: $main-color;
+                font-weight: bold;
+                font-size: 14px;
+            }
+
+        }
+
+        .learn-more-content {
+            height: fit-content;
+            width: 300px !important;
+
+            .modal {
+                padding: 5%;
+                padding-top: 12%;
+
+                // .close {
+                //     position: relative;
+                //     display: flex;
+                //     justify-content: flex-end;
+                //     width: 100%;
+                //     margin-bottom: 5%;
+                // }
+
+            }
+        }
+    }
 }
