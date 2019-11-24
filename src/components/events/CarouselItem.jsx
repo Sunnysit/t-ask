@@ -10,12 +10,14 @@ const CarouselItem = (props) => {
     return (event
         ? (
             <div className="carousel-item">
+                <a className="event-link-thumbnail" target="blank" href={event.link}>
                 <div className="thumbnail-container">
                     <img
                         className="event-thumbnail"
                         src={`assets/events/event ${eventOrder}.jpeg`}
                         alt="feature article thumbnail"/>
                 </div>
+                </a>
                 <div className="carousel-body">
                     <div className="event-time">
                         <p className="event-month">{moment(event.time).format('MMM')}</p>

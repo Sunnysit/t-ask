@@ -46,6 +46,7 @@ const SearchBarEvents = () => {
                 {   
                     let eventList = result.data;
                     dispatch({type:"UPDATE_EVENT_LIST",payload:eventList})
+                    setMessage("");
                 }
                 else{
                     //Update event search result to reducer
