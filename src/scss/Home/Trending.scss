@@ -64,6 +64,10 @@
                 margin-bottom: 37px;
                 margin-top: 19.2px;
                 //width: 80%;
+
+                .select-language-list {
+                    position: relative;
+                }
                 
 
                 .drop-down-menu {
@@ -73,8 +77,8 @@
                 }
 
                 .drop-down.active {
-                    width: 167px;
-                    margin-left: 20px;
+                    width: 80%;
+                    margin-left: 10%;
                     // margin-right: 20px;
                     // width: 80%;
                     // margin-left: 10%;
@@ -141,7 +145,7 @@
         height: 270px;
         background-color: white;
         border-radius: 4px;
-        //width: 210px;
+        //width: 272px;
         margin-bottom: 1rem;
 
         @media screen and (max-width:985px) {
