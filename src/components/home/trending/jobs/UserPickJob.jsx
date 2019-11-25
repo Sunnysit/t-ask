@@ -61,7 +61,7 @@ const UserPickJob = () => {
 
     }
 
-    console.log(selectJob);
+    //console.log(selectJob);
 
     return (
         <div className="select-job-body trending-job-item">

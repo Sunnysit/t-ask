@@ -84,6 +84,9 @@ export class TaskAxios {
                 })
                 this.dispatch({type: "SET_TRENDING_LANGUAGES_DATA_USA", payload: languagesTrendingUsa})
 
+                const firstLanguage = languagesTrendingUsa[0];
+                this.dispatch({type: "SELECT_TRENDING_LANGUAGE", payload: firstLanguage});
+
                 // Canada data
                 const languagesTrendingCanada = languagesCanada.map((language, index) => {
                     return {
