@@ -103,6 +103,7 @@ const SelectLanguage = () => {
         )})
 
         setLanguagesDropDown(dataUsa);
+
         if(countryToggle)
         {
             remainData = languagesStateUsa;
@@ -141,6 +142,9 @@ const SelectLanguage = () => {
                 language.isSelect = !language.isSelect;
                 languageIndex = index;
         
+            }
+            else {
+                language.isSelect = false;
             }
             return language;
         })

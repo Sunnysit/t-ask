@@ -178,6 +178,9 @@ export class TaskAxios {
 
                 this.dispatch({type: "SET_ALL_JOBS_CATEGORY_USA", payload: jobsTrendingUsa});
 
+                const firstJob = jobsTrendingUsa[0];
+                this.dispatch({type: "SELECT_TRENDING_JOB", payload: firstJob});
+
 
                 // Canada data
                 const canadaData = result.data[1].data;

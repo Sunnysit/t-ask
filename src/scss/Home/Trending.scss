@@ -60,12 +60,14 @@
                 padding-right: 5%;
             }
 
-            .select-language {
+            .select-language,
+            .select-job {
                 margin-bottom: 37px;
-                margin-top: 19.2px;
+                margin-top: 16.2px;
                 //width: 80%;
 
-                .select-language-list {
+                .select-language-list,
+                .select-job-list {
                     position: relative;
                 }
                 
@@ -79,11 +81,11 @@
                 .drop-down.active {
                     width: 80%;
                     margin-left: 10%;
-                    // margin-right: 20px;
-                    // width: 80%;
-                    // margin-left: 10%;
-                    // margin-right: 10%;
                 }
+            }
+
+            .select-job {
+                margin-bottom: 0;
             }
 
             .language-name,
@@ -93,8 +95,13 @@
                 font-size: 0.9rem;
             }
 
+            .select-job-list {
+                margin-bottom: 29px;
+            }
+
             .job-name {
-                margin-bottom: 78px;
+                height: 82px;
+                margin-bottom: 0;
             }
 
             .logo-container {
@@ -109,12 +116,6 @@
                 width: 90%;
             }
         }
-    }
-
-    
-
-    .tending-job-item-container {
-        height: 320px;
     }
 
     .tending-language-item,
@@ -161,8 +162,12 @@
         }
     }
 
+    .trending-job-list {
+        grid-template-rows: 410px;
+    }
+
     .tending-job-item-container {
-        height: 315px;
+        height: 335px;
     }
 
     .logo-container{
@@ -188,6 +193,11 @@
         @media screen and (max-width:760px) {
             height: 40px;
         }
+    }
+
+    .job-name {
+        height: 82px;
+        margin-bottom: 25px;
     }
 
     .language-logo{
