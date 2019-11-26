@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import LogIn from '../user/LogIn';
 import ClickOutside from './ClickOutside';
 
@@ -10,7 +10,7 @@ const Header = () => {
             <section className="header-section">
                 <div className="logo-container">
                     <button className="home-link">
-                        <Link to="/">
+                        <NavLink to="/" activeClassName="selected">
                             <img
                                 className="logo-desktop"
                                 src="./assets/icons/logo-desktop.svg"
@@ -19,7 +19,7 @@ const Header = () => {
                                 className="logo-mobile"
                                 src="./assets/icons/logo-mobile.svg"
                                 alt="task-logo"/>
-                        </Link>
+                        </NavLink>
                     </button>
                 </div>
                 <div className="mobile">
@@ -27,10 +27,10 @@ const Header = () => {
                         {!localStorage.getItem('userData')
                             ? (<LogIn/>)
                             : (
-                                <Link to="/profile"><img
+                                <NavLink to="/profile" activeClassName="selected"><img
                                     src="./assets/icons/profile-icon.png"
                                     alt="profile icon"
-                                    className="profile-icon"/></Link>
+                                    className="profile-icon"/></NavLink>
                             )}
                     </p>
                     <ClickOutside/>
@@ -40,25 +40,25 @@ const Header = () => {
                     <nav className="header-navigation">
                         <ul className="navigation">
                             <li className="navigation-item">
-                                <Link to="/articles">Articles</Link>
+                                <NavLink to="/articles" activeClassName="selected">Articles</NavLink>
                             </li>
                             <li className="navigation-item">
-                                <Link to="/events">Events</Link>
+                                <NavLink to="/events" activeClassName="selected">Events</NavLink>
                             </li>
                             <li className="navigation-item">
-                                <Link to="/about">About Us</Link>
+                                <NavLink to="/about" activeClassName="selected">About Us</NavLink>
                             </li>
                             <li className="navigation-item">
-                                <Link to="/contact">Contact</Link>
+                                <NavLink to="/contact" activeClassName="selected">Contact</NavLink>
                             </li>
                             <li className="navigation-item">
                                 {!localStorage.getItem('userData')
                                     ? (<LogIn/>)
                                     : (
-                                        <Link to="/profile"><img
+                                        <NavLink to="/profile" activeClassName="selected"><img
                                             src="./assets/icons/profile-icon.png"
                                             alt="profile icon"
-                                            className="profile-icon"/></Link>
+                                            className="profile-icon"/></NavLink>
                                     )}
                             </li>
                         </ul>

@@ -27,7 +27,8 @@
       .navigation-item{
         border-bottom: 1.5px solid $main-color;
       }
-      .navigation-item:hover {
+      .navigation-item:hover,
+      .navigation-item a.selected {
         border-bottom: 1.5px solid $secondary-color;
       }
     }
