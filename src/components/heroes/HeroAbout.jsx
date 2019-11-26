@@ -11,7 +11,9 @@ const HeroAbout = () => {
                 <img className="logo-mobile" src="./assets/icons/logo-mobile.png" alt="penguin logo"/>
             </div>
             <div className="hero-description">
-
+                <p>Our Values</p>
+                <p>Some info about the team</p>
+                <p>Explanation about the project</p>
             </div>
             </div>
             

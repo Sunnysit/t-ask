@@ -12,15 +12,17 @@
 
 //Other styles
 .other-section{
-    margin: 4rem 0;
-
+    padding: 2rem 0;
+    border-bottom: 1px solid $typography;
     .section-description{
         text-align: center;
+        
     }
 
     .links-container{
         max-width: 400px;
-        margin: 0 auto;
+        margin-top: 1rem;
+        margin: 1rem auto 2rem;
         display: flex;
         justify-content: space-around;
     }

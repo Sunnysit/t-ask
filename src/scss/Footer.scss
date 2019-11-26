@@ -39,12 +39,11 @@
 }
 .newsletter-section{   
 
-    margin-top: 1rem;
     padding-bottom: 3rem;
     background-color: $background;
 
     .newsletter-container{
-        border-top: 1px solid $typography;
+       
         margin: 0 auto;
         max-width: 600px;
         display: flex;
@@ -75,6 +74,7 @@
 
     .blue-text{
        color: $secondary-color;
+       font-weight: bold;
     }
 
 }
