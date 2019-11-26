@@ -26,9 +26,8 @@
   }
   .hero {
     width: 100%;
-    padding-top: 2rem !important;
-    padding-bottom: 0 !important; 
-    margin-left: 2rem !important;
+    padding: 0.5rem;
+
 }
 
 
@@ -60,7 +59,7 @@
 
 }
 
-h2{
+.team-member-name{
   padding:0 !important;
   padding-bottom:4rem;
   margin-top: 10px;
@@ -81,12 +80,12 @@ p{
 
 }
 
-.h3{
+.role-container{
   margin-bottom: .5rem;
   margin-top: 1.5rem;
 }
 @media screen and (max-width: 680px) {
-.h3{
+.role-container{
   margin-top:8px !important
   // padding-bottom:8px !important;
 }
@@ -120,6 +119,17 @@ h2,h3{
   display: none;
 }
 
+
+@media screen and (max-width: 680px){
+    //Logo style
+    .logo-desktop{
+      display: none;
+    }
+    .logo-mobile{
+      display: block;
+      margin: 0 auto;
+    }
+}
 
 
 .image-container{
