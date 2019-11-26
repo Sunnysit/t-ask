@@ -43,7 +43,19 @@ const CarouselItem = (props) => {
                                 .substring(3, 100)
                         }}></div>
                     </div>
+                    <div className="event-info-mobile">
+                            <div className="hosted-by">
+                                <p className="group-name">Hosted by: {event.group.name}</p>
+                            </div>
+
+                        </div>
                     <ActionBtns/>
+                    <div className="event-description-mobile"
+                            dangerouslySetInnerHTML={{
+                            __html: event
+                                .description
+                                .substring(3, 100)
+                        }}></div>
                 </div>
                 <div className="carousel-footer">
                     <div className="source-container">
