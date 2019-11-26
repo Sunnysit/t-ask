@@ -9,7 +9,8 @@ const Articles = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch({type: "USER_SITE"})
+        dispatch({type: "USER_SITE"});
+        window.scrollTo(0,0);
     }, [dispatch])
     
     return(

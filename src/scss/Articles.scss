@@ -6,7 +6,7 @@
 
     .article-search-container,
     .event-search-container {
-        margin-top: 3rem;
+        margin: 1rem 0;
 
         .search-message {
             text-align: center;
@@ -146,6 +146,8 @@
 }
 
 .hero-article {
+    padding: 0.5rem;
+    border-bottom: 1px solid black;
 
     .article-title {
         text-align: left;
