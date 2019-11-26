@@ -49,7 +49,7 @@ const CarouselItem = (props) => {
                             </div>
 
                         </div>
-                    <ActionBtns/>
+                    {/* <ActionBtns/> */}
                     <div className="event-description-mobile"
                             dangerouslySetInnerHTML={{
                             __html: event
