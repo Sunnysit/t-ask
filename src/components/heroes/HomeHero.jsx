@@ -7,6 +7,7 @@ import LineGraphLang from '../home/comparison/Languages/LineGraphLang'
 import LineGraphJob from '../home/comparison/Jobs/LineGraphJob'
 import BarGraphLang from '../home/comparison/Languages/BarGraphLang'
 import BarGraphJobs from '../home/comparison/Jobs/BarGraphJobs'
+import LearnMore from '../home/comparison/LearnMore'
 
 const HomeHero = () => {
 
@@ -31,6 +32,10 @@ const HomeHero = () => {
                         </div>)
 }
 
+                </div>
+                <div className="learn-more">
+                    <p>Learn more</p>
+                    <LearnMore/>
                 </div>
             </div>
         </div>
