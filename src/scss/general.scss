@@ -165,6 +165,9 @@ img {
     padding-left: 3%;
     padding-bottom: auto;
     margin-bottom: 0;
+    @media screen and (max-width:680px) {
+        padding: 0;
+    }
 }
 
 input,
