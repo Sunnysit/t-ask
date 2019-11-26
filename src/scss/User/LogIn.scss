@@ -1,14 +1,15 @@
-.popup-content{
+.popup-content {
     height: 380px;
     width: 550px !important;
+    border-radius: 4px;
 
-    .modal{
+    .modal {
         height: 100%;
         padding-left: 5%;
         padding-right: 5%;
         position: relative;
 
-        .close{
+        .close {
             font-size: 2rem;
             font-weight: 500;
             line-height: 0.8;
@@ -19,26 +20,26 @@
             border: none;
             cursor: pointer;
 
-            &:focus{
+            &:focus {
                 outline: none;
             }
         }
 
 
-        .header-popup{
+        .header-popup {
             padding-top: 1.6rem;
             font-weight: bold;
             color: $typography;
         }
 
-        .content{
+        .content {
 
-            label{
+            label {
                 display: inline-block;
                 color: $typography;
             }
 
-            input{
+            input {
                 display: inline-block;
                 width: 100%;
                 border-radius: 7px;
@@ -50,29 +51,33 @@
             }
         }
 
-        .login-action{
+        .login-action {
             display: flex;
             flex-direction: row-reverse;
             justify-content: space-between;
             align-items: flex-end;
             margin-top: 2rem;
 
-            .btn-link{
+            .btn-link {
                 display: flex;
                 justify-content: flex-end;
             }
 
-            .btn-login{
+            .btn-login {
                 display: flex;
                 justify-content: flex-end;
             }
         }
 
-        .footer-popup{
+        .footer-popup {
             text-align: center;
             color: $typography;
             a{
                 font-weight: bold;
+            }
+
+            .btn-register {
+                margin-left: 1%;
             }
         }
     }

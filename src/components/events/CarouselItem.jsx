@@ -10,12 +10,14 @@ const CarouselItem = (props) => {
     return (event
         ? (
             <div className="carousel-item">
+                <a className="event-link-thumbnail" target="blank" href={event.link}>
                 <div className="thumbnail-container">
                     <img
                         className="event-thumbnail"
                         src={`assets/events/event ${eventOrder}.jpeg`}
                         alt="feature article thumbnail"/>
                 </div>
+                </a>
                 <div className="carousel-body">
                     <div className="event-time">
                         <p className="event-month">{moment(event.time).format('MMM')}</p>
@@ -41,7 +43,19 @@ const CarouselItem = (props) => {
                                 .substring(3, 100)
                         }}></div>
                     </div>
-                    <ActionBtns/>
+                    <div className="event-info-mobile">
+                            <div className="hosted-by">
+                                <p className="group-name">Hosted by: {event.group.name}</p>
+                            </div>
+
+                        </div>
+                    {/* <ActionBtns/> */}
+                    <div className="event-description-mobile"
+                            dangerouslySetInnerHTML={{
+                            __html: event
+                                .description
+                                .substring(3, 100)
+                        }}></div>
                 </div>
                 <div className="carousel-footer">
                     <div className="source-container">

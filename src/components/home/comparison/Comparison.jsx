@@ -7,8 +7,8 @@ const Comparison = () => {
 
     return (
         <div className="">
-            <h2>Language Behavior</h2>
-            <p>Use the dropdown menu below to choose up to three development languages.
+            <h2>Language Popularity</h2>
+            <p className="section-description">Use the dropdown menu below to choose up to three development languages.
                 Change the switch and compare them either by location or by time.
             </p>
             <div className="comparison-settings">

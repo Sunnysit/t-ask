@@ -7,7 +7,8 @@
     }
 }
 
-.select-language {
+.select-language,
+.select-job {
 
 
     button {
@@ -15,41 +16,36 @@
         font-size: 0.9rem;
         position: relative;
         height: 21px;
+
         .drop-down-icon{
-            //color: white;
-            //background-color: #272664;
             height: 10px;
             width: 7px;
             position: absolute;
             right: 6px;
             top: 2px;
-
-            path{
-                //color: white;
-            }
         }
     }
     .drop-down.active {
         border: 1px solid black;
-
         width: 220px;
-        height: 200px;
+        height: 210px;
         overflow-y: auto;
         position: absolute;
-
         background-color: $main-color;
+        z-index: 2;
 
         ul{
             margin-top: 0;
+            margin-bottom: 0;
         }
 
         li{
             color: white;
             text-align: center;
-            //border-bottom: 1px solid white;
+            border-bottom: 1px solid white;
             font-size: 0.9rem;
-            padding-top: 0.1rem;
-            padding-bottom: 0.1rem;
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
             position: relative;
 
         }
@@ -79,34 +75,53 @@
     } 
 }
 
-select{
-    option{
+.contact-form {
 
-        border: 1px solid black;
-
-        width: 220px;
-        height: 200px;
-        overflow-y: auto;
-        position: static;
-
-        background-color: $main-color;
-        color: white;
-        text-align: center;
-        border-bottom: 1px solid white;
-        font-size: 0.9rem;
-        padding-top: 0.1rem;
-        padding-bottom: 0.1rem;
+    .select-subject {
         position: relative;
+    }
 
+    .drop-down-menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        margin-top: 0.6rem;
+        font-size: 0.9rem;
+    }
 
-        option span{
+    .drop-down.active {
+        border: 1px solid black;
+        width: 100%;
+        height: fit-content;
+        overflow-y: auto;
+        position: absolute;
+        background-color: $main-color;
+        z-index: 2;
+
+        ul{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        li{
+            color: white;
+            text-align: center;
+            border-bottom: 1px solid white;
+            font-size: 0.9rem;
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            position: relative;
+
+        }
+
+        li span{
             position: absolute;
             top: 0;
             right: 10px;
             display: none;
         }
 
-        option:hover{
+        li:hover{
             background-color: $secondary-color;
         }
 
@@ -121,5 +136,6 @@ select{
             color: $main-color;
         }
 
-    }
+    } 
+    
 }

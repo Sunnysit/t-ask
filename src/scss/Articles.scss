@@ -15,8 +15,11 @@
 
     .article-search-form,
     .event-search-form {
-        display: flex;
-        justify-content: center;
+        width: 70vw;
+        max-width: 500px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
     }
 
     .article-list,
@@ -28,13 +31,14 @@
     .article-list-item,
     .event-list-item {
         width: 48%;
+        margin-bottom: 2.5rem;
         &:nth-child(even) {
             margin-left: 2%;
         }
         &:nth-child(odd) {
             margin-right: 2%;
         }
-        @media screen and (max-width:600px) {
+        @media screen and (max-width:702px) {
             width: 96%;
         }
 
@@ -43,8 +47,58 @@
     .article-list .article,
     .event-list .event {
 
+        .coming-soon-share-content {
+            height: fit-content;
+            width: fit-content !important;
+            background-color: $secondary-color !important;
+            border-radius: 5px;
+    
+            div {
+                color: white !important;
+                font-size: 0.75rem;
+                padding: 0.2rem;
+            }
+    
+            .coming-soon-share-arrow {
+                background-color: $secondary-color !important;
+                //left: 54px !important;
+    
+            }
+        }
+
+        .user-menu.mobile-coming-soon {
+            display: flex;
+            justify-content: space-between;
+
+            @media screen and (min-width:428px){
+                display: none;
+            }
+            
+
+        }
+
+        .user-menu.desktop-coming-soon {
+
+            display: none;
+
+            @media screen and (min-width:428px){
+                display: flex;
+                justify-content: space-between;
+
+            }
+
+            @media screen and(min-width:470px) {
+                width: 90%;
+                margin: auto;
+            }
+
+            p {
+                cursor: pointer;
+            }
+        }
+
         padding: 10px;
-        margin: 1rem 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -117,7 +171,7 @@
         align-items: center;
     }
 
-    .article-thumbnail {
+    .article-link-thumbnail{
         order: 1;
     }
 
@@ -175,8 +229,7 @@
     .event-footer {
         display: flex;
         justify-content: space-between;
-        margin-top: 0.5rem;
-
+        margin-top: .5rem;
         .btn-read-more {
             display: flex;
             align-items: center;
@@ -234,7 +287,7 @@
 
         }
         .action-icon {
-            width: 1.3rem;
+            width: 1.5rem;
 
         }
     }

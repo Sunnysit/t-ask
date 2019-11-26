@@ -1,33 +1,173 @@
+.rank-feature {
+
+    h2 {
+        text-align: center;
+    }
+
+    .trending-languages,
+    .trending-jobs {
+        margin-top: 3rem;
+    }
+}
+
 .trending-language-container,
 .trending-job-container{
+    height: 100%;
 
     .trending-language-list,
     .trending-job-list{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
+        display: block;
+        text-align: center;
+        //justify-content: space-around;
+
+        @media screen and (min-width: 501px){
+            display: grid;
+            grid-template-columns: 48% 48%;
+            grid-template-rows: repeat(2, 371px);
+            grid-gap: 1%;
+            align-items: end;
+            max-width: 704px;
+            margin: auto;
+            justify-items: center;
+        }
+
+        @media screen and (min-width: 985px){
+            display: grid;
+            grid-template-columns: repeat(4, 24%);
+            grid-gap: 1%;
+            min-width: 100%;
+            margin: 0;
+            grid-template-rows: 371px;
+        }
+
+        
         
 
         .select-job-body, .select-language-body{
-            padding: 1rem;
-            select{
-                width: 80%;
+            background-color: $main-color;
+            
+            border-radius: 4px;
+
+            @media screen and (min-width: 985px){
+                width: 234px;
+            }
+
+            .select-language-instruction,
+            .select-job-instruction {
+                color: white;
+                text-align: center;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .select-language,
+            .select-job {
+                margin-bottom: 37px;
+                margin-top: 16.2px;
+                //width: 80%;
+
+                .select-language-list,
+                .select-job-list {
+                    position: relative;
+                }
+                
+
+                .drop-down-menu {
+                    width: 80%;
+                    margin-left: 10%;
+                    margin-right: 10%;
+                }
+
+                .drop-down.active {
+                    width: 80%;
+                    margin-left: 10%;
+                }
+            }
+
+            .select-job {
+                margin-bottom: 0;
+            }
+
+            .language-name,
+            .job-name {
+                height: fit-content;
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            .select-job-list {
+                margin-bottom: 29px;
+            }
+
+            .job-name {
+                height: 82px;
+                margin-bottom: 0;
+            }
+
+            .logo-container {
+                margin: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .tending-language-item-container,
+            .tending-job-item-container {
+                margin-bottom: 1rem;
+                width: 90%;
             }
         }
     }
 
     .tending-language-item,
     .trending-job-item{
-        border: 1px solid black;
-        width: 23%;
+        width: 272;
         display: flex;
         flex-direction: column;
         align-items: center;
+        //margin-left: 1rem auto;
+        margin-left: auto;
+        margin-right: auto;
+
+        
+        @media screen and (max-width:985px) {
+            max-width: 272px;
+            margin: 0;
+        }
+
+        @media screen and (max-width:500px) {
+            width: 98%;
+            margin: 1rem auto;
+        }
+    }
+
+    .tending-language-item-container,
+    .tending-job-item-container {
+        border: 1px solid black;
+        height: 270px;
+        background-color: white;
+        border-radius: 4px;
+        //width: 272px;
         margin-bottom: 1rem;
 
-        @media screen and (max-width:760px) {
-            width: 48%;
+        @media screen and (max-width:985px) {
+            width: 100%;
         }
+
+        @media screen and (max-width:500px) {
+            width: 98%;
+        }
+
+        .on-top-language {
+            margin-top: 40px;
+        }
+    }
+
+    .trending-job-list {
+        grid-template-rows: 410px;
+    }
+
+    .tending-job-item-container {
+        height: 335px;
     }
 
     .logo-container{
@@ -38,15 +178,26 @@
         width: 70%;
         margin-top: -25px;
         position: relative;
+        @media screen and (max-width:760px) {
+            justify-content: center;
+        }
     }
     
     .language-name,
     .job-name{
         padding: 0 .5rem;
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1rem;
         text-align: center;
         height: 70px;
+        @media screen and (max-width:760px) {
+            height: 40px;
+        }
+    }
+
+    .job-name {
+        height: 82px;
+        margin-bottom: 25px;
     }
 
     .language-logo{
@@ -58,6 +209,15 @@
     .job-description{
         text-align: center;
         margin: 10px 8px;
+        
+    }
+
+    .job-description {
+        height: 100px;
+    }
+
+    .job-description:last-of-type {
+        margin-top: 22px;
     }
 
     .rank-text{
@@ -71,6 +231,7 @@
         height: 70px;
         justify-content: center;
         width: 70%;
+        margin: auto;
 
         .rank-text-job{
             font-size: 2rem;
@@ -96,13 +257,37 @@
             color: #B0764E;
             border: 3px solid #B0764E;
         }
+
+        .rank-4{
+            color: #8A8C8E;
+            border: 3px solid #8A8C8E;
+        }
     }
 
 }
 
 .trending-job-section,
 .trending-language-section{
+    position: relative;
+
     .switch-container{
         display: inline-flex;
+
+        .comparison-text {
+            font-weight: bold;
+        }
+        
+        @media screen and (min-width: 921px)    {
+            position: absolute;
+        }
+
+        span {
+            display: block;
+            width: 100%;
+
+            @media screen and (min-width: 412px) {
+                width: auto;
+            }
+        }
     }
 }

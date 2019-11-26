@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import Top3Switch from './Top3Switch';
+import Top3Switch from '../Top3Switch';
 import UserPickJob from './UserPickJob';
 
 const Top3Jobs = () => {
@@ -52,7 +52,7 @@ const Top3Jobs = () => {
     return (
         <section className="trending-job-section">
             <div className="switch-container">
-                <span>Show top job positions in: </span><Top3Switch type="job" toggle={countryToggle} />
+                <span className="comparison-text">Show top job positions in: </span><Top3Switch type="job" toggle={countryToggle} />
             </div>
             <div className="trending-job-container">
                 <ul className="trending-job-list">
@@ -60,7 +60,7 @@ const Top3Jobs = () => {
 
                         let rankClassName = `rank-text-job rank-${index+1}`;
 
-                        return <li key={job.soc} className="trending-job-item">
+                        return <li key={job.soc} className="trending-job-item tending-job-item-container">
                             <p className="job-name">{job.name}</p>
                             <p className="rank-container">
                                 <span className={rankClassName}>#0{index+1}</span>

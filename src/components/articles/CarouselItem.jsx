@@ -6,11 +6,15 @@ const CarouselItem = (props) => {
 
     return (
         <div className="carousel-item">
+             <a className="article-link-thumbnail" target="blank" href={article.link}>
+                <div className="thumbnail-container">
             <img
                 className="article-thumbnail"
                 src={article.imgURL}
                 alt="feature article thumbnail"/>
-            <h1 className="article-title">{article.title}</h1>
+                </div>
+                </a>
+            <h2 className="article-title">  <a target="blank" href={article.link}>{article.title}</a></h2>
             <div className="article-info-container">
                 <div className="article-info">
                     <p className="author">{article.author}</p>

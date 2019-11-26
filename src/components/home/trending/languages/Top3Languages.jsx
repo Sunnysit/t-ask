@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import UserPickLanguage from './UserPickLanguage';
-import Top3Switch from './Top3Switch';
+import Top3Switch from '../Top3Switch';
 
 const Top3Languages = () => {
 
@@ -39,12 +39,12 @@ const Top3Languages = () => {
     return (
         <section className="trending-language-section">
             <div className="switch-container">
-            <span>Show top languages in: </span><Top3Switch type="language" toggle={countryToggle}/>
+            <span className="comparison-text">Show top languages in: </span><Top3Switch type="language" toggle={countryToggle}/>
             </div>
             <div className="trending-language-container">
                 <ul className="trending-language-list">
                     {top3Languages.map((lang,index) => {
-                        return <li key={lang.languageId} className="tending-language-item">
+                        return <li key={lang.languageId} className="tending-language-item tending-language-item-container">
                             <p className="language-name">{lang.languageName}</p>
                             <p className="logo-container">
                                 <span className="rank-text">#0{index+1}</span>
