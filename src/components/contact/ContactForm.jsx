@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import axios from 'axios';
+import SelectJob from '../home/trending/jobs/SelectJob';
 
 const ContactForm = () => {
 
     const initialForm = {
         name: '',
         email: '',
-        inquiry: 'general',
+        inquiry: 'General',
         message: ''
     }
 
@@ -28,7 +29,21 @@ const ContactForm = () => {
     const [error,
         setError] = useState(initialError);
 
+    const [dropDown,
+        setDropDown] = useState(true)
+
     //FUNCTIONS
+
+    const handleDropDown = (e) => {
+
+        setDropDown(!dropDown);
+    }
+
+    const handleSubject = (e) => {
+        let selectedInquiry = e.target.id;
+        setDropDown(true);
+        setForm({...form, inquiry:selectedInquiry});
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -136,19 +151,52 @@ const ContactForm = () => {
 
                         <div className="field">
                             <label htmlFor="inquiry" className="label-required">Inquiry</label>
-                            <select
-                                name=""
-                                id="inquiry"
-                                onChange={(e) => {
-                                setForm({
-                                    ...form,
-                                    inquiry: e.target.value
-                                })
-                            }}>
-                                <option value="general">General</option>
-                                <option value="content">Content</option>
-                                <option value="other">Other</option>
-                            </select>
+
+                            <div className="select-subject">
+                                <div onClick={handleDropDown} className="drop-down-menu">{form.inquiry}
+                                    <span className="drop-down-icon">&#9662;</span>
+                                </div>
+
+                                {!dropDown
+                                    ? (
+
+                                        <div className="drop-down active">
+                                            <ul className="inquiries">
+                                                <li
+                                                    id="General"
+                                                    onClick={handleSubject}
+                                                    className={form.inquiry === "General"
+                                                    ? 'selected'
+                                                    : null}>General
+                                                    <span>&#10004;</span></li>
+
+                                                <li id="Content" onClick={handleSubject}
+                                                className={form.inquiry === "Content"
+                                                    ? 'selected'
+                                                    : null}>Content
+                                                    <span>&#10004;</span></li>
+
+                                                <li id="Customer service" onClick={handleSubject}
+                                                className={form.inquiry === "Customer service"
+                                                    ? 'selected'
+                                                    : null}>Customer Service
+                                                <span>&#10004;</span>
+                                                </li>
+
+                                                <li id="Other" onClick={handleSubject}
+                                                className={form.inquiry === "Other"
+                                                    ? 'selected'
+                                                    : null}>Other
+                                                <span>&#10004;</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )
+                                    : (
+                                        <div className="drop-down"></div>
+                                    )}
+                            </div>
+
                         </div>
 
                         <div className="field">

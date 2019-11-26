@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useRef, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
 const SelectJob = () => {
@@ -7,45 +7,54 @@ const SelectJob = () => {
     const nameRef = useRef(null);
     const dispatch = useDispatch();
 
-    const [jobsRank,setJobsRank] = useState([]);
-    const [jobsDropDown, setJobsDropDown] = useState([]);
-    const [dropDown, setDropDown] = useState(true);
+    const [jobsRank,
+        setJobsRank] = useState([]);
+    const [jobsDropDown,
+        setJobsDropDown] = useState([]);
+    const [dropDown,
+        setDropDown] = useState(true);
 
     const selectJob = useSelector(state => state.jobs.jobTrending);
     const jobsStateUsa = useSelector(state => state.jobs.jobCategoryDataUsa);
     const jobsStateCanada = useSelector(state => state.jobs.jobCategoryDataCanada);
     const countryToggle = useSelector(state => state.jobs.top3JobToggle);
 
-    useEffect(()=>{
+    useEffect(() => {
         let remainData = [];
         //Fetch US data
 
         let dataUsa = jobsStateUsa.map((job, index) => {
-            if(index === 0) {
-                return {...job, isSelect: true}
-            } return (
-            {...job, isSelect: false}
-        )})
+            if (index === 0) {
+                return {
+                    ...job,
+                    isSelect: true
+                }
+            }
+            return ({
+                ...job,
+                isSelect: false
+            })
+        })
 
         setJobsDropDown(dataUsa);
-        
-        if(countryToggle)
-        {
-            remainData = jobsStateUsa;
-        }
-        //Fetch Canada data
-        else
-        {
-           remainData = jobsStateCanada;
+
+        if (countryToggle) {
+            remainData =//Fetch Canada data
+            jobsStateUsa;
+        } else {
+            remainData = jobsStateCanada;
         }
 
-        let remainDataComplete = remainData.map(language => {return (
-            {...language, isSelect: false}
-        )})
+        let remainDataComplete = remainData.map(language => {
+            return ({
+                ...language,
+                isSelect: false
+            })
+        })
 
         setJobsRank(remainDataComplete);
 
-    },[countryToggle,jobsStateUsa,jobsStateCanada]);
+    }, [countryToggle, jobsStateUsa, jobsStateCanada]);
 
     let handleDropDown = (e) => {
         if (nameRef.current.contains(e.target)) {
@@ -62,8 +71,7 @@ const SelectJob = () => {
             if (job.soc === selectJobsSoc) {
                 job.isSelect = !job.isSelect;
                 jobIndex = index;
-            }
-            else {
+            } else {
                 job.isSelect = false;
             }
 
@@ -73,12 +81,11 @@ const SelectJob = () => {
         setJobsDropDown(selectedJob);
 
         jobsRank.map((job, index) => {
-            if (job.soc === selectJobsSoc){
-                if(index < 3){
-                    dispatch({type:"JOB_IS_IN_TOP_3"});
-                }
-                else{
-                    dispatch({type:"JOB_IS_NOT_IN_TOP_3"});
+            if (job.soc === selectJobsSoc) {
+                if (index < 3) {
+                    dispatch({type: "JOB_IS_IN_TOP_3"});
+                } else {
+                    dispatch({type: "JOB_IS_NOT_IN_TOP_3"});
                 }
                 jobIndex = index;
             }
@@ -87,9 +94,9 @@ const SelectJob = () => {
 
         const job = jobsRank[jobIndex];
         //console.log(language);
-        dispatch({type:"SELECT_TRENDING_JOB", payload:job});
+        dispatch({type: "SELECT_TRENDING_JOB", payload: job});
         setDropDown(!dropDown);
-        
+
     }
 
     //console.log(languagesDropDown);
@@ -97,16 +104,16 @@ const SelectJob = () => {
     return (
         <div className="select-job" ref={nameRef}>
             <div className="select-job-list">
-                <button onClick={handleDropDown} className=" job-name drop-down-menu">{ selectJob.name }
-                    <span className="drop-down-icon">&#9662;</span></button>
-                    {/* <select onChange={handleSelectLanguage} className="language-name">
+                <button onClick={handleDropDown} className=" job-name drop-down-menu">{selectJob.name}
+                    <span className="drop-down-icon">&#9662;</span>
+                </button>
+                {/* <select onChange={handleSelectLanguage} className="language-name">
                 <option value="" defaultValue disabled hidden>Language</option>
             { languagesDropDown.map((language,index) => <option key={index} value={language.languageId}>{language.languageName}</option>) }
             </select>  */}
                 {!dropDown
                     ? (
 
-                        
                         <div className="drop-down active">
                             <ul className="jobs">
                                 {jobsDropDown.map(job => <li
@@ -114,7 +121,8 @@ const SelectJob = () => {
                                     ? 'selected'
                                     : null}
                                     onClick={handleSelectJob}
-                                    value={job.soc}key={job.soc} >{job.name}
+                                    value={job.soc}
+                                    key={job.soc}>{job.name}
                                     <span>&#10004;</span>
                                 </li>)}
                             </ul>
