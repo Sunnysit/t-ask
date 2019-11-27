@@ -1,9 +1,23 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import LogIn from '../user/LogIn';
 import ClickOutside from './ClickOutside';
 
 const Header = () => {
+
+    const dispatch = useDispatch();
+    
+    const userLogged = useSelector(state => state.user.userLogged);
+
+    const handleUserStatus = () => {
+        if (localStorage.getItem('userData')) {
+            dispatch({type: "USER_LOGIN"});
+        }
+        else {
+            dispatch({type: "USER_LOG_OUT"});
+        }
+    }
 
     return (
         <header className="header">
@@ -51,8 +65,8 @@ const Header = () => {
                             <li className="navigation-item">
                                 <NavLink to="/contact" activeClassName="selected">Contact</NavLink>
                             </li>
-                            <li className="navigation-item">
-                                {!localStorage.getItem('userData')
+                            <li className="navigation-item" onClick={ handleUserStatus }>
+                                {!userLogged
                                     ? (<LogIn/>)
                                     : (
                                         <NavLink to="/profile" activeClassName="selected"><img
