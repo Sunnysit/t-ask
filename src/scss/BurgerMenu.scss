@@ -78,8 +78,6 @@
 
       .navigation-item{
         text-align: center;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
         border-top:1px solid white;
         z-index: -1;
 
@@ -89,12 +87,15 @@
 
         a {
           text-decoration: none;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          display: block;
         }
       }
     }
 
     .burger-menu.open{
-      transform: translateY(25px);
+      transform: translateY(26px);
       //z-index: 500;
       //opacity: 1;     
       //height: fit-content; 
