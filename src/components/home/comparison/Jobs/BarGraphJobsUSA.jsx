@@ -7,7 +7,6 @@ const BarGraphJobsUSA = () => {
 
     const dataUsa = useSelector(state => state.jobs.jobsUsa);
     const selectedLanguages = useSelector(state => state.languages.selectedLanguages);
-    const languages = useSelector(state => state.languages.languages);
 
     const [barGraphData,
         setBarGraphData] = useState([]);
@@ -23,46 +22,16 @@ const BarGraphJobsUSA = () => {
 
         //console.log(mostJobs);
 
-        
-
         const dataPercentageUsa = dataUsa.map(language => {
             let percentageJobs = parseFloat(((language.totalJobs * 100) / mostJobs).toFixed(2));
             return {id_language: language.id_language, name: language.name, totalJobs: percentageJobs}
         });
 
-        //let newOrder = [];
+        const selectedDataUsa = dataPercentageUsa.filter(language => selectedLanguages.find(lang => lang.languageName === language.name));
 
-        // if(dataPercentageUsa){
-        //     for(let j = 0; j < language.length; j++){
-
-        //         for(let i = 0; i < dataPercentageUsa.length; i++){
-        //         console.log(languagesUsa[j].id);
-                
-        //         if(languages[j].languageIid === dataPercentageUsa[i].languageId){
-        //         newOrder.push(dataPercentageUsa[j])
-        //         }
-        //         }
-                
-        //         }
-        // }
-
-        
-
-        const selectedDataUsa = dataPercentageUsa.filter(language => selectedLanguages.find(lang => lang.name === language.languageName));
-
-        
-
-        //console.log(dataPercentageUsa); filter data from the selectedLanguages
-
-        
-        
-
-        //console.log(languages);
-        // console.log(newOrder);
-
-        //set data format for bar-graph USA
+        //set data format for bar-graph
         const languageLocationUsa = selectedDataUsa.map(language => {
-            return {id_language: language.id_language, country: 'Canada', id: language.name, value: language.totalJobs}
+            return {id_language: language.id_language, id: language.name, value: language.totalJobs}
         });
 
         languageLocationUsa.sort((a,b) => {
@@ -86,7 +55,7 @@ const BarGraphJobsUSA = () => {
 
         setBarGraphData(languagesLocationUsa)
 
-    }, [dataUsa, selectedLanguages, languages]);
+    }, [dataUsa, selectedLanguages]);
 
     //set bar colors
     const getBarColor = bar => {
