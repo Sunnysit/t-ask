@@ -265,8 +265,12 @@
                 }
                 .event-time{
                     order: 0;
-                    width: 20%;
+                    width: 100%;
                     margin-left: 1rem;
+                    flex-direction: row;
+                    p{
+                        margin: 0 2px;
+                    }
                 }
                 .action-container{
                     order: 0;
@@ -274,11 +278,11 @@
                 }
 
                 .event-description{
-                    display: none;
+                    // display: none;
                 }
 
                 .event-info{
-                    display: none;
+                    // display: none;
                 }
                 
                 .event-description-mobile{
