@@ -12,7 +12,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Register from './views/Register'
 import UserDashboard from './views/UserDashboard'
-import Test from './views/Test'
 import { TaskAxios } from './library/TaskAxios';
 
 library.add(fab)
@@ -49,7 +48,6 @@ function App() {
         <Route path="/contact" component={ Contact } />
         <Route path="/register" component={ Register } />
         <Route path="/profile" component={ UserDashboard } />
-        <Route path="/test" component= { Test }/>
       </main>
       <Footer />
     </BrowserRouter>
