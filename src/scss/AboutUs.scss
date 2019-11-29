@@ -31,6 +31,9 @@
     .hero-description{
       text-align: center;
       margin-top: 1rem;
+      max-width: 597px;
+      margin-left: auto;
+      margin-right: auto;
 
       p{
         margin: 0;
@@ -122,10 +125,15 @@ h2,h3{
 
 //Logo style
 .logo-desktop{
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 .logo-mobile{
   display: none;
+  margin: 1rem auto;
+}
+
+.hero-text {
+  font-weight: bold;
 }
 
 

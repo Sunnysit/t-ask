@@ -46,7 +46,7 @@ const BarGraphJobsLegend = () => {
         <div className="languages-legend">
             {ifThirdLanguage ? (
                 <div className="third-language">
-                <p className="color-legend">a</p>
+                <p className="color-legend"></p>
                 <p>{thirdLang}</p>
             </div>
             ) : (
@@ -55,7 +55,7 @@ const BarGraphJobsLegend = () => {
 
             {ifSecondLanguage ? (
                 <div className="second-language">
-                    <p className="color-legend">a</p>
+                    <p className="color-legend"></p>
                     <p>{secondLang}</p>
                 </div>
             ) : (
@@ -63,7 +63,7 @@ const BarGraphJobsLegend = () => {
             )}
             
             <div className="first-language">
-                <p className="color-legend">a</p>
+                <p className="color-legend"></p>
                 <p>{firstLang}</p>
             </div>
 

@@ -165,12 +165,56 @@
     //     padding-right: 3%;
     //     padding-left: 3%;
     // }
+
+    .carousel .slider-wrapper{
+        overflow: visible;
+    }
     .carousel-footer {
         order: 3;
         width: 100%;
+        position: relative;
         display: flex;
-        justify-content: space-between;
+        margin: 1rem 0;
         align-items: center;
+
+        .btn-container{
+            width: 100%;
+            
+        }
+
+        .source-container{
+            position: absolute;
+            left: 0;
+        }
+
+        .action-container{
+            position: absolute;
+            right: 0;
+        }
+
+        @media screen and (max-width:702px) {
+            margin-top: 0;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .source-container{
+                position: static;
+                order: 0;
+            }
+            .action-container{
+                position: static;
+                order: 1;
+            }
+            .btn-container{
+                margin-top: 1rem;
+                width: 100%;
+                order: 2;
+                
+            }
+
+        }
+
+
+
     }
 
     .article-link-thumbnail{
@@ -215,6 +259,7 @@
 .article,
 .carousel-item,
 .event {
+    
 
     .powered-by {
         display: inline-flex;
@@ -252,6 +297,7 @@
     .action-container {
         display: flex;
         align-items: center;
+        margin-right: 2rem;
         .action-btn {
             display: inline-block;
             margin: 0.5rem 0 0.5rem 1rem;
@@ -298,7 +344,60 @@
 
 }
 
-.carousel-item .source-link {
-    line-height: 0;
+.carousel-item  {
+    .source-link{
+        line-height: 0;
+    }
+    
+
+    .coming-soon-share-content {
+        height: fit-content;
+        width: fit-content !important;
+        background-color: $secondary-color !important;
+        border-radius: 5px;
+
+        div {
+            color: white !important;
+            font-size: 0.75rem;
+            padding: 0.2rem;
+        }
+
+        .coming-soon-share-arrow {
+            background-color: $secondary-color !important;
+            //left: 54px !important;
+
+        }
+    }
+
+    .user-menu.mobile-coming-soon {
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (min-width:428px){
+            display: none;
+        }
+        
+
+    }
+
+    .user-menu.desktop-coming-soon {
+
+        display: none;
+
+        @media screen and (min-width:428px){
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        @media screen and(min-width:470px) {
+            width: 90%;
+            margin: auto;
+        }
+
+        p {
+            cursor: pointer;
+        }
+    }
 
 }

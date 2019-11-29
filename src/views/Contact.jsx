@@ -17,7 +17,7 @@ const Contact = () => {
             <HeroContact />
             <div className="contact-body card">
                 <div className="contact-flex-vertical">
-                    <p>Feel free to contact us at<br /><span>penguinslangara@gmail.com</span><br />or fill the form below</p>
+                    <p>Feel free to contact us at<br /><span>ask.task.tech@gmail.com</span><br />or fill the form below</p>
                     <RandomQuote />
                 </div>
                 <ContactForm />

@@ -112,10 +112,49 @@
         .carousel-footer {
             order: 3;
             width: 100%;
+            position: relative;
             display: flex;
-            justify-content: space-between;
+            margin: 2rem 0 1rem;
             align-items: center;
-            margin-top: 2rem;
+    
+            .btn-container{
+                width: 100%;
+                
+            }
+    
+            .source-container{
+                position: absolute;
+                left: 0;
+            }
+    
+            .action-container{
+                position: absolute;
+                right: 0;
+            }
+    
+            @media screen and (max-width:702px) {
+                margin-top: 0;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .source-container{
+                    position: static;
+                    order: 0;
+                }
+                .action-container{
+                    position: static;
+                    order: 1;
+                }
+                .btn-container{
+                    margin-top: 1rem;
+                    width: 100%;
+                    order: 2;
+                    
+                }
+    
+            }
+    
+    
+    
         }
         .event-link-thumbnail{
             order: 1;
@@ -243,11 +282,11 @@
                 }
                 
                 .event-description-mobile{
-                    display: initial;
+                    // display: initial;
                 }
 
                 .event-info-mobile{
-                    display: initial;
+                    // display: initial;
                 }
             }
         }

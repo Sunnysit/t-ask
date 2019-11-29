@@ -49,7 +49,6 @@ const CarouselItem = (props) => {
                             </div>
 
                         </div>
-                    {/* <ActionBtns/> */}
                     <div className="event-description-mobile"
                             dangerouslySetInnerHTML={{
                             __html: event
@@ -66,7 +65,7 @@ const CarouselItem = (props) => {
                     <div className="btn-container">
                         <a target="blank" href={event.link} className="btn-outline btn-read-more">Read more</a>
                     </div>
-
+                    <ActionBtns/>
                 </div>
             </div>
         )
