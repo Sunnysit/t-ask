@@ -11,7 +11,7 @@ export class TaskAxios {
 
     comparisonLangsMenu(){
         Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/languages')
+            .get('https://t-ask-api.herokuapp.com/api/v1/languages')
             .then(result => {
                 const languagesArray = result
                     .data
@@ -35,7 +35,7 @@ export class TaskAxios {
 
     comparisonLangLocation(){
         Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/trends/')
+            .get('https://t-ask-api.herokuapp.com/api/v1/languages/trends')
             .then(result => {
 
 
@@ -112,7 +112,7 @@ export class TaskAxios {
 
     comparisonLangTime() {
         Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/languages/timespans')
+            .get('https://t-ask-api.herokuapp.com/api/v1/languages/timespans')
             .then(result => {
                 this.dispatch({type: "SET_ALL_LANGUAGES_TIME_SPAN", payload: result.data})
             })
@@ -123,7 +123,7 @@ export class TaskAxios {
 
     comparisonJobTime(){
         Axios
-        .get('https://t-ask-api.herokuapp.com/api/comparison/jobs/languages')
+        .get('https://t-ask-api.herokuapp.com/api/v1/jobs/languages')
         .then(result => {
             this.dispatch({type: "SET_ALL_JOBS_TIME_SPAN", payload: result.data})
         })
@@ -134,7 +134,7 @@ export class TaskAxios {
 
     comparisonJobLocation() {
         Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/jobs/locations')
+            .get('https://t-ask-api.herokuapp.com/api/v1/jobs/locations')
             .then(result => {
 
                 // USA data
@@ -164,7 +164,7 @@ export class TaskAxios {
 
     featureJob() {
         Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/jobs/jobcategories')
+            .get('https://t-ask-api.herokuapp.com/api/v1/jobs/categories')
             .then(result => {
 
                 // USA data
@@ -205,7 +205,7 @@ export class TaskAxios {
 
     registerLang() {
         Axios
-            .get('https://t-ask-api.herokuapp.com/api/comparison/languages')
+            .get('https://t-ask-api.herokuapp.com/api/v1/languages')
             .then(result => {
                 const languagesArray = result
                     .data

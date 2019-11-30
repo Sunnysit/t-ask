@@ -22,7 +22,7 @@ const SearchBarArticles = () => {
       { 
         setMessage(`Loading Articles about Technology...`);
 
-        axios.post('https://cheerio-medium.herokuapp.com/articles',{query:"tech"})
+        axios.post('https://t-ask-api.herokuapp.com/api/v1/articles',{query:"tech"})
         .then(function (response) {
   
           if(response.status===200&&response.data.length>=1)
@@ -50,7 +50,7 @@ const SearchBarArticles = () => {
         let queryText = searchText.trim().toLowerCase();
         if(queryText&&queryText.length>=1){
             setMessage(`Looking for article related to ${searchText}`);
-            axios.post('https://cheerio-medium.herokuapp.com/articles',{query:queryText})
+            axios.post('https://t-ask-api.herokuapp.com/api/v1/articles',{query:queryText})
             .then(function (response) {
 
               if(response.status===200&&response.data.length>=1)
@@ -79,7 +79,7 @@ const SearchBarArticles = () => {
 
     return ( 
     <div className="article-search-container">
-        <form className="article-search-form" onSubmit={handleSearchSubmit}  action="https://cheerio-medium.herokuapp.com/articles" method="POST">
+        <form className="article-search-form" onSubmit={handleSearchSubmit}  action="https://t-ask-api.herokuapp.com/api/v1/articles" method="POST">
             <input className="input-basic search-input-article" placeholder="Language name..." value={searchText} onChange={(e)=>{setSearchText(e.target.value)}} type="text"/>
             <button className="btn-search" type="submit"><img src="./assets/icons/search-icon.png" alt="search icon"/></button>
         </form>
