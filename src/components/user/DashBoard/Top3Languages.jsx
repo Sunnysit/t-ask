@@ -20,7 +20,7 @@ const Top3Languages = () => {
         //Fetch USA trending
         if (countryToggle) {
             if(userLanguagesId) {
-                let rankUserLangs = languagesStateUsa.map((language,index) => {return {...language, rank: index}});
+                let rankUserLangs = languagesStateUsa.map(language => {return {...language, rank: language.languageRank}});
                 let userLangs = rankUserLangs.filter(language => userLanguagesId.find(lang => lang === language.languageId));
                 userLangs.sort((a,b) => a.rank - b.rank);
                 setUserLanguages(userLangs);
@@ -29,7 +29,7 @@ const Top3Languages = () => {
         //Fetch Canada trending;
         else {
             if(userLanguagesId) {
-                let rankUserLangs = languagesStateCanada.map((language,index) => {return {...language, rank: index}});
+                let rankUserLangs = languagesStateCanada.map(language => {return {...language, rank: language.languageRank}});
                 let userLangs = rankUserLangs.filter(language => userLanguagesId.find(lang => lang === language.languageId));
                 userLangs.sort((a,b) => a.rank - b.rank);
                 setUserLanguages(userLangs);

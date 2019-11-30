@@ -9,8 +9,8 @@ const SelectJob = () => {
 
     const [jobsRank,
         setJobsRank] = useState([]);
-    const [jobsDropDown,
-        setJobsDropDown] = useState([]);
+    // const [jobsDropDown,
+    //     setJobsDropDown] = useState([]);
     const [dropDown,
         setDropDown] = useState(true);
 
@@ -22,21 +22,6 @@ const SelectJob = () => {
     useEffect(() => {
         let remainData = [];
         //Fetch US data
-
-        let dataUsa = jobsStateUsa.map((job, index) => {
-            if (index === 0) {
-                return {
-                    ...job,
-                    isSelect: true
-                }
-            }
-            return ({
-                ...job,
-                isSelect: false
-            })
-        })
-
-        setJobsDropDown(dataUsa);
 
         if (countryToggle) {
             remainData =//Fetch Canada data
@@ -67,7 +52,7 @@ const SelectJob = () => {
 
         let jobIndex;
 
-        const selectedJob = jobsDropDown.map((job, index) => {
+        jobsStateUsa.map((job, index) => {
             if (job.soc === selectJobsSoc) {
                 job.isSelect = !job.isSelect;
                 jobIndex = index;
@@ -77,8 +62,6 @@ const SelectJob = () => {
 
             return job;
         })
-
-        setJobsDropDown(selectedJob);
 
         jobsRank.map((job, index) => {
             if (job.soc === selectJobsSoc) {
@@ -116,7 +99,7 @@ const SelectJob = () => {
 
                         <div className="drop-down active">
                             <ul className="jobs">
-                                {jobsDropDown.map(job => <li
+                                {jobsStateUsa.map(job => <li
                                     className={job.isSelect
                                     ? 'selected'
                                     : null}

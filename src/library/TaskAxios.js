@@ -77,6 +77,7 @@ export class TaskAxios {
                     return {
                         languageName: language.name,
                         languageId: language.id_language,
+                        isSelect: false,
                         languageRank: index + 1,
                         languageDescription: language.description,
                         logoUrl: language.logoUrl
@@ -85,6 +86,7 @@ export class TaskAxios {
                 this.dispatch({type: "SET_TRENDING_LANGUAGES_DATA_USA", payload: languagesTrendingUsa})
 
                 const firstLanguage = languagesTrendingUsa[0];
+                firstLanguage.isSelect = true;
                 this.dispatch({type: "SELECT_TRENDING_LANGUAGE", payload: firstLanguage});
 
                 // Canada data
@@ -173,12 +175,14 @@ export class TaskAxios {
                         soc: job.soc,
                         jobRank: index + 1,
                         description: job.description,
+                        isSelect: false
                     }
                 })
 
                 this.dispatch({type: "SET_ALL_JOBS_CATEGORY_USA", payload: jobsTrendingUsa});
 
                 const firstJob = jobsTrendingUsa[0];
+                firstJob.isSelect = true;
                 this.dispatch({type: "SELECT_TRENDING_JOB", payload: firstJob});
 
 
