@@ -26,68 +26,77 @@
 
         @media screen and(min-width:640px){
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             margin-top: 3rem;
         }
+        
+    }
 
+    .languages-selected{
+        max-width: 600px;
+        margin: 0 auto;
+        //margin-top: 2rem;
 
-        .languages-selected{
-            //width: 300px;
+        ul{
+            width: 300px;
+        }
+    }
 
-            ul{
-                width: 300px;
-            }
+    .languages-selected, .select-language{
+        display: block;
+
+        @media screen and(min-width:930px){
+            display: flex;
         }
 
-        .languages-selected, .select-language{
-            display: block;
+        li p{
+            display: inline-block;
+            margin-right: 5px;
+            width: 10px;
+            height: 10px;
+            font-size: 10px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
 
-            @media screen and(min-width:930px){
-                display: flex;
-            }
+        li:first-of-type p{
+            background-color: $language-color1;
+            color: $language-color1;
+        }
 
-            li p{
-                display: inline-block;
-                margin-right: 5px;
-                width: 10px;
-                height: 10px;
-                font-size: 10px;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
+        li:nth-child(2) p{
+            background-color: $language-color2;
+            color: $language-color2;
+        }
 
-            li:first-of-type p{
-                background-color: $language-color1;
-                color: $language-color1;
-            }
+        li:nth-child(3) p{
+            background-color: $language-color3;
+            color: $language-color3;
+        }
+    }
 
-            li:nth-child(2) p{
-                background-color: $language-color2;
-                color: $language-color2;
-            }
-
-            li:nth-child(3) p{
-                background-color: $language-color3;
-                color: $language-color3;
-            }
+    .legends-bottom {
+        .comparison-text {
+            display: none;
         }
     }
 
     .toggle-switch-container{
-        justify-content: center;
+        margin-top: 1.5rem;
     }
 
     .graph-container{
-        background-color: #fff;   
+        background-color: #fff;  
+        margin-top: 2rem; 
+
+        .graph-name{
+            margin-bottom: 0;
+        }
 
         .bar-graphs{
          
             display: block;
 
-            
-            .graph-name{
-                margin-bottom: 0;
-            }
 
             .bar-graph-lang-container,
             .bar-graph-jobs-container{
@@ -134,6 +143,22 @@
       
             display: block;
 
+            .legends-bottom.mobile {
+                display: block;
+
+                @media screen and (min-width:1000px){
+                    display: none;
+                }
+            }
+
+            .line-graph-job {
+                margin-top: 2.5rem;
+
+                @media screen and (min-width:1000px){
+                    margin-top: 0;
+                }
+            }
+
             .line-graph-lang-container,
             .line-graph-job-container{
                 height: 300px;
@@ -149,13 +174,21 @@
                 }
             }
 
-            @media screen and (min-width:1020px) {
+            @media screen and (min-width:1000px) {
                 display: flex;
                 justify-content: space-around;
                 //flex-wrap: wrap;
             }
         }
 
+    }
+
+    .legends-bottom.desktop {
+        display: none;
+
+        @media screen and (min-width:1000px){
+            display: block;
+        }
     }
 
     // .page-title{

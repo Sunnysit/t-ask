@@ -2,20 +2,27 @@
     display: block;
     margin-top: 2rem;
 
-    @media screen and(min-width:370px){
+    @media screen and(min-width:640px){
         display: flex;
-        margin: 1rem;
-        margin-top: 2rem;
+        justify-content: center;
+        margin: 0;
+        //align-items: center;
+        //margin-top: 2rem;
+    }
+
+    .comparison-text {
+        margin: 0;
     }
 }
 .toggle-switch{
     display: flex;
     width: 180px;
     justify-content: space-between;
-    align-items: center;
+    //align-items: center;
     margin: 0 auto;
+    margin-top: 1rem;
 
-    @media screen and(min-width:600px){
+    @media screen and(min-width:640px){
         margin: 0;
     }
 

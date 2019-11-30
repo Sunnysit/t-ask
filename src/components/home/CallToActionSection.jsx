@@ -12,7 +12,7 @@ const CallToActionSection = () => {
         </p>
         </div>
         <div className="links-container">
-        <Link className="btn-outline" to="/articles">Article</Link>
+        <Link className="btn-outline" to="/articles">Articles</Link>
         <Link className="btn-outline" to="/events">Events</Link>
         </div>
     </section> );
