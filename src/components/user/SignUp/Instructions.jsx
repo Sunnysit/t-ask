@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import Axios from 'axios';
 import {TaskAxios} from '../../../library/TaskAxios';
 import {useHistory} from 'react-router-dom';
+// const {encrypt} = require('../../../openPGP.js')
 
 const Instructions = () => {
 

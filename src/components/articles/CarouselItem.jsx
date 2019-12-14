@@ -1,4 +1,5 @@
 import React from 'react';
+import ActionBtns from '../common/ActionBtns';
 
 const CarouselItem = (props) => {
 
@@ -35,6 +36,7 @@ const CarouselItem = (props) => {
                 <div className="btn-container">
                     <a target="blank" href={article.link} className="btn-outline btn-read-more">Read more</a>
                 </div>
+                <ActionBtns/>
 
             </div>
         </div>
