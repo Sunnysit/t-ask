@@ -134,7 +134,7 @@ const Instructions = () => {
 
             
                 Axios
-                    .post(`https://t-ask-api.herokuapp.com/api/user/signup`, messageSent)
+                    .post(`https://t-ask-api.herokuapp.com/api/v1/user/signup`, messageSent)
                     .then(res => {
                         console.log(res);
 

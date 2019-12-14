@@ -52,7 +52,7 @@ const LogIn = () => {
         if (formValidates) {
 
             Axios
-                .post('https://t-ask-api.herokuapp.com/api/user/login', submitLogIn)
+                .post('https://t-ask-api.herokuapp.com/api/v1/user/login', submitLogIn)
                 .then(res => {
                     console.log(res);
 
