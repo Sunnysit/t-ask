@@ -13,7 +13,6 @@ const LanguagesSection = () => {
 
     if (userLanguagesId) {
         userLanguages = languages.filter(language => userLanguagesId.find(lang => lang === language.languageId));
-
     }
     return (
         <div className="languages-section">
